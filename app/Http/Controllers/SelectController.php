@@ -13,8 +13,8 @@ class SelectController extends Controller
 
         if ($request->has('q')) {
             $search = $request->q;
-            $data = Select::select("id", "marque")
-                ->where('marque', 'LIKE', "%$search%")
+            $data = Select::select("id", "categorie")
+                ->where('categorie', 'LIKE', "%$search%")
                 ->get();
         }
         return response()->json($data);
