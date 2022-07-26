@@ -8,7 +8,8 @@
             <h5 class="mb-0 h6">@lang("Ajouter un nouveau produit")</h5>
         </div>
         <div class="">
-            <form class="form form-horizontal mar-top" action="https://demo.activeitzone.com/ecommerce/admin/products/store" method="POST" enctype="multipart/form-data" id="choice_form">
+            <form class="form form-horizontal mar-top" action="{{ route('store.produits')}}" method="POST" enctype="multipart/form-data" id="choice_form">
+                @csrf
                 <div class="row gutters-5">
                     <div class="col-lg-8">
                         <div class="card">
@@ -25,14 +26,14 @@
                                 <div class="form-group row" id="category">
                                     <label class="col-md-3 col-from-label">@lang("Categorie") <span class="text-danger">*</span></label>
                                     <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-live-search="true" required>
+                                        <select class="selectcategorie form-control " name="categorie" id="category_id" data-live-search="true" required>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">@lang("Marque")</label>
                                     <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" name="brand_id" id="brand_id" data-live-search="true">
+                                        <select class="form-control aiz-selectpicker" name="marque" id="brand_id" data-live-search="true">
                                         </select>
                                     </div>
                                 </div>
@@ -45,7 +46,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Quantité minimum d'achat") <span class="text-danger">*</span></label>
                                     <div class="col-md-8">
-                                        <input type="number" lang="en" class="form-control" name="min_qty" value="1" min="1" required>
+                                        <input type="number" lang="fr" class="form-control" name="quantite" value="1" min="1" required>
                                     </div>
                                 </div>
 
@@ -53,7 +54,7 @@
                                     <label class="col-md-3 col-from-label">@lang("Remboursable")</label>
                                     <div class="col-md-8">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="checkbox" name="refundable" checked value="1">
+                                            <input type="checkbox" name="remboursable" checked value="1">
                                             <span></span>
                                         </label>
                                     </div>
@@ -74,7 +75,7 @@
                                                     @lang("Parcourir")</div>
                                             </div>
                                             <div class="form-control file-amount">@lang("Choisir un fichier")</div>
-                                            <input type="hidden" name="photos" class="selected-files">
+                                            <input type="hidden" name="image" class="selected-files">
                                         </div>
                                         <div class="file-preview box sm">
                                         </div>
@@ -90,7 +91,7 @@
                                                     @lang("Parcourir")</div>
                                             </div>
                                             <div class="form-control file-amount">@lang("Choisir le fichier")</div>
-                                            <input type="hidden" name="thumbnail_img" class="selected-files">
+                                            <input type="hidden" name="vignette" class="selected-files">
                                         </div>
                                         <div class="file-preview box sm">
                                         </div>
@@ -107,7 +108,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Fournisseur vidéo")</label>
                                     <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" name="video_provider" id="video_provider">
+                                        <select class="form-control aiz-selectpicker" name="video_fournisseur" id="video_provider">
                                             <option value="youtube">Youtube</option>
                                             <option value="dailymotion">Dailymotion</option>
                                             <option value="vimeo">Vimeo</option>
@@ -117,7 +118,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Lien vidéo")</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="video_link" placeholder="Video Link">
+                                        <input type="text" class="form-control" name="video_lien" placeholder="@lang('Lien video')">
                                         <small class="text-muted">@lang("Utilisez le lien approprié sans paramètre supplémentaire. N'utilisez pas de
                                             lien de partage court/de code iframe intégré.")</small>
                                     </div>
@@ -134,12 +135,12 @@
                                         <input type="text" class="form-control" value="@lang('Couleur')" disabled>
                                     </div>
                                     <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="colors[]" id="colors" multiple disabled>
+                                        <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="couleur" id="colors" multiple disabled>
                                         </select>
                                     </div>
                                     <div class="col-md-1">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input value="1" type="checkbox" name="colors_active">
+                                            <input value="1" type="checkbox" name="couleur_active">
                                             <span></span>
                                         </label>
                                     </div>
@@ -158,46 +159,20 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Prix Unitaire")<span class="text-danger">*</span></label>
                                     <div class="col-md-6">
-                                        <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="Unit price" name="unit_price" class="form-control" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-3 control-label" for="start_date">@lang("Plage de dates de remise")
-                                        Range</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control aiz-date-range" name="date_range" placeholder="Select Date" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
+                                        <input type="number" lang="fr" min="0" value="0" step="0.01" placeholder="@lang('prix unitaire')" name="prix" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Remise *")<span class="text-danger">*</span></label>
                                     <div class="col-md-6">
-                                        <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="Discount" name="discount" class="form-control" required>
+                                        <input type="number" lang="fr" min="0" value="0" step="0.01" placeholder="remise" name="reduction" class="form-control" required>
                                     </div>
                                     <div class="col-md-3">
-                                        <select class="form-control aiz-selectpicker" name="discount_type">
-                                            <option value="amount">Flat</option>
-                                            <option value="percent">Percent</option>
+                                        <select class="form-control aiz-selectpicker" name="type_reduction">
+                                            <option value="montant">@lang("Montant")</option>
+                                            <option value="pourcent">@lang("Pourcentage")</option>
                                         </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-from-label">
-                                        @lang("Point de consigne")
-                                    </label>
-                                    <div class="col-md-6">
-                                        <input type="number" lang="en" min="0" value="0" step="1" placeholder="1" name="earn_point" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div id="show-hide-div">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-from-label">@lang("Quantite") <span class="text-danger">*</span></label>
-                                        <div class="col-md-6">
-                                            <input type="number" lang="en" min="0" value="0" step="1" placeholder="Quantity" name="current_stock" class="form-control" required>
-                                        </div>
                                     </div>
                                 </div>
                                 <br>
@@ -225,48 +200,6 @@
 
                     </div>
                 </div>-->
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 h6">@lang("Spécification PDF")</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-form-label" for="signinSrEmail">@lang("Spécification PDF")</label>
-                                    <div class="col-md-8">
-                                        <div class="input-group" data-toggle="aizuploader" data-type="document">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">
-                                                    @lang("Parcourir")</div>
-                                            </div>
-                                            <div class="form-control file-amount">@lang("Choirir un fichier")</div>
-                                            <input type="hidden" name="pdf" class="selected-files">
-                                        </div>
-                                        <div class="file-preview box sm">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 h6">@lang("Balises méta SEO")</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-from-label">@lang("Méta-titre")</label>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control" name="meta_title" placeholder="Meta Title">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-from-label">@lang("La description")</label>
-                                    <div class="col-md-8">
-                                        <textarea name="meta_description" rows="8" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
 

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css')}}">
+    <link href="{{asset('assets/selected2/dist/css/select2.min.css')}}" rel="stylesheet" />
     <style>
         body {
             font-size: 12px;
@@ -28,7 +29,7 @@
     <script>
         var AIZ = AIZ || {};
         AIZ.local = {
-            nothing_selected: 'Nothing selected',
+            nothing_selected: 'Nothing selected2',
             nothing_found: 'Nothing found',
             choose_file: 'Choose file',
             file_selected: 'File selected',
@@ -87,7 +88,7 @@
                             <!--Submenu-->
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link" href="https://demo.activeitzone.com/ecommerce/admin/products/create">
+                                    <a class="aiz-side-nav-link" href="{{ route('create.produit')}}">
                                         <span class="aiz-side-nav-text">@lang('Ajouter un nouveau produit')</span>
                                     </a>
                                 </li>
@@ -720,7 +721,7 @@
                                         </span>
                                         <span class="d-none d-md-block">
                                             <span class="d-block fw-500">{{ Auth::user()->name}}</span>
-                                            <span class="d-block small opacity-60">admin</span>
+                                            <span class=" d-block small opacity-60">admin</span>
                                         </span>
                                     </span>
                                 </a>
@@ -750,9 +751,9 @@
     </div><!-- .aiz-main-wrapper -->
 
 
-
-    <script src="https://demo.activeitzone.com/ecommerce/public/assets/js/vendors.js"></script>
-    <script src="https://demo.activeitzone.com/ecommerce/public/assets/js/aiz-core.js"></script>
+    <!--
+    <script src="{{ asset('assets/js/vendors.js')}}"></script>
+    <script src="{{ asset('assets/js/aiz-core.js')}}"></script> -->
 
     <script type="text/javascript">
         AIZ.plugins.chart('#pie-1', {
@@ -1029,7 +1030,72 @@
             }
         });
     </script>
-
+    <script src="{{ asset('assets/js/vendors.js')}}"></script>
+    <script src="{{ asset('assets/js/aiz-core.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
+    <script type="text/javascript">
+        $('.selectcategorie').select2({
+            placeholder: 'Seclectionner une categorie',
+            tags: true,
+            ajax: {
+                url: '/produitCategorie',
+                dataType: 'json',
+                delay: 100,
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                text: item.marque,
+                                id: item.marque
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+        $('.SelectModel').select2({
+            placeholder: 'Seclectionner un model',
+            tags: true,
+            ajax: {
+                url: '/selectModel',
+                dataType: 'json',
+                delay: 100,
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                text: item.model,
+                                id: item.model,
+                            }
+                        }),
+                    };
+                },
+                cache: true
+            }
+        });
+        $('.SelectCarburateur').select2({
+            placeholder: 'type de carburateur',
+            tags: true,
+            ajax: {
+                url: '/selectCarburateur',
+                dataType: 'json',
+                delay: 100,
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                text: item.carburateur,
+                                id: item.carburateur,
+                            }
+                        }),
+                    };
+                },
+                cache: true
+            }
+        });
+    </script>
     <script type="text/javascript">
         if ($('#lang-change').length > 0) {
             $('#lang-change .dropdown-menu a').each(function() {
