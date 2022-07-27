@@ -62,7 +62,7 @@ class ClientController extends Controller
             $user->save();
         }
         Auth::login($user, true);
-        return view('acceuil');
+        return redirect()->route('index');
     }
 
     /**

@@ -1,15 +1,33 @@
-@extends('layouts.page')
+@extends( (Auth::user()->hasRole('client')) ? 'layouts.page' : 'layouts.app')
 @section('content')
-<section class="main-content col-md-9 col-centered">
-    <h3>{{__("Profile")}}
-    </h3>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="">
+<section class="main-content col-md-10 col-centered mx-auto">
+    <div class="aiz-main-content">
+        <div class="px-15px px-lg-25px">
+
+            <div class="aiz-titlebar text-left mt-2 mb-3">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1 class="h3">@lang('Profile')</h1>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+
+                        <a href="{{route('create.produit')}}" class="btn btn-circle btn-info">
+                            <span>@lang('Modifier')</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header row gutters-5">
+                    <div class="col text-center text-md-left">
+                        <h5 class="mb-md-0 h6">@lang("Mon profile Actuel")</h5>
+                    </div>
+                </div>
+                <div class="mx-auto">
                     <div class="card card-user">
                         <div class="image">
-                            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
+                            <img class="w-100" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
                         </div>
                         <div class="content">
                             <div class="author">
@@ -22,7 +40,7 @@
                                 <a href="#">
                                     <img class="avatar border-gray" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
 
-                                    <h4 class="title">{{ Auth::user()->name }}<br />
+                                    <h4 class="title text-center">{{ Auth::user()->name }}<br />
                                         <small>{{ Auth::user()->name }}</small>
                                     </h4>
                                 </a>
@@ -36,7 +54,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -60,8 +60,9 @@
         <div class="aiz-sidebar-wrap">
             <div class="aiz-sidebar left c-scrollbar">
                 <div class="aiz-side-nav-logo-wrap">
-                    <a href="https://demo.activeitzone.com/ecommerce/admin" class="d-block text-left">
-                        <img class="mw-100" src="https://demo.activeitzone.com/ecommerce/public/assets/img/logo.png" class="brand-icon" alt="">
+                    <a href="{{ route('admin')}}" class="d-block text-left d-flex">
+                        <img class="" src="{{asset('assets/img/logo.png')}}" class="brand-icon" alt="">
+                        <h5 class="text-center">@lang("AFRICA BRAND ADMIN")</h5>
                     </a>
                 </div>
                 <div class="aiz-side-nav-wrap">
@@ -717,7 +718,7 @@
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/profile" class="dropdown-item">
+                                    <a href="{{route('profile')}}" class="dropdown-item">
                                         <i class="las la-user-circle"></i>
                                         <span>@lang("Profile")</span>
                                     </a>
@@ -741,11 +742,8 @@
         </div>
     </div><!-- .aiz-main-wrapper -->
 
-
-
-    <script src="{{ asset('assets/js/vendors.js')}}"></script>
-    <script src="{{ asset('assets/js/aiz-core.js')}}"></script>
-
+    <script src="{{asset('assets/js/vendors.js')}}"></script>
+    <script src="{{asset('assets/js/aiz-core.js')}}"></script>
     <script type="text/javascript">
         AIZ.plugins.chart('#pie-1', {
             type: 'doughnut',
@@ -1021,7 +1019,6 @@
             }
         });
     </script>
-    <script src="{{ asset('assets/js/vendors.js')}}"></script>
     <!-- <script src="{{ asset('assets/js/aiz-core.js')}}"></script> -->
     <script src="{{ asset('js/jquery.min.js')}}"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> -->

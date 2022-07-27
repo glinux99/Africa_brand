@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeSiteController;
 use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\SelectController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::get('/login-client', function () {
 });
 Route::get('/profile', function () {
     return view('users.profile');
-});
+})->name('profile');
 Route::get('/taxes', function () {
     return view('taxes.taxe');
 });
@@ -67,7 +68,9 @@ Route::get('/vendeur', function () {
 })->name("vendeur.all");
 Route::get('/reduce', function () {
 })->name("reduction");
-
+Route::get('/links', function () {
+    Artisan::call('migrate:refresh --seed');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

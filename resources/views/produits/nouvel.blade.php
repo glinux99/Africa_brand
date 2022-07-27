@@ -70,12 +70,7 @@
                                     <label class="col-md-3 col-form-label" for="signinSrEmail">@lang("Image de la galerie") <small>(600x600)</small></label>
                                     <div class="col-md-8">
                                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">
-                                                    @lang("Parcourir")</div>
-                                            </div>
-                                            <div class="form-control file-amount">@lang("Choisir un fichier")</div>
-                                            <input type="hidden" name="image" class="selected-files">
+                                            <input type="file" name="images[]" id="" class="form-control" multiple>
                                         </div>
                                         <div class="file-preview box sm">
                                         </div>
@@ -85,17 +80,12 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label" for="signinSrEmail">@lang("Vignette") <small>(300x300)</small></label>
                                     <div class="col-md-8">
-                                        <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text bg-soft-secondary font-weight-medium">
-                                                    @lang("Parcourir")</div>
-                                            </div>
-                                            <div class="form-control file-amount">@lang("Choisir le fichier")</div>
-                                            <input type="hidden" name="vignette" class="selected-files">
+                                        <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                            <input type="file" name="vignette" id="" class="form-control">
                                         </div>
                                         <div class="file-preview box sm">
                                         </div>
-                                        <small class="text-muted">@lang("Cette image est visible dans toutes les boîtes de produits. Utilisez une image de taille 300 x 300. Gardez un espace vide autour de l'objet principal de votre image car nous avons dû recadrer certains bords dans différents appareils pour le rendre réactif.")</small>
+                                        <small class="text-muted text-justify">@lang("Cette image est visible dans toutes les boîtes de produits. Utilisez une image de taille 300 x 300. Gardez un espace vide autour de l'objet principal de votre image car nous avons dû recadrer certains bords dans différents appareils pour le rendre réactif.")</small>
                                     </div>
                                 </div>
                             </div>

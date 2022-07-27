@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\select;
 use App\Models\Produits;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ProduitsController extends Controller
@@ -37,7 +38,22 @@ class ProduitsController extends Controller
      */
     public function store(Request $request)
     {
-        Produits::create($request->except('_token'));
+        $produit = Produits::create($request->except(['_token', 'images', 'vignette']));
+        if ($request->images) {
+            foreach ($request->images as $index => $image) {
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/produits',
+                    $fileName,
+                    'public'
+                );
+                $pathImage = "image" + $index;
+                $produit->$pathImage = $path;
+            }
+            $produit->save();
+        }
         $categorie = new select;
         if (!select::where('categorie', $request->categorie)->first()) {
             $categorie->categorie = $request->categorie;
