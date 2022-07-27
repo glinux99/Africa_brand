@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
         return view('admin.admin');
     })->name('admin');
+    Route::get('/configuration-home-page', [AdminController::class, 'home_page'])->name('home.page');
+    Route::post('/configuration-home-page-alter', [AdminController::class, 'home_page_alter'])->name('home.page.alter');
 });
 Route::get('/produitCategorie', [SelectController::class, 'categorie']);
 Route::get('/produitMarque', [SelectController::class, 'marque']);
@@ -56,9 +59,7 @@ Route::get('/details', function () {
 
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 
-Route::get('/ok', function () {
-    return view('config.acceuil');
-})->name("ok");
+
 Route::get('/offre', function () {
 })->name("offre");
 Route::get('/blog', function () {

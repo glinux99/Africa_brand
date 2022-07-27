@@ -33,60 +33,61 @@
             <div class=" col-lg-7 ">
                 <div class="aiz-carousel dots-inside-bottom mobile-img-auto-height" data-arrows="true" data-dots="true" data-autoplay="true">
                     <!-- Images centrales -->
-                    @for ($x=0; $x<5;$x++) <div class="carousel-box">
-                        <a href="https://codecanyon.net/item/active-ecommerce-cms/23471405?s_rank=23">
-                            <img class="d-block mw-100 img-fit rounded shadow-sm overflow-hidden" src="{{asset('uploads/all/faEi771HIT7B9yPye5YqXip8EBMXa4VQBLhksq2g.png')}}" alt="Active eCommerce CMS promo" height="315" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                    @foreach ($imagesCenter as $image)
+                    <div class="carousel-box">
+                        <a href="#">
+                            <img class="d-block mw-100 img-fit rounded shadow-sm overflow-hidden" src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" height="315" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
                         </a>
-                </div>
-                @endfor
-            </div>
-            <ul class="list-unstyled mb-0 row gutters-5">
-                <!-- Images en bas de  l image centrale -->
-                @foreach ($produits as $produit)
-                <li class="minw-0 col-4 col-md mt-3">
-                    <a href="#" class="d-block rounded bg-white p-2 text-reset shadow-sm">
-                        <img src="{{asset('storage/'.$produit->image1)}}" alt="Women Clothing &amp; Fashion" class="lazyload img-fit" height="78" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
-                        <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">{{$produit->categorie}}</div>
-                    </a>
-                </li>
-                @endforeach
-            </ul>
-        </div>
-
-        <div class="col-lg-2 order-3 mt-3 mt-lg-0">
-            <div class="bg-white rounded shadow-sm">
-                <div class="bg-soft-success rounded-top p-3 d-flex align-items-center justify-content-center">
-                    <span class="fw-600 fs-16 mr-2 text-truncate">
-                        @lang('Ventes/24h')
-                    </span>
-                    <span class="badge badge-success badge-inline">@lang('Chaud')</span>
-                </div>
-                <div class="c-scrollbar-light overflow-auto h-lg-400px p-2 bg-success rounded-bottom">
-                    <div class="gutters-5 lg-no-gutters row row-cols-2 row-cols-lg-1">
-                        @for ($x=0; $x<3;$x++) <div class="col mb-2">
-                            <a href="https://demo.activeitzone.com/ecommerce/product/FIFA-22-Standard---PC-Online-Game-Code-22545" class="d-block p-2 text-reset bg-white h-100 rounded">
-                                <div class="row gutters-5 align-items-center">
-                                    <div class="col-xxl">
-                                        <div class="img">
-                                            <img class="lazyload img-fit h-140px h-lg-80px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/4gmGnYIZhgatZRJsxrhXVW2qO0aoLLdZT8U6qOQE.png" alt="FIFA 22 Standard - PC [Online Game Code]" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl">
-                                        <div class="fs-16">
-                                            <span class="d-block text-success fw-600">$56.050</span>
-                                            <del class="d-block opacity-70">$59.000</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
                     </div>
-                    @endfor
+                    @endforeach
+                </div>
+                <ul class="list-unstyled mb-0 row gutters-5">
+                    <!-- Images en bas de  l image centrale -->
+                    @foreach ($imagesBottom as $image)
+                    <li class="minw-0 col-4 col-md mt-3">
+                        <a href="#" class="d-block rounded bg-white p-2 text-reset shadow-sm">
+                            <img src="{{asset('storage/'.$image->image1)}}" alt="Women Clothing &amp; Fashion" class="lazyload img-fit" height="78" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                            <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">{{$image->categorie}}</div>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <div class="col-lg-2 order-3 mt-3 mt-lg-0">
+                <div class="bg-white rounded shadow-sm">
+                    <div class="bg-soft-success rounded-top p-3 d-flex align-items-center justify-content-center">
+                        <span class="fw-600 fs-16 mr-2 text-truncate">
+                            @lang('Ventes/24h')
+                        </span>
+                        <span class="badge badge-success badge-inline">@lang('Chaud')</span>
+                    </div>
+                    <div class="c-scrollbar-light overflow-auto h-lg-400px p-2 bg-success rounded-bottom">
+                        <div class="gutters-5 lg-no-gutters row row-cols-2 row-cols-lg-1">
+                            @for ($x=0; $x<3;$x++) <div class="col mb-2">
+                                <a href="https://demo.activeitzone.com/ecommerce/product/FIFA-22-Standard---PC-Online-Game-Code-22545" class="d-block p-2 text-reset bg-white h-100 rounded">
+                                    <div class="row gutters-5 align-items-center">
+                                        <div class="col-xxl">
+                                            <div class="img">
+                                                <img class="lazyload img-fit h-140px h-lg-80px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/4gmGnYIZhgatZRJsxrhXVW2qO0aoLLdZT8U6qOQE.png" alt="FIFA 22 Standard - PC [Online Game Code]" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl">
+                                            <div class="fs-16">
+                                                <span class="d-block text-success fw-600">$56.050</span>
+                                                <del class="d-block opacity-70">$59.000</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                        </div>
+                        @endfor
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -96,16 +97,17 @@
     <div class="container">
         <div class="row gutters-10">
             <!-- Publicites -->
-            @for ($x=0;$x<6;$x++) <div class="col-xl col-md-6">
+            @foreach ($imagesPub as $image)
+            <div class="col-xl col-md-6">
                 <div class="mb-3 mb-lg-0">
-                    <a href="https://demo.activeitzone.com/ecommerce/flash-deals" class="d-block text-reset">
-                        <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/ftvjCr0dQVT8NRMN9CfRF59Lft5EowYR0jK9ErOD.png" alt="Active eCommerce CMS promo" class="img-fluid lazyload w-100">
+                    <a href="#" class="d-block text-reset">
+                        <img src="{{asset('storage/'.$image->images)}}" data-src="" alt="Africa brand" class="img-fluid lazyload w-100">
                     </a>
                 </div>
+            </div>
+            @endforeach
         </div>
-        @endfor
     </div>
-</div>
 </div>
 
 
@@ -249,16 +251,17 @@
     <div class="container">
         <div class="row gutters-10">
             <!-- Publicite 2 -->
-            @for ($x=0;$x<4;$x++) <div class="col-xl col-md-6">
+            @foreach ($imagesPub1 as $image)
+            <div class="col-xl col-md-6">
                 <div class="mb-3 mb-lg-0">
-                    <a href="https://demo.activeitzone.com/ecommerce/blog" class="d-block text-reset">
-                        <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/pd8obnWJJlk4IomqDXV12MrnHTMRYJayCoGc6KBy.png" alt="Active eCommerce CMS promo" class="img-fluid lazyload w-100">
+                    <a href="#" class="d-block text-reset">
+                        <img src="{{asset('storage/'.$image->images)}}" data-src="" alt="Africa brand" class="img-fluid lazyload w-100">
                     </a>
                 </div>
+            </div>
+            @endforeach
         </div>
-        @endfor
     </div>
-</div>
 </div>
 
 
@@ -328,16 +331,17 @@
 <div class="mb-4">
     <div class="container">
         <div class="row gutters-10">
-            @for ($x=0;$x<5;$x++) <div class="col-xl col-md-6">
+            @foreach ($imagesPub2 as $image)
+            <div class="col-xl col-md-6">
                 <div class="mb-3 mb-lg-0">
-                    <a href="https://demo.activeitzone.com/ecommerce/flash-deals" class="d-block text-reset">
-                        <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/X4hJOrT209ZqqGIr4TSitU30cIjbxNRD1du4XTIR.png" alt="Active eCommerce CMS promo" class="img-fluid lazyload w-100">
+                    <a href="#" class="d-block text-reset">
+                        <img src="{{asset('storage/'.$image->images)}}" data-src="" alt="Africa brand" class="img-fluid lazyload w-100">
                     </a>
                 </div>
+            </div>
+            @endforeach
         </div>
-        @endfor
     </div>
-</div>
 </div>
 
 
@@ -406,25 +410,25 @@
     </div>
 </section>
 
-<section class="bg-success py-5 text-light footer-widget">
+<section class="bg-dark py-5 text-light footer-widget">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-xl-4 text-center text-md-left">
                 <div class="mt-4">
-                    <a href="https://demo.activeitzone.com/ecommerce" class="d-block">
-                        <img class="lazyload" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/ikb1MZlSZBdn6Vn0o8JDFrWuVEeuGMBHV6igl9fc.png" alt="Active eCommerce CMS" height="44">
+                    <a href="{{ route('index')}}" class="d-block">
+                        <img class="lazyload" src="{{ asset('assets/img/logo.png')}}" alt="Active eCommerce CMS" height="44">
                     </a>
                     <div class="my-3">
-                        <span style="color: rgb(242, 243, 248); font-family: " Open Sans", sans-serif; background-color: rgb(17, 23, 35);">Complete system for your eCommerce business</span>
+                        <span style="color: rgb(242, 243, 248); font-family: " Open Sans", sans-serif; background-color: rgb(17, 23, 35);">@lang('Africa brand E-commerce System')</span>
                     </div>
                     <div class="d-inline-block d-md-block mb-4">
-                        <form class="form-inline" method="POST" action="https://demo.activeitzone.com/ecommerce/subscribers">
+                        <form class="form-inline" method="POST" action="#">
                             <input type="hidden" name="_token" value="zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt">
                             <div class="form-group mb-0">
-                                <input type="email" class="form-control" placeholder="Your Email Address" name="email" required>
+                                <input type="email" class="form-control" placeholder="@lang('votre adresse email')" name="email" required>
                             </div>
                             <button type="submit" class="btn btn-success">
-                                Subscribe
+                                @lang('s\'abonner')
                             </button>
                         </form>
                     </div>

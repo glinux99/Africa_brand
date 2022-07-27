@@ -159,7 +159,7 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="" class="aiz-side-nav-link">
+                                    <a href="{{route('home.page')}}" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Page d'acceuil")</span>
                                     </a>
                                 </li>

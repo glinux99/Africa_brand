@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-6 text-md-right">
                     <a href="#" data-target="#add-tax" data-toggle="modal" class="btn btn-circle btn-info">
-                        <span>@lang("Configuration")</span>
+                        <span>@lang("Images Actuelles")</span>
                     </a>
                 </div>
             </div>
@@ -23,7 +23,38 @@
                 </div>
             </div>
             <div class="card-body">
-                ok
+                <form action="{{ route('home.page.alter')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang("Images Centrales")</label>
+                                <input type="file" class="form-control" id="" multiple name="imagesCenter[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="">@lang("Image Zone basse")</label>
+                                <input type="file" class="form-control" id="" multiple name="imagesBottom[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="">@lang("Publicites 1")</label>
+                                <input type="file" class="form-control" id="" multiple name="imagesPub[]">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang("Publicites 2")</label>
+                                <input type="file" class="form-control" id="" multiple name="imagesPub1[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="">@lang("Publicites 3")</label>
+                                <input type="file" class="form-control" id="" multiple name="imagesPub2[]">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
 
