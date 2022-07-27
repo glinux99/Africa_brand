@@ -33,7 +33,7 @@
                                 <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">@lang("Marque")</label>
                                     <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" name="marque" id="brand_id" data-live-search="true">
+                                        <select class="form-control selectmarque" name="marque" id="brand_id" data-live-search="true">
                                         </select>
                                     </div>
                                 </div>

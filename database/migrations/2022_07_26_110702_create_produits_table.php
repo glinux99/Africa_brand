@@ -21,10 +21,10 @@ class CreateProduitsTable extends Migration
             $table->string('unite');
             $table->string('quantite');
             $table->boolean('remboursable');
-            $table->string('image');
-            $table->string('vignette');
-            $table->string('video_fournisseur');
-            $table->string('lien_video');
+            $table->string('image')->nullable();
+            $table->string('vignette')->nullable();
+            $table->string('video_fournisseur')->nullable();
+            $table->string('lien_video')->nullable();
             $table->string('couleur')->nullable();
             $table->string('prix');
             $table->string('reduction')->nullable();

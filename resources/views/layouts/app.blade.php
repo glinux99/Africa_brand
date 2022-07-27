@@ -385,7 +385,7 @@
                         <div class="d-flex justify-content-around align-items-center align-items-stretch">
                             <div class="aiz-topbar-item">
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-icon btn-circle btn-light" href="https://demo.activeitzone.com/ecommerce" target="_blank" title="Browse Website">
+                                    <a class="btn btn-icon btn-circle btn-light" href="{{route('index')}}" target="_blank" title="site web">
                                         <i class="las la-globe"></i>
                                     </a>
                                 </div>
@@ -394,18 +394,9 @@
                         <div class="d-flex justify-content-around align-items-center align-items-stretch ml-3">
                             <div class="aiz-topbar-item">
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-icon btn-circle btn-light" href="https://demo.activeitzone.com/ecommerce/admin/pos" target="_blank" title="POS">
-                                        <i class="las la-print"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-around align-items-center align-items-stretch ml-3">
-                            <div class="aiz-topbar-item">
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-soft-danger btn-sm d-flex align-items-center" href="https://demo.activeitzone.com/ecommerce/admin/clear-cache">
+                                    <a class="btn btn-soft-danger btn-sm d-flex align-items-center" href="#">
                                         <i class="las la-hdd fs-20"></i>
-                                        <span class="fw-500 ml-1 mr-0 d-none d-md-block">Clear Cache</span>
+                                        <span class="fw-500 ml-1 mr-0 d-none d-md-block">@lang("Maintenace")</span>
                                     </a>
                                 </div>
                             </div>
@@ -751,9 +742,9 @@
     </div><!-- .aiz-main-wrapper -->
 
 
-    <!--
+
     <script src="{{ asset('assets/js/vendors.js')}}"></script>
-    <script src="{{ asset('assets/js/aiz-core.js')}}"></script> -->
+    <script src="{{ asset('assets/js/aiz-core.js')}}"></script>
 
     <script type="text/javascript">
         AIZ.plugins.chart('#pie-1', {
@@ -1031,23 +1022,32 @@
         });
     </script>
     <script src="{{ asset('assets/js/vendors.js')}}"></script>
-    <script src="{{ asset('assets/js/aiz-core.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <!-- <script src="{{ asset('assets/js/aiz-core.js')}}"></script> -->
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> -->
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
     <script type="text/javascript">
         $('.selectcategorie').select2({
             placeholder: 'Seclectionner une categorie',
             tags: true,
+
             ajax: {
                 url: '/produitCategorie',
                 dataType: 'json',
                 delay: 100,
+                data: function(params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
                 processResults: function(data) {
+                    console.log(data);
                     return {
                         results: $.map(data, function(item) {
                             return {
-                                text: item.marque,
-                                id: item.marque
+                                text: item.categorie,
+                                id: item.categorie
                             }
                         })
                     };
@@ -1055,41 +1055,29 @@
                 cache: true
             }
         });
-        $('.SelectModel').select2({
-            placeholder: 'Seclectionner un model',
+        $('.selectmarque').select2({
+            placeholder: 'Seclectionner une marque',
             tags: true,
+
             ajax: {
-                url: '/selectModel',
+                url: '/produitMarque',
                 dataType: 'json',
                 delay: 100,
-                processResults: function(data) {
+                data: function(params) {
                     return {
-                        results: $.map(data, function(item) {
-                            return {
-                                text: item.model,
-                                id: item.model,
-                            }
-                        }),
+                        q: params.term, // search term
+                        page: params.page
                     };
                 },
-                cache: true
-            }
-        });
-        $('.SelectCarburateur').select2({
-            placeholder: 'type de carburateur',
-            tags: true,
-            ajax: {
-                url: '/selectCarburateur',
-                dataType: 'json',
-                delay: 100,
                 processResults: function(data) {
+                    console.log(data);
                     return {
                         results: $.map(data, function(item) {
                             return {
-                                text: item.carburateur,
-                                id: item.carburateur,
+                                text: item.categorie,
+                                id: item.categorie
                             }
-                        }),
+                        })
                     };
                 },
                 cache: true
