@@ -56,6 +56,9 @@ Route::get('/details', function () {
 
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 
+Route::get('/ok', function () {
+    return view('config.acceuil');
+})->name("ok");
 Route::get('/offre', function () {
 })->name("offre");
 Route::get('/blog', function () {

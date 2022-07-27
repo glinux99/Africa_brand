@@ -94,7 +94,7 @@
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/products/all" class="aiz-side-nav-link">
+                                    <a href="{{ route('create.produits')}}" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Tous les produits")</span>
                                     </a>
                                 </li>
@@ -150,25 +150,37 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <!-- Auction Product -->
+                        <!-- Website Setup -->
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-gavel aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Produits en gros")</span>
-                                <span class="badge badge-inline badge-danger">@lang("Ajouter")</span>
+                            <a href="#" class="aiz-side-nav-link ">
+                                <i class="las la-desktop aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Configuration su site")</span>
                                 <span class="aiz-side-nav-arrow"></span>
                             </a>
-                            <!--Submenu-->
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link" href="https://demo.activeitzone.com/ecommerce/admin/auction-product/create">
-                                        <span class="aiz-side-nav-text">@lang("Ajouter un nouveau produit en gros")</span>
+                                    <a href="" class="aiz-side-nav-link">
+                                        <span class="aiz-side-nav-text">@lang("Page d'acceuil")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/auction/all-products" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Tous les produits en gros")</span>
+                                    <a href="https://demo.activeitzone.com/ecommerce/admin/website/header" class="aiz-side-nav-link">
+                                        <span class="aiz-side-nav-text">@lang("Entete")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Bas de page")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Pages")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link">
+                                        <span class="aiz-side-nav-text">@lang("Apparence")</span>
                                     </a>
                                 </li>
                             </ul>
@@ -260,37 +272,6 @@
                                 <li class="aiz-side-nav-item">
                                     <a href="https://demo.activeitzone.com/ecommerce/subscribers" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Les abonnes")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- Website Setup -->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link ">
-                                <i class="las la-desktop aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Configuration su site")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/website/header" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Entete")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Bas de page")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Pages")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Apparence")</span>
                                     </a>
                                 </li>
                             </ul>

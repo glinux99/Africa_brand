@@ -5,7 +5,7 @@
         <div class="row gutters-10 position-relative">
             <div class="col-lg-3 position-static d-none d-lg-block">
                 <div class="aiz-category-menu bg-white rounded  shadow-sm">
-                    <div class="p-3 bg-soft-primary d-none d-lg-block rounded-top all-category position-relative text-left">
+                    <div class="p-3 bg-soft-success d-none d-lg-block rounded-top all-category position-relative text-left">
                         <span class="fw-600 fs-16 mr-3">Categories</span>
                         <a href="https://demo.activeitzone.com/ecommerce/categories" class="text-reset">
                             <span class="d-none d-lg-inline-block">See All ></span>
@@ -42,25 +42,26 @@
             </div>
             <ul class="list-unstyled mb-0 row gutters-5">
                 <!-- Images en bas de  l image centrale -->
-                @for ($x=0; $x<6;$x++) <li class="minw-0 col-4 col-md mt-3">
+                @foreach ($produits as $produit)
+                <li class="minw-0 col-4 col-md mt-3">
                     <a href="#" class="d-block rounded bg-white p-2 text-reset shadow-sm">
-                        <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/1MUCmFKsjx73ETkmjx2DYGo3XgKPBDpr36r1b4OY.png" alt="Women Clothing &amp; Fashion" class="lazyload img-fit" height="78" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
-                        <div class="text-truncate fs-12 fw-600 mt-2 opacity-70">Women Clothing &amp; Fashion</div>
+                        <img src="{{asset('storage/'.$produit->image1)}}" alt="Women Clothing &amp; Fashion" class="lazyload img-fit" height="78" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                        <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">{{$produit->categorie}}</div>
                     </a>
-                    </li>
-                    @endfor
+                </li>
+                @endforeach
             </ul>
         </div>
 
         <div class="col-lg-2 order-3 mt-3 mt-lg-0">
             <div class="bg-white rounded shadow-sm">
-                <div class="bg-soft-primary rounded-top p-3 d-flex align-items-center justify-content-center">
+                <div class="bg-soft-success rounded-top p-3 d-flex align-items-center justify-content-center">
                     <span class="fw-600 fs-16 mr-2 text-truncate">
                         @lang('Ventes/24h')
                     </span>
-                    <span class="badge badge-primary badge-inline">@lang('Chaud')</span>
+                    <span class="badge badge-success badge-inline">@lang('Chaud')</span>
                 </div>
-                <div class="c-scrollbar-light overflow-auto h-lg-400px p-2 bg-primary rounded-bottom">
+                <div class="c-scrollbar-light overflow-auto h-lg-400px p-2 bg-success rounded-bottom">
                     <div class="gutters-5 lg-no-gutters row row-cols-2 row-cols-lg-1">
                         @for ($x=0; $x<3;$x++) <div class="col mb-2">
                             <a href="https://demo.activeitzone.com/ecommerce/product/FIFA-22-Standard---PC-Online-Game-Code-22545" class="d-block p-2 text-reset bg-white h-100 rounded">
@@ -72,7 +73,7 @@
                                     </div>
                                     <div class="col-xxl">
                                         <div class="fs-16">
-                                            <span class="d-block text-primary fw-600">$56.050</span>
+                                            <span class="d-block text-success fw-600">$56.050</span>
                                             <del class="d-block opacity-70">$59.000</del>
                                         </div>
                                     </div>
@@ -115,10 +116,10 @@
 
             <div class="d-flex flex-wrap mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">@lang("Nos produits")</span>
+                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Nos produits")</span>
                 </h3>
                 <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="2025/01/01 00:00:00"></div>
-                <a href="https://demo.activeitzone.com/ecommerce/flash-deal/falsh-sale-k7qpu" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
+                <a href="https://demo.activeitzone.com/ecommerce/flash-deal/falsh-sale-k7qpu" class="ml-auto mr-0 btn btn-success btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
             </div>
 
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
@@ -148,7 +149,7 @@
                         <div class="p-md-3 p-2 text-left">
                             <div class="fs-15">
                                 <del class="fw-600 opacity-50 mr-1">$150.000</del>
-                                <span class="fw-700 text-primary">$120.000</span>
+                                <span class="fw-700 text-success">$120.000</span>
                             </div>
                             <div class="rating rating-sm mt-1">
                                 <i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i>
@@ -156,7 +157,7 @@
                             <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
                                 <a href="https://demo.activeitzone.com/ecommerce/product/calvin-klein-womens-scuba-sleeveless-princess-seamed-sheath-dress-mnluo" class="d-block text-reset">Calvin Klein Women&#039;s Scuba Sleeveless Princess Seamed Sheath Dress</a>
                             </h3>
-                            <div class="rounded px-2 mt-2 bg-soft-primary border-soft-primary border">
+                            <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
                                 Club Point:
                                 <span class="fw-700 float-right">750</span>
                             </div>
@@ -176,7 +177,7 @@
             <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
                 <div class="d-flex mb-3 align-items-baseline border-bottom">
                     <h3 class="h5 fw-700 mb-0">
-                        <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">
+                        <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">
                             @lang('Nouveaux produits')
                         </span>
                     </h3>
@@ -204,7 +205,7 @@
                             <div class="p-md-3 p-2 text-left">
                                 <div class="fs-15">
                                     <del class="fw-600 opacity-50 mr-1">$59.000</del>
-                                    <span class="fw-700 text-primary">$53.100</span>
+                                    <span class="fw-700 text-success">$53.100</span>
                                 </div>
                                 <div class="rating rating-sm mt-1">
                                     <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
@@ -212,7 +213,7 @@
                                 <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
                                     <a href="https://demo.activeitzone.com/ecommerce/product/Anthem-Online-Game-Code-13222" class="d-block text-reset">Anthem [Online Game Code]</a>
                                 </h3>
-                                <div class="rounded px-2 mt-2 bg-soft-primary border-soft-primary border">
+                                <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
                                     Club Point:
                                     <span class="fw-700 float-right">0</span>
                                 </div>
@@ -271,9 +272,9 @@
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
             <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">@lang("Les annonces")</span>
+                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Les annonces")</span>
                 </h3>
-                <a href="https://demo.activeitzone.com/ecommerce/customer-products" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">View More</a>
+                <a href="https://demo.activeitzone.com/ecommerce/customer-products" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">View More</a>
             </div>
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                 <!-- TOrra en ligne -->
@@ -289,7 +290,7 @@
                         </div>
                         <div class="p-md-3 p-2 text-left">
                             <div class="fs-15 mb-1">
-                                <span class="fw-700 text-primary">$52.000</span>
+                                <span class="fw-700 text-success">$52.000</span>
                             </div>
                             <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
                                 <a href="https://demo.activeitzone.com/ecommerce/customer-product/canon-eos-1500drebel-t7-dslr-camera-with-ef-s-18-55-mm-f35-56-is-ii-lens-rkdnw" class="d-block text-reset">Canon EOS 1500D/Rebel T7 DSLR Camera with EF-S 18-55 mm f/3.5-5.6 is II Lens</a>
@@ -309,7 +310,7 @@
                     </div>
                     <div class="p-md-3 p-2 text-left">
                         <div class="fs-15 mb-1">
-                            <span class="fw-700 text-primary">$320.000</span>
+                            <span class="fw-700 text-success">$320.000</span>
                         </div>
                         <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
                             <a href="https://demo.activeitzone.com/ecommerce/customer-product/sony-bravia-108-cm-43-inches-full-hd-smart-led-tv-kdl-ok3mt" class="d-block text-reset">Sony Bravia 108 cm (43 inches) Full HD Smart LED TV KDL</a>
@@ -351,9 +352,9 @@
             <div class="col-lg-6">
                 <div class="d-flex mb-3 align-items-baseline border-bottom">
                     <h3 class="h5 fw-700 mb-0">
-                        <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">@lang('Top 10 categories')</span>
+                        <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang('Top 10 categories')</span>
                     </h3>
-                    <a href="https://demo.activeitzone.com/ecommerce/categories" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">@lang("Toutes les categories")</a>
+                    <a href="https://demo.activeitzone.com/ecommerce/categories" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("Toutes les categories")</a>
                 </div>
                 <div class="row gutters-5">
                     <!-- Categroeies -->
@@ -367,7 +368,7 @@
                                     <div class="text-truncat-2 pl-3 fs-14 fw-600 text-left">Women Clothing &amp; Fashion</div>
                                 </div>
                                 <div class="col-2 text-center">
-                                    <i class="la la-angle-right text-primary"></i>
+                                    <i class="la la-angle-right text-success"></i>
                                 </div>
                             </div>
                         </a>
@@ -378,9 +379,9 @@
         <div class="col-lg-6">
             <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">@lang("Top 10 Marques")</span>
+                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Top 10 Marques")</span>
                 </h3>
-                <a href="https://demo.activeitzone.com/ecommerce/brands" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">@lang("toutes les marques")</a>
+                <a href="https://demo.activeitzone.com/ecommerce/brands" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("toutes les marques")</a>
             </div>
             <div class="row gutters-5">
                 @for ($x=0;$x<10;$x++) <div class="col-sm-6">
@@ -393,7 +394,7 @@
                                 <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">Ford</div>
                             </div>
                             <div class="col-2 text-center">
-                                <i class="la la-angle-right text-primary"></i>
+                                <i class="la la-angle-right text-success"></i>
                             </div>
                         </div>
                     </a>
@@ -405,7 +406,7 @@
     </div>
 </section>
 
-<section class="bg-dark py-5 text-light footer-widget">
+<section class="bg-success py-5 text-light footer-widget">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-xl-4 text-center text-md-left">
@@ -422,7 +423,7 @@
                             <div class="form-group mb-0">
                                 <input type="email" class="form-control" placeholder="Your Email Address" name="email" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-success">
                                 Subscribe
                             </button>
                         </form>
@@ -525,7 +526,7 @@
                     <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                         Be a Seller
                     </h4>
-                    <a href="https://demo.activeitzone.com/ecommerce/shops/create" class="btn btn-primary btn-sm shadow-md">
+                    <a href="https://demo.activeitzone.com/ecommerce/shops/create" class="btn btn-success btn-sm shadow-md">
                         Apply Now
                     </a>
                 </div>

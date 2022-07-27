@@ -76,32 +76,7 @@
         }
     </script>
 
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 400;
-        }
 
-        :root {
-            --primary: #e62e04;
-            --hov-primary: #e62e04;
-            --soft-primary: rgba(230, 46, 4, 0.15);
-        }
-
-        #map {
-            width: 100%;
-            height: 250px;
-        }
-
-        #edit_map {
-            width: 100%;
-            height: 250px;
-        }
-
-        .pac-container {
-            z-index: 100000;
-        }
-    </style>
 
 
 
@@ -299,11 +274,14 @@
 
                         <div class="col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
                             <a class="d-block py-20px mr-3 ml-0" href="https://demo.activeitzone.com/ecommerce">
-                                <img src="{{asset('uploads/all/ikb1MZlSZBdn6Vn0o8JDFrWuVEeuGMBHV6igl9fc.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
+                                <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
                             </a>
 
+                            <div>
+                                @lang("AFRICA BRAND")
+                            </div>
                         </div>
-                        <div class="d-lg-none ml-auto mr-0">
+                        <div class="d-lg-none ml-auto mr-0 d-none">
                             <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
                                 <i class="las la-search la-flip-horizontal la-2x"></i>
                             </a>
@@ -311,7 +289,7 @@
 
                         <div class="flex-grow-1 front-header-search d-flex align-items-center bg-white">
                             <div class="position-relative flex-grow-1">
-                                <form action="https://demo.activeitzone.com/ecommerce/search" method="GET" class="stop-propagation">
+                                <form action="h#" method="GET" class="stop-propagation d-none">
                                     <div class="d-flex position-relative align-items-center">
                                         <div class="d-lg-none" data-toggle="class-toggle" data-target=".front-header-search">
                                             <button class="btn px-2" type="button"><i class="la la-2x la-long-arrow-left"></i></button>
@@ -319,7 +297,7 @@
                                         <div class="input-group">
                                             <input type="text" class="border-0 border-lg form-control" id="search" name="keyword" placeholder="I am shopping for..." autocomplete="off">
                                             <div class="input-group-append d-none d-lg-block">
-                                                <button class="btn btn-primary" type="submit">
+                                                <button class="btn btn-success" type="submit">
                                                     <i class="la la-search la-flip-horizontal fs-18"></i>
                                                 </button>
                                             </div>
@@ -354,11 +332,11 @@
 
                         <div class="d-none d-lg-block ml-3 mr-0">
                             <div class="" id="compare">
-                                <a href="https://demo.activeitzone.com/ecommerce/compare" class="d-flex align-items-center text-reset">
+                                <a href="#" class="d-flex align-items-center text-reset">
                                     <i class="la la-refresh la-2x opacity-80"></i>
                                     <span class="flex-grow-1 ml-1">
-                                        <span class="badge badge-primary badge-inline badge-pill">0</span>
-                                        <span class="nav-box-text d-none d-xl-block opacity-70">Compare</span>
+                                        <span class="badge badge-success badge-inline badge-pill">0</span>
+                                        <span class="nav-box-text d-none d-xl-block opacity-70">@lang("Comparer")</span>
                                     </span>
                                 </a>
                             </div>
@@ -366,11 +344,11 @@
 
                         <div class="d-none d-lg-block ml-3 mr-0">
                             <div class="" id="wishlist">
-                                <a href="https://demo.activeitzone.com/ecommerce/wishlists" class="d-flex align-items-center text-reset">
+                                <a href="#" class="d-flex align-items-center text-reset">
                                     <i class="la la-heart-o la-2x opacity-80"></i>
                                     <span class="flex-grow-1 ml-1">
-                                        <span class="badge badge-primary badge-inline badge-pill">0</span>
-                                        <span class="nav-box-text d-none d-xl-block opacity-70">Wishlist</span>
+                                        <span class="badge badge-success badge-inline badge-pill">0</span>
+                                        <span class="nav-box-text d-none d-xl-block opacity-70">@lang("Souhaits")</span>
                                     </span>
                                 </a>
                             </div>
@@ -381,15 +359,15 @@
                                 <a href="javascript:void(0)" class="d-flex align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
                                     <i class="la la-shopping-cart la-2x opacity-80"></i>
                                     <span class="flex-grow-1 ml-1">
-                                        <span class="badge badge-primary badge-inline badge-pill cart-count">0</span>
-                                        <span class="nav-box-text d-none d-xl-block opacity-70">Cart</span>
+                                        <span class="badge badge-success badge-inline badge-pill cart-count">0</span>
+                                        <span class="nav-box-text d-none d-xl-block opacity-70">@lang("Chariot")</span>
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 stop-propagation">
 
                                     <div class="text-center p-3">
                                         <i class="las la-frown la-3x opacity-60 mb-3"></i>
-                                        <h3 class="h6 fw-700">Your Cart is empty</h3>
+                                        <h3 class="h6 fw-700">@lang("Votre chariot est vide")</h3>
                                     </div>
 
                                 </div>
@@ -502,7 +480,7 @@
             <div class="row align-items-center gutters-5">
                 <div class="col">
                     <a href="{{route('index')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <i class="las la-home fs-20 opacity-60 opacity-100 text-primary"></i>
+                        <i class="las la-home fs-20 opacity-60 opacity-100 text-success"></i>
                         <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Acceuil")</span>
                     </a>
                 </div>
@@ -514,7 +492,7 @@
                 </div>
                 <div class="col-auto">
                     <a href="https://demo.activeitzone.com/ecommerce/cart" class="text-reset d-block text-center pb-2 pt-3">
-                        <span class="align-items-center bg-primary border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
+                        <span class="align-items-center bg-success border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
                             <i class="las la-shopping-bag la-2x text-white"></i>
                         </span>
                         <span class="d-block mt-1 fs-10 fw-600 opacity-60 ">
@@ -549,7 +527,7 @@
             <div class="text-white mb-3">
                 <p>@lang("Nous utilisons des cookies pour une meilleure expérience utilisateur, consultez notre politique") <a href="#">@lang("Ici")</a>&nbsp;</p>
             </div>
-            <button class="btn btn-primary aiz-cookie-accept">
+            <button class="btn btn-success aiz-cookie-accept">
                 @lang("D'accord. J'ai compris")
             </button>
         </div>
@@ -571,7 +549,7 @@
                         <div class="form-group mb-0">
                             <input type="email" class="form-control" placeholder="@lang('Your Email Address')" name="email" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-3">
+                        <button type="submit" class="btn btn-success btn-block mt-3">
                             @lang("Abonnez-vous maintenant")
                         </button>
                     </form>

@@ -49,7 +49,7 @@ class ProduitsController extends Controller
                     $fileName,
                     'public'
                 );
-                $pathImage = "image" + $index;
+                $pathImage = "image" . ($index + 1);
                 $produit->$pathImage = $path;
             }
             $produit->save();
