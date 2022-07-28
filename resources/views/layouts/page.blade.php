@@ -88,14 +88,15 @@
     <div class="aiz-main-wrapper d-flex flex-column">
 
         <!-- Header -->
-        <div class="position-relative top-banner removable-session z-1035 d-none" data-key="top-banner" data-value="removed">
+        <!--  Publicite en haut
+            <div class="position-relative top-banner removable-session z-1035 d-none" data-key="top-banner" data-value="removed">
             <a href="#" class="d-block text-reset">
                 <img src="{{asset('uploads/all/wVBJyFdkAaUHvGWhWklqZJ3ch8FYRchFcKCea1DH.png')}}" class="w-100 mw-100 h-50px h-lg-auto img-fit">
             </a>
             <button class="btn text-white absolute-top-right set-session" data-key="top-banner" data-value="removed" data-toggle="remove-parent" data-parent=".top-banner">
                 <i class="la la-close la-2x"></i>
             </button>
-        </div>
+        </div> -->
         <!-- Top Bar -->
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
             <div class="container">

@@ -6,9 +6,9 @@
             <div class="col-lg-3 position-static d-none d-lg-block">
                 <div class="aiz-category-menu bg-white rounded  shadow-sm">
                     <div class="p-3 bg-soft-success d-none d-lg-block rounded-top all-category position-relative text-left">
-                        <span class="fw-600 fs-16 mr-3">Categories</span>
-                        <a href="https://demo.activeitzone.com/ecommerce/categories" class="text-reset">
-                            <span class="d-none d-lg-inline-block">See All ></span>
+                        <span class="fw-600 fs-16 mr-3">@lang('Categories')</span>
+                        <a href="#" class="text-reset">
+                            <span class="d-none d-lg-inline-block">@lang('Voir tout')</span>
                         </a>
                     </div>
                     <ul class="list-unstyled categories no-scrollbar py-2 mb-0 text-left">
@@ -121,20 +121,23 @@
                     <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Nos produits")</span>
                 </h3>
                 <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="2025/01/01 00:00:00"></div>
-                <a href="https://demo.activeitzone.com/ecommerce/flash-deal/falsh-sale-k7qpu" class="ml-auto mr-0 btn btn-success btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
+                <a href="#" class="ml-auto mr-0 btn btn-success btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
             </div>
 
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                 <!-- Nos produits -->
-                @for ($x=0; $x<10; $x++) <div class="carousel-box">
+                @foreach ($produits as $produit)
+                <div class="carousel-box">
                     <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
-                        <span class="badge-custom">OFF<span class="box ml-1 mr-0">&nbsp;20%</span></span>
+                        @if((int)$produit->reduction)
+                        <span class="badge-custom">OFF<span class="box ml-1 mr-0">{{ $produit->reduction}} %</span></span>
+                        @endif
                         <div class="position-relative">
-                            <a href="https://demo.activeitzone.com/ecommerce/product/calvin-klein-womens-scuba-sleeveless-princess-seamed-sheath-dress-mnluo" class="d-block">
-                                <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/1TUKIDcKS3huliwtIrAUbILoQEXrDanjLPBV1lbO.png" alt="Calvin Klein Women&#039;s Scuba Sleeveless Princess Seamed Sheath Dress" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                            <a href="#" class="d-block">
+                                <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="Calvin Klein Women&#039;s Scuba Sleeveless Princess Seamed Sheath Dress" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                             <span class="absolute-bottom-left fs-11 text-white fw-600 px-2 lh-1-8" style="background-color: #455a64">
-                                Wholesale
+                                @lang("En vente")
                             </span>
                             <div class="absolute-top-right aiz-p-hov-icon">
                                 <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="Add to wishlist" data-placement="left">
@@ -150,25 +153,32 @@
                         </div>
                         <div class="p-md-3 p-2 text-left">
                             <div class="fs-15">
-                                <del class="fw-600 opacity-50 mr-1">$150.000</del>
-                                <span class="fw-700 text-success">$120.000</span>
+                                @php
+                                $reduction = ((float)$produit->prix)*((float)$produit->reduction)
+                                @endphp
+                                @if($reduction)
+                                <del class="fw-600 opacity-50 mr-1">
+                                    {{ $reduction}}
+                                </del>
+                                @endif
+                                <span class="fw-700 text-success">{{ $produit->prix}}$</span>
                             </div>
                             <div class="rating rating-sm mt-1">
                                 <i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i>
                             </div>
                             <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
-                                <a href="https://demo.activeitzone.com/ecommerce/product/calvin-klein-womens-scuba-sleeveless-princess-seamed-sheath-dress-mnluo" class="d-block text-reset">Calvin Klein Women&#039;s Scuba Sleeveless Princess Seamed Sheath Dress</a>
+                                <a href="#" class="d-block text-reset">{!! $produit->description !!}</a>
                             </h3>
                             <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                                Club Point:
+                                @lang("Cotation")
                                 <span class="fw-700 float-right">750</span>
                             </div>
                         </div>
                     </div>
+                </div>
+                @endforeach
             </div>
-            @endfor
         </div>
-    </div>
     </div>
 </section>
 
@@ -185,12 +195,15 @@
                     </h3>
                 </div>
                 <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
-                    @for ($x=0; $x<5;$x++) <div class="carousel-box">
+                    @foreach ($newproduits as $produit)
+                    <div class="carousel-box">
                         <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
-                            <span class="badge-custom">OFF<span class="box ml-1 mr-0">&nbsp;10%</span></span>
+                            @if((int)$produit->reduction)
+                            <span class="badge-custom">OFF<span class="box ml-1 mr-0">{{ $produit->reduction}} %</span></span>
+                            @endif
                             <div class="position-relative">
-                                <a href="https://demo.activeitzone.com/ecommerce/product/Anthem-Online-Game-Code-13222" class="d-block">
-                                    <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/u2YMOQocOGe4UzCQ61jyMHZxkSlHQMbpWu8dHUac.png" alt="Anthem [Online Game Code]" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                <a href="#" class="d-block">
+                                    <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="Africa brand" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                                 <div class="absolute-top-right aiz-p-hov-icon">
                                     <a href="javascript:void(0)" onclick="addToWishList(155)" data-toggle="tooltip" data-title="Add to wishlist" data-placement="left">
@@ -206,27 +219,34 @@
                             </div>
                             <div class="p-md-3 p-2 text-left">
                                 <div class="fs-15">
-                                    <del class="fw-600 opacity-50 mr-1">$59.000</del>
-                                    <span class="fw-700 text-success">$53.100</span>
+                                    @php
+                                    $reduction = ((float)$produit->prix)*((float)$produit->reduction)
+                                    @endphp
+                                    @if($reduction)
+                                    <del class="fw-600 opacity-50 mr-1">
+                                        {{ $reduction}}
+                                    </del>
+                                    @endif
+                                    <span class="fw-700 text-success">{{ $produit->prix}}</span>
                                 </div>
                                 <div class="rating rating-sm mt-1">
                                     <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                 </div>
                                 <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
-                                    <a href="https://demo.activeitzone.com/ecommerce/product/Anthem-Online-Game-Code-13222" class="d-block text-reset">Anthem [Online Game Code]</a>
+                                    <a href="#" class="d-block text-reset">{!! $produit->description !!}}</a>
                                 </h3>
                                 <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                                    Club Point:
+                                    @lang('Cotaion')
                                     <span class="fw-700 float-right">0</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    @endforeach
                 </div>
-                @endfor
             </div>
         </div>
-</div>
-</section>
+    </section>
 </div>
 
 
@@ -419,7 +439,7 @@
                         <img class="lazyload" src="{{ asset('assets/img/logo.png')}}" alt="Africa Brand" height="44">
                     </a>
                     <div class="my-3">
-                        <span style="color: rgb(242, 243, 248); font-family: " Open Sans", sans-serif; background-color: rgb(17, 23, 35);">@lang('Africa brand E-commerce System')</span>
+                        <span style="color: rgb(242, 243, 248); font-family: 'Open Sans', sans-serif; background-color: rgb(17, 23, 35);">@lang('Africa brand E-commerce System')</span>
                     </div>
                     <div class="d-inline-block d-md-block mb-4">
                         <form class="form-inline" method="POST" action="#">

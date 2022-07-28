@@ -16,7 +16,8 @@ class HomeSiteController extends Controller
     public function index()
     {
         $categorie = select::paginate(10);
-        $produits = Produits::paginate(6)->sortDesc();
+        $produits = Produits::paginate(6)->sortDesc();;
+        $newproduits = Produits::inRandomOrder()->get();
         $imagesCenter = ImagesCenter::all();
         $imagesBottom = Produits::inRandomOrder()->limit(6)->get();
         $imagesPub = ImagesPub::all();
@@ -32,6 +33,7 @@ class HomeSiteController extends Controller
                 'imagesPub' => $imagesPub,
                 'imagesPub1' => $imagesPub1,
                 'imagesPub2' => $imagesPub2,
+                'newproduits' => $newproduits
             ]
         );
     }
