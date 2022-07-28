@@ -19,8 +19,7 @@ class AnnonceController extends Controller
     public function index()
     {
         $annonces = Annonce::join('images', 'annonces.id', '=', 'images.annonces_id')
-            ->select('annonces.*', 'images.*', 'annonces.id as annonce_id')
-            ->inRandomOrder('images.images')->paginate(20);
+            ->select('annonces.*', 'images.*', 'annonces.id as annonce_id')->paginate(20);
         return view('config.annonces.annonces_all', ['annonces' => $annonces]);
     }
 
@@ -60,6 +59,7 @@ class AnnonceController extends Controller
                 $imageSave->save();
             }
         }
+        return redirect()->route('annonces');
     }
 
     /**

@@ -6,11 +6,11 @@
         <div class="aiz-titlebar text-left mt-2 mb-3">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1 class="h3">@lang("Configuration des annonces")</h1>
+                    <h1 class="h3">@lang("Configuration des clients")</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="{{route('create.annonces')}}" class="btn btn-circle btn-info">
-                        <span>@lang("Creer une annonce")</span>
+                    <a href="#" class="btn btn-circle btn-info">
+                        <span>@lang("Ajouter un client")</span>
                     </a>
                 </div>
             </div>
@@ -18,8 +18,8 @@
 
         <div class="card-body">
             <div class="row gutters-5">
-                @if (count($annonces))
-                @foreach ($annonces as $annonce)
+                @if (count($users))
+                @foreach ($users as $user)
                 <div class="col-auto w-140px w-lg-220px">
                     <div class="aiz-file-box">
                         <div class="dropdown-file">
@@ -31,31 +31,27 @@
                                     <i class="las la-info-circle mr-2"></i>
                                     <span>@lang("Details infos")</span>
                                 </a>
-                                <a href="{{ asset('storage/'.$annonce->images)}}" target="_blank" download="{{ 'AfricaBrand'.$annonce->images}}" class="dropdown-item">
-                                    <i class="la la-download mr-2"></i>
-                                    <span>@lang("Telecharger")</span>
-                                </a>
                                 <a href="javascript:void(0)" class="dropdown-item" onclick="copyUrl(this)" data-url="link">
                                     <i class="las la-clipboard mr-2"></i>
                                     <span>@lang('Copier le lien')</span>
                                 </a>
-                                <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="{{ route('delete.annonces', [$annonce->annonce_id])}}" data-target="#delete-modal-annonce">
+                                <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="#" data-target="#delete-modal">
                                     <i class="las la-trash mr-2"></i>
-                                    <span>@lang('Supprimer l\'annonce entiere')</span>
-                                </a>
-                                <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="{{ route('delete.images', [$annonce->id])}}" data-target="#delete-modal" onclick="imageDelete(this);">
-                                    <i class="las la-trash mr-2"></i>
-                                    <span>@lang('Supprimer l\'image')</span>
+                                    <span>@lang('Supprimer le client')</span>
                                 </a>
                             </div>
                         </div>
                         <div class="card card-file aiz-uploader-select c-default" title="t-50.png">
                             <div class="card-file-thumb">
-                                <img src="{{ asset('storage/'.$annonce->images)}}" class="img-fit">
+                                @if($user->images)
+                                <img src="{{ asset('storage/'.$user->images)}}" class="w-100">
+                                @else
+                                <img src="{{ asset('assets/img/default.png')}}" class="w-100">
+                                @endif
                             </div>
                             <div class="card-body">
                                 <h6 class="d-flex">
-                                    <span class="text-truncate title">{{ $annonce->name}}</span>
+                                    <span class="text-truncate title">{{ $user->name}}</span>
                                 </h6>
                             </div>
                         </div>
@@ -66,7 +62,7 @@
                 <div class="card col-md-12">
                     <div class="card-header row gutters-5">
                         <div class="col text-center text-md-left">
-                            <h5 class="mb-md-0 h6">@lang("Annonces Actuelles")</h5>
+                            <h5 class="mb-md-0 h6">@lang("Clients Actuelles")</h5>
                         </div>
                     </div>
                     <div class="card-body">
@@ -77,7 +73,7 @@
             </div>
             <div class="aiz-pagination mt-3">
                 <nav>
-                    {{ $annonces->links()}}
+                    {{ $users->links()}}
                 </nav>
 
             </div>
@@ -92,24 +88,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body text-center">
-                <p class="mt-1">@lang("Voulez-vous vraiment supprimer cette image?")</p>
+                <p class="mt-1">@lang("Voulez-vous vraiment supprimer ce client?")</p>
                 <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
                 <a href="" class="btn btn-primary mt-2 comfirm-link" id="supp" data-id="">@lang("Supprimer")</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="delete-modal-annonce" class="modal fade">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title h6">@lang("Confirmation de suppression")</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-            </div>
-            <div class="modal-body text-center">
-                <p class="mt-1">@lang("Voulez-vous vraiment supprimer cette annonce?")</p>
-                <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
-                <a href="" class="btn btn-primary mt-2 comfirm-link">@lang("Supprimer")</a>
             </div>
         </div>
     </div>

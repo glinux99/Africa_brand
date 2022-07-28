@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Images;
+namespace App\Http\Controllers;
 
-use App\Models\Images;
-use App\Models\Annonce;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
-class Images extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,8 @@ class Images extends Controller
      */
     public function index()
     {
-        //
+        $users = User::role(['client'])->paginate(20);
+        return view('users.all_users', ['users' => $users]);
     }
 
     /**
@@ -81,10 +80,8 @@ class Images extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Annonce $annonce, $id)
+    public function destroy($id)
     {
-        $image = Images::find($id)->first();
-        Storage::disk('public')->delete($image);
-        return \redirect()->route('annonces');
+        //
     }
 }

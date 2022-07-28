@@ -11,7 +11,9 @@ use App\Http\Controllers\SelectController;
 use App\Http\Controllers\Admin\AnnonceController;
 use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\Admin\ProduitsController;
+use App\Http\Controllers\Images\ImageController;
 use App\Http\Controllers\Images\Images;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Vendor\Vendeur;
 
 /*
@@ -43,7 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/create-annonces', [AnnonceController::class, 'create'])->name('create.annonces');
     Route::post('/add-annonces', [AnnonceController::class, 'store'])->name('add.annonces');
     Route::get('/delete-annonces/{id}', [AnnonceController::class, 'destroy'])->name('delete.annonces');
-    Route::get('/delete-images/{id}', [Images::class, 'destroy'])->name('delete.images');
+    Route::get('/delete-images/{id}', [ImageController::class, 'destroy'])->name('delete.images');
+    Route::get('/user_all', [UserController::class, 'index'])->name('user.all');
     Route::get('/vendeur', [Vendeur::class, 'index']);
 });
 Route::get('/produitCategorie', [SelectController::class, 'categorie']);

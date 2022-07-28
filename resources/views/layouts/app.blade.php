@@ -216,7 +216,7 @@
                             </ul>
                         </li>
                         <li class="aiz-side-nav-item">
-                            <a href="https://demo.activeitzone.com/ecommerce/admin/uploaded-files" class="aiz-side-nav-link ">
+                            <a href="{{route('user.all')}}" class="aiz-side-nav-link ">
                                 <i class="las la-folder-open aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("Clients")</span>
                             </a>
