@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\HomeSiteController;
-use App\Http\Controllers\ProduitsController;
-use App\Http\Controllers\SelectController;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Site\ClientController;
+use App\Http\Controllers\SelectController;
+use App\Http\Controllers\Admin\AnnonceController;
+use App\Http\Controllers\Site\HomeSiteController;
+use App\Http\Controllers\Admin\ProduitsController;
+use App\Http\Controllers\Vendor\Vendeur;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('admin');
     Route::get('/configuration-home-page', [AdminController::class, 'home_page'])->name('home.page');
     Route::post('/configuration-home-page-alter', [AdminController::class, 'home_page_alter'])->name('home.page.alter');
+    Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces');
+    Route::post('/add-annonces', [AnnonceController::class, 'store'])->name('add.annonces');
+    Route::get('/vendeur', [Vendeur::class, 'index']);
 });
 Route::get('/produitCategorie', [SelectController::class, 'categorie']);
 Route::get('/produitMarque', [SelectController::class, 'marque']);

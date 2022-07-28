@@ -150,6 +150,13 @@
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('annonces')}}" class="aiz-side-nav-link ">
+                                <i class="las la-folder-open aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Les annonces")</span>
+                            </a>
+                        </li>
                         <!-- Website Setup -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link ">
@@ -207,16 +214,6 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-
-                        <!-- Refund addon -->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-backward aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Remboursements")</span>
-                                <span class="badge badge-inline badge-danger">@lang("Ajouter")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
                         </li>
                         <li class="aiz-side-nav-item">
                             <a href="https://demo.activeitzone.com/ecommerce/admin/uploaded-files" class="aiz-side-nav-link ">
@@ -717,10 +714,13 @@
                 </div>
             </div><!-- .aiz-topbar -->
             @yield('content')
+            <div class="bg-white text-center py-3 px-15px px-lg-25px mt-auto">
+                <p class="mb-0">&copy;@php
+                    echo Date('Y');
+                    @endphp {{ Config('app.name')}}</p>
+            </div>
         </div><!-- .aiz-content-wrapper -->
-        <div class="bg-white text-center py-3 px-15px px-lg-25px mt-auto">
-            <p class="mb-0">&copy; v6.1.2</p>
-        </div>
+
     </div><!-- .aiz-main-wrapper -->
 
     <script src="{{asset('assets/js/vendors.js')}}"></script>

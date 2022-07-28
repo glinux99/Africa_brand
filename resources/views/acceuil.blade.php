@@ -301,49 +301,34 @@
             </div>
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                 <!-- TOrra en ligne -->
-                @for ($x=0;$x<8;$x++) <div class="carousel-box">
+                @foreach ($annonces as $annonce)
+                <div class="carousel-box">
                     <div class="aiz-card-box border border-light rounded hov-shadow-md my-2 has-transition">
                         <div class="position-relative">
-                            <a href="https://demo.activeitzone.com/ecommerce/customer-product/canon-eos-1500drebel-t7-dslr-camera-with-ef-s-18-55-mm-f35-56-is-ii-lens-rkdnw" class="d-block">
-                                <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/4IsovvLOBxuVdT03mApxSCkfBH5L1oZlT7vqjdqG.jpg" alt="Canon EOS 1500D/Rebel T7 DSLR Camera with EF-S 18-55 mm f/3.5-5.6 is II Lens" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                            <a href="#" class="d-block">
+                                <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="#" data-src="{{ asset('storage/'.$annonce->images)}}" alt="Africa brand" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                             <div class="absolute-top-left pt-2 pl-2">
-                                <span class="badge badge-inline badge-success">new</span>
+                                @if ($annonce->status)
+                                <span class="badge badge-inline badge-success">@lang('Neuf')</span>
+                                @else
+                                <span class="badge badge-inline badge-danger">@lang('Use')</span>
+                                @endif
                             </div>
                         </div>
                         <div class="p-md-3 p-2 text-left">
                             <div class="fs-15 mb-1">
-                                <span class="fw-700 text-success">$52.000</span>
+                                <span class="fw-700 text-success">{{ $annonce->prix}} $</span>
                             </div>
                             <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
-                                <a href="https://demo.activeitzone.com/ecommerce/customer-product/canon-eos-1500drebel-t7-dslr-camera-with-ef-s-18-55-mm-f35-56-is-ii-lens-rkdnw" class="d-block text-reset">Canon EOS 1500D/Rebel T7 DSLR Camera with EF-S 18-55 mm f/3.5-5.6 is II Lens</a>
+                                <a href="#" class="d-block text-reset">{{ $annonce->name}}</a>
                             </h3>
                         </div>
                     </div>
-            </div>
-            <div class="carousel-box">
-                <div class="aiz-card-box border border-light rounded hov-shadow-md my-2 has-transition">
-                    <div class="position-relative">
-                        <a href="https://demo.activeitzone.com/ecommerce/customer-product/sony-bravia-108-cm-43-inches-full-hd-smart-led-tv-kdl-ok3mt" class="d-block">
-                            <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/Aq1pAApsDQllVJMQWi4foGvqAbRBBOUbaau0lSIT.jpg" alt="Sony Bravia 108 cm (43 inches) Full HD Smart LED TV KDL" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                        </a>
-                        <div class="absolute-top-left pt-2 pl-2">
-                            <span class="badge badge-inline badge-danger">Used</span>
-                        </div>
-                    </div>
-                    <div class="p-md-3 p-2 text-left">
-                        <div class="fs-15 mb-1">
-                            <span class="fw-700 text-success">$320.000</span>
-                        </div>
-                        <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
-                            <a href="https://demo.activeitzone.com/ecommerce/customer-product/sony-bravia-108-cm-43-inches-full-hd-smart-led-tv-kdl-ok3mt" class="d-block text-reset">Sony Bravia 108 cm (43 inches) Full HD Smart LED TV KDL</a>
-                        </h3>
-                    </div>
                 </div>
+                @endforeach
             </div>
-            @endfor
         </div>
-    </div>
     </div>
 </section>
 

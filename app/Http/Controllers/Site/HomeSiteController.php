@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Site;
 
 use App\Models\select;
+use App\Models\Annonce;
 use App\Models\Produits;
 use App\Models\ImagesPub;
 use App\Models\ImagesPub1;
@@ -10,6 +11,7 @@ use App\Models\ImagesPub2;
 use App\Models\ImagesBottom;
 use App\Models\ImagesCenter;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeSiteController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeSiteController extends Controller
         $imagesPub = ImagesPub::all();
         $imagesPub1 = ImagesPub1::all();
         $imagesPub2 = ImagesPub2::all();
+        $annonces = Annonce::join('images', 'annonces.id', '=', 'images.annonces_id')
+            ->get();
         return view(
             'acceuil',
             [
@@ -33,7 +37,8 @@ class HomeSiteController extends Controller
                 'imagesPub' => $imagesPub,
                 'imagesPub1' => $imagesPub1,
                 'imagesPub2' => $imagesPub2,
-                'newproduits' => $newproduits
+                'newproduits' => $newproduits,
+                'annonces' => $annonces,
             ]
         );
     }
