@@ -40,6 +40,9 @@
                             </button>
                         </form>
                         <div class="mt-4">
+                            <a href="{{route('register')}}"> @lang("Vous n'avez pas de compte? creer votre compte")</a>
+                        </div>
+                        <div class="mt-4">
                             <p class="m-0 p-0 text-center">
                                 @lang("Propulse par SubnetCongo")
                             </p>

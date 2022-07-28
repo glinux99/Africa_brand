@@ -26,7 +26,8 @@ class HomeSiteController extends Controller
         $imagesPub1 = ImagesPub1::all();
         $imagesPub2 = ImagesPub2::all();
         $annonces = Annonce::join('images', 'annonces.id', '=', 'images.annonces_id')
-            ->get();
+            ->inRandomOrder('images.images')
+            ->get()->unique('annonces_id');
         return view(
             'acceuil',
             [

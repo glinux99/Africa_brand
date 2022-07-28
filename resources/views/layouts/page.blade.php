@@ -434,7 +434,126 @@
 
         @yield('content')
 
+        <section class="bg-dark py-5 text-light footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-xl-4 text-center text-md-left">
+                        <div class="mt-4">
+                            <a href="{{ route('index')}}" class="d-block">
+                                <img class="lazyload" src="{{ asset('assets/img/logo.png')}}" alt="Africa Brand" height="44">
+                            </a>
+                            <div class="my-3">
+                                <span style="color: rgb(242, 243, 248); font-family: 'Open Sans', sans-serif; background-color: rgb(17, 23, 35);">@lang('Africa brand E-commerce System')</span>
+                            </div>
+                            <div class="d-inline-block d-md-block mb-4">
+                                <form class="form-inline" method="POST" action="#">
+                                    <input type="hidden" name="_token" value="zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt">
+                                    <div class="form-group mb-0">
+                                        <input type="email" class="form-control" placeholder="@lang('votre adresse email')" name="email" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">
+                                        @lang('s\'abonner')
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="w-300px mw-100 mx-auto mx-md-0">
+                                <a href="#" target="_blank" class="d-inline-block mr-3 ml-0">
+                                    <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/play.png" class="mx-100 h-40px">
+                                </a>
+                                <a href="#" target="_blank" class="d-inline-block">
+                                    <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/app.png" class="mx-100 h-40px">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
+                        <div class="text-center text-md-left mt-4">
+                            <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                                Contact Info
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <span class="d-block opacity-30">Address:</span>
+                                    <span class="d-block opacity-70">Demo</span>
+                                </li>
+                                <li class="mb-2">
+                                    <span class="d-block opacity-30">Phone:</span>
+                                    <span class="d-block opacity-70">123456789</span>
+                                </li>
+                                <li class="mb-2">
+                                    <span class="d-block opacity-30">Email:</span>
+                                    <span class="d-block opacity-70">
+                                        <a href="/cdn-cgi/l/email-protection#0367666e6c2d667b626e736f6643646e626a6f2d606c6e" class="text-reset"><span class="__cf_email__" data-cfemail="6307060e0c4d061b020e130f0623040e020a0f4d000c0e">[email&#160;protected]</span></a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                        <div class="text-center text-md-left mt-4">
+                            <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                                Quick Links
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                        Help
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                        Support
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                        About Us
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                        Join Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="col-md-4 col-lg-2">
+                        <div class="text-center text-md-left mt-4">
+                            <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                                @lang('Mon compte')
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('login')}}">
+                                        @lang('Se connecter')
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="#">
+                                        @lang("Mes souhaits")
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="#">
+                                        @lang('Mes achats')
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="opacity-50 hov-opacity-100 text-light" href="#">@lang("Devenir un partenaire")</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-center text-md-left mt-4">
+                            <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                                @lang("Devenir un vendeur")
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- FOOTER -->
         <footer class="pt-3 pb-7 pb-xl-3 bg-black text-light">
             <div class="container">

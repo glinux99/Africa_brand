@@ -19,12 +19,12 @@ class CreateAnnoncesTable extends Migration
             $table->string('prix');
             $table->string('categorie');
             $table->string('unite');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->string('vendeur');
             $table->string('adresse');
             $table->string('numero');
-            $table->text('description');
-            $table->string('video');
+            $table->text('description')->nullable();
+            $table->string('video')->nullable();
             $table->timestamps();
         });
     }
