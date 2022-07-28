@@ -46,7 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/add-annonces', [AnnonceController::class, 'store'])->name('add.annonces');
     Route::get('/delete-annonces/{id}', [AnnonceController::class, 'destroy'])->name('delete.annonces');
     Route::get('/delete-images/{id}', [ImageController::class, 'destroy'])->name('delete.images');
-    Route::get('/user_all', [UserController::class, 'index'])->name('user.all');
+    Route::get('/user-all', [UserController::class, 'index'])->name('user.all');
+    Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('delete.user');
     Route::get('/vendeur', [Vendeur::class, 'index']);
 });
 Route::get('/produitCategorie', [SelectController::class, 'categorie']);

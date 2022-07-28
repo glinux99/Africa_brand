@@ -16,66 +16,67 @@
             </div>
         </div>
 
-        <div class="card-body">
-            <div class="row gutters-5">
-                @if (count($users))
-                @foreach ($users as $user)
-                <div class="col-auto w-140px w-lg-220px">
-                    <div class="aiz-file-box">
-                        <div class="dropdown-file">
-                            <a class="dropdown-link" data-toggle="dropdown">
-                                <i class="la la-ellipsis-v"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="javascript:void(0)" class="dropdown-item" onclick="detailsInfo(this)" data-id="1317">
-                                    <i class="las la-info-circle mr-2"></i>
-                                    <span>@lang("Details infos")</span>
-                                </a>
-                                <a href="javascript:void(0)" class="dropdown-item" onclick="copyUrl(this)" data-url="link">
-                                    <i class="las la-clipboard mr-2"></i>
-                                    <span>@lang('Copier le lien')</span>
-                                </a>
-                                <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="#" data-target="#delete-modal">
-                                    <i class="las la-trash mr-2"></i>
-                                    <span>@lang('Supprimer le client')</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card card-file aiz-uploader-select c-default" title="t-50.png">
-                            <div class="card-file-thumb">
-                                @if($user->images)
-                                <img src="{{ asset('storage/'.$user->images)}}" class="w-100">
-                                @else
-                                <img src="{{ asset('assets/img/default.png')}}" class="w-100">
-                                @endif
-                            </div>
-                            <div class="card-body">
-                                <h6 class="d-flex">
-                                    <span class="text-truncate title">{{ $user->name}}</span>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
+        <div class="card">
+            <div class="card-header row gutters-5">
+                <div class="col text-center text-md-left">
+                    <h5 class="mb-md-0 h6">@lang("Clients Actuelles")</h5>
                 </div>
-                @endforeach
-                @else
-                <div class="card col-md-12">
-                    <div class="card-header row gutters-5">
-                        <div class="col text-center text-md-left">
-                            <h5 class="mb-md-0 h6">@lang("Clients Actuelles")</h5>
+            </div>
+            <div class="card-body">
+                <div class="row gutters-5">
+                    @if (count($users))
+                    @foreach ($users as $user)
+
+                    <div class="col-auto w-140px w-lg-220px">
+                        <div class="aiz-file-box">
+                            <div class="dropdown-file">
+                                <a class="dropdown-link" data-toggle="dropdown">
+                                    <i class="la la-ellipsis-v"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="javascript:void(0)" class="dropdown-item" onclick="detailsInfo(this)" data-id="1317">
+                                        <i class="las la-info-circle mr-2"></i>
+                                        <span>@lang("Details infos")</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item" onclick="copyUrl(this)" data-url="link">
+                                        <i class="las la-clipboard mr-2"></i>
+                                        <span>@lang('Copier le lien')</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="{{ route('delete.user', [$user->id])}}" data-target="#delete-modal">
+                                        <i class="las la-trash mr-2"></i>
+                                        <span>@lang('Supprimer le client')</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card card-file aiz-uploader-select c-default" title="t-50.png">
+                                <div class="card-file-thumb">
+                                    @if($user->images)
+                                    <img src="{{ asset('storage/'.$user->images)}}" class="w-100">
+                                    @else
+                                    <img src="{{ asset('assets/img/default.png')}}" class="w-100">
+                                    @endif
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="d-flex">
+                                        <span class="text-truncate title">{{ $user->name}}</span>
+                                    </h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
+                    @else
                     <div class="card-body">
                         <p class="text-center">@lang("Aucune donnee")</p>
                     </div>
+                    @endif
                 </div>
-                @endif
-            </div>
-            <div class="aiz-pagination mt-3">
-                <nav>
-                    {{ $users->links()}}
-                </nav>
+                <div class="aiz-pagination mt-3">
+                    <nav>
+                        {{ $users->links()}}
+                    </nav>
 
+                </div>
             </div>
         </div>
     </div>

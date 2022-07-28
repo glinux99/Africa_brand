@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Images;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -82,6 +85,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $image = Images::where('imagesprofile_id', $id);
+            Storage::disk('public')->delete($image->images);
+        } catch (Exception $exc) {
+        }
+        User::find($id)->delete();
+        return \redirect()->route('user.all');
     }
 }
