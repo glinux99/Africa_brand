@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
 <div class="home-banner-area mb-4 pt-3">
-    <div class="container">
+    <div class="mx-3 containerd">
         <div class="row gutters-10 position-relative">
             <div class="col-lg-3 position-static d-none d-lg-block">
                 <div class="aiz-category-menu bg-white rounded  shadow-sm">
@@ -94,7 +94,7 @@
 
 
 <div class="mb-4">
-    <div class="container">
+    <div class="mx-3 containerd">
         <div class="row gutters-10">
             <!-- Publicites -->
             @foreach ($imagesPub as $image)
@@ -113,7 +113,7 @@
 
 
 <section class="mb-4">
-    <div class="container">
+    <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
 
             <div class="d-flex flex-wrap mb-3 align-items-baseline border-bottom">
@@ -185,7 +185,7 @@
 
 <div id="section_newest">
     <section class="mb-4">
-        <div class="container">
+        <div class="mx-3 containerd">
             <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
                 <div class="d-flex mb-3 align-items-baseline border-bottom">
                     <h3 class="h5 fw-700 mb-0">
@@ -268,7 +268,7 @@
 
 
 <div class="mb-4">
-    <div class="container">
+    <div class="mx-3 containerd">
         <div class="row gutters-10">
             <!-- Publicite 2 -->
             @foreach ($imagesPub1 as $image)
@@ -291,7 +291,7 @@
 
 
 <section class="mb-4">
-    <div class="container">
+    <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
             <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
@@ -334,7 +334,7 @@
 
 
 <div class="mb-4">
-    <div class="container">
+    <div class="mx-3 containerd">
         <div class="row gutters-10">
             @foreach ($imagesPub2 as $image)
             <div class="col-xl col-md-6">

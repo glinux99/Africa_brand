@@ -129,96 +129,13 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <li class="list-inline-item dropdown ml-auto ml-lg-0 mr-0" id="currency-change">
-                                <a href="javascript:void(0)" class="dropdown-toggle text-reset py-2 opacity-60" data-toggle="dropdown" data-display="static">
-                                    U.S. Dollar $
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                    <li>
-                                        <a class="dropdown-item  active " href="javascript:void(0)" data-currency="USD">U.S. Dollar ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="AUD">Australian Dollar ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="BRL">Brazilian Real (R$)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="CAD">Canadian Dollar ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="CZK">Czech Koruna (Kč)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="DKK">Danish Krone (kr)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="EUR">Euro (€)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="HKD">Hong Kong Dollar ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="HUF">Hungarian Forint (Ft)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="ILS">Israeli New Sheqel (₪)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="JPY">Japanese Yen (¥)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="MYR">Malaysian Ringgit (RM)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="MXN">Mexican Peso ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="NOK">Norwegian Krone (kr)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="NZD">New Zealand Dollar ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="PHP">Philippine Peso (₱)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="PLN">Polish Zloty (zł)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="GBP">Pound Sterling (£)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="RUB">Russian Ruble (руб)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="SGD">Singapore Dollar ($)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="SEK">Swedish Krona (kr)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="CHF">Swiss Franc (CHF)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="THB">Thai Baht (฿)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="BDT">Taka (৳)</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item " href="javascript:void(0)" data-currency="Rupee">Indian Rupee (Rs)</a>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
 
                     <div class="col-5 text-right d-none d-lg-block">
                         <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
                             <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                <a href="tel:+01 112 352 566" class="text-reset d-inline-block opacity-60 py-2">
+                                <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
                                     <i class="la la-phone"></i>
                                     <span>@lang('Ligne d\'aide')</span>
                                     <span>+243 970 912 428</span>
@@ -469,21 +386,21 @@
                     <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
                         <div class="text-center text-md-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                                Contact Info
+                                @lang("Contact")
                             </h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <span class="d-block opacity-30">Address:</span>
-                                    <span class="d-block opacity-70">Demo</span>
+                                    <span class="d-block opacity-30">@lang("Adresse")</span>
+                                    <span class="d-block opacity-70">Goma</span>
                                 </li>
                                 <li class="mb-2">
-                                    <span class="d-block opacity-30">Phone:</span>
-                                    <span class="d-block opacity-70">123456789</span>
+                                    <span class="d-block opacity-30">@lang("Telephone")</span>
+                                    <span class="d-block opacity-70">+243 970 912 428</span>
                                 </li>
                                 <li class="mb-2">
-                                    <span class="d-block opacity-30">Email:</span>
+                                    <span class="d-block opacity-30">@lang('Email:')</span>
                                     <span class="d-block opacity-70">
-                                        <a href="/cdn-cgi/l/email-protection#0367666e6c2d667b626e736f6643646e626a6f2d606c6e" class="text-reset"><span class="__cf_email__" data-cfemail="6307060e0c4d061b020e130f0623040e020a0f4d000c0e">[email&#160;protected]</span></a>
+                                        <a href="mailto:">genesiskikimba@gmail.com</a>
                                     </span>
                                 </li>
                             </ul>
@@ -492,27 +409,27 @@
                     <div class="col-lg-2 col-md-4">
                         <div class="text-center text-md-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                                Quick Links
+                                @lang('Liens rapides')
                             </h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="#" class="opacity-50 hov-opacity-100 text-reset">
-                                        Help
+                                        @lang('Aides')
                                     </a>
                                 </li>
                                 <li class="mb-2">
                                     <a href="#" class="opacity-50 hov-opacity-100 text-reset">
-                                        Support
+                                        @lang("Support")
                                     </a>
                                 </li>
                                 <li class="mb-2">
                                     <a href="#" class="opacity-50 hov-opacity-100 text-reset">
-                                        About Us
+                                        @lang("Contactez-nous")
                                     </a>
                                 </li>
                                 <li class="mb-2">
                                     <a href="#" class="opacity-50 hov-opacity-100 text-reset">
-                                        Join Us
+                                        @lang("Joignez-nous")
                                     </a>
                                 </li>
                             </ul>
