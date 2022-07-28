@@ -7,6 +7,7 @@ use App\Models\Annonce;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class AnnonceController extends Controller
 {
@@ -17,7 +18,10 @@ class AnnonceController extends Controller
      */
     public function index()
     {
-        return view('config.annonces');
+        $annonces = Annonce::join('images', 'annonces.id', '=', 'images.annonces_id')
+            ->select('annonces.*', 'images.*', 'annonces.id as annonce_id')
+            ->inRandomOrder('images.images')->paginate(20);
+        return view('config.annonces.annonces_all', ['annonces' => $annonces]);
     }
 
     /**
@@ -27,7 +31,7 @@ class AnnonceController extends Controller
      */
     public function create()
     {
-        //
+        return view('config.annonces.annonces');
     }
 
     /**
@@ -98,8 +102,13 @@ class AnnonceController extends Controller
      * @param  \App\Models\Annonce  $annonce
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Annonce $annonce)
+    public function destroy(Annonce $annonce, $id)
     {
-        //
+        $images = Images::where('annonces_id', $id);
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image);
+        }
+        $annonce::find($id)->delete();
+        return \redirect()->route('annonces');
     }
 }

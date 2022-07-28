@@ -16,7 +16,9 @@ class CreateSelectsTable extends Migration
         Schema::create('selects', function (Blueprint $table) {
             $table->id();
             $table->string('categorie')->nullable();
+            $table->string('image_categorie')->nullable();
             $table->string('marque')->nullable();
+            $table->string('image_marque')->nullable();
             $table->string('fournisseur_video')->nullable();
             $table->string('couleur')->nullable();
             $table->timestamps();

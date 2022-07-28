@@ -9,7 +9,7 @@
                     <h1 class="h3">@lang("Configuration des annonces")</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="#" data-target="#add-tax" data-toggle="modal" class="btn btn-circle btn-info">
+                    <a href="{{ route('annonces')}}" class="btn btn-circle btn-info">
                         <span>@lang("Annonces Actuelles")</span>
                     </a>
                 </div>

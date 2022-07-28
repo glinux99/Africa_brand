@@ -11,6 +11,7 @@ use App\Http\Controllers\SelectController;
 use App\Http\Controllers\Admin\AnnonceController;
 use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\Admin\ProduitsController;
+use App\Http\Controllers\Images\Images;
 use App\Http\Controllers\Vendor\Vendeur;
 
 /*
@@ -39,7 +40,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/configuration-home-page', [AdminController::class, 'home_page'])->name('home.page');
     Route::post('/configuration-home-page-alter', [AdminController::class, 'home_page_alter'])->name('home.page.alter');
     Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces');
+    Route::get('/create-annonces', [AnnonceController::class, 'create'])->name('create.annonces');
     Route::post('/add-annonces', [AnnonceController::class, 'store'])->name('add.annonces');
+    Route::get('/delete-annonces/{id}', [AnnonceController::class, 'destroy'])->name('delete.annonces');
+    Route::get('/delete-images/{id}', [Images::class, 'destroy'])->name('delete.images');
     Route::get('/vendeur', [Vendeur::class, 'index']);
 });
 Route::get('/produitCategorie', [SelectController::class, 'categorie']);

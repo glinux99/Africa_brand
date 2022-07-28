@@ -233,7 +233,7 @@
                                     <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                 </div>
                                 <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
-                                    <a href="#" class="d-block text-reset">{!! $produit->description !!}}</a>
+                                    <a href="#" class="d-block text-reset">{!! $produit->description !!}</a>
                                 </h3>
                                 <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
                                     @lang('Cotaion')
@@ -363,55 +363,61 @@
                     <h3 class="h5 fw-700 mb-0">
                         <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang('Top 10 categories')</span>
                     </h3>
-                    <a href="https://demo.activeitzone.com/ecommerce/categories" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("Toutes les categories")</a>
+                    <a href="#" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("Toutes les categories")</a>
                 </div>
                 <div class="row gutters-5">
                     <!-- Categroeies -->
-                    @for ($x=0; $x<10;$x++) <div class="col-sm-6">
-                        <a href="https://demo.activeitzone.com/ecommerce/category/women-clothing-fashion" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                    @foreach ($categories as $categorie)
+                    @if ($categorie->categorie)
+                    <div class="col-sm-6">
+                        <a href="#" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
                             <div class="row align-items-center no-gutters">
                                 <div class="col-3 text-center">
-                                    <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/1MUCmFKsjx73ETkmjx2DYGo3XgKPBDpr36r1b4OY.png" alt="Women Clothing &amp; Fashion" class="img-fluid img lazyload h-60px" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                    <img src="#" data-src="{{ asset('storage/'.$categorie->images)}}" alt="Categorie images" class="img-fluid img lazyload h-60px" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </div>
                                 <div class="col-7">
-                                    <div class="text-truncat-2 pl-3 fs-14 fw-600 text-left">Women Clothing &amp; Fashion</div>
+                                    <div class="text-truncat-2 pl-3 fs-14 fw-600 text-left">{{$categorie->categorie}}</div>
+                                </div>
+                                <div class=" col-2 text-center">
+                                    <i class="la la-angle-right text-success"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex mb-3 align-items-baseline border-bottom">
+                    <h3 class="h5 fw-700 mb-0">
+                        <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Top 10 Marques")</span>
+                    </h3>
+                    <a href="https://demo.activeitzone.com/ecommerce/brands" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("toutes les marques")</a>
+                </div>
+                <div class="row gutters-5">
+                    @foreach ($categories as $marque)
+                    @if ($marque->marque)
+                    <div class="col-sm-6">
+                        <a href="#" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col-4 text-center">
+                                    <img src="#" data-src="{{ $marque->image}}" alt="Ford" class="img-fluid img lazyload h-60px" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">{{ $marque->marque}}</div>
                                 </div>
                                 <div class="col-2 text-center">
                                     <i class="la la-angle-right text-success"></i>
                                 </div>
                             </div>
                         </a>
+                    </div>
+                    @endif
+                    @endforeach
                 </div>
-                @endfor
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="d-flex mb-3 align-items-baseline border-bottom">
-                <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Top 10 Marques")</span>
-                </h3>
-                <a href="https://demo.activeitzone.com/ecommerce/brands" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("toutes les marques")</a>
-            </div>
-            <div class="row gutters-5">
-                @for ($x=0;$x<10;$x++) <div class="col-sm-6">
-                    <a href="https://demo.activeitzone.com/ecommerce/brand/ford" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
-                        <div class="row align-items-center no-gutters">
-                            <div class="col-4 text-center">
-                                <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/CVo1G2QVpVtSoZlmCvC0l4hL9WIiWLlTQf6XclMC.jpg" alt="Ford" class="img-fluid img lazyload h-60px" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                            </div>
-                            <div class="col-6">
-                                <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">Ford</div>
-                            </div>
-                            <div class="col-2 text-center">
-                                <i class="la la-angle-right text-success"></i>
-                            </div>
-                        </div>
-                    </a>
-            </div>
-            @endfor
-        </div>
-    </div>
-    </div>
     </div>
 </section>
 @endsection
