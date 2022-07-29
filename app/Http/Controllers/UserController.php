@@ -8,6 +8,7 @@ use App\Models\Images;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -19,12 +20,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::role(['client'])->paginate(20);
+        //$users = User::role(['client'])->paginate(20);
+        $users = User::join('images', 'imagesprofile_id', 'users.id')->role(['client'])->paginate(20);
         return view('users.all_users', ['users' => $users]);
     }
     public function afficheprofile()
     {
         return view('users.alter_profile');
+    }
+    public function profile()
+    {
+        return view('users.profile');
     }
     /**
      * Show the form for creating a new resource.
@@ -78,10 +84,12 @@ class UserController extends Controller
         $user->password = $password;
         $user->numero = request('numero');
         $user->notificable = request('notificable');
+        $user->description = request('description');
         $user->save();
+        $id = Auth::user()->id;
         if ($request->images) {
             $images = $request->file('images');
-            $imageSave = new Images;
+            $imageSave = Images::where('imagesprofile_id', $id)->first();
             $file = Str::random(5);
             $ext = $images->getClientOriginalExtension();
             $fileName = $file . '.' . $ext;
@@ -90,16 +98,18 @@ class UserController extends Controller
                 $fileName,
                 'public'
             );
-            $imageSave->images = $path;
-            $id = Auth::user()->id;
-            $imageSave->imagesprofile_id = $id;
-            $imageSave->save();
+
             // Suppression de l ancienne image
             try {
-                $image = Images::where('imagesprofile_id', $id);
+                $image = Images::where('imagesprofile_id', $id)->first();
                 Storage::disk('public')->delete($image->images);
             } catch (Exception $exc) {
             }
+            $imageSave->images = $path;
+            $imageSave->imagesprofile_id = $id;
+            $imageSave->save();
+            $images = Images::where('imagesprofile_id', Auth::user()->id)->first();
+            Session::put('picprofile', 'storage/' . $images->images);
         }
         return redirect()->route('profile');
     }

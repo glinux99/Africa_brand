@@ -67,13 +67,13 @@
                 </div>
                 <div class="aiz-side-nav-wrap">
                     <div class="px-20px mb-3">
-                        <input class="form-control bg-soft-secondary border-0 form-control-sm text-white" type="text" name="" placeholder="Search in menu" id="menu-search" onkeyup="menuSearch()">
+                        <input class="form-control bg-soft-secondary border-0 form-control-sm text-white" type="text" name="" placeholder="@lang('Rechercher dans le menu')" id="menu-search" onkeyup="menuSearch()">
                     </div>
                     <ul class="aiz-side-nav-list" id="search-menu">
                     </ul>
                     <ul class="aiz-side-nav-list" id="main-menu" data-toggle="aiz-side-menu">
                         <li class="aiz-side-nav-item">
-                            <a href="https://demo.activeitzone.com/ecommerce/admin" class="aiz-side-nav-link">
+                            <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-home aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
@@ -99,52 +99,52 @@
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/products/admin" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang('Produits maisons')</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/products/seller" class="aiz-side-nav-link ">
+                                    <a href="#ecommerce/admin/products/seller" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang('Produits du vendeur')</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/digitalproducts" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Produits numeriques")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/product-bulk-upload/index" class="aiz-side-nav-link">
+                                    <a href="#ecommerce/admin/product-bulk-upload/index" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">Bulk Import</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/product-bulk-export" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang('Importation en masse')</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/categories" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang('Exportation en masse')</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/brands" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang('Marque')</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/attributes" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Categorie")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/colors" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Couleurs")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/reviews" class="aiz-side-nav-link">
+                                    <a href="#ecommerce/reviews" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang('Avis sur les produits')</span>
                                     </a>
                                 </li>
@@ -171,7 +171,7 @@
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/website/header" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Entete")</span>
                                     </a>
                                 </li>
@@ -203,13 +203,13 @@
                             <!--Submenu-->
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/all_orders" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Ventes de la semaine")</span>
                                     </a>
                                 </li>
 
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/inhouse-orders" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Toutes les ventes")</span>
                                     </a>
                                 </li>
@@ -230,12 +230,12 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/blog" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Tous les posts")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/blog-category" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Categorie")</span>
                                     </a>
                                 </li>
@@ -251,23 +251,23 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/flash_deals" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Offres du J/J")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/newsletter" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Newsletters")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/sms" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Message en masse")</span>
                                         <span class="badge badge-inline badge-danger">@lang("Ajouter")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/subscribers" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Les abonnes")</span>
                                     </a>
                                 </li>
@@ -278,39 +278,39 @@
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-dharmachakra aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Installation et Configuration")>
+                                <span class="aiz-side-nav-text">@lang("Installation et Configuration")
                                     <span class="aiz-side-nav-arrow"></span>
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/general-setting" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Reglages generaux")</span>
                                     </a>
                                 </li>
 
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/activation" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Activation de fonctionnalites")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/languages" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Langue")</span>
                                     </a>
                                 </li>
 
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/currency" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Devise")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/tax" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Valeurs et taxes")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/social-login" class="aiz-side-nav-link">
+                                    <a href="#" class="aiz-side-nav-link">
                                         <span class="aiz-side-nav-text">@lang("Reseaux sociaux login")</span>
                                     </a>
                                 </li>
@@ -326,12 +326,12 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/staffs" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Toute l'equipe")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="https://demo.activeitzone.com/ecommerce/admin/roles" class="aiz-side-nav-link ">
+                                    <a href="#" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Permission des membres")</span>
                                     </a>
                                 </li>
@@ -340,7 +340,7 @@
 
                         <!-- Addon Manager -->
                         <li class="aiz-side-nav-item">
-                            <a href="https://demo.activeitzone.com/ecommerce/admin/addons" class="aiz-side-nav-link ">
+                            <a href="#" class="aiz-side-nav-link ">
                                 <i class="las la-wrench aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("ajouter un manager")</span>
                             </a>
@@ -395,7 +395,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg py-0">
                                     <div class="p-3 bg-light border-bottom">
-                                        <h6 class="mb-0">Notifications</h6>
+                                        <h6 class="mb-0">@lang("Notifications")</h6>
                                     </div>
                                     <div class="px-3 c-scrollbar-light overflow-auto " style="max-height:300px;">
                                         <ul class="list-group list-group-flush">
@@ -403,238 +403,10 @@
                                                 <div class="media text-inherit">
                                                     <div class="media-body">
                                                         <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07072866 has been Paid
+                                                            Mouvement: 20220420-07072866 a ete paye
                                                         </p>
                                                         <small class="text-muted">
-                                                            April 27 2022, 10:36 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20210520-10563650 has been Delivered
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:34 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20210520-10563650 has been On the way
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:34 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220428-06353357 has been Picked up
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:34 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20210520-10560247 has been Paid
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:31 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073112 has been On the way
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:30 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073112 has been Picked up
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:30 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20210520-10563650 has been Picked up
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 10:29 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220428-06353357 has been Placed
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 8:35 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220428-05334287 has been Placed
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 7:33 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220428-05260288 has been Placed
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 27 2022, 7:26 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073111 has been Paid
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:51 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073111 has been Delivered
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:49 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220421-06464117 has been Delivered
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:46 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220421-06464117 has been Paid
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:46 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220421-06464117 has been Placed
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:46 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073259 has been Delivered
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:38 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073259 has been Paid
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:38 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07073259 has been Picked up
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 20 2022, 8:38 pm
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items- py-3">
-                                                <div class="media text-inherit">
-                                                    <div class="media-body">
-                                                        <p class="mb-1 text-truncate-2">
-                                                            Order code: 20220420-07493371 has been Paid
-                                                        </p>
-                                                        <small class="text-muted">
-                                                            April 19 2022, 9:50 pm
+                                                            22 juillet 2022, 16:15min
                                                         </small>
                                                     </div>
                                                 </div>
@@ -642,8 +414,8 @@
                                         </ul>
                                     </div>
                                     <div class="text-center border-top">
-                                        <a href="https://demo.activeitzone.com/ecommerce/admin/all-notification" class="text-reset d-block py-2">
-                                            View All Notifications
+                                        <a href="#" class="text-reset d-block py-2">
+                                            @lang("Voir toutes les notifications")
                                         </a>
                                     </div>
                                 </div>
@@ -655,39 +427,32 @@
                             <div class="align-items-stretch d-flex dropdown " id="lang-change">
                                 <a class="dropdown-toggle no-arrow" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
                                     <span class="btn btn-icon">
-                                        <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/en.png" height="11">
+                                        <img src="{{ asset('assets/img/flags/en.png')}}" height="11">
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-xs">
 
                                     <li>
                                         <a href="javascript:void(0)" data-flag="en" class="dropdown-item  active ">
-                                            <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/en.png" class="mr-2">
-                                            <span class="language">English</span>
+                                            <img src="{{ asset('assets/img/flags/en.png')}}" class="mr-2">
+                                            <span class="language">@lang("Anglais")</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)" data-flag="bd" class="dropdown-item ">
-                                            <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/bd.png" class="mr-2">
-                                            <span class="language">Bangla</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" data-flag="sa" class="dropdown-item ">
-                                            <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/sa.png" class="mr-2">
-                                            <span class="language">Arabic</span>
+                                            <img src="{{ asset('assets/img/flags/fr.png')}}" class="mr-2">
+                                            <span class="language">@lang("Francais")</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-
                         <div class="aiz-topbar-item ml-2">
                             <div class="align-items-stretch d-flex dropdown">
                                 <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
                                     <span class="d-flex align-items-center">
                                         <span class="avatar avatar-sm mr-md-2">
-                                            <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/jxUqbB2ThpoDFZbBtPHaiy2pF7i02hDaFJEEF9rx.png" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png';">
+                                            <img src="{{ asset(Session::get('picprofile'))}}" alt="photo de profile" onerror="this.onerror=null;this.src='htdtps://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png';">
                                         </span>
                                         <span class="d-none d-md-block">
                                             <span class="d-block fw-500">{{ Auth::user()->name}}</span>
@@ -730,9 +495,9 @@
             type: 'doughnut',
             data: {
                 labels: [
-                    'Total published products',
-                    'Total sellers products',
-                    'Total admin products'
+                    'produits publie par l admin',
+                    'produits publie par le vendeur',
+                    'produits de Africa Brand'
                 ],
                 datasets: [{
                     data: [
@@ -769,14 +534,13 @@
                 }
             }
         });
-
         AIZ.plugins.chart('#pie-2', {
             type: 'doughnut',
             data: {
                 labels: [
-                    'Total sellers',
-                    'Total approved sellers',
-                    'Total pending sellers'
+                    'Total vendeurs',
+                    'Total de vendeurs approuve',
+                    'Total vendeurs en attentes'
                 ],
                 datasets: [{
                     data: [
@@ -813,26 +577,13 @@
                 }
             }
         });
+        dataCategorie = ['Chemise', 'Fruits'];
         AIZ.plugins.chart('#graph-1', {
             type: 'bar',
             data: {
-                labels: [
-                    'Women Clothing &amp; Fashion',
-                    'Men Clothing &amp; Fashion',
-                    'Computer &amp; Accessories',
-                    'Automobile &amp; Motorcycle',
-                    'Kids &amp; toy',
-                    'Sports &amp; outdoor',
-                    'Jewelry &amp; Watches',
-                    'Cellphones &amp; Tabs',
-                    'Beauty, Health &amp; Hair',
-                    'Home Improvement &amp; Tools',
-                    'Home decoration &amp; Appliance',
-                    'Toy',
-                    'Software',
-                ],
+                labels: dataCategorie,
                 datasets: [{
-                    label: 'Number of sale',
+                    label: 'Numero de ventes',
                     data: [
                         11, 59, 5, 1, 5, 0, 4, 5, 1, 0, 0, 0, 2,
                     ],
@@ -906,26 +657,13 @@
                 }
             }
         });
+        dataCategorie = ['Chemise', 'Fruits'];
         AIZ.plugins.chart('#graph-2', {
             type: 'bar',
             data: {
-                labels: [
-                    'Women Clothing &amp; Fashion',
-                    'Men Clothing &amp; Fashion',
-                    'Computer &amp; Accessories',
-                    'Automobile &amp; Motorcycle',
-                    'Kids &amp; toy',
-                    'Sports &amp; outdoor',
-                    'Jewelry &amp; Watches',
-                    'Cellphones &amp; Tabs',
-                    'Beauty, Health &amp; Hair',
-                    'Home Improvement &amp; Tools',
-                    'Home decoration &amp; Appliance',
-                    'Toy',
-                    'Software',
-                ],
+                labels: dataCategorie,
                 datasets: [{
-                    label: 'Number of Stock',
+                    label: 'NUmero de stock',
                     data: [
                         227973, 55973, 34538, 6559, 27029, 0, 3497, 23999, 5000, 2500, 0, 30, -2,
                     ],
@@ -1069,7 +807,7 @@
                     e.preventDefault();
                     var $this = $(this);
                     var locale = $this.data('flag');
-                    $.post('https://demo.activeitzone.com/ecommerce/language', {
+                    $.post('#ecommerce/language', {
                         _token: 'FRREUj2dROMBBmottIxf9LQigkhinV1dvoPIKxgX',
                         locale: locale
                     }, function(data) {

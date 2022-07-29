@@ -105,26 +105,20 @@
                         <ul class="list-inline d-flex justify-content-between justify-content-lg-start mb-0">
                             <li class="list-inline-item dropdown mr-3" id="lang-change">
                                 <a href="javascript:void(0)" class="dropdown-toggle text-reset py-2" data-toggle="dropdown" data-display="static">
-                                    <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/en.png" class="mr-2 lazyload" alt="English" height="11">
-                                    <span class="opacity-60">English</span>
+                                    <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="{{ asset('assets/img/flags/en.png')}}" class="mr-2 lazyload" alt="English" height="11">
+                                    <span class="opacity-60">@lang("Anglais")</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-left">
                                     <li>
                                         <a href="javascript:void(0)" data-flag="en" class="dropdown-item ">
-                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/en.png" class="mr-1 lazyload" alt="English" height="11">
-                                            <span class="language">English</span>
+                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="{{ asset('assets/img/flags/en.png')}}" class="mr-1 lazyload" alt="English" height="11">
+                                            <span class="language">@lang("Anglais")</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)" data-flag="bd" class="dropdown-item ">
-                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/bd.png" class="mr-1 lazyload" alt="Bangla" height="11">
-                                            <span class="language">Bangla</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" data-flag="sa" class="dropdown-item ">
-                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="https://demo.activeitzone.com/ecommerce/public/assets/img/flags/sa.png" class="mr-1 lazyload" alt="Arabic" height="11">
-                                            <span class="language">Arabic</span>
+                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="{{ asset('assets/img/flags/fr.png')}}" class="mr-1 lazyload" alt="Bangla" height="11">
+                                            <span class="language">@lang("Francais")</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -147,7 +141,7 @@
                                     <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
                                         <span class="d-flex align-items-center">
                                             <span class="avatar avatar-sm mr-md-2">
-                                                <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/jxUqbB2ThpoDFZbBtPHaiy2pF7i02hDaFJEEF9rx.png" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png';">
+                                                <img src="{{ asset(Session('picprofile'))}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png';">
                                             </span>
                                             <span class="d-none d-md-block">
                                                 <span class="d-block fw-500">{{ Auth::user()->name }}</span>
@@ -156,7 +150,7 @@
                                         </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
-                                        <a href="https://demo.activeitzone.com/ecommerce/admin/profile" class="dropdown-item">
+                                        <a href="{{ route('profile')}}" class="dropdown-item">
                                             <i class="las la-user-circle"></i>
                                             <span>@lang("Profile")</span>
                                         </a>

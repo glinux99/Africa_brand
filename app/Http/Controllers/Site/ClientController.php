@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use Exception;
 use App\Models\User;
 use App\Models\Client;
+use App\Models\Images;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
@@ -22,9 +25,15 @@ class ClientController extends Controller
         //$user->assignRole('admin');
         //$user->attachRole('admin');
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            try {
+                $images = Images::where('imagesprofile_id', Auth::user()->id)->first();
+                if ($images->images != '') Session::put('picprofile', 'storage/' . $images->images);
+                else Session::put('picprofile', 'assets/img/default.png');
+            } catch (Exception $exc) {
+                Session::put('picprofile', 'assets/img/default.png');
+            }
             if (Auth::user()->roles->first()->name == 'admin') return redirect()->route('admin');
             if (Auth::user()->roles->first()->name == 'client') return redirect()->route('index');
-            echo 'coool';
         } else return redirect()->route('login');
     }
 
@@ -62,7 +71,10 @@ class ClientController extends Controller
             $user->assignRole('client');
             $user->save();
         }
+        $images = new Images;
         Auth::login($user, true);
+        $images->imagesprofile_id = Auth::user()->id;
+        $images->save();
         return redirect()->route('index');
     }
 

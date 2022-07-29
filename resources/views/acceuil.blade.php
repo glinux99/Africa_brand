@@ -65,11 +65,11 @@
                     <div class="c-scrollbar-light overflow-auto h-lg-400px p-2 bg-success rounded-bottom">
                         <div class="gutters-5 lg-no-gutters row row-cols-2 row-cols-lg-1">
                             @for ($x=0; $x<3;$x++) <div class="col mb-2">
-                                <a href="https://demo.activeitzone.com/ecommerce/product/FIFA-22-Standard---PC-Online-Game-Code-22545" class="d-block p-2 text-reset bg-white h-100 rounded">
+                                <a href="#" class="d-block p-2 text-reset bg-white h-100 rounded">
                                     <div class="row gutters-5 align-items-center">
                                         <div class="col-xxl">
                                             <div class="img">
-                                                <img class="lazyload img-fit h-140px h-lg-80px" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/4gmGnYIZhgatZRJsxrhXVW2qO0aoLLdZT8U6qOQE.png" alt="FIFA 22 Standard - PC [Online Game Code]" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                <img class="lazyload img-fit h-140px h-lg-80px" src="#" data-src="{{ asset('uploads/all/chemise.png')}}" alt="linux" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                             </div>
                                         </div>
                                         <div class="col-xxl">
@@ -134,7 +134,7 @@
                         @endif
                         <div class="position-relative">
                             <a href="#" class="d-block">
-                                <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="Calvin Klein Women&#039;s Scuba Sleeveless Princess Seamed Sheath Dress" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                <img class="img-cover lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                             <span class="absolute-bottom-left fs-11 text-white fw-600 px-2 lh-1-8" style="background-color: #455a64">
                                 @lang("En vente")
@@ -203,7 +203,7 @@
                             @endif
                             <div class="position-relative">
                                 <a href="#" class="d-block">
-                                    <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="Africa brand" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                    <img class="img-cover lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="Africa brand" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                                 <div class="absolute-top-right aiz-p-hov-icon">
                                     <a href="javascript:void(0)" onclick="addToWishList(155)" data-toggle="tooltip" data-title="Add to wishlist" data-placement="left">

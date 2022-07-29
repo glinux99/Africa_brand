@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="card card-user">
                         <div class="image">
-                            <img class="w-100" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
+                            <img class="w-100" src="https://infocongo.net/wp-content/uploads/2021/12/goma-intacte.jpg" alt="..." />
                         </div>
                         <div class="content">
                             <div class="author">
@@ -37,17 +37,18 @@
                                         transition: transform 1s 0s ease;
                                     }
                                 </style>
-                                <a href="#">
-                                    <img class="avatar border-gray" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
-
+                                <a href="{{ asset(Session('picprofile'))}}">
+                                    <img class="avatar border-gray" src="{{ asset(Session('picprofile'))}}" alt="Profile" />
                                     <h4 class="title text-center">{{ Auth::user()->name }}<br />
                                         <small>{{ auth()->user()->getRoleNames()->first()}}</small>
                                         <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                     </h4>
                                 </a>
                             </div>
-                            <p class="description text-center"> A propos de moi
-                            </p>
+                            <div class="d-flex justify-content-center">
+                                <p class="description text-center">{!! Auth::user()->description!!}
+                                </p>
+                            </div>
                         </div>
                         <hr>
                         <div class="text-center py-3">

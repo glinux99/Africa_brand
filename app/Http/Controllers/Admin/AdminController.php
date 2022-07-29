@@ -13,6 +13,7 @@ use App\Models\ImagesBottom;
 use App\Models\ImagesCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -69,6 +70,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+
         $users = User::all()->count();
         $produits = Produits::inRandomOrder()->paginate(20);
         $produitCount = Produits::all()->count();

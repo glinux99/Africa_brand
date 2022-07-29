@@ -4,17 +4,17 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Images\Images;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Vendor\Vendeur;
+use App\Http\Controllers\SelectController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Site\ClientController;
-use App\Http\Controllers\SelectController;
+use App\Http\Controllers\Images\ImageController;
 use App\Http\Controllers\Admin\AnnonceController;
 use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\Admin\ProduitsController;
-use App\Http\Controllers\Images\ImageController;
-use App\Http\Controllers\Images\Images;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\Vendor\Vendeur;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/alter-profile', [UserController::class, 'afficheprofile'])->name('user.profile');
     Route::post('/update-profile', [UserController::class, 'update_me'])->name('update.profile');
     Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('delete.user');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::get('/vendeur', [Vendeur::class, 'index']);
 });
 Route::get('/produitCategorie', [SelectController::class, 'categorie']);
@@ -56,12 +57,10 @@ Route::get('/produitMarque', [SelectController::class, 'marque']);
 
 Route::get('/login-client', function () {
 
-    $roles = Auth::user()->roles->first()->name;
-    echo $roles;
+    // $roles = Auth::user()->roles->first()->name;
+    // echo $roles;
+
 });
-Route::get('/profile', function () {
-    return view('users.profile');
-})->name('profile');
 Route::get('/taxes', function () {
     return view('taxes.taxe');
 });
