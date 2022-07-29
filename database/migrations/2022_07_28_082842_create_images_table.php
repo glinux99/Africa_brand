@@ -21,7 +21,7 @@ class CreateImagesTable extends Migration
             $table->bigInteger('imagesprofile_id')->nullable();
             $table->foreign('annonces_id')->references('id')->on('annonces')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
             $table->foreign('produits_id')->references('id')->on('produits')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('imagesprofile_id')->references('id')->on('profiles')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+            $table->foreign('imagesprofile_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
             $table->timestamps();
         });
     }

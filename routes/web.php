@@ -36,9 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/store-produit', [ProduitsController::class, 'store'])->name('store.produits');
     Route::get('/creation-produit', [ProduitsController::class, 'index'])->name('create.produit');
     Route::get('/produit-all', [ProduitsController::class, 'create'])->name('create.produits');
-    Route::get('/admin', function () {
-        return view('admin.admin');
-    })->name('admin');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/configuration-home-page', [AdminController::class, 'home_page'])->name('home.page');
     Route::post('/configuration-home-page-alter', [AdminController::class, 'home_page_alter'])->name('home.page.alter');
     Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces');
@@ -47,6 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/delete-annonces/{id}', [AnnonceController::class, 'destroy'])->name('delete.annonces');
     Route::get('/delete-images/{id}', [ImageController::class, 'destroy'])->name('delete.images');
     Route::get('/user-all', [UserController::class, 'index'])->name('user.all');
+    Route::get('/alter-profile', [UserController::class, 'afficheprofile'])->name('user.profile');
+    Route::post('/update-profile', [UserController::class, 'update_me'])->name('update.profile');
     Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('delete.user');
     Route::get('/vendeur', [Vendeur::class, 'index']);
 });

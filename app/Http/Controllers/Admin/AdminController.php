@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\select;
+use App\Models\Produits;
 use App\Models\ImagesPub;
 use App\Models\ImagesPub1;
 use App\Models\ImagesPub2;
@@ -10,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Models\ImagesBottom;
 use App\Models\ImagesCenter;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -66,7 +69,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all()->count();
+        $produits = Produits::inRandomOrder()->paginate(20);
+        $produitCount = Produits::all()->count();
+        $marques = select::where('marque', '!=', null)->count();
+        return view('admin.admin', [
+            'produits' => $produits,
+            'userCount' => $users,
+            'produitCount' => $produitCount,
+            'marqueCount' => $marques
+        ]);
     }
 
     /**

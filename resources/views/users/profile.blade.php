@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-6 text-md-right">
 
-                        <a href="{{route('create.produit')}}" class="btn btn-circle btn-info">
+                        <a href="{{route('user.profile')}}" class="btn btn-circle btn-info">
                             <span>@lang('Modifier')</span>
                         </a>
                     </div>
@@ -24,7 +24,7 @@
                         <h5 class="mb-md-0 h6">@lang("Mon profile Actuel")</h5>
                     </div>
                 </div>
-                <div class="mx-auto">
+                <div class="col-md-12">
                     <div class="card card-user">
                         <div class="image">
                             <img class="w-100" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
@@ -41,7 +41,8 @@
                                     <img class="avatar border-gray" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
 
                                     <h4 class="title text-center">{{ Auth::user()->name }}<br />
-                                        <small>{{ Auth::user()->name }}</small>
+                                        <small>{{ auth()->user()->getRoleNames()->first()}}</small>
+                                        <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                     </h4>
                                 </a>
                             </div>
@@ -50,7 +51,7 @@
                         </div>
                         <hr>
                         <div class="text-center py-3">
-                            {{__("Profile Agent ")}}{{Config("app.name")}}
+                            {{__("Profile design")}} {{Config("app.name")}}
                         </div>
                     </div>
                 </div>
