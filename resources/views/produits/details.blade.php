@@ -359,8 +359,8 @@
                                             $reduction =((float)$produit->prix)-(((float)$produit->prix)*((float)$produit->reduction)/100)
                                             @endphp
 
-                                            <del class="fw-600 opacity-50 mr-1">{{ $produit->prix}}</del>
-                                            <span class="fw-700 text-primary">{{ $reduction}}</span>
+                                            <del class="fw-600 opacity-50 mr-1">{{ $produit->prix}} $</del>
+                                            <span class="fw-700 text-primary">{{ $reduction}} $</span>
                                         </div>
                                         <div class="rating rating-sm mt-1">
                                             <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
