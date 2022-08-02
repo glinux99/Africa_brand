@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Images;
 use App\Models\select;
 use App\Models\Produits;
+use Faker\Provider\Image;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Vendeur;
 
 class ProduitsController extends Controller
 {
@@ -42,6 +45,7 @@ class ProduitsController extends Controller
         $produit = Produits::create($request->except(['_token', 'images', 'vignette']));
         if ($request->images) {
             foreach ($request->images as $index => $image) {
+                $imageSave = new Images;
                 $file = Str::random(5);
                 $ext = $image->getClientOriginalExtension();
                 $fileName = $file . '.' . $ext;
@@ -50,8 +54,10 @@ class ProduitsController extends Controller
                     $fileName,
                     'public'
                 );
-                $pathImage = "image" . ($index + 1);
-                $produit->$pathImage = $path;
+                $imageSave->images = $path;
+                $imageSave->produits_id = $produit->id;
+
+                $imageSave->save();
             }
             $produit->save();
         }
@@ -63,7 +69,19 @@ class ProduitsController extends Controller
         //Alert::toast("Le produit a ete ajoute avec succes", 'success');
         return redirect()->route('admin');
     }
-
+    public function details($id)
+    {
+        $produit = Produits::find($id);
+        $images = Images::where('produits_id', $id)->get();
+        $produitCat = Produits::where('categorie', $produit->categorie)
+            ->orWhere('marque', $produit->marque)->join('images', 'produits.id', '=', 'images.produits_id')
+            ->inRandomOrder('images.images')->get()->unique('produits_id');
+        $produitvendu = Produits::join('images', 'produits.id', '=', 'images.produits_id')
+            ->inRandomOrder('images.images')->get()->unique('produits_id');
+        //$vendeur = Vendeur::where('produit_id', $id);
+        $vendeur = ['name' => "AFRICAN BRAND"];
+        return view('produits.details', ['produit' => $produit, 'produitvendu' => $produitvendu, 'images' => $images, 'produitCat' => $produitCat, 'vendeur' => $vendeur]);
+    }
     /**
      * Display the specified resource.
      *

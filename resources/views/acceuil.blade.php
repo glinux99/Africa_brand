@@ -45,8 +45,8 @@
                     <!-- Images en bas de  l image centrale -->
                     @foreach ($imagesBottom as $image)
                     <li class="minw-0 col-4 col-md mt-3">
-                        <a href="#" class="d-block rounded bg-white p-2 text-reset shadow-sm">
-                            <img src="{{asset('storage/'.$image->image1)}}" alt="Women Clothing &amp; Fashion" class="lazyload img-fit" height="78" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                        <a href="{{asset('storage/'.$image->images)}}" class="d-block rounded bg-white p-2 text-reset shadow-sm">
+                            <img src="{{asset('storage/'.$image->images)}}" alt="@lang('african brand')" class="lazyload img-fit" height="78" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
                             <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">{{$image->categorie}}</div>
                         </a>
                     </li>
@@ -133,8 +133,8 @@
                         <span class="badge-custom">OFF<span class="box ml-1 mr-0">{{ $produit->reduction}} %</span></span>
                         @endif
                         <div class="position-relative">
-                            <a href="#" class="d-block">
-                                <img class="img-cover lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                            <a href="{{ route('detail.produits', ['id'=>$produit->produits_id])}}" class="d-block">
+                                <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->images)}}" data-src="{{ asset('storage/'.$produit->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                             <span class="absolute-bottom-left fs-11 text-white fw-600 px-2 lh-1-8" style="background-color: #455a64">
                                 @lang("En vente")
@@ -154,7 +154,7 @@
                         <div class="p-md-3 p-2 text-left">
                             <div class="fs-15">
                                 @php
-                                $reduction = ((float)$produit->prix)*((float)$produit->reduction)
+                                $reduction =((float)$produit->prix)-(((float)$produit->prix)*((float)$produit->reduction)/100)
                                 @endphp
                                 @if($reduction)
                                 <del class="fw-600 opacity-50 mr-1">
@@ -202,8 +202,8 @@
                             <span class="badge-custom">OFF<span class="box ml-1 mr-0">{{ $produit->reduction}} %</span></span>
                             @endif
                             <div class="position-relative">
-                                <a href="#" class="d-block">
-                                    <img class="img-cover lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->image1)}}" data-src="{{ asset('storage/'.$produit->image1)}}" alt="Africa brand" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                <a href="{{ route('detail.produits', ['id'=>$produit->produits_id])}}" class="d-block">
+                                    <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="{{ asset('storage/'.$produit->images)}}" data-src="{{ asset('storage/'.$produit->images)}}" alt="Africa brand" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                                 <div class="absolute-top-right aiz-p-hov-icon">
                                     <a href="javascript:void(0)" onclick="addToWishList(155)" data-toggle="tooltip" data-title="Add to wishlist" data-placement="left">
@@ -220,14 +220,14 @@
                             <div class="p-md-3 p-2 text-left">
                                 <div class="fs-15">
                                     @php
-                                    $reduction = ((float)$produit->prix)*((float)$produit->reduction)
+                                    $reduction =((float)$produit->prix)-(((float)$produit->prix)*((float)$produit->reduction)/100)
                                     @endphp
                                     @if($reduction)
                                     <del class="fw-600 opacity-50 mr-1">
-                                        {{ $reduction}}
+                                        {{ $produit->prix}}
                                     </del>
                                     @endif
-                                    <span class="fw-700 text-success">{{ $produit->prix}}</span>
+                                    <span class="fw-700 text-success">{{ $reduction}}</span>
                                 </div>
                                 <div class="rating rating-sm mt-1">
                                     <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
@@ -297,7 +297,7 @@
                 <h3 class="h5 fw-700 mb-0">
                     <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Les annonces")</span>
                 </h3>
-                <a href="https://demo.activeitzone.com/ecommerce/customer-products" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">View More</a>
+                <a href="#" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("Voir plus")</a>
             </div>
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                 <!-- TOrra en ligne -->
@@ -393,7 +393,7 @@
                     <h3 class="h5 fw-700 mb-0">
                         <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Top 10 Marques")</span>
                     </h3>
-                    <a href="https://demo.activeitzone.com/ecommerce/brands" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("toutes les marques")</a>
+                    <a href="#" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("toutes les marques")</a>
                 </div>
                 <div class="row gutters-5">
                     @foreach ($categories as $marque)

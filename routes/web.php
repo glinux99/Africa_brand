@@ -31,7 +31,7 @@ Route::post('add-impot', [ImpotController::class, 'store'])->name('add.impot');
 Route::get('delete-impot/{id}', [ImpotController::class, 'destroy'])->name('delete.impot');
 Route::post('register/Client', [ClientController::class, 'store'])->name('register.client');
 Route::post('/login/client', [ClientController::class, 'index'])->name('login.client');
-
+Route::get('/produit-details/{id}', [ProduitsController::class, 'details'])->name('detail.produits');
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/store-produit', [ProduitsController::class, 'store'])->name('store.produits');
     Route::get('/creation-produit', [ProduitsController::class, 'index'])->name('create.produit');
@@ -71,7 +71,9 @@ Route::get('/details', function () {
 
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 
-
+Route::get('/detail', function () {
+    return view('produits.details');
+})->name("details");
 Route::get('/offre', function () {
 })->name("offre");
 Route::get('/blog', function () {

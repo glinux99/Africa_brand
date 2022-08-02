@@ -18,10 +18,13 @@ class HomeSiteController extends Controller
     public function index()
     {
         $categorie = select::paginate(10);
-        $produits = Produits::paginate(6)->sortDesc();;
-        $newproduits = Produits::inRandomOrder()->get();
+        $produits = Produits::join('images', 'produits.id', '=', 'images.produits_id')
+            ->inRandomOrder('images.images')->paginate(6)->sortDesc()->unique('produits_id');
+        $newproduits = Produits::join('images', 'produits.id', '=', 'images.produits_id')
+            ->inRandomOrder('images.images')->get()->unique('produits_id');
         $imagesCenter = ImagesCenter::all();
-        $imagesBottom = Produits::inRandomOrder()->limit(6)->get();
+        $imagesBottom = Produits::join('images', 'produits.id', '=', 'images.produits_id')
+            ->inRandomOrder('images.images')->limit(6)->get()->unique('produits_id');
         $imagesPub = ImagesPub::all();
         $imagesPub1 = ImagesPub1::all();
         $imagesPub2 = ImagesPub2::all();
