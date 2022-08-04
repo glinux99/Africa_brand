@@ -20,7 +20,7 @@ class FournisseurController extends Controller
     public function index()
     {
         $users = Membre::where('type', 'fournisseurs')->join('images', 'membres.id', 'membre_id')
-            ->select('fournisseurs.*', 'fournisseurs.id AS fournisseurs_id', 'images.*')->paginate(10);
+            ->select('membres.*', 'membres.id AS membre_id', 'images.*')->paginate(10);
         return view('users.ClientPartenairesFournisseurs.fournisseurs', ['users' => $users]);
     }
 
@@ -98,9 +98,14 @@ class FournisseurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data inserted successfully'
+            ]
+        );
     }
 
     /**

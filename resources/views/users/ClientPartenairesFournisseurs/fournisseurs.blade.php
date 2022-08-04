@@ -16,6 +16,9 @@
 @section('delete-link')
 delete-fournisseur/
 @endsection
+@section('ajax')
+{{ route('fournisseurs.edit')}}
+@endsection
 @section('titre-modal')
 @lang("Ajouter un Fournisseur")
 @endsection

@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta name="csrf-token" content="FRREUj2dROMBBmottIxf9LQigkhinV1dvoPIKxgX">
     <meta name="app-url" content="//demo.activeitzone.com/ecommerce/">
     <meta name="file-base-url" content="//demo.activeitzone.com/ecommerce/public/">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -542,6 +541,7 @@
     <script src="{{ asset('js/jquery.min.js')}}"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> -->
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
+
     <script type="text/javascript">
         $('.selectcategorie').select2({
             placeholder: 'Seclectionner une categorie',
@@ -646,7 +646,33 @@
             }
         }
     </script>
+    <script>
+        $(document).ready(function($) {
+            $('#modif').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                console.log(id);
 
+                // ajax
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('fournisseurs.edit') }}",
+                    data: {
+                        id: 1
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        // $('#jan_plan').val(res.jan);
+                        $('#btnOpen').trigger('click');
+                        console.log(res.message);
+                    }
+                });
+            });
+        })
+    </script>
 </body>
 
 </html>
