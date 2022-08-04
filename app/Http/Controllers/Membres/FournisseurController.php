@@ -8,6 +8,7 @@ use App\Models\Membre;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class FournisseurController extends Controller
 {
@@ -18,7 +19,8 @@ class FournisseurController extends Controller
      */
     public function index()
     {
-        $users = Membre::where('type', 'fournisseurs')->join('images', 'membres.id', 'membre_id')->paginate(10);
+        $users = Membre::where('type', 'fournisseurs')->join('images', 'membres.id', 'membre_id')
+            ->select('fournisseurs.*', 'fournisseurs.id AS fournisseurs_id', 'images.*')->paginate(10);
         return view('users.ClientPartenairesFournisseurs.fournisseurs', ['users' => $users]);
     }
 
@@ -59,22 +61,22 @@ class FournisseurController extends Controller
                 $imageSave->save();
             }
         }
-        // if ($request->documents) {
-        //     foreach ($request->documents as $index => $image) {
-        //         $imageSave = new Images;
-        //         $file = Str::random(5);
-        //         $ext = $image->getClientOriginalExtension();
-        //         $fileName = $file . '.' . $ext;
-        //         $path = $image->storeAs(
-        //             'documents/' . $type,
-        //             $fileName,
-        //             'public'
-        //         );
-        //         $imageSave->documents = $path;
-        //         $imageSave->fournisseur_id = $mbr->id;
-        //         $imageSave->save();
-        //     }
-        // }
+        if ($request->documents) {
+            foreach ($request->documents as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'documents/' . $type,
+                    $fileName,
+                    'public'
+                );
+                $imageSave->documents = $path;
+                $imageSave->fournisseur_id = $mbr->id;
+                $imageSave->save();
+            }
+        }
         $mbr->save();
         return redirect()->route($type);
     }
@@ -121,6 +123,11 @@ class FournisseurController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $images = Images::where('membre_id', $id);
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image->images);
+        }
+        Membre::find($id)->delete();
+        return \redirect()->route('fournisseurs');
     }
 }

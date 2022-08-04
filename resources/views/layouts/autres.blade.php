@@ -40,7 +40,7 @@
                                         <i class="las la-clipboard mr-2"></i>
                                         <span>@lang('Copier le lien')</span>
                                     </a>
-                                    <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="@yield('delete-link'){{$user->id}}" data-target="#delete-modal">
+                                    <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="@yield('delete-link'){{$user->fournisseurs_id}}" data-target="#delete-modal">
                                         <i class="las la-trash mr-2"></i>
                                         <span>@lang('Supprimer ce membre')</span>
                                     </a>
