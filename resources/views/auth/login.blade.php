@@ -11,7 +11,7 @@
                             <h1 class="h3 text-primary mb-0">@lang("Bienvenu dans Africa Brand")</h1>
                             <p>@lang("Se connecter avec votre propre compte")</p>
                         </div>
-                        <form class="pad-hor" method="POST" role="form" action="{{route('login.client')}}">
+                        <form class="pad-hor" method="POST" role="form" action="{{route('login')}}">
                             @csrf
                             <div class="form-group">
                                 <input id="email" type="email" class="form-control" name="email" value="" required autofocus placeholder="Email">

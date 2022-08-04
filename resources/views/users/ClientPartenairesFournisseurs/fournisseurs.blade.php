@@ -20,7 +20,7 @@
 delete-fournisseur/
 @endsection
 @section('ajax-url')
-{{ route('fournisseurs.edit')}}
+/add-fournisseur
 @endsection
 @section('titre-modal')
 @lang("Ajouter un Fournisseur")

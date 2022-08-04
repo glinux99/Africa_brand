@@ -39,6 +39,9 @@ Route::post('update-clients', [ClientController::class, 'update'])->name('client
 Route::get('delete-fournisseur/{id}', [FournisseurController::class, 'destroy'])->name('fournisseurs.delete');
 Route::get('delete-partenaire/{id}', [PartenaireController::class, 'destroy'])->name('partenaires.delete');
 Route::get('detete-client/{id}', [ClientController::class, 'destroy'])->name('clients.delete');
+Route::post('infos-fournisseur', [FournisseurController::class, 'show'])->name('fournisseurs.show');
+Route::post('infos-partenaire', [PartenaireController::class, 'show'])->name('partenaires.show');
+Route::post('infos-client', [ClientController::class, 'show'])->name('clients.show');
 Route::post('add-fournisseur', [FournisseurController::class, 'edit'])->name('fournisseurs.edit');
 // Route::get('register', [ClientController::class, 'index'])->name('clients');
 
