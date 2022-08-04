@@ -13,10 +13,13 @@
 @section('url')
 {{ route('fournisseurs.store')}}
 @endsection
+@section('url-update')
+{{ route('fournisseurs.update')}}
+@endsection
 @section('delete-link')
 delete-fournisseur/
 @endsection
-@section('ajax')
+@section('ajax-url')
 {{ route('fournisseurs.edit')}}
 @endsection
 @section('titre-modal')

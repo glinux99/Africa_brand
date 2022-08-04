@@ -100,11 +100,9 @@ class FournisseurController extends Controller
      */
     public function edit(Request $request)
     {
+        $data = Membre::where('id', $request->id)->first();
         return response()->json(
-            [
-                'success' => true,
-                'message' => 'Data inserted successfully'
-            ]
+            $data
         );
     }
 
@@ -115,9 +113,46 @@ class FournisseurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $type = "fournisseurs";
+        $mbr = Membre::where('id', $request->id)->first();
+        $mbr->update($request->except(['_token', 'images', 'documents', 'type']));
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/' . $type,
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->membre_id = $mbr->id;
+                $imageSave->save();
+                FournisseurController::delete($mbr->id);
+            }
+        }
+        if ($request->documents) {
+            foreach ($request->documents as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'documents/' . $type,
+                    $fileName,
+                    'public'
+                );
+                $imageSave->documents = $path;
+                $imageSave->fournisseur_id = $mbr->id;
+                $imageSave->save();
+            }
+        }
+        $mbr->save();
+        return redirect()->route($type);
     }
 
     /**
@@ -128,11 +163,15 @@ class FournisseurController extends Controller
      */
     public function destroy($id)
     {
+        FournisseurController::delete($id);
+        Membre::find($id)->delete();
+        return \redirect()->route('fournisseurs');
+    }
+    public function delete($id)
+    {
         $images = Images::where('membre_id', $id);
         foreach ($images as $image) {
             Storage::disk('public')->delete($image->images);
         }
-        Membre::find($id)->delete();
-        return \redirect()->route('fournisseurs');
     }
 }

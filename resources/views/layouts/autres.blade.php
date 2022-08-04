@@ -14,6 +14,7 @@
             </div>
         </div>
         <button id="btnOpen" data-toggle="modal" data-target="#modif-modal" hidden></button>
+        <button id="infoOpen" data-toggle="modal" data-target="#info-modal" hidden></button>
         <div class="card">
             <div class="card-header row gutters-5">
                 <div class="col text-center text-md-left">
@@ -32,7 +33,7 @@
                                     <i class="la la-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:void(0)" class="dropdown-item" onclick="detailsInfo(this)" data-id="1317">
+                                    <a href="javascript:void(0)" class="dropdown-item" id="infos">
                                         <i class="las la-info-circle mr-2"></i>
                                         <span>@lang("Details infos")</span>
                                     </a>
@@ -89,6 +90,22 @@
 </div><!-- .aiz-main-content -->
 
 <!-- Modals -->
+<div id="info-modal" class="modal fade">
+    <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h6">File Info</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body c-scrollbar-light position-relative" id="info-modal-content">
+                <div class="c-preloader text-center absolute-center">
+                    <i class="las la-spinner la-spin la-3x opacity-70"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="modif-modal" class="modal fade">
     <div class="modal-dialog modal-lg modal-dialog">
         <div class="modal-content">
@@ -96,21 +113,22 @@
                 <h4 class="modal-title h6">@yield('titre-modal')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             </div>
-            <form action="@yield('url')" method="post" enctype="multipart/form-data">
+            <form action="@yield('url-update')" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
+                    <input type="text" name="id" id="idIn" hidden>
                     <p class="mt-1">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">@lang('Nom')</label>
-                                <input type="text" class="form-control" name="name" id="" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
+                                <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">@lang('Adresse E-mail')</label>
-                                <input type="text" class="form-control" name="email" id="" autocomplete="new-password" aria-describedby="helpId" placeholder="@lang('adresse email de l\'agent')">
+                                <input type="text" class="form-control" name="email" id="email" autocomplete="new-password" aria-describedby="helpId" placeholder="@lang('adresse email de l\'agent')">
                             </div>
                         </div>
                     </div>
@@ -118,13 +136,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">@lang('Numero Tel /Whatsapp')</label>
-                                <input type="text" class="form-control" name="numero" id="" aria-describedby="helpId">
+                                <input type="text" class="form-control" name="numero" id="numero" aria-describedby="helpId">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">@lang('Adresse physique')</label>
-                                <input type="text" class="form-control" name="adresse" id="" aria-describedby="helpId">
+                                <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="helpId">
                             </div>
                         </div>
                     </div>
@@ -146,13 +164,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">@lang('site web')</label>
-                                <input type="text" class="form-control" name="site" id="" aria-describedby="helpId">
+                                <input type="text" class="form-control" name="site" id="site" aria-describedby="helpId">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">@lang('Lien facebook/Twitter')</label>
-                                <input type="text" class="form-control" name="liens" id="" aria-describedby="helpId">
+                                <input type="text" class="form-control" name="liens" id="liens" aria-describedby="helpId">
                             </div>
                         </div>
                     </div>
@@ -275,21 +293,8 @@
         $('#supp').attr('href', `xxxx`);
     }
 </script> -->
-
+<script src="{{ asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript">
-    function detailsInfo(e) {
-        $('#info-modal-content').html('<div class="c-preloader text-center absolute-center"><i class="las la-spinner la-spin la-3x opacity-70"></i></div>');
-        var id = $(e).data('id')
-        $('#info-modal').modal('show');
-        $.post('https://demo.activeitzone.com/ecommerce/admin/uploaded-files/file-info', {
-            _token: AIZ.data.csrf,
-            id: id
-        }, function(data) {
-            $('#info-modal-content').html(data);
-            // console.log(data);
-        });
-    }
-
     function copyUrl(e) {
         var url = $(e).data('url');
         var $temp = $("<input>");
@@ -354,5 +359,101 @@
             $("#search-menu").html('')
         }
     }
+</script>
+<script>
+    $(document).ready(function($) {
+        $('#modif').on('click', function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            console.log(id);
+
+            // ajax
+            $.ajax({
+                type: "POST",
+                url: "@yield('ajax-url')",
+                data: {
+                    id: $('#id').val()
+                },
+                dataType: 'json',
+                success: function(res) {
+                    // $('#jan_plan').val(res.jan);
+                    $('#btnOpen').trigger('click');
+                    $('#name').val(res.name);
+                    $('#email').val(res.email);
+                    $('#numero').val(res.numero);
+                    $('#liens').val(res.liens);
+                    $('#site').val(res.site);
+                    $('#idIn').val(res.id);
+                    console.log(res.name);
+                }
+            });
+        });
+        $('#infos').on('click', function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            console.log(id);
+
+            // ajax
+            $.ajax({
+                type: "POST",
+                url: "@yield('ajax-url-info')",
+                data: {
+                    id: $('#id').val()
+                },
+                dataType: 'json',
+                success: function(res) {
+                    // $('#jan_plan').val(res.jan);
+                    $('#infoOpen').trigger('click');
+                    $('#info-modal-content').html(`
+                        <div class="c-preloader text-center">
+                        <div class="col-12 card-user">
+                        <div class="image">
+                            <img class="w-100" src="https://infocongo.net/wp-content/uploads/2021/12/goma-intacte.jpg" alt="..." />
+                        </div>
+                        <div class="content">
+                            <div class="author">
+                                <style>
+                                    .avatar:hover {
+                                        transform: scale(1.2);
+                                        transition: transform 1s 0s ease;
+                                    }
+                                </style>
+                                <a href="{{ asset(Session('picprofile'))}}">
+                                    <img class="avatar border-gray" src="{{ asset(Session('picprofile'))}}" alt="Profile" />
+                                    <h4 class="title text-center">{{ Auth::user()->name }}<br />
+                                        <small>{{ auth()->user()->getRoleNames()->first()}}</small>
+                                        <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <p class="description text-center">{!! Auth::user()->description!!}
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center py-3">
+                            {{__("Profile design")}} {{Config("app.name")}}
+                        </div>
+                    </div>
+                        </div>
+                        `);
+                    $('#name').val(res.name);
+                    $('#email').val(res.email);
+                    $('#numero').val(res.numero);
+                    $('#liens').val(res.liens);
+                    $('#site').val(res.site);
+                    $('#idIn').val(res.id);
+                    console.log(res.name);
+                }
+            });
+        });
+    })
 </script>
 @endsection

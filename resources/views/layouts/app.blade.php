@@ -661,13 +661,82 @@
                     type: "POST",
                     url: "{{ route('fournisseurs.edit') }}",
                     data: {
-                        id: 1
+                        id: $('#id').val()
                     },
                     dataType: 'json',
                     success: function(res) {
                         // $('#jan_plan').val(res.jan);
                         $('#btnOpen').trigger('click');
-                        console.log(res.message);
+                        $('#name').val(res.name);
+                        $('#email').val(res.email);
+                        $('#numero').val(res.numero);
+                        $('#liens').val(res.liens);
+                        $('#site').val(res.site);
+                        $('#idIn').val(res.id);
+                        console.log(res.name);
+                    }
+                });
+            });
+            $('#infos').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                console.log(id);
+
+                // ajax
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('fournisseurs.edit') }}",
+                    data: {
+                        id: $('#id').val()
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        // $('#jan_plan').val(res.jan);
+                        $('#infoOpen').trigger('click');
+                        $('#info-modal-content').html(`
+                        <div class="c-preloader text-center">
+                        <div class="col-12 card-user">
+                        <div class="image">
+                            <img class="w-100" src="https://infocongo.net/wp-content/uploads/2021/12/goma-intacte.jpg" alt="..." />
+                        </div>
+                        <div class="content">
+                            <div class="author">
+                                <style>
+                                    .avatar:hover {
+                                        transform: scale(1.2);
+                                        transition: transform 1s 0s ease;
+                                    }
+                                </style>
+                                <a href="{{ asset(Session('picprofile'))}}">
+                                    <img class="avatar border-gray" src="{{ asset(Session('picprofile'))}}" alt="Profile" />
+                                    <h4 class="title text-center">{{ Auth::user()->name }}<br />
+                                        <small>{{ auth()->user()->getRoleNames()->first()}}</small>
+                                        <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <p class="description text-center">{!! Auth::user()->description!!}
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center py-3">
+                            {{__("Profile design")}} {{Config("app.name")}}
+                        </div>
+                    </div>
+                        </div>
+                        `);
+                        $('#name').val(res.name);
+                        $('#email').val(res.email);
+                        $('#numero').val(res.numero);
+                        $('#liens').val(res.liens);
+                        $('#site').val(res.site);
+                        $('#idIn').val(res.id);
+                        console.log(res.name);
                     }
                 });
             });
