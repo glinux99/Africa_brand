@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Vendor;
+namespace App\Http\Controllers\Membres;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Membre;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class VendeurController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class VendeurController extends Controller
      */
     public function index()
     {
-        //
+        $users = Membre::where('type', 'partenaire')->paginate(10);
+        return view('users.ClientPartenairesFournisseurs.clients', ['users' => $users]);
     }
 
     /**

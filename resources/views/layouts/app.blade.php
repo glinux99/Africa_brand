@@ -60,7 +60,7 @@
         <div class="aiz-sidebar-wrap">
             <div class="aiz-sidebar left c-scrollbar">
                 <div class="aiz-side-nav-logo-wrap">
-                    <a href="{{ route('admin')}}" class="d-block text-left d-flex">
+                    <a href="{{ ('admin')}}" class="d-block text-left d-flex">
                         <img class="" src="{{asset('assets/img/logo.png')}}" class="brand-icon" alt="">
                         <h5 class="text-center">@lang("AFRICA BRAND ADMIN")</h5>
                     </a>
@@ -73,250 +73,33 @@
                     </ul>
                     <ul class="aiz-side-nav-list" id="main-menu" data-toggle="aiz-side-menu">
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
+                            <a href="/" class="aiz-side-nav-link">
                                 <i class="las la-home aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
                         </li>
-
                         <!-- Product -->
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-shopping-cart aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang('Produits')</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <!--Submenu-->
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link" href="{{ route('create.produit')}}">
-                                        <span class="aiz-side-nav-text">@lang('Ajouter un nouveau produit')</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('create.produits')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Tous les produits")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang('Produits maisons')</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#ecommerce/admin/products/seller" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang('Produits du vendeur')</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Produits numeriques")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#ecommerce/admin/product-bulk-upload/index" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">Bulk Import</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang('Importation en masse')</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang('Exportation en masse')</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang('Marque')</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Categorie")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Couleurs")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#ecommerce/reviews" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang('Avis sur les produits')</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('annonces')}}" class="aiz-side-nav-link ">
+                            <a href="{{ ('create.produit')}}" class="aiz-side-nav-link ">
                                 <i class="las la-folder-open aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Les annonces")</span>
+                                <span class="aiz-side-nav-text">@lang("Produits")</span>
                             </a>
                         </li>
-                        <!-- Website Setup -->
+                        <!-- Addon Manager -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link ">
-                                <i class="las la-desktop aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Configuration su site")</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Comptabilite")</span>
                             </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('home.page')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Page d'acceuil")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Entete")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Bas de page")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Pages")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Apparence")</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
-                        <!-- Sale -->
+                        <!-- Addon Manager -->
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-money-bill aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Ventes")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <!--Submenu-->
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Ventes de la semaine")</span>
-                                    </a>
-                                </li>
-
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Toutes les ventes")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('user.all')}}" class="aiz-side-nav-link ">
-                                <i class="las la-folder-open aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Clients")</span>
+                            <a href="#" class="aiz-side-nav-link ">
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Contrat de Monopole")</span>
                             </a>
                         </li>
-                        <!--Blog System-->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-bullhorn aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Systeme de blogs")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Tous les posts")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Categorie")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- marketing -->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-bullhorn aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">Marketing</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Offres du J/J")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Newsletters")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Message en masse")</span>
-                                        <span class="badge badge-inline badge-danger">@lang("Ajouter")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Les abonnes")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- Setup & Configurations -->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-dharmachakra aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Installation et Configuration")
-                                    <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Reglages generaux")</span>
-                                    </a>
-                                </li>
-
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Activation de fonctionnalites")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Langue")</span>
-                                    </a>
-                                </li>
-
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Devise")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Valeurs et taxes")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">@lang("Reseaux sociaux login")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
                         <!-- Staffs -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
@@ -337,13 +120,30 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <!-- Addon Manager -->
+                        <!-- Cleints -->
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link ">
-                                <i class="las la-wrench aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("ajouter un manager")</span>
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Autres")</span>
+                                <span class="aiz-side-nav-arrow"></span>
                             </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('clients')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Clients")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('fournisseurs')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Fournisseurs")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Partenaires")</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul><!-- .aiz-side-nav -->
                 </div><!-- .aiz-side-nav-wrap -->
@@ -364,7 +164,7 @@
                         <div class="d-flex justify-content-around align-items-center align-items-stretch">
                             <div class="aiz-topbar-item">
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-icon btn-circle btn-light" href="{{route('index')}}" target="_blank" title="site web">
+                                    <a class="btn btn-icon btn-circle btn-light" href="{{('index')}}" target="_blank" title="site web">
                                         <i class="las la-globe"></i>
                                     </a>
                                 </div>
@@ -461,15 +261,15 @@
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
-                                    <a href="{{route('profile')}}" class="dropdown-item">
+                                    <a href="{{('profile')}}" class="dropdown-item">
                                         <i class="las la-user-circle"></i>
                                         <span>@lang("Profile")</span>
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a class="dropdown-item" href="{{ ('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                         <i class="las la-sign-out-alt"></i> {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ ('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>

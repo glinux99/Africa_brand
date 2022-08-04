@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
-use App\Models\Impot;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ImpotController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ImpotController extends Controller
      */
     public function index()
     {
-        $impots = Impot::paginate(10);
-        return view('taxes.taxe', ['impots' => $impots]);
+        $users = User::paginate(10);
+        return view('users.all_users', ['users' => $users]);
     }
 
     /**
@@ -26,7 +26,7 @@ class ImpotController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.staff_add');
     }
 
     /**
@@ -37,17 +37,16 @@ class ImpotController extends Controller
      */
     public function store(Request $request)
     {
-        Impot::create(['name' => $request->name]);
-        return ImpotController::index();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Impot  $impot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Impot $impot)
+    public function show($id)
     {
         //
     }
@@ -55,10 +54,10 @@ class ImpotController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Impot  $impot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Impot $impot)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +66,10 @@ class ImpotController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Impot  $impot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Impot $impot)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,12 +77,11 @@ class ImpotController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Impot  $impot
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Impot $impot)
+    public function destroy($id)
     {
-        $impot->delete();
-        return ImpotController::index();
+        //
     }
 }

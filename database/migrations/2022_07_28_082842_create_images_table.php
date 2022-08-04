@@ -16,12 +16,11 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('images')->nullable();
-            $table->bigInteger('annonces_id')->nullable();
-            $table->bigInteger('produits_id')->nullable();
-            $table->bigInteger('imagesprofile_id')->nullable();
-            $table->foreign('annonces_id')->references('id')->on('annonces')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('produits_id')->references('id')->on('produits')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('imagesprofile_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+            $table->string('documents')->nullable();
+            $table->bigInteger('users_id')->nullable();
+            $table->bigInteger('membre_id')->nullable();
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+            $table->foreign('membre_id')->references('id')->on('membres')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
             $table->timestamps();
         });
     }

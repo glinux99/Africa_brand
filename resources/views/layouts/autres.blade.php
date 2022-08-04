@@ -6,12 +6,10 @@
         <div class="aiz-titlebar text-left mt-2 mb-3">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1 class="h3">@lang("Staff Configuration")</h1>
+                    <h1 class="h3">@yield('titre')</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="{{ route('staff.create')}}" class="btn btn-circle btn-info">
-                        <span>@lang("Ajouter un Agent")</span>
-                    </a>
+                    @yield('button-add')
                 </div>
             </div>
         </div>
@@ -19,7 +17,7 @@
         <div class="card">
             <div class="card-header row gutters-5">
                 <div class="col text-center text-md-left">
-                    <h5 class="mb-md-0 h6">@lang("Agent actuel")</h5>
+                    <h5 class="mb-md-0 h6">@yield('titre-actuel') @lang(" actuels")</h5>
                 </div>
             </div>
             <div class="card-body">
@@ -42,7 +40,7 @@
                                         <i class="las la-clipboard mr-2"></i>
                                         <span>@lang('Copier le lien')</span>
                                     </a>
-                                    <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="{{ route('staff.delete', [$user->id])}}" data-target="#delete-modal">
+                                    <a href="javascript:void(0)" class="dropdown-item confirm-alert" data-href="@yield('delete-link'){{$user->id}}" data-target="#delete-modal">
                                         <i class="las la-trash mr-2"></i>
                                         <span>@lang('Supprimer ce membre')</span>
                                     </a>
@@ -81,6 +79,8 @@
         </div>
     </div>
 </div><!-- .aiz-main-content -->
+
+<!-- Modals -->
 <div id="delete-modal" class="modal fade">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
@@ -96,23 +96,96 @@
         </div>
     </div>
 </div>
-<div id="info-modal" class="modal fade">
-    <div class="modal-dialog modal-dialog-right">
+<div id="fournisseurs-modal" class="modal fade">
+    <div class="modal-dialog modal-lg modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title h6">File Info</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                </button>
+                <h4 class="modal-title h6">@yield('titre-modal')</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             </div>
-            <div class="modal-body c-scrollbar-light position-relative" id="info-modal-content">
-                <div class="c-preloader text-center absolute-center">
-                    <i class="las la-spinner la-spin la-3x opacity-70"></i>
+            <form action="@yield('url')" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <p class="mt-1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Nom')</label>
+                                <input type="text" class="form-control" name="name" id="" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Adresse E-mail')</label>
+                                <input type="text" class="form-control" name="email" id="" autocomplete="new-password" aria-describedby="helpId" placeholder="@lang('adresse email de l\'agent')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Numero Tel /Whatsapp')</label>
+                                <input type="text" class="form-control" name="numero" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Adresse physique')</label>
+                                <input type="text" class="form-control" name="adresse" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Images')</label>
+                                <input type="file" class="form-control" name="images[]" multiple>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Autres documents')</label>
+                                <input type="file" class="form-control" name="documents[]" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('site web')</label>
+                                <input type="text" class="form-control" name="site" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Lien facebook/Twitter')</label>
+                                <input type="text" class="form-control" name="liens" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                    <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                    <button type="submit" class="btn btn-primary mt-2 comfirm-link">@lang("Enregistrer")</button>
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="delete-modal" class="modal fade">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h6">@lang("Confirmation de suppression")</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="mt-1">@lang("Voulez-vous vraiment supprimer?")</p>
+                <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                <a href="" class="btn btn-primary mt-2 comfirm-link" id="supp" data-id="">@lang("Supprimer")</a>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Mes scripts -->
 <!-- <script>
     function imageDelete(el) {

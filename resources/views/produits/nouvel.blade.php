@@ -8,7 +8,7 @@
             <h5 class="mb-0 h6">@lang("Ajouter un nouveau produit")</h5>
         </div>
         <div class="">
-            <form class="form form-horizontal mar-top" action="{{ route('store.produits')}}" method="POST" enctype="multipart/form-data" id="choice_form">
+            <form class="form form-horizontal mar-top" action="{{ ('store.produits')}}" method="POST" enctype="multipart/form-data" id="choice_form">
                 @csrf
                 <div class="row gutters-5">
                     <div class="col-lg-8">
@@ -21,13 +21,6 @@
                                     <label class="col-md-3 col-from-label">@lang("Nom du produit") <span class="text-danger">*</span></label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="name" placeholder="@lang(' Nom du produit')" onchange="update_sku()" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row" id="category">
-                                    <label class="col-md-3 col-from-label">@lang("Categorie") <span class="text-danger">*</span></label>
-                                    <div class="col-md-8">
-                                        <select class="selectcategorie form-control " name="categorie" id="category_id" data-live-search="true" required>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
@@ -112,32 +105,6 @@
                                         <small class="text-muted">@lang("Utilisez le lien approprié sans paramètre supplémentaire. N'utilisez pas de
                                             lien de partage court/de code iframe intégré.")</small>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 h6">@lang("Variante de produit")</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group row gutters-5">
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" value="@lang('Couleur')" disabled>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <select class="form-control aiz-selectpicker" data-live-search="true" data-selected-text-format="count" name="couleur" id="colors" multiple disabled>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input value="1" type="checkbox" name="couleur_active">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="customer_choice_options" id="customer_choice_options">
-
                                 </div>
                             </div>
                         </div>

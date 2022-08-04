@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Annonce extends Model
+class Membre extends Model
 {
     use HasFactory;
     protected $fillable = [
         'name',
-        'prix',
-        'categorie',
-        'unite',
-        'status',
-        'vendeur',
-        'adresse',
+        'email',
         'numero',
-        'description',
-        'video'
+        'site',
+        'adresse',
+        'facebook',
+        'liens',
+        'type'
     ];
 }
