@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProduitController extends Controller
+class CommandeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        return view('produits.produits');
+        return view('produits.demande');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        return view('produits.nouvel');
+        //
     }
 
     /**

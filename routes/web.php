@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\Site\ProduitController;
+use App\Http\Controllers\Site\CommandeController;
 use App\Http\Controllers\Membres\ClientController;
+use App\Http\Controllers\Site\CategorieController;
 use App\Http\Controllers\Membres\PartenaireController;
 use App\Http\Controllers\Membres\FournisseurController;
-use App\Http\Controllers\Site\ProduitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +44,10 @@ Route::get('delete-partenaire/{id}', [PartenaireController::class, 'destroy'])->
 Route::get('detete-client/{id}', [ClientController::class, 'destroy'])->name('clients.delete');
 Route::post('add-fournisseur', [FournisseurController::class, 'edit'])->name('fournisseurs.edit');
 // Route::get('register', [ClientController::class, 'index'])->name('clients');
-Route::get('creation-produit', [ProduitController::class, 'index'])->name('produit');
-
+Route::get('creation-produit', [ProduitController::class, 'create'])->name('produit');
+Route::get('all-produit', [ProduitController::class, 'index'])->name('produits');
+Route::get('all-categories', [CategorieController::class, 'index'])->name('categories');
+Route::get('commade', [CommandeController::class, 'index'])->name('commades');
 Route::get('/', function () {
     return view('acceuil');
 })->name('index');

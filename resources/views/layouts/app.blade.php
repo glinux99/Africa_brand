@@ -91,17 +91,17 @@
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{route('fournisseurs')}}" class="aiz-side-nav-link ">
+                                    <a href="{{route('produits')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Liste de nos produits")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Demande en produits")</span>
+                                    <a href="{{route('commades')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Demandes de produits")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
+                                    <a href="{{route('categories')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Categories de produits")</span>
                                     </a>
                                 </li>

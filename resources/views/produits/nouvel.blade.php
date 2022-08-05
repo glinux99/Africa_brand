@@ -198,16 +198,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-6 col-from-label">@lang("La quantité de produit est-elle multiple")</label>
-                                    <div class="col-md-6">
-                                        <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="checkbox" name="is_quantity_multiplied" value="1">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 

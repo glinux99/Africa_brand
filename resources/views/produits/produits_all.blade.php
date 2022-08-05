@@ -44,7 +44,7 @@
                                     <a href="#" class="d-block text-reset">ooook</a>
                                 </h3>
                                 <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                                    @lang("Cotation")
+                                    @lang("Quantite en stocks")
                                     <span class="fw-700 float-right">750</span>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                 <a href="#" class="d-block text-reset">ooook</a>
                             </h3>
                             <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                                @lang("Cotation")
+                                @lang("Quantite en stocks")
                                 <span class="fw-700 float-right">750</span>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             <a href="#" class="d-block text-reset">ooook</a>
                         </h3>
                         <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                            @lang("Cotation")
+                            @lang("Quantite en stocks")
                             <span class="fw-700 float-right">750</span>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                             <a href="#" class="d-block text-reset">ooook</a>
                         </h3>
                         <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                            @lang("Cotation")
+                            @lang("Quantite en stocks")
                             <span class="fw-700 float-right">750</span>
                         </div>
                     </div>

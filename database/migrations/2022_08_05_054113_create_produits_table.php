@@ -15,6 +15,17 @@ class CreateProduitsTable extends Migration
     {
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('categorie');
+            $table->string('unite')->nullable();
+            $table->string('qte_min');
+            $table->string('remboursable')->nullable();
+            $table->string('prix');
+            $table->string('remise')->nullable();
+            $table->string('description')->nullable();
+            $table->string('stocks_visible');
+            $table->string('alert');
+            $table->string('expedition');
             $table->timestamps();
         });
     }

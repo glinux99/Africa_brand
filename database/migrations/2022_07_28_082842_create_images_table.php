@@ -17,6 +17,8 @@ class CreateImagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('images')->nullable();
             $table->string('documents')->nullable();
+            $table->string('lien')->nullable();
+            $table->string('video')->nullable();
             $table->bigInteger('users_id')->nullable();
             $table->bigInteger('membre_id')->nullable();
             $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
