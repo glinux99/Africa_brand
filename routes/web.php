@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminSiteController;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Membres\ClientController;
 use App\Http\Controllers\Site\CategorieController;
 use App\Http\Controllers\Membres\PartenaireController;
 use App\Http\Controllers\Membres\FournisseurController;
+use App\Http\Controllers\Site\HomeSiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +48,12 @@ Route::post('add-fournisseur', [FournisseurController::class, 'edit'])->name('fo
 // Route::get('register', [ClientController::class, 'index'])->name('clients');
 Route::get('creation-produit', [ProduitController::class, 'create'])->name('produit');
 Route::get('all-produit', [ProduitController::class, 'index'])->name('produits');
+Route::post('create-produit', [ProduitController::class, 'store'])->name('produit.store');
 Route::get('all-categories', [CategorieController::class, 'index'])->name('categories');
+Route::get('/produitCategorie', [CategorieController::class, 'create'])->name('categories.exists');
 Route::get('commade', [CommandeController::class, 'index'])->name('commades');
+Route::get('/index', [HomeSiteController::class, 'index'])->name('index');
+Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
 Route::get('/', function () {
     return view('acceuil');
 })->name('index');

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Categorie;
+use App\Models\Produit;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class CategorieController extends Controller
+class AdminSiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        return view('produits.categorie');
+        $produits = Produit::all();
+        return view('admin.admin', ['produits' => $produits]);
     }
 
     /**
@@ -23,17 +24,9 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $data = [];
-
-        if ($request->input('q')) {
-            $search = $request->q;
-            $data = Categorie::select("id", "name")
-                ->where('name', 'LIKE', "%$search%")
-                ->get();
-        }
-        return response()->json($data);
+        //
     }
 
     /**

@@ -72,7 +72,7 @@
                     </ul>
                     <ul class="aiz-side-nav-list" id="main-menu" data-toggle="aiz-side-menu">
                         <li class="aiz-side-nav-item">
-                            <a href="/" class="aiz-side-nav-link">
+                            <a href="/admin" class="aiz-side-nav-link">
                                 <i class="las la-home aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
@@ -634,12 +634,12 @@
                 cache: true
             }
         });
-        $('.selectmarque').select2({
-            placeholder: 'Seclectionner une marque',
+        $('.selectcategorie').select2({
+            placeholder: 'Seclectionner une categorie',
             tags: true,
 
             ajax: {
-                url: '/produitMarque',
+                url: '/produitCategorie',
                 dataType: 'json',
                 delay: 100,
                 data: function(params) {

@@ -8,7 +8,7 @@
             <h5 class="mb-0 h6">@lang("Ajouter un nouveau produit")</h5>
         </div>
         <div class="">
-            <form class="form form-horizontal mar-top" action="{{ ('store.produits')}}" method="POST" enctype="multipart/form-data" id="choice_form">
+            <form class="form form-horizontal mar-top" action="{{ route('produit.store')}}" method="POST" enctype="multipart/form-data" id="choice_form">
                 @csrf
                 <div class="row gutters-5">
                     <div class="col-lg-8">
@@ -24,9 +24,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
-                                    <label class="col-md-3 col-from-label">@lang("Marque")</label>
+                                    <label class="col-md-3 col-from-label">@lang("Categorie")</label>
                                     <div class="col-md-8">
-                                        <select class="form-control selectmarque" name="marque" id="brand_id" data-live-search="true">
+                                        <select class="form-control selectcategorie" name="categorie" id="brand_id" data-live-search="true">
                                         </select>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Quantité minimum d'achat") <span class="text-danger">*</span></label>
                                     <div class="col-md-8">
-                                        <input type="number" lang="fr" class="form-control" name="quantite" value="1" min="1" required>
+                                        <input type="number" lang="fr" class="form-control" name="qte_min" value="1" min="1" required>
                                     </div>
                                 </div>
 
@@ -47,7 +47,7 @@
                                     <label class="col-md-3 col-from-label">@lang("Remboursable")</label>
                                     <div class="col-md-8">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="checkbox" name="remboursable" checked value="1">
+                                            <input type="checkbox" name="remboursable" checked value="Oui">
                                             <span></span>
                                         </label>
                                     </div>
@@ -101,7 +101,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Lien vidéo")</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="video_lien" placeholder="@lang('Lien video')">
+                                        <input type="text" class="form-control" name="video" placeholder="@lang('Lien video')">
                                         <small class="text-muted">@lang("Utilisez le lien approprié sans paramètre supplémentaire. N'utilisez pas de
                                             lien de partage court/de code iframe intégré.")</small>
                                     </div>
@@ -123,7 +123,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Remise *")<span class="text-danger">*</span></label>
                                     <div class="col-md-6">
-                                        <input type="number" lang="fr" min="0" value="0" step="0.01" placeholder="remise" name="reduction" class="form-control" required>
+                                        <input type="number" lang="fr" min="0" value="0" step="0.01" placeholder="remise" name="remise" class="form-control" required>
                                     </div>
                                     <div class="col-md-3">
                                         <select class="form-control aiz-selectpicker" name="type_reduction">
@@ -174,7 +174,7 @@
                                     <label class="col-md-6 col-from-label">@lang("Livraison gratuite")</label>
                                     <div class="col-md-6">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="radio" name="shipping_type" value="free" checked>
+                                            <input type="radio" name="expedition" value="gratuite" checked>
                                             <span></span>
                                         </label>
                                     </div>
@@ -184,7 +184,7 @@
                                     <label class="col-md-6 col-from-label">@lang("Forfait")</label>
                                     <div class="col-md-6">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="radio" name="shipping_type" value="flat_rate">
+                                            <input type="radio" name="expedition" value="forfait">
                                             <span></span>
                                         </label>
                                     </div>
@@ -210,7 +210,7 @@
                                     <label for="name">
                                         @lang("Quantite")
                                     </label>
-                                    <input type="number" name="low_stock_quantity" value="1" min="0" step="1" class="form-control">
+                                    <input type="number" name="alert" value="1" min="0" step="1" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -228,7 +228,7 @@
                                     <label class="col-md-6 col-from-label">@lang("Afficher la quantité de stock")</label>
                                     <div class="col-md-6">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="radio" name="stock_visibility_state" value="quantity" checked>
+                                            <input type="radio" name="stocks_visible" value="Oui" checked>
                                             <span></span>
                                         </label>
                                     </div>
@@ -245,7 +245,7 @@
                                         @lang("Jours d'expédition")
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="est_shipping_days" min="1" step="1" placeholder="@lang('Jour d\'expedition')">
+                                        <input type="number" class="form-control" name="est_livraison" min="1" step="1" placeholder="@lang('Jour d\'expedition')">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroupPrepend">@lang("Jour")</span>
                                         </div>

@@ -22,10 +22,11 @@ class CreateProduitsTable extends Migration
             $table->string('remboursable')->nullable();
             $table->string('prix');
             $table->string('remise')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('stocks_visible');
             $table->string('alert');
             $table->string('expedition');
+            $table->string('est_livraison')->nullable();
             $table->timestamps();
         });
     }
