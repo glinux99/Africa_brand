@@ -23,7 +23,7 @@ class CreateProduitsTable extends Migration
             $table->string('prix');
             $table->string('remise')->nullable();
             $table->text('description')->nullable();
-            $table->string('stocks_visible');
+            $table->string('stocks_visible')->nullable();
             $table->string('alert');
             $table->string('expedition');
             $table->string('est_livraison')->nullable();

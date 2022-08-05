@@ -228,7 +228,7 @@
                                     <label class="col-md-6 col-from-label">@lang("Afficher la quantité de stock")</label>
                                     <div class="col-md-6">
                                         <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="radio" name="stocks_visible" value="Oui" checked>
+                                            <input type="checkbox" name="stocks_visible" value="Oui" checked>
                                             <span></span>
                                         </label>
                                     </div>
