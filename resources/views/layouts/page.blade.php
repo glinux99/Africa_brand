@@ -206,8 +206,13 @@
                                         </a>
                                     </li>
                                     <li class="list-inline-item mr-0">
-                                        <a href="{{ ('offre')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <a href="{{ route('home.produit')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                             @lang("Produits")
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item mr-0">
+                                        <a href="{{ ('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                            @lang("Categorie")
                                         </a>
                                     </li>
                                     <li class="list-inline-item mr-0">

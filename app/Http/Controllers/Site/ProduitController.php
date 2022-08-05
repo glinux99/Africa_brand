@@ -46,7 +46,12 @@ class ProduitController extends Controller
         $produit->save();
         $categorie = Categorie::where('name', $request->categorie);
         // Creation d'une nouvelle categorie;
-        if ($categorie->count() == 0) Categorie::create(['name' => $cat]);
+        if ($categorie->count() == 0) {
+            $cat_id = Categorie::create(['name' => $cat]);
+            $imageSaveCat = new Images;
+            $imageSaveCat->categorie_id = $cat_id->id;
+            $imageSaveCat->save();
+        }
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {
                 $imageSave = new Images;
@@ -60,6 +65,8 @@ class ProduitController extends Controller
                 );
                 $imageSave->images = $path;
                 $imageSave->produit_id = $produit->id;
+                $imageSaveCat->images = $path;
+                $imageSaveCat->save();
                 $imageSave->save();
             }
         } else {

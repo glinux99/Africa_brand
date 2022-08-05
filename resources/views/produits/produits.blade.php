@@ -63,6 +63,11 @@
                                     @lang("Quantite en stocks")
                                     <span class="fw-700 float-right">750</span>
                                 </div>
+                                @else
+                                <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
+                                    @lang("Quantite en stocks")
+                                    <span class="fw-700 float-right">-</span>
+                                </div>
                                 @endif
                             </div>
                         </div>

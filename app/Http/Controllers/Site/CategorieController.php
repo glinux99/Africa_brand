@@ -15,7 +15,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        return view('produits.categorie');
+        $categories = Categorie::join('images', 'categorie_id', 'categories.id')->paginate(10);
+        return view('produits.categorie', ['categories' => $categories]);
     }
 
     /**
