@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Membres;
 
+use Alert;
 use App\Models\User;
 use App\Models\Images;
 use App\Models\Membre;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Alert;
 
 class FournisseurController extends Controller
 {
@@ -61,6 +62,10 @@ class FournisseurController extends Controller
                 $imageSave->membre_id = $mbr->id;
                 $imageSave->save();
             }
+        } else {
+            $imageSave = new Images;
+            $imageSave->membre_id = $mbr->id;
+            $imageSave->save();
         }
         if ($request->documents) {
             foreach ($request->documents as $index => $image) {
@@ -88,7 +93,7 @@ class FournisseurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         //
     }
@@ -101,7 +106,7 @@ class FournisseurController extends Controller
      */
     public function edit(Request $request)
     {
-        $data = Membre::where('id', $request->id)->first();
+        $data = Membre::where('membres.id', $request->id)->join('images', 'images.membre_id', 'membres.id')->first();
         return response()->json(
             $data
         );
@@ -170,9 +175,10 @@ class FournisseurController extends Controller
     }
     public function delete($id)
     {
-        $images = Images::where('membre_id', $id);
+        $images = Images::where('membre_id', $id)->get();
         foreach ($images as $image) {
             Storage::disk('public')->delete($image->images);
         }
+        Images::where('membre_id', $id)->delete();
     }
 }

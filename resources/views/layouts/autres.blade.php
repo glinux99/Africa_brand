@@ -33,13 +33,17 @@
                                     <i class="la la-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:void(0)" class="dropdown-item" id="infos">
-                                        <i class="las la-info-circle mr-2"></i>
-                                        <span>@lang("Details infos")</span>
-                                    </a>
-                                    <form action="/" method="post" id="modif">
+                                    <form action="@yield('ajax-modif')" method="post" class="infos">
                                         @csrf
-                                        <input type="text" name="" id="id" hidden value="{{ $user->membre_id}}">
+                                        <input type="text" name="" id="id2" hidden value="{{ $user->membre_id}}">
+                                        <button type="submit" class="dropdown-item confirm-alert">
+                                            <i class="las la-info-circle mr-2"></i>
+                                            <span>@lang("Details infos")</span>
+                                        </button>
+                                    </form>
+                                    <form action="@yield('ajax-modif')" method="post" id="modif">
+                                        @csrf
+                                        <input type="text" name="" id="id" value="{{ $user->membre_id}}" hidden>
                                         <button type="submit" class="dropdown-item confirm-alert">
                                             <i class="las la-edit mr-2"></i>
                                             <span>@lang('Modifier')</span>
@@ -94,7 +98,7 @@
     <div class="modal-dialog modal-dialog-right">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title h6">File Info</h5>
+                <h5 class="modal-title h6">Information</h5>
                 <button type="button" class="close" data-dismiss="modal">
                 </button>
             </div>
@@ -369,13 +373,13 @@
                 }
             });
             console.log(id);
-
+            $urls = $(this).attr("action");
             // ajax
             $.ajax({
                 type: "POST",
-                url: "@yield('ajax-url')",
+                url: $urls,
                 data: {
-                    id: $('#id').val()
+                    id: $(this).find('#id').val()
                 },
                 dataType: 'json',
                 success: function(res) {
@@ -386,25 +390,24 @@
                     $('#numero').val(res.numero);
                     $('#liens').val(res.liens);
                     $('#site').val(res.site);
-                    $('#idIn').val(res.id);
+                    $('#idIn').val(res.membre_id);
                     console.log(res.name);
                 }
             });
         });
-        $('#infos').on('click', function() {
+        $('.infos').on('click', function() {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            console.log(id);
-
+            $urls = $(this).attr("action");
             // ajax
             $.ajax({
                 type: "POST",
-                url: "@yield('ajax-url-info')",
+                url: $urls,
                 data: {
-                    id: $('#id').val()
+                    id: $(this).find('#id2').val()
                 },
                 dataType: 'json',
                 success: function(res) {
@@ -425,16 +428,20 @@
                                     }
                                 </style>
                                 <a href="{{ asset(Session('picprofile'))}}">
-                                    <img class="avatar border-gray" src="{{ asset(Session('picprofile'))}}" alt="Profile" />
-                                    <h4 class="title text-center">{{ Auth::user()->name }}<br />
-                                        <small>{{ auth()->user()->getRoleNames()->first()}}</small>
+                                    <img id="img" class="avatar border-gray" src="" alt="Profile" />
+                                    <h4 class="title text-center"><span id="titre"></span><br />
+                                    <span id="infosite"></span><br>
                                         <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                     </h4>
                                 </a>
                             </div>
-                            <div class="d-flex justify-content-center">
-                                <p class="description text-center">{!! Auth::user()->description!!}
-                                </p>
+                            <div class="row">
+                              <div class="col-md-4">  @lang("Email:")<br> <span id="infoemail"></span><br></div>
+                              <div class="col-md-4">  @lang("Numero:") <br><span id="infonumero"></span><br></div>
+                              <div class="col-md-4 text-center">  @lang("Facebook/Twitter:")<br><span id="infoliens"></span><br></div>
+
+
+
                             </div>
                         </div>
                         <hr>
@@ -444,12 +451,20 @@
                     </div>
                         </div>
                         `);
-                    $('#name').val(res.name);
-                    $('#email').val(res.email);
-                    $('#numero').val(res.numero);
-                    $('#liens').val(res.liens);
-                    $('#site').val(res.site);
-                    $('#idIn').val(res.id);
+
+                    $('#titre').text(res.name);
+                    $('#infoemail').text(res.email);
+                    $('#infonumero').text(res.numero);
+                    $('#infoliens').text(res.liens);
+                    $('#infosite').text(res.site);
+                    $('#idIn').text(res.membre_id);
+                    if (res.images == null) var img = "{{ asset('assets/img/default.png')}}";
+                    else var img = "storage/" + res.images;
+                    if (res.email == null) $('#infoemail').remove();
+                    if (res.numero == null) $('#infonumero').remove();
+                    if (res.liens == null) $('#infoliens').remove();
+                    if (res.site == null) $('#infosite').remove();
+                    $('#img').attr('src', img);
                     console.log(res.name);
                 }
             });

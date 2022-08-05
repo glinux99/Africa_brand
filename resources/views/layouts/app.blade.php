@@ -79,17 +79,63 @@
                         </li>
                         <!-- Product -->
                         <li class="aiz-side-nav-item">
-                            <a href="{{ ('create.produit')}}" class="aiz-side-nav-link ">
-                                <i class="las la-folder-open aiz-side-nav-icon"></i>
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("Produits")</span>
+                                <span class="aiz-side-nav-arrow"></span>
                             </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('produit')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Nouveau produit")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('fournisseurs')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Liste de nos produits")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Demande en produits")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Categories de produits")</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <!-- Addon Manager -->
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link ">
-                                <i class="las la-wrench aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Comptabilite")</span>
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Charges")</span>
+                                <span class="aiz-side-nav-arrow"></span>
                             </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Taxes")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("paiement loye et impots")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Organisation sociale")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Permission des membres")</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <!-- Addon Manager -->
@@ -99,17 +145,34 @@
                                 <span class="aiz-side-nav-text">@lang("Contrat de Monopole")</span>
                             </a>
                         </li>
+                        <!-- Addon Manager -->
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link ">
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Configuration site")</span>
+                            </a>
+                        </li>
                         <!-- Staffs -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Equipe")</span>
+                                <span class="aiz-side-nav-text">@lang("Gestion du personnel")</span>
                                 <span class="aiz-side-nav-arrow"></span>
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
                                     <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Toute l'equipe")</span>
+                                        <span class="aiz-side-nav-text">@lang("Liste des agents")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Etat de payement")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Fiche de paie")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">

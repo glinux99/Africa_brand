@@ -245,86 +245,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 h6">@lang("Paiement à la livraison")</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group row">
-                                    <label class="col-md-6 col-from-label">Status</label>
-                                    <div class="col-md-6">
-                                        <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="checkbox" name="cash_on_delivery" value="1" checked="">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 h6">@lang("Offre du jour")</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group row">
-                                    <label class="col-md-6 col-from-label">Status</label>
-                                    <div class="col-md-6">
-                                        <label class="aiz-switch aiz-switch-success mb-0">
-                                            <input type="checkbox" name="todays_deal" value="1">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 h6">@lang("Offre J/J")</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group mb-3">
-                                    <label for="name">
-                                        @lang("Ajouter au flash")
-                                    </label>
-                                    <select class="form-control aiz-selectpicker" name="flash_deal_id" id="flash_deal">
-                                        <option value="">@lang("Choississez le titre du flash")</option>
-                                        <option value="1">
-                                            Winter Sell
-                                        </option>
-                                        <option value="2">
-                                            Falsh sale
-                                        </option>
-                                        <option value="3">
-                                            Electronic
-                                        </option>
-                                        <option value="4">
-                                            Flash Deal
-                                        </option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="name">
-                                        @lang("Remise")
-                                    </label>
-                                    <input type="number" name="flash_discount" value="0" min="0" step="1" class="form-control">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="name">
-                                        @lang("Type de remise")
-                                    </label>
-                                    <select class="form-control aiz-selectpicker" name="flash_discount_type" id="flash_discount_type">
-                                        <option value="">Choose Discount Type</option>
-                                        <option value="amount">Flat</option>
-                                        <option value="percent">Percent</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0 h6">@lang("Estimer le délai de livraison")</h5>
@@ -388,10 +308,10 @@
                     <div class="col-12">
                         <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="Third group">
-                                <button type="submit" name="button" value="unpublish" class="btn btn-primary action-btn">Save &amp; Unpublish</button>
+                                <button type="submit" name="button" value="unpublish" class="btn btn-primary action-btn">@lang("Enregistrer")</button>
                             </div>
                             <div class="btn-group" role="group" aria-label="Second group">
-                                <button type="submit" name="button" value="publish" class="btn btn-success action-btn">Save &amp; Publish</button>
+                                <button type="submit" name="button" value="publish" class="btn btn-success action-btn">@lang("Enregistrer et publier")</button>
                             </div>
                         </div>
                     </div>
