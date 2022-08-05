@@ -201,7 +201,7 @@
                             <div class="container">
                                 <ul class="list-inline mb-0 pl-0 mobile-hor-swipe text-center">
                                     <li class="list-inline-item mr-0">
-                                        <a href="{{ ('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <a href="{{ route('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                             @lang("Acceuil")
                                         </a>
                                     </li>

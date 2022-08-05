@@ -56,9 +56,6 @@ Route::get('/index', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/produit', [HomeSiteController::class, 'produit'])->name('home.produit');
 Route::get('/details-produit/{id}', [HomeSiteController::class, 'details'])->name('produit.details');
 Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
-Route::get('/', function () {
-    return view('acceuil');
-})->name('index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

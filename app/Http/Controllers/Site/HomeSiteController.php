@@ -24,7 +24,9 @@ class HomeSiteController extends Controller
     public function details($id)
     {
         $produit = Produit::find($id)->first();
-        $images = Images::where('produit_id', $id);
+        $images = Images::where('produit_id', $id)->get();
+        $produitCat = Produit::where('categorie', $produit->categorie)
+            ->join('images', 'produits.id', 'produit_id')->paginate(10);
         return view(
             'produits.details',
             [

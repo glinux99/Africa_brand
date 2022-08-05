@@ -42,53 +42,6 @@
                             </div>
                         </div>
 
-                        <hr>
-
-                        <div class="row no-gutters mt-3">
-                            <div class="col-sm-2">
-                                <div class="opacity-50 my-2">@lang("Prix"):</div>
-                            </div>
-                            <div class="col-sm-10">
-                                <div class="fs-20 opacity-60">
-                                    @php
-                                    $reduction =((float)$produit->prix)-(((float)$produit->prix)*((float)$produit->reduction)/100)
-                                    @endphp
-
-                                    <del>
-                                        {{ $produit->prix}}$
-                                        <span>/{{ $produit->unite}}</span>
-                                    </del>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row no-gutters my-2">
-                            <div class="col-sm-2">
-                                <div class="opacity-50">@lang("Prix ​​bas")</div>
-                            </div>
-                            <div class="col-sm-10">
-                                <div class="">
-                                    <strong class="h2 fw-600 text-primary">
-                                        {{ $reduction}} $
-                                    </strong>
-                                    <span class="opacity-70">/{{ $produit->unite}}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row no-gutters mt-4">
-                            <div class="col-sm-2">
-                                <div class="opacity-50 my-2">Club Point:</div>
-                            </div>
-                            <div class="col-sm-10">
-                                <div class="d-inline-block rounded px-2 bg-soft-primary border-soft-primary border">
-                                    <span class="strong-700">75</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr>
-
                         <form id="option-choice-form">
                             @csrf
                             <!-- Quantity + Add to cart -->
@@ -355,12 +308,7 @@
                                     </div>
                                     <div class="p-md-3 p-2 text-left">
                                         <div class="fs-15">
-                                            @php
-                                            $reduction =((float)$produit->prix)-(((float)$produit->prix)*((float)$produit->reduction)/100)
-                                            @endphp
-
-                                            <del class="fw-600 opacity-50 mr-1">{{ $produit->prix}} $</del>
-                                            <span class="fw-700 text-primary">{{ $reduction}} $</span>
+                                            <span class="fw-700 text-primary">{{ $produit->name}}</span>
                                         </div>
                                         <div class="rating rating-sm mt-1">
                                             <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
