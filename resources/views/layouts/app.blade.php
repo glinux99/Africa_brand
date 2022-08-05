@@ -609,7 +609,6 @@
         $('.selectcategorie').select2({
             placeholder: 'Seclectionner une categorie',
             tags: true,
-
             ajax: {
                 url: '/produitCategorie',
                 dataType: 'json',
@@ -625,36 +624,8 @@
                     return {
                         results: $.map(data, function(item) {
                             return {
-                                text: item.categorie,
-                                id: item.categorie
-                            }
-                        })
-                    };
-                },
-                cache: true
-            }
-        });
-        $('.selectcategorie').select2({
-            placeholder: 'Seclectionner une categorie',
-            tags: true,
-
-            ajax: {
-                url: '/produitCategorie',
-                dataType: 'json',
-                delay: 100,
-                data: function(params) {
-                    return {
-                        q: params.term, // search term
-                        page: params.page
-                    };
-                },
-                processResults: function(data) {
-                    console.log(data);
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                text: item.categorie,
-                                id: item.categorie
+                                text: item.name,
+                                id: item.id
                             }
                         })
                     };

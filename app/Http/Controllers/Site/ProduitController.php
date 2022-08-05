@@ -18,7 +18,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        $produits = Produit::paginate(20);
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->paginate(10);
         return view('produits.produits', ['produits' => $produits]);
     }
 
