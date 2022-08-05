@@ -25,6 +25,13 @@ class HomeSiteController extends Controller
     {
         $produit = Produit::find($id)->first();
         $images = Images::where('produit_id', $id);
-        return view('produits.details', ['produit' => $produit, 'images' => $images]);
+        return view(
+            'produits.details',
+            [
+                'produit' => $produit,
+                'images' => $images,
+                'produitCat' => $produitCat
+            ]
+        );
     }
 }
