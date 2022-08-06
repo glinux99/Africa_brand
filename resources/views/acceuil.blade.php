@@ -58,7 +58,7 @@
                     <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Nos produits")</span>
                 </h3>
                 <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="2022/8/20 00:00:00"></div>
-                <a href="#" class="ml-auto mr-0 btn btn-success btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
+                <a href="{{ route('home.produit')}}" class="ml-auto mr-0 btn btn-success btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
             </div>
 
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>

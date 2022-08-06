@@ -52,7 +52,7 @@ Route::post('create-produit', [ProduitController::class, 'store'])->name('produi
 Route::get('all-categories', [CategorieController::class, 'index'])->name('categories');
 Route::get('/produitCategorie', [CategorieController::class, 'create'])->name('categories.exists');
 Route::get('commade', [CommandeController::class, 'index'])->name('commades');
-Route::get('/index', [HomeSiteController::class, 'index'])->name('index');
+Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/produit', [HomeSiteController::class, 'produit'])->name('home.produit');
 Route::get('/details-produit/{id}', [HomeSiteController::class, 'details'])->name('produit.details');
 Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
