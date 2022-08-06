@@ -53,11 +53,17 @@ Route::get('all-categories', [CategorieController::class, 'index'])->name('categ
 Route::get('/produitCategorie', [CategorieController::class, 'create'])->name('categories.exists');
 Route::post('/modifier-Categorie', [CategorieController::class, 'update'])->name('categories.update');
 Route::post('/Categorie-modifier', [CategorieController::class, 'edit'])->name('categories.update.call');
+Route::post('/detail', [CategorieController::class, 'edit'])->name('categories.details');
 Route::get('commade', [CommandeController::class, 'index'])->name('commades');
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/produit', [HomeSiteController::class, 'produit'])->name('home.produit');
 Route::get('/details-produit/{id}', [HomeSiteController::class, 'details'])->name('produit.details');
 Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
 Auth::routes();
+
+
+
+// Essaies
+// Route::get('/test/{id}', [CategorieController::class, 'show'])->name('categories.details');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

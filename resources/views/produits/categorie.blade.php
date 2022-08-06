@@ -26,6 +26,7 @@
                     </div>
                     <div>
                         <button id="catModal" data-toggle="modal" data-target="#categorie-modif-modal" hidden></button>
+                        <button id="infosCat" data-toggle="modal" data-target="#categorie-info-modal" hidden></button>
                         <div class="row" data-items="6">
                             @foreach ($categories as $categorie)
                             <div class="col-md-3">
@@ -36,10 +37,10 @@
                                                 <img class="img-fit " src="{{ asset('storage/'.$categorie->images)}}" data-src="{{ asset('storage/'.$categorie->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                             </a>
                                             <div class="absolute-top-right aiz-p-hov-icon">
-                                                <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left">
+                                                <a href="javascript:void(0)" onclick="addToWishList(2)" data-title="@lang('plus de details')" data-placement="left" class="infocategorie" data-id="{{ $categorie->categorie_id}}">
                                                     <i class="la la-info-circle"></i>
                                                 </a>
-                                                <a href="javascript:void(0)" data-title="@lang('Modifier')" data-placement="left" data-title="@lang('modifier')" id="modifCat" data-id="{{ $categorie->id}}">
+                                                <a href="javascript:void(0)" data-title="@lang('Modifier')" data-placement="left" data-title="@lang('modifier')" class="modifCat" data-id="{{ $categorie->categorie_id}}">
                                                     <i class="las la-edit"></i>
                                                 </a>
                                                 <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('changer cette image')" data-placement="left">

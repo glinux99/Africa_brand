@@ -69,7 +69,9 @@ class CategorieController extends Controller
      */
     public function edit(Request $request)
     {
-        $data = Categorie::where('id', $request->id)->first();
+        $data = Categorie::where('categories.id', $request->id)
+            ->join('images', 'categories.id', 'categorie_id')
+            ->first();
         return response()->json($data);
     }
 
@@ -86,15 +88,13 @@ class CategorieController extends Controller
         $categorie->update($request->except(['_token', 'nombre_prod']));
         if ($request->file('images')) {
             $image = $request->file('images');
-            $imageSave = Images::where('categorie_id', $request->id);
-            foreach ($imageSave as $image) {
-                Storage::disk('public')->delete($image->images);
-            }
+            $imageSave = Images::where('categorie_id', $request->id)->first();
+            Storage::disk('public')->delete($imageSave->images);
             $file = Str::random(5);
             $ext = $image->getClientOriginalExtension();
             $fileName = $file . '.' . $ext;
             $path = $image->storeAs(
-                'images/categories',
+                'images/categorie',
                 $fileName,
                 'public'
             );

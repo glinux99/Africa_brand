@@ -607,7 +607,7 @@
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
     <script>
         $(document).ready(function($) {
-            $('#modifCat').on('click', function() {
+            $('.modifCat').on('click', function() {
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -628,6 +628,68 @@
                         $('#catModal').trigger('click');
                         $('#nameCat').val(res.name);
                         $('#idCat').val(res.id);
+                    }
+                });
+            });
+            $('.infocategorie').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $urls = "{{ route('categories.details')}}";
+                // ajax
+                alert($(this).attr('data-id'))
+                $.ajax({
+                    type: "POST",
+                    url: $urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        // $('#jan_plan').val(res.jan);
+                        $('#infosCat').trigger('click');
+                        $('#info-modal-content').html(`
+                        <div class="c-preloader text-center">
+                        <div class="col-12 card-user">
+                        <div class="content pt-3">
+                            <div class="author">
+                                <style>
+                                    .avatar:hover {
+                                        transform: scale(1.2);
+                                        transition: transform 1s 0s ease;
+                                    }
+                                </style>
+                                <a href="{{ asset(Session('picprofile'))}}">
+                                    <img id="img" class="border-gray img-fit" src="" alt="Profile" />
+                                    <h4 class="title text-center"><span id="titre"></span><br />
+                                    <span id="infosite"></span><br>
+                                        <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">  @lang("Nombre de produits:")<br> <span id="infoprod"></span><br></div>
+                              <div class="col-md-6">  @lang("Monopole:") <br><span id="infomono"></span><br></div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center py-3">
+                            {{__("Produit details ")}} {{Config("app.name")}}
+                        </div>
+                    </div>
+                        </div>
+                        `);
+
+                        $('#titre').text(res.name);
+                        $('#infoprod').text(res.nombre_prod);
+                        $('#infomono').text('{{Config("app.name")}}');
+                        if (res.images == null) var img = "{{ asset('assets/img/default.png')}}";
+                        else var img = "storage/" + res.images;
+                        if (res.nombre_prod == null) $('#infoprod').remove();
+                        $('#img').attr('src', img);
+                        console.log(res.name);
                     }
                 });
             });

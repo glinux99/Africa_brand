@@ -44,15 +44,19 @@ class ProduitController extends Controller
         $cat = ucwords($request->categorie);
         $produit->categorie = $cat;
         $produit->save();
-        $categorie = Categorie::where('name', $request->categorie);
+        $categorie = Categorie::where('id', $request->categorie)->first();
         // Creation d'une nouvelle categorie;
-        if ($categorie->count() == 0) {
-            $cat_id = Categorie::create(['name' => $cat]);
+        if ($categorie == null) {
+            $cat_id = Categorie::create(['name' => $cat, 'nombre_prod' => 1]);
             $imageSaveCat = new Images;
             $imageSaveCat->categorie_id = $cat_id->id;
             $imageSaveCat->save();
+        } else {
+            $imageSaveCat = Images::where('categorie_id', $categorie->id);
+            $categorie->nombre_prod = 1 + (int)$categorie->nombre_prod;
+            $categorie->save();
         }
-        if ($request->file('images')) {
+        if ($request->file('images') != '') {
             foreach ($request->file('images') as $index => $image) {
                 $imageSave = new Images;
                 $file = Str::random(5);

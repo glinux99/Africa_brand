@@ -63,4 +63,20 @@
         </form>
     </div>
 </div>
+<div id="categorie-info-modal" class="modal fade">
+    <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h6">Information</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body c-scrollbar-light position-relative" id="info-modal-content">
+                <div class="c-preloader text-center absolute-center">
+                    <i class="las la-spinner la-spin la-3x opacity-70"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Modal categorie -->

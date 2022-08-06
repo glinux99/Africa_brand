@@ -33,6 +33,9 @@
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('publier')" data-placement="left">
                                         <i class="las la-store"></i>
                                     </a>
+                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('supprimer')" data-placement="left" class="bg-danger">
+                                        <i class="las la-trash"></i>
+                                    </a>
                                     <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="@lang('visibilite du stock')" data-placement="left">
                                         <i class="las la-eye-slash"></i>
                                     </a>
