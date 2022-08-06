@@ -9,7 +9,7 @@
                     <h1 class="h3">@lang("Configuration Categorie")</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="{{ route('staff.create')}}" class="btn btn-circle btn-info">
+                    <a href="" class="btn btn-circle btn-info" data-toggle="modal" data-target="#categorie-modal">
                         <span>@lang("Ajouter une catorie")</span>
                     </a>
                 </div>
@@ -25,6 +25,7 @@
                         </h3>
                     </div>
                     <div>
+                        <button id="catModal" data-toggle="modal" data-target="#categorie-modif-modal" hidden></button>
                         <div class="row" data-items="6">
                             @foreach ($categories as $categorie)
                             <div class="col-md-3">
@@ -38,7 +39,7 @@
                                                 <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left">
                                                     <i class="la la-info-circle"></i>
                                                 </a>
-                                                <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left">
+                                                <a href="javascript:void(0)" data-title="@lang('Modifier')" data-placement="left" data-title="@lang('modifier')" id="modifCat" data-id="{{ $categorie->id}}">
                                                     <i class="las la-edit"></i>
                                                 </a>
                                                 <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('changer cette image')" data-placement="left">

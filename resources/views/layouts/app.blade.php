@@ -55,6 +55,7 @@
 
 <body class="">
     @include('sweetalert::alert')
+    @include('layouts.modal')
     <div class="aiz-main-wrapper">
         <div class="aiz-sidebar-wrap">
             <div class="aiz-sidebar left c-scrollbar">
@@ -604,7 +605,34 @@
     <script src="{{ asset('js/jquery.min.js')}}"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> -->
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
-
+    <script>
+        $(document).ready(function($) {
+            $('#modifCat').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $urls = "{{ route('categories.update.call')}}";
+                // ajax
+                $.ajax({
+                    type: "POST",
+                    url: $urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.name);
+                        // $('#jan_plan').val(res.jan);
+                        $('#catModal').trigger('click');
+                        $('#nameCat').val(res.name);
+                        $('#idCat').val(res.id);
+                    }
+                });
+            });
+        })
+    </script>
     <script type="text/javascript">
         $('.selectcategorie').select2({
             placeholder: 'Seclectionner une categorie',

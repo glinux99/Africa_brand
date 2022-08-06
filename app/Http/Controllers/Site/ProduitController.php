@@ -63,9 +63,14 @@ class ProduitController extends Controller
                     $fileName,
                     'public'
                 );
+                $path2 = $image->storeAs(
+                    'images/categorie',
+                    $fileName,
+                    'public'
+                );
                 $imageSave->images = $path;
                 $imageSave->produit_id = $produit->id;
-                $imageSaveCat->images = $path;
+                $imageSaveCat->images = $path2;
                 $imageSaveCat->save();
                 $imageSave->save();
             }

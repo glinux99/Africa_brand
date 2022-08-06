@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use App\Models\Images;
 use App\Models\Categorie;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CategorieController extends Controller
 {
@@ -56,7 +59,6 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -65,9 +67,10 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $data = Categorie::where('id', $request->id)->first();
+        return response()->json($data);
     }
 
     /**
@@ -77,9 +80,29 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $categorie = Categorie::where('id', $request->id)->first();
+        $categorie->update($request->except(['_token', 'nombre_prod']));
+        if ($request->file('images')) {
+            $image = $request->file('images');
+            $imageSave = Images::where('categorie_id', $request->id);
+            foreach ($imageSave as $image) {
+                Storage::disk('public')->delete($image->images);
+            }
+            $file = Str::random(5);
+            $ext = $image->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            $path = $image->storeAs(
+                'images/categories',
+                $fileName,
+                'public'
+            );
+            $imageSave->images = $path;
+            $imageSave->categorie_id = $categorie->id;
+            $imageSave->save();
+        }
+        return redirect()->route('categories');
     }
 
     /**
