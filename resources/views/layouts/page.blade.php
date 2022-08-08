@@ -185,7 +185,7 @@
                 <div class="container">
                     <div class="d-flex align-items-center">
                         <div class="col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
-                            <a class="d-block py-20px mr-3 ml-0" href="https://demo.activeitzone.com/ecommerce">
+                            <a class="d-block py-20px mr-3 ml-0" href="/">
                                 <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
                             </a>
                             <div>
@@ -211,22 +211,22 @@
                                         </a>
                                     </li>
                                     <li class="list-inline-item mr-0">
-                                        <a href="{{ ('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <a href="{{ route('categories.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                             @lang("Categorie")
                                         </a>
                                     </li>
                                     <li class="list-inline-item mr-0">
-                                        <a href="{{ ('offre')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <a href="{{ route('news.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                             @lang("Actualites")
                                         </a>
                                     </li>
                                     <li class="list-inline-item mr-0">
-                                        <a href="{{ ('offre')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <a href="{{ route('apropos')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                             @lang("A propos")
                                         </a>
                                     </li>
                                     <li class="list-inline-item mr-0">
-                                        <a href="{{ ('offre')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <a href="{{ route('contact')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                             @lang("Contact")
                                         </a>
                                     </li>

@@ -36,4 +36,17 @@ class HomeSiteController extends Controller
             ]
         );
     }
+    public function contact()
+    {
+        return view('site.contact');
+    }
+    public function apropos()
+    {
+        return view('site.apropos');
+    }
+    public function categories()
+    {
+        $categories = Categorie::join('images', 'categorie_id', 'categories.id')->paginate(20);
+        return view('site.categories', ['categories' => $categories]);
+    }
 }

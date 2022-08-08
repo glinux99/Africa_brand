@@ -13,6 +13,11 @@
                     </div>
                     <div class="carousel-box">
                         <a href="#">
+                            <img class="d-block img-fuid rounded shadow-sm overflow-hidden img-fit" src="{{ asset('assets/img/contact.jpeg')}}" alt="Africa brand" height="400" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                        </a>
+                    </div>
+                    <div class="carousel-box">
+                        <a href="#">
                             <img class="d-block img-fuid rounded shadow-sm overflow-hidden" src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1658581172/contentservice/PC.jpg_rJ5he_K3c.jpg" alt="Africa brand" height="400" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
                         </a>
                     </div>
@@ -22,7 +27,7 @@
                     @for ($x=0; $x<4;$x++) <li class="minw-0 col-4 col-md mt-3">
                         <a href="#" class="d-block rounded bg-white p-2 text-reset shadow-sm">
 
-                            <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">Go Market</div>
+                            <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">{{ Config('app.name')}}</div>
                         </a>
                         </li>
                         @endfor

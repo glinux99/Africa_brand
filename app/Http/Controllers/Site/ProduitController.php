@@ -8,6 +8,7 @@ use App\Models\Categorie;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProduitController extends Controller
 {
@@ -42,17 +43,19 @@ class ProduitController extends Controller
     {
         $produit = Produit::create($request->except(['_token', 'images', 'video', 'vignette']));
         $cat = ucwords($request->categorie);
-        $produit->categorie = $cat;
-        $produit->save();
         $categorie = Categorie::where('id', $request->categorie)->first();
         // Creation d'une nouvelle categorie;
         if ($categorie == null) {
             $cat_id = Categorie::create(['name' => $cat, 'nombre_prod' => 1]);
             $imageSaveCat = new Images;
+            $produit->categorie = $cat_id->id;
+            $produit->save();
             $imageSaveCat->categorie_id = $cat_id->id;
             $imageSaveCat->save();
         } else {
             $imageSaveCat = Images::where('categorie_id', $categorie->id);
+            $produit->categorie = $categorie->id;
+            $produit->save();
             $categorie->nombre_prod = 1 + (int)$categorie->nombre_prod;
             $categorie->save();
         }
@@ -75,7 +78,7 @@ class ProduitController extends Controller
                 $imageSave->images = $path;
                 $imageSave->produit_id = $produit->id;
                 $imageSaveCat->images = $path2;
-                $imageSaveCat->save();
+                //$imageSaveCat->save();
                 $imageSave->save();
             }
         } else {
@@ -144,6 +147,14 @@ class ProduitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $images = Images::where('produit_id', $id)->get();
+        $produit = Produit::findOrfail($id);
+        $categorie = Categorie::where('name', $produit->categorie)->first();
+        $categorie->nombre_prod = 1 - (int)$categorie->nombre_prod;
+        if ((int)$categorie->nombre_prod <= 0) $categorie->delete();
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image->images);
+        }
+        Images::where('produit_id', $id)->delete();
     }
 }

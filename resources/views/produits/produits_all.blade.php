@@ -10,6 +10,7 @@
                 </h3>
             </div>
             <div class="produits">
+                @if ($produits->count())
                 <div class="row">
                     <!-- Nos produits -->
                     @foreach ($produits as $produit)
@@ -57,6 +58,11 @@
                     </div>
                     @endforeach
                 </div>
+                @else
+                <div class="d-flex justify-content-center">
+                    @lang("Aucune donnee a afficher")
+                </div>
+                @endif
             </div>
         </div>
     </div>

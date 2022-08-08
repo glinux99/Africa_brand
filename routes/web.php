@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminSiteController;
+use App\Http\Controllers\Config\ConfigController;
+use App\Http\Controllers\Config\NewsController;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +51,7 @@ Route::post('add-fournisseur', [FournisseurController::class, 'edit'])->name('fo
 Route::get('creation-produit', [ProduitController::class, 'create'])->name('produit');
 Route::get('all-produit', [ProduitController::class, 'index'])->name('produits');
 Route::post('create-produit', [ProduitController::class, 'store'])->name('produit.store');
+Route::get('delete-produit/{id}', [ProduitController::class, 'destroy'])->name('produit.delete');
 Route::get('all-categories', [CategorieController::class, 'index'])->name('categories');
 Route::get('/produitCategorie', [CategorieController::class, 'create'])->name('categories.exists');
 Route::post('/modifier-Categorie', [CategorieController::class, 'update'])->name('categories.update');
@@ -58,7 +61,14 @@ Route::get('commade', [CommandeController::class, 'index'])->name('commades');
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/produit', [HomeSiteController::class, 'produit'])->name('home.produit');
 Route::get('/details-produit/{id}', [HomeSiteController::class, 'details'])->name('produit.details');
+Route::get('/contact', [HomeSiteController::class, 'contact'])->name('contact');
+Route::get('/categories', [HomeSiteController::class, 'categories'])->name('categories.all');
 Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
+Route::get('/actualite', [NewsController::class, 'index'])->name('news.all');
+Route::get('/configuration-de-news', [NewsController::class, 'index_config'])->name('news.config');
+Route::post('/creation-de-news', [NewsController::class, 'store'])->name('news.config.store');
+Route::get('apropos', [HomeSiteController::class, 'apropos'])->name('apropos');
+Route::get('/autres-config', [ConfigController::class, 'autres_index'])->name('autres.config');
 Auth::routes();
 
 

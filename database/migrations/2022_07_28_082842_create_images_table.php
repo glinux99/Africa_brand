@@ -19,6 +19,7 @@ class CreateImagesTable extends Migration
             $table->string('documents')->nullable();
             $table->string('lien')->nullable();
             $table->string('video')->nullable();
+            $table->bigInteger('actualite_id')->nullable();
             $table->bigInteger('users_id')->nullable();
             $table->bigInteger('membre_id')->nullable();
             $table->bigInteger('produit_id')->nullable();
@@ -27,6 +28,7 @@ class CreateImagesTable extends Migration
             $table->foreign('produit_id')->references('id')->on('produits')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
             $table->foreign('categorie_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
             $table->foreign('membre_id')->references('id')->on('membres')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+            $table->foreign('actualite_id')->references('id')->on('actualites')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
             $table->timestamps();
         });
     }
