@@ -13,17 +13,17 @@
                 <div class="col-md-9">
                     <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                         <div class="position-relative">
-                            <a href="#" class="d-block">
-                                <img class="img-fit " src="{{ asset('storage/'.$news[0]->images)}}" data-src="{{ asset('storage/'.$news[0]->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                            <a href="{{ route('news.show',[$currentNews->actualite_id])}}" class="d-block">
+                                <img class="img-fit " src="{{ asset('storage/'.$currentNews->images)}}" data-src="{{ asset('storage/'.$currentNews->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                         </div>
                         <div class="p-md-3 p-2 text-left ">
-                            <p>{{$news[0]->updated_at}}</p>
+                            <p>{{$currentNews->updated_at}}</p>
                             <p class="fw-600 fs-18 text-center m-0 p-0">
-                                <a href="#" class="d-block text-reset">{{ $news[0]->title}}</a>
+                                <a href="#" class="d-block text-reset">{{ $currentNews->title}}</a>
                             </p>
                             <p class="fw-600 fs-13 text-truncate-2 h-25px p-0 m-0 text-muted">
-                                {!! $news[0]->description!!}
+                                {!! $currentNews->description!!}
                             </p>
                             <p>
                             <div class="d-flex justify-content-center" role="group" aria-label="Third group">

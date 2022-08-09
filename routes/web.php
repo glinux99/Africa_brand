@@ -67,6 +67,7 @@ Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
 Route::get('/actualite', [NewsController::class, 'index'])->name('news.all');
 Route::get('/configuration-de-news', [NewsController::class, 'index_config'])->name('news.config');
 Route::post('/creation-de-news', [NewsController::class, 'store'])->name('news.config.store');
+Route::get('/details-de-news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('apropos', [HomeSiteController::class, 'apropos'])->name('apropos');
 Route::get('/autres-config', [ConfigController::class, 'autres_index'])->name('autres.config');
 Auth::routes();

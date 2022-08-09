@@ -13,7 +13,7 @@
                 <div class="col-md-9">
                     <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                         <div class="position-relative">
-                            <a href="#" class="d-block">
+                            <a href="{{ route('news.show',[$news[0]->actualite_id])}}" class="d-block">
                                 <img class="img-fit " src="{{ asset('storage/'.$news[0]->images)}}" data-src="{{ asset('storage/'.$news[0]->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                         </div>
@@ -27,7 +27,7 @@
                             </p>
                             <p>
                             <div class="d-flex justify-content-center" role="group" aria-label="Third group">
-                                <button type="submit" name="button" value="unpublish" class="btn btn-primary action-btn">@lang("Lire plus")</button>
+                                <a href="{{ route('news.show',[$news[0]->actualite_id])}}" name="button" value="unpublish" class="btn btn-primary action-btn">@lang("Lire plus")</a>
                             </div>
                             </p>
                         </div>
@@ -44,14 +44,16 @@
                                     @foreach ($news as $actualite)
                                     <li class="list-group-item d-flex justify-content-between align-items- py-3">
                                         <div class="media text-inherit">
-                                            <div class="media-body">
-                                                <p class="mb-1 text-truncate-2">
-                                                    {{$actualite->title}}
-                                                </p>
-                                                <small class="text-muted">
-                                                    {{$actualite->created_at}}
-                                                </small>
-                                            </div>
+                                            <a href="{{ route('news.show',[$actualite->actualite_id])}}">
+                                                <div class="media-body">
+                                                    <p class="mb-1 text-truncate-2">
+                                                        {{$actualite->title}}
+                                                    </p>
+                                                    <small class="text-muted">
+                                                        {{$actualite->created_at}}
+                                                    </small>
+                                                </div>
+                                            </a>
                                         </div>
                                     </li>
                                     @endforeach
@@ -89,7 +91,7 @@
                 <div class="col-md-4">
                     <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                         <div class="position-relative">
-                            <a href="#" class="d-block">
+                            <a href="{{ route('news.show',[$actualite->actualite_id])}}" class="d-block">
                                 <img class="img-fit " src="{{ asset('storage/'.$actualite->images)}}" data-src="{{ asset('storage/'.$actualite->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                         </div>
@@ -103,7 +105,7 @@
                             </p>
                             <p>
                             <div class="d-flex justify-content-center" role="group" aria-label="Third group">
-                                <button type="submit" name="button" value="unpublish" class="btn btn-primary action-btn">@lang("Lire plus")</button>
+                                <a href="{{ route('news.show',[$actualite->actualite_id])}}" name="button" value="unpublish" class="btn btn-primary action-btn">@lang("Lire plus")</a>
                             </div>
                             </p>
                         </div>
