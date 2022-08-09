@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="aiz-main-content">
-    <form action="{{ route('staff')}}" method="post" autocomplete="off">
+    <form action="{{ route('staff.store')}}" method="post" autocomplete="off" enctype="multipart/form-data">
         @csrf
         <div class="px-15px px-lg-25px">
 
@@ -91,6 +91,12 @@
                         </div>
                         <div class="card-body row">
                             <div class="col-md-12 col-lg-12 col-6">
+                                <div class="form-group">
+                                    <label class="form-check-label" for="admin">
+                                        @lang("Descritpion du poste dans l'entreprise")
+                                    </label>
+                                    <input type="text" name="poste" id="" class="form-control" placeholder="Description du poste">
+                                </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="role" id="admin" value="admin" onclick="checked('admin');">
                                     <label class="form-check-label" for="admin">

@@ -155,7 +155,7 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{route('fournisseurs')}}" class="aiz-side-nav-link ">
+                                    <a href="{{route('apropos.config')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Page a propos")</span>
                                     </a>
                                 </li>
@@ -185,7 +185,7 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
+                                    <a href="{{ route('staff')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Liste des agents")</span>
                                     </a>
                                 </li>

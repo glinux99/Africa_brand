@@ -69,6 +69,39 @@
                     </div>
                 </div>
             </div>
+            <div class="row my-2 card">
+                <div class="card-header row gutters-5">
+                    <div class="col text-center text-md-left">
+                        <h5 class="mb-md-0 h6">@lang("Page d'acceuil Configutation")</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <div class="">
+                                <label for="inputNumeroligne" class="control-label">@lang('Images de publicite')</label>
+                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            </div>
+                            <div class="">
+                                <label for="inputNumeroligne" class="control-label">@lang('Images Centrales')</label>
+                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="card-body">
+                            <div class="">
+                                <label for="inputNumeroligne" class="control-label">@lang('Publicite Textue')</label>
+                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            </div>
+                            <div class="">
+                                <label for="inputNumeroligne" class="control-label">@lang('Images Centrales')</label>
+                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 my-3">
                 <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="Third group">

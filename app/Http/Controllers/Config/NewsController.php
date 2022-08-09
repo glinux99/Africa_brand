@@ -76,9 +76,9 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $currentNews = Actualite::findOrfail($id);
+        $currentNews = Actualite::where('actualites.id', $id)->join('images', 'actualite_id', 'actualites.id')->first();
         $news = Actualite::join('images', 'actualite_id', 'actualites.id')->paginate(10);
-        return view('site.news', ['news' => $news, 'currentNews' => $currentNews]);
+        return view('site.newsdetails', ['news' => $news, 'currentNews' => $currentNews]);
     }
 
     /**

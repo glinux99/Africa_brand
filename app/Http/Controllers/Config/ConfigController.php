@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Config;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ConfigController extends Controller
 {
@@ -20,7 +21,11 @@ class ConfigController extends Controller
     {
         return view('config.autres');
     }
-
+    public function apropos_index()
+    {
+        $users = User::paginate(10);
+        return view('config.apropos', ['users' => $users]);
+    }
     /**
      * Show the form for creating a new resource.
      *

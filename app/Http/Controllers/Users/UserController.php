@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Users;
 
 use App\Models\User;
+use App\Models\Images;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Queue\Connectors\RedisConnector;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -37,7 +41,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->except('_token', 'images'));
+        if ($request->file('images') != '') {
+            foreach ($request->file('images') as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/profile',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->users_id = $user->id;
+                $imageSave->save();
+            }
+        } else {
+            $imageSave = new Images;
+            $imageSave->users_id = $user->id;
+            $imageSave->save();
+        }
+        return back();
     }
 
     /**
@@ -73,7 +98,14 @@ class UserController extends Controller
     {
         //
     }
-
+    public function delete($id)
+    {
+        $images = Images::where('users_id', $id)->get();
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image->images);
+        }
+        Images::where('users_id', $id)->delete();
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -82,6 +114,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        UserController::delete($id);
+        User::find($id)->delete();
+        return \redirect()->route('staff');
     }
 }

@@ -29,7 +29,7 @@ use App\Http\Controllers\Site\HomeSiteController;
 */
 // Routes propres
 Route::get('staff', [UserController::class, 'index'])->name('staff');
-Route::get('store-staff', [UserController::class, 'store'])->name('staff.store');
+Route::post('store-staff', [UserController::class, 'store'])->name('staff.store');
 Route::get('create-staff', [UserController::class, 'create'])->name('staff.create');
 Route::get('delete-staff/{id}', [UserController::class, 'destroy'])->name('staff.delete');
 
@@ -70,6 +70,7 @@ Route::post('/creation-de-news', [NewsController::class, 'store'])->name('news.c
 Route::get('/details-de-news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('apropos', [HomeSiteController::class, 'apropos'])->name('apropos');
 Route::get('/autres-config', [ConfigController::class, 'autres_index'])->name('autres.config');
+Route::get('/apropos-config', [ConfigController::class, 'apropos_index'])->name('apropos.config');
 Auth::routes();
 
 
