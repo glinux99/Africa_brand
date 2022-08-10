@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Users;
 
+use Exception;
 use App\Models\User;
 use App\Models\Images;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Queue\Connectors\RedisConnector;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Queue\Connectors\RedisConnector;
 
 class UserController extends Controller
 {
@@ -62,7 +65,7 @@ class UserController extends Controller
             $imageSave->users_id = $user->id;
             $imageSave->save();
         }
-        return back();
+        return redirect()->route('staff');
     }
 
     /**
@@ -86,7 +89,46 @@ class UserController extends Controller
     {
         //
     }
+    public function profile()
+    {
+        return view('users.profile');
+    }
+    public function profile_update()
+    {
+        return view('users.alter_profile');
+    }
+    public function profile_update_me(Request $request)
+    {
 
+        $user = User::find(Auth::user()->id);
+        $user->update($request->except('_token', 'images', 'password'));
+        if ($request->password == "") $password = Auth::user()->password;
+        else $password = $request->password;
+        if ($request->file('images') != '') {
+            try {
+                $id = Auth::user()->id;
+                $image = Images::where('users_id', $id)->first();
+                Storage::disk('public')->delete($image->images);
+                $image->delete();
+            } catch (Exception $exc) {
+            }
+            $image = $request->file('images');
+            $imageSave = new Images;
+            $file = Str::random(5);
+            $ext = $image->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            $path = $image->storeAs(
+                'images/profile',
+                $fileName,
+                'public'
+            );
+            $imageSave->images = $path;
+            $imageSave->users_id = $user->id;
+            $imageSave->save();
+            Session::put('picprofile', 'storage/' . $path);
+        }
+        return redirect()->route('profile');
+    }
     /**
      * Update the specified resource in storage.
      *

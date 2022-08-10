@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="">
-            <form class="form form-horizontal mar-top" action="{{ route('news.config.store')}}" method="POST" enctype="multipart/form-data" id="choice_form">
+            <form class="form form-horizontal mar-top" action="{{ route('autres.config.update')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="nav">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -39,12 +39,12 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="mb-0 h6">@lang("Culture et Valeurs de "){{ Config('app.name')}}</h5>
+                                        <h5 class="mb-0 h6">@lang("Presentation "){{ Config('app.name')}}</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                <textarea class="aiz-text-editor" name="description"></textarea>
+                                                <textarea class="aiz-text-editor" name="presentation"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                                             </div>
                                                             <div class="card-body ">
                                                                 <h6 class="d-flex">
-                                                                    <span class="text-truncate title">{{ $user->name}} - admin</span>
+                                                                    <span class="text-truncate title">{{ $user->name}} - {{ $user->poste}}</span>
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -127,57 +127,8 @@
                                     <div class="card-body">
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                <textarea class="aiz-text-editor" name="description"></textarea>
+                                                <textarea class="aiz-text-editor" name="culture"></textarea>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="row gutters-5">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0 h6">@lang("Culture et Valeurs de "){{ Config('app.name')}}</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group row">
-                                            <div class="col-md-12">
-                                                <textarea class="aiz-text-editor" name="description"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0 h6">@lang("Information sur l'equipe de direction")</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        kkk
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0 h6">@lang("Ajouter un Agent")</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <label class="col-from-label">@lang("Nom") <span class="text-danger">*</span></label>
-                                        <div class="">
-                                            <input type="text" class="form-control" name="images[]" multiple>
-                                        </div>
-                                        <label class="col-from-label">@lang("Poste") <span class="text-danger">*</span></label>
-                                        <div class="">
-                                            <input type="text" class="form-control" name="images[]" multiple>
-                                        </div>
-                                        <label class="col-from-label">@lang("Images") <span class="text-danger">*</span></label>
-                                        <div class="">
-                                            <input type="file" class="form-control" name="images[]" multiple>
                                         </div>
                                     </div>
                                 </div>

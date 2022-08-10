@@ -23,7 +23,9 @@
                                 <a href="#" class="d-block text-reset">{{ $news[0]->title}}</a>
                             </p>
                             <p class="fw-600 fs-13 text-truncate-2 h-25px p-0 m-0 text-muted">
+                            <div class="text-truncate-2 h-70px">
                                 {!! $news[0]->description!!}
+                            </div>
                             </p>
                             <p>
                             <div class="d-flex justify-content-center" role="group" aria-label="Third group">
@@ -100,8 +102,10 @@
                             <p class="fw-600 fs-18 text-center m-0 p-0">
                                 <a href="#" class="d-block text-reset">{{ $actualite->title}}</a>
                             </p>
-                            <p class="fw-600 fs-13 text-truncate-2 h-25px p-0 m-0 text-muted">
-                                {!! $actualite->description!!}
+                            <p class="fw-600 fs-13 text-truncate-2 h-35px p-0 m-0 text-muted text-justify">
+                            <div class="text-truncate-2 h-35px">
+                                {!! $actualite->description !!}
+                            </div>
                             </p>
                             <p>
                             <div class="d-flex justify-content-center" role="group" aria-label="Third group">

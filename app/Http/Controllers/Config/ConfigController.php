@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Config;
 
 use App\Models\User;
+use App\Models\Images;
+use App\Models\ConfigSite;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ConfigController extends Controller
 {
@@ -19,7 +23,99 @@ class ConfigController extends Controller
     }
     public function autres_index()
     {
-        return view('config.autres');
+        $configs = ConfigSite::find(1);
+        return view('config.autres', ['config' => $configs]);
+    }
+    public function autres_index_update(Request $request)
+    {
+        $count = ConfigSite::all()->count();
+        if ($count >= 10) ConfigSite::truncate();
+        if (!$count) {
+            $config = ConfigSite::create($request->except(['_token', 'pub_images', 'center_images']));
+            if ($request->file('images') != '') {
+                foreach ($request->file('images') as $index => $image) {
+                    $imageSave = new Images;
+                    $file = Str::random(5);
+                    $ext = $image->getClientOriginalExtension();
+                    $fileName = $file . '.' . $ext;
+                    $path = $image->storeAs(
+                        'images/config',
+                        $fileName,
+                        'public'
+                    );
+                    $imageSave->images = $path;
+                    $imageSave->config_id = $config->id;
+                    $imageSave->save();
+                }
+            } else {
+                $imageSave = new Images;
+                $imageSave->config_id = $config->id;
+                $imageSave->save();
+            }
+        } else {
+            $config = ConfigSite::find(1);
+            $config->update($request->except(['_token', 'pub_images', 'center_images']));
+            if ($request->file('images') != '') {
+                foreach ($request->file('images') as $index => $image) {
+                    $imageSave = new Images;
+                    $file = Str::random(5);
+                    $ext = $image->getClientOriginalExtension();
+                    $fileName = $file . '.' . $ext;
+                    $path = $image->storeAs(
+                        'images/config',
+                        $fileName,
+                        'public'
+                    );
+                    $imageSave->images = $path;
+                    $imageSave->config_id = $config->id;
+                    $imageSave->save();
+                }
+                ConfigController::delete($config->id);
+            }
+        }
+        if ($request->file('pub_images') != '') {
+            $imgdel = Images::where('pub_images', 1)->get();
+            foreach ($imgdel as $image) {
+                Storage::disk('public')->delete($image->images);
+                $image->delete();
+            }
+            foreach ($request->file('pub_images') as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/publicite',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->pub_images = 1;
+                $imageSave->save();
+            }
+        }
+        if ($request->file('center_images') != '') {
+            $imgdel = Images::where('center_images', 1)->get();
+            foreach ($imgdel as $image) {
+                Storage::disk('public')->delete($image->images);
+                $image->delete();
+            }
+            foreach ($request->file('center_images') as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/publicite',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->center_images = 1;
+                $imageSave->save();
+            }
+        }
+        return redirect()->route('autres.config');
     }
     public function apropos_index()
     {
@@ -90,5 +186,13 @@ class ConfigController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function delete($id)
+    {
+        $images = Images::where('config_id', $id)->get();
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image->images);
+        }
+        Images::where('config_id', $id)->delete();
     }
 }

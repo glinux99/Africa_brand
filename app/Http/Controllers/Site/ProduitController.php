@@ -78,7 +78,7 @@ class ProduitController extends Controller
                 $imageSave->images = $path;
                 $imageSave->produit_id = $produit->id;
                 $imageSaveCat->images = $path2;
-                //$imageSaveCat->save();
+                $imageSaveCat->save();
                 $imageSave->save();
             }
         } else {

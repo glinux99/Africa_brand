@@ -6,21 +6,13 @@
             <div class=" col-lg-9">
                 <div class="aiz-carousel dots-inside-bottom mobile-img-auto-height" data-arrows="true" data-dots="true" data-autoplay="true">
                     <!-- Images centrales -->
+                    @foreach ($center_img as $image)
                     <div class="carousel-box">
                         <a href="#">
-                            <img class="d-block img-fuid rounded shadow-sm overflow-hidden" src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1658922695/contentservice/Intel-Untitled-12-copy.jpg_By10LiR29.jpg" alt="Africa brand" height="400" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                            <img class="d-block img-fit rounded shadow-sm overflow-hidden" src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" height="400" style="min-width:100%;" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
                         </a>
                     </div>
-                    <div class="carousel-box">
-                        <a href="#">
-                            <img class="d-block img-fuid rounded shadow-sm overflow-hidden img-fit" src="{{ asset('assets/img/contact.jpeg')}}" alt="Africa brand" height="400" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
-                        </a>
-                    </div>
-                    <div class="carousel-box">
-                        <a href="#">
-                            <img class="d-block img-fuid rounded shadow-sm overflow-hidden" src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1658581172/contentservice/PC.jpg_rJ5he_K3c.jpg" alt="Africa brand" height="400" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
                 <ul class="list-unstyled mb-0 row gutters-5">
                     <!-- Images en bas de  l image centrale -->
@@ -35,19 +27,11 @@
             </div>
             <div class="col-lg-3">
                 <div class="row">
+                    @foreach ($pub_img as $image)
                     <div class="col-6 mb-3">
-                        <img src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1659431775/contentservice/ezgif.com-video-to-gif.gif_HyZvovLp9.gif" alt="" class="img-fit">
+                        <img src="{{ asset('storage/'.$image->images)}}" alt="" class="img-fit">
                     </div>
-                    <div class="col-6 mb-3">
-                        <img src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1659200173/contentservice/access.gif_HkE3z1Xp5.gif" alt="" class="img-fit">
-                    </div>
-                    <div class="col-6 mb-1">
-                        <img src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1651137227/contentservice/edo.gif_BJeAq0wSq.gif" alt="" class="img-fit">
-                    </div>
-                    <div class="col-6 mb-1">
-                        <img src="https://www-konga-com-res.cloudinary.com/image/upload/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/v1659340959/contentservice/pow%20%281%29.gif_HJAq_WHT5.gif" alt="" class="img-fit">
-
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

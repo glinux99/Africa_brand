@@ -250,7 +250,7 @@
                         <div class="d-flex justify-content-around align-items-center align-items-stretch">
                             <div class="aiz-topbar-item">
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-icon btn-circle btn-light" href="{{('index')}}" target="_blank" title="site web">
+                                    <a class="btn btn-icon btn-circle btn-light" href="{{ route('index')}}" target="_blank" title="site web">
                                         <i class="las la-globe"></i>
                                     </a>
                                 </div>

@@ -32,6 +32,9 @@ Route::get('staff', [UserController::class, 'index'])->name('staff');
 Route::post('store-staff', [UserController::class, 'store'])->name('staff.store');
 Route::get('create-staff', [UserController::class, 'create'])->name('staff.create');
 Route::get('delete-staff/{id}', [UserController::class, 'destroy'])->name('staff.delete');
+Route::get('profile', [UserController::class, 'profile'])->name('profile');
+Route::get('update-profile', [UserController::class, 'profile_update'])->name('user.profile');
+Route::post('update-profile-me', [UserController::class, 'profile_update_me'])->name('update.profile');
 
 // Fournisseurs
 Route::get('fournisseurs', [FournisseurController::class, 'index'])->name('fournisseurs');
@@ -70,7 +73,9 @@ Route::post('/creation-de-news', [NewsController::class, 'store'])->name('news.c
 Route::get('/details-de-news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('apropos', [HomeSiteController::class, 'apropos'])->name('apropos');
 Route::get('/autres-config', [ConfigController::class, 'autres_index'])->name('autres.config');
+Route::post('/autres-update-config', [ConfigController::class, 'autres_index_update'])->name('autres.config.update');
 Route::get('/apropos-config', [ConfigController::class, 'apropos_index'])->name('apropos.config');
+Route::get('/update-config', [ConfigController::class, 'apropos_index'])->name('apropos.config.update');
 Auth::routes();
 
 

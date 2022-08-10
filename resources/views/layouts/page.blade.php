@@ -100,8 +100,8 @@
         <!-- Top Bar -->
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 col">
+                <div class="row ">
+                    <div class="col-lg-7 col d-none d-lg-inline">
                         <ul class="list-inline d-flex justify-content-between justify-content-lg-start mb-0">
                             <li class="list-inline-item dropdown mr-3" id="lang-change">
                                 <a href="javascript:void(0)" class="dropdown-toggle text-reset py-2" data-toggle="dropdown" data-display="static">
@@ -133,7 +133,7 @@
                                 <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
                                     <i class="la la-phone"></i>
                                     <span>@lang('Ligne d\'aide')</span>
-                                    <span>+243 970 912 428</span>
+                                    <span>{{ Session('config')->numeropv }}</span>
                                 </a>
                             </li>
                             @if(Auth::user())
@@ -142,7 +142,7 @@
                                     <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
                                         <span class="d-flex align-items-center">
                                             <span class="avatar avatar-sm mr-md-2">
-                                                <img src="{{ asset(Session('picprofile'))}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png';">
+                                                <img src="{{ Session('picprofile')}}" alt="{{ Session('picprofile')}}" onerror=" this.onerror=null;this.src='' ;">
                                             </span>
                                             <span class="d-none d-md-block">
                                                 <span class="d-block fw-500">{{ Auth::user()->name }}</span>
@@ -180,7 +180,7 @@
             </div>
         </div>
         <!-- END Top Bar -->
-        <header class=" sticky-top  z-1020 bg-white border-bottom shadow-sm">
+        <header class=" sticky-top  z-1020 bg-white border-bottom shadow-sm ">
             <div class="position-relative logo-bar-area z-1">
                 <div class="container">
                     <div class="d-flex align-items-center">
@@ -197,7 +197,7 @@
                                 <i class="las la-search la-flip-horizontal la-2x"></i>
                             </a>
                         </div>
-                        <div class="bg-white border-gray-200 py-1">
+                        <div class="bg-white border-gray-200 py-1 d-none d-lg-block">
                             <div class="container">
                                 <ul class="list-inline mb-0 pl-0 mobile-hor-swipe text-center">
                                     <li class="list-inline-item mr-0">
@@ -236,17 +236,17 @@
                         <div class="flex-fill">
                             <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
                                 <li class="list-inline-item mr-3  pr-3 pl-0">
-                                    <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
+                                    <a href="{{ Session('config')->facebook }}" class="text-reset d-inline-block opacity-60 py-2">
                                         <i class="la la-facebook h4"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item mr-3  pr-3 pl-0">
-                                    <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
+                                    <a href="{{ (Session('config')->twitter) }}" class="text-reset d-inline-block opacity-60 py-2">
                                         <i class="la la-twitter h4"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item mr-3  pr-3 pl-0">
-                                    <a href="https://wa.me/+243970912428" class="text-reset d-inline-block opacity-60 py-2">
+                                    <a href="https://wa.me/{{ Session('config')->whatsapp }}" class="text-reset d-inline-block opacity-60 py-2">
                                         <i class="la la-whatsapp h4"></i>
                                     </a>
                                 </li>
@@ -275,7 +275,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-xl-4 text-center text-md-left">
                         <div class="mt-4">
-                            <a href="{{ ('index')}}" class="d-block">
+                            <a href="{{ route('index')}}" class="d-block">
                                 <img class="lazyload" src="{{ asset('assets/img/logo.png')}}" alt="Africa Brand" height="44">
                             </a>
                             <div class="my-3">
@@ -283,7 +283,7 @@
                             </div>
                             <div class="d-inline-block d-md-block mb-4">
                                 <form class="form-inline" method="POST" action="#">
-                                    <input type="hidden" name="_token" value="zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt">
+                                    @csrf
                                     <div class="form-group mb-0">
                                         <input type="email" class="form-control" placeholder="@lang('votre adresse email')" name="email" required>
                                     </div>
@@ -294,10 +294,10 @@
                             </div>
                             <div class="w-300px mw-100 mx-auto mx-md-0">
                                 <a href="#" target="_blank" class="d-inline-block mr-3 ml-0">
-                                    <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/play.png" class="mx-100 h-40px">
+                                    <img src="{{ asset('assets/img/app.png')}}" class="mx-100 h-40px">
                                 </a>
                                 <a href="#" target="_blank" class="d-inline-block">
-                                    <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/app.png" class="mx-100 h-40px">
+                                    <img src="{{ asset('assets/img/app.png')}}" class="mx-100 h-40px">
                                 </a>
                             </div>
                         </div>
@@ -310,16 +310,16 @@
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <span class="d-block opacity-30">@lang("Adresse")</span>
-                                    <span class="d-block opacity-70">Goma</span>
+                                    <span class="d-block opacity-70"> {{ Session('config')->adresse ?? 'Goma, Centre ville'}}</span>
                                 </li>
                                 <li class="mb-2">
                                     <span class="d-block opacity-30">@lang("Telephone")</span>
-                                    <span class="d-block opacity-70">+243 970 912 428</span>
+                                    <span class="d-block opacity-70">{{ Session('config')->numeropv ?? '+243970912428'}}</span>
                                 </li>
                                 <li class="mb-2">
                                     <span class="d-block opacity-30">@lang('Email:')</span>
                                     <span class="d-block opacity-70">
-                                        <a href="mailto:">genesiskikimba@gmail.com</a>
+                                        <a href="mailto:">{{ Session('config')->email ?? 'genesiskikimba@gmail.com'}}</a>
                                     </span>
                                 </li>
                             </ul>
@@ -342,12 +342,12 @@
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                    <a href="{{ route('contact')}}" class="opacity-50 hov-opacity-100 text-reset">
                                         @lang("Contactez-nous")
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                    <a href="{{ route('contact')}}" class="opacity-50 hov-opacity-100 text-reset">
                                         @lang("Joignez-nous")
                                     </a>
                                 </li>
@@ -377,7 +377,7 @@
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-light" href="#">@lang("Devenir un partenaire")</a>
+                                    <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('register')}}">@lang("Devenir un partenaire")</a>
                                 </li>
                             </ul>
                         </div>
@@ -396,25 +396,25 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="text-center text-md-left" current-verison="1.0.1">
-                            © @lang("Africa Brand Busness")
+                            © @lang("Africa Brand")
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <ul class="list-inline my-3 my-md-0 social colored text-center">
                             <li class="list-inline-item">
-                                <a href="#" target="_blank" class="facebook"><i class="lab la-facebook-f"></i></a>
+                                <a href="{{ Session('config')->facebook }}" target="_blank" class="facebook"><i class="lab la-facebook-f"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#" target="_blank" class="twitter"><i class="lab la-twitter"></i></a>
+                                <a href="{{ Session('config')->twitter }}" target="_blank" class="twitter"><i class="lab la-twitter"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#" target="_blank" class="instagram"><i class="lab la-instagram"></i></a>
+                                <a href="{{ Session('config')->instragrame }}" target="_blank" class="instagram"><i class="lab la-instagram"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#" target="_blank" class="youtube"><i class="lab la-youtube"></i></a>
+                                <a href="{{ Session('config')->youtube}}" target="_blank" class="youtube"><i class="lab la-youtube"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#" target="_blank" class="linkedin"><i class="lab la-linkedin-in"></i></a>
+                                <a href="{{ Session('config')->lindin }}" target="_blank" class="linkedin"><i class="lab la-linkedin-in"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -422,7 +422,7 @@
                         <div class="text-center text-md-right">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item">
-                                    <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/NankP5emHOKcdCWqX6Bks1Qa63iDgoLA6WPGn7oe.png" height="30" class="mw-100 h-auto" style="max-height: 30px">
+                                    <img src="{{ asset('assets/img/app.png')}}" height="30" class="mw-100 h-auto" style="max-height: 30px">
                                 </li>
                             </ul>
                         </div>
@@ -435,40 +435,55 @@
         <div class="aiz-mobile-bottom-nav d-xl-none fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
             <div class="row align-items-center gutters-5">
                 <div class="col">
-                    <a href="{{('index')}}" class="text-reset d-block text-center pb-2 pt-3">
+                    <a href="{{route('index')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <i class="las la-home fs-20 opacity-60 opacity-100 text-success"></i>
                         <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Acceuil")</span>
                     </a>
                 </div>
                 <div class="col">
-                    <a href="https://demo.activeitzone.com/ecommerce/categories" class="text-reset d-block text-center pb-2 pt-3">
+                    <a href="{{ route('apropos')}}" class="text-reset d-block text-center pb-2 pt-3">
+                        <span class="d-inline-block position-relative px-2">
+                            <i class="las la-bell fs-20 opacity-60 "></i>
+                        </span>
+                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("A propos")</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('categories.all')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <i class="las la-list-ul fs-20 opacity-60 "></i>
                         <span class="d-block fs-10 fw-600 opacity-60 ">@lang("Categories")</span>
                     </a>
                 </div>
                 <div class="col-auto">
-                    <a href="https://demo.activeitzone.com/ecommerce/cart" class="text-reset d-block text-center pb-2 pt-3">
+                    <a href="{{ route('home.produit')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="align-items-center bg-success border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
                             <i class="las la-shopping-bag la-2x text-white"></i>
                         </span>
                         <span class="d-block mt-1 fs-10 fw-600 opacity-60 ">
-                            Cart
-                            (<span class="cart-count">0</span>)
+                            @lang("Produits")
                         </span>
                     </a>
                 </div>
                 <div class="col">
-                    <a href="https://demo.activeitzone.com/ecommerce/all-notifications" class="text-reset d-block text-center pb-2 pt-3">
+                    <a href="{{ route('news.all')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="d-inline-block position-relative px-2">
                             <i class="las la-bell fs-20 opacity-60 "></i>
                         </span>
-                        <span class="d-block fs-10 fw-600 opacity-60 ">Notifications</span>
+                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("Actualite")</span>
                     </a>
                 </div>
                 <div class="col">
-                    <a href="https://demo.activeitzone.com/ecommerce/users/login" class="text-reset d-block text-center pb-2 pt-3">
+                    <a href="{{ route('contact')}}" class="text-reset d-block text-center pb-2 pt-3">
+                        <span class="d-inline-block position-relative px-2">
+                            <i class="las la-bell fs-20 opacity-60 "></i>
+                        </span>
+                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("Contact")</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/users/login" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="d-block mx-auto">
-                            <img src="https://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png" class="rounded-circle size-20px">
+                            <img src="/public/assets/img/avatar-place.png" class="rounded-circle size-20px">
                         </span>
                         <span class="d-block fs-10 fw-600 opacity-60">@lang("Profile")</span>
                     </a>
@@ -500,7 +515,7 @@
                     <p style="text-align: center;">@lang("Abonnez-vous à notre newsletter pour un coupon, une offre et une réduction promotionnelle passionnante..")</p>
                 </div>
                 <div class="pb-5 pt-4 px-5">
-                    <form class="" method="POST" action="https://demo.activeitzone.com/ecommerce/subscribers">
+                    <form class="" method="POST" action="/subscribers">
                         <input type="hidden" name="_token" value="zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt">
                         <div class="form-group mb-0">
                             <input type="email" class="form-control" placeholder="@lang('Your Email Address')" name="email" required>
@@ -601,7 +616,7 @@
             $('.category-nav-element').each(function(i, el) {
                 $(el).on('mouseover', function() {
                     if (!$(el).find('.sub-cat-menu').hasClass('loaded')) {
-                        $.post('https://demo.activeitzone.com/ecommerce/category/nav-element-list', {
+                        $.post('/category/nav-element-list', {
                             _token: AIZ.data.csrf,
                             id: $(el).data('id')
                         }, function(data) {
@@ -616,7 +631,7 @@
                         e.preventDefault();
                         var $this = $(this);
                         var locale = $this.data('flag');
-                        $.post('https://demo.activeitzone.com/ecommerce/language', {
+                        $.post('/language', {
                             _token: AIZ.data.csrf,
                             locale: locale
                         }, function(data) {
@@ -633,7 +648,7 @@
                         e.preventDefault();
                         var $this = $(this);
                         var currency_code = $this.data('currency');
-                        $.post('https://demo.activeitzone.com/ecommerce/currency', {
+                        $.post('/currency', {
                             _token: AIZ.data.csrf,
                             currency_code: currency_code
                         }, function(data) {
@@ -660,7 +675,7 @@
 
                 $('.typed-search-box').removeClass('d-none');
                 $('.search-preloader').removeClass('d-none');
-                $.post('https://demo.activeitzone.com/ecommerce/ajax-search', {
+                $.post('/ajax-search', {
                     _token: AIZ.data.csrf,
                     search: searchKey
                 }, function(data) {
@@ -688,7 +703,7 @@
         }
 
         function removeFromCart(key) {
-            $.post('https://demo.activeitzone.com/ecommerce/cart/removeFromCart', {
+            $.post('/cart/removeFromCart', {
                 _token: AIZ.data.csrf,
                 id: key
             }, function(data) {
@@ -700,7 +715,7 @@
         }
 
         function addToCompare(id) {
-            $.post('https://demo.activeitzone.com/ecommerce/compare/addToCompare', {
+            $.post('/compare/addToCompare', {
                 _token: AIZ.data.csrf,
                 id: id
             }, function(data) {
@@ -721,7 +736,7 @@
             $('#addToCart-modal-body').html(null);
             $('#addToCart').modal();
             $('.c-preloader').show();
-            $.post('https://demo.activeitzone.com/ecommerce/cart/show-cart-modal', {
+            $.post('/cart/show-cart-modal', {
                 _token: AIZ.data.csrf,
                 id: id
             }, function(data) {
@@ -742,7 +757,7 @@
             if ($('#option-choice-form input[name=quantity]').val() > 0 && checkAddToCartValidity()) {
                 $.ajax({
                     type: "POST",
-                    url: 'https://demo.activeitzone.com/ecommerce/product/variant_price',
+                    url: '/product/variant_price',
                     data: $('#option-choice-form').serializeArray(),
                     success: function(data) {
 
@@ -795,7 +810,7 @@
                 $('.c-preloader').show();
                 $.ajax({
                     type: "POST",
-                    url: 'https://demo.activeitzone.com/ecommerce/cart/addtocart',
+                    url: '/cart/addtocart',
                     data: $('#option-choice-form').serializeArray(),
                     success: function(data) {
 
@@ -820,7 +835,7 @@
                 $('.c-preloader').show();
                 $.ajax({
                     type: "POST",
-                    url: 'https://demo.activeitzone.com/ecommerce/cart/addtocart',
+                    url: '/cart/addtocart',
                     data: $('#option-choice-form').serializeArray(),
                     success: function(data) {
                         if (data.status == 1) {
@@ -828,7 +843,7 @@
                             $('#addToCart-modal-body').html(data.modal_view);
                             updateNavCart(data.nav_cart_view, data.cart_count);
 
-                            window.location.replace("https://demo.activeitzone.com/ecommerce/cart");
+                            window.location.replace("/cart");
                         } else {
                             $('#addToCart-modal-body').html(null);
                             $('.c-preloader').hide();
@@ -845,31 +860,31 @@
 
     <script>
         $(document).ready(function() {
-            $.post('https://demo.activeitzone.com/ecommerce/home/section/featured', {
+            $.post('/home/section/featured', {
                 _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
             }, function(data) {
                 $('#section_featured').html(data);
                 AIZ.plugins.slickCarousel();
             });
-            $.post('https://demo.activeitzone.com/ecommerce/home/section/best_selling', {
+            $.post('/home/section/best_selling', {
                 _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
             }, function(data) {
                 $('#section_best_selling').html(data);
                 AIZ.plugins.slickCarousel();
             });
-            $.post('https://demo.activeitzone.com/ecommerce/home/section/auction_products', {
+            $.post('/home/section/auction_products', {
                 _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
             }, function(data) {
                 $('#auction_products').html(data);
                 AIZ.plugins.slickCarousel();
             });
-            $.post('https://demo.activeitzone.com/ecommerce/home/section/home_categories', {
+            $.post('/home/section/home_categories', {
                 _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
             }, function(data) {
                 $('#section_home_categories').html(data);
                 AIZ.plugins.slickCarousel();
             });
-            $.post('https://demo.activeitzone.com/ecommerce/home/section/best_sellers', {
+            $.post('/home/section/best_sellers', {
                 _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
             }, function(data) {
                 $('#section_best_sellers').html(data);

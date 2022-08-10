@@ -116,7 +116,9 @@
                                 <a href="#" class="d-block text-reset">{{ $actualite->title}}</a>
                             </p>
                             <p class="fw-600 fs-13 text-truncate-2 h-25px p-0 m-0 text-muted">
-                                {!! $actualite->description!!}
+                            <div class="text-truncate-2 h-35px">
+                                {!! $actualite->description !!}
+                            </div>
                             </p>
                             <p>
                             <div class="d-flex justify-content-center" role="group" aria-label="Third group">

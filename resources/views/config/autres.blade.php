@@ -16,9 +16,10 @@
             </div>
         </div>
 
-        <form action="" method="post">
+        <form action="{{ route('autres.config.update')}}" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="card-group">
-                <div class=" card">
+                <div class="card">
                     <div class="card-header row gutters-5">
                         <div class="col text-center text-md-left">
                             <h5 class="mb-md-0 h6">@lang("Reseaux sociaux")</h5>
@@ -27,23 +28,23 @@
                     <div class="card-body">
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Facebook')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="text" name="facebook" id="inputNumeroligne" class="form-control" value="{{ $config->facebook ?? ''}}" title="@lang('Ecrivez l\'adresse de facebook de votre site')">
                         </div>
                         <div class="">
-                            <label for="inputNumeroligne" class="control-label">@lang('Instagrame')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <label for="inputNumeroligne" class="control-label">@lang('Instagram')</label>
+                            <input type="text" name="instagrame" id="inputNumeroligne" class="form-control" value="{{ $config->instagrame ?? ''}}" title="@lang('Ecrivez l\'adresse intagram de votre site')">
                         </div>
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Twitter')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="text" name="twitter" id="inputNumeroligne" class="form-control" value="{{ $config->twitter ?? ''}}" title="@lang('Ecrivez l\'adresse de twitter de votre site')">
                         </div>
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Linkdin')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="text" name="linkdin" id="inputNumeroligne" class="form-control" value="{{ $config->linkdin ?? ''}}" title="@lang('Ecrivez l\'adresse linkdin  de votre page')">
                         </div>
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Youtube')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="text" name="youtube" id="inputNumeroligne" class="form-control" value="{{ $config->youtube ?? ''}}" title="">
                         </div>
                     </div>
                 </div>
@@ -56,15 +57,19 @@
                     <div class="card-body">
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Numero de la ligne prive')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="tel" name="numeropv" id="inputNumeroligne" class="form-control" value="{{ $config->numeropv ?? ''}}" title="">
                         </div>
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Numero whatsapp')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="text" name="whatsapp" id="inputNumeroligne" class="form-control" value="{{ $config->whatsapp ?? ''}}" title="">
                         </div>
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Numero/Lien Telegram')</label>
-                            <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                            <input type="text" name="telegram" id="inputNumeroligne" class="form-control" value="{{ $config->telegram ?? ''}}" title="">
+                        </div>
+                        <div class="">
+                            <label for="inputNumeroligne" class="control-label">@lang('Email de l\'entreprise')</label>
+                            <input type="text" name="email" id="inputNumeroligne" class="form-control" value="{{ $config->email ?? ''}}" title="">
                         </div>
                     </div>
                 </div>
@@ -80,23 +85,19 @@
                         <div class="card-body">
                             <div class="">
                                 <label for="inputNumeroligne" class="control-label">@lang('Images de publicite')</label>
-                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                                <input type="file" name="pub_images[]" id="inputNumeroligne" class="form-control" value="" title="" multiple>
                             </div>
                             <div class="">
                                 <label for="inputNumeroligne" class="control-label">@lang('Images Centrales')</label>
-                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                                <input type="file" name="center_images[]" id="inputNumeroligne" class="form-control" value="" title="" multiple>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 ">
                         <div class="card-body">
                             <div class="">
-                                <label for="inputNumeroligne" class="control-label">@lang('Publicite Textue')</label>
-                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
-                            </div>
-                            <div class="">
-                                <label for="inputNumeroligne" class="control-label">@lang('Images Centrales')</label>
-                                <input type="text" name="number" id="inputNumeroligne" class="form-control" value="" required="required" pattern="" title="">
+                                <label for="inputNumeroligne" class="control-label">@lang('Publicite Textuel')</label>
+                                <input type="text" name="publicite_txt" id="inputNumeroligne" class="form-control" value="{{ $config->publicite_txt ?? ''}}" title="">
                             </div>
                         </div>
                     </div>
