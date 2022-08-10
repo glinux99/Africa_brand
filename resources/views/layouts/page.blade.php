@@ -99,7 +99,7 @@
         </div> -->
         <!-- Top Bar -->
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
-            <div class="container">
+            <div class="container my-0 px-0">
                 <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
                     <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
                         <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
@@ -127,13 +127,13 @@
             </div>
         </div>
         <!-- END Top Bar -->
-        <header class="sticky-top  z-1020 bg-white border-bottom shadow-sm">
+        <header class="sticky-top  z-1020 bg-white border-bottom shadow-md ">
             <div class="position-relative logo-bar-area z-1">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="d-flex align-items-center">
                             <div class="ml-md-5  ml-2 col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
-                                <a class="d-block py-20px" href="/">
+                                <a class="d-block py-10px" href="/">
                                     <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
                                 </a>
                                 <div>

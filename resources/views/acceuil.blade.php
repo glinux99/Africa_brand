@@ -41,13 +41,12 @@
 <section class="mb-4">
     <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
-
-            <div class="d-flex flex-wrap mb-3 align-items-baseline border-bottom">
+            <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
                     <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Nos produits")</span>
                 </h3>
                 <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="2022/8/20 00:00:00"></div>
-                <a href="{{ route('home.produit')}}" class="ml-auto mr-0 btn btn-success btn-sm shadow-md w-100 w-md-auto">@lang("Voir plus")</a>
+                <a href="{{ route('home.produit')}}" class="ml-auto mr-0 btn btn-success btn-sm shadow-md">@lang("Voir plus")</a>
             </div>
 
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
@@ -63,13 +62,13 @@
                                 @lang("En vente")
                             </span>
                             <div class="absolute-top-right aiz-p-hov-icon">
-                                <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="Add to wishlist" data-placement="left">
+                                <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="ajouter a la liste" data-placement="left">
                                     <i class="la la-heart-o"></i>
                                 </a>
-                                <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="Add to compare" data-placement="left">
+                                <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="ajouter pour comparer" data-placement="left">
                                     <i class="las la-sync"></i>
                                 </a>
-                                <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="Add to cart" data-placement="left">
+                                <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="Acheter" data-placement="left">
                                     <i class="las la-shopping-cart"></i>
                                 </a>
                             </div>
