@@ -58,6 +58,7 @@ class ProduitController extends Controller
             $produit->save();
             $categorie->nombre_prod = 1 + (int)$categorie->nombre_prod;
             $categorie->save();
+            $catno = true;
         }
         if ($request->file('images') != '') {
             foreach ($request->file('images') as $index => $image) {
@@ -77,8 +78,10 @@ class ProduitController extends Controller
                 );
                 $imageSave->images = $path;
                 $imageSave->produit_id = $produit->id;
-                $imageSaveCat->images = $path2;
-                $imageSaveCat->save();
+                if (!$catno) {
+                    $imageSaveCat->images = $path2;
+                    $imageSaveCat->save();
+                }
                 $imageSave->save();
             }
         } else {

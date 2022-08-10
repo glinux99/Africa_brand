@@ -177,11 +177,6 @@
                                     </a>
                                 </li>
                                 <li class="list-inline-item mr-0">
-                                    <a href="" class="google" target="_blank">
-                                        <i class="lab la-google opacity-60"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item mr-0">
                                     <a href="" class="twitter" target="_blank">
                                         <i class="lab la-twitter opacity-60"></i>
                                     </a>
@@ -205,7 +200,7 @@
                                 <div class="row gutters-10 align-items-center">
                                     <div class="col-5">
                                         <a href="#" class="d-block text-reset">
-                                            <img class="img-fit lazyload h-xxl-110px h-xl-80px h-120px" src="" data-src="{{ asset('storage/'.$produit->images)}}" alt="Under Armour Men&#039;s Charged Assert 9 Running Shoe" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                            <img class="img-fit lazyload h-xxl-110px h-xl-80px h-120px" src="" data-src="{{ asset('storage/'.$image->images)}}" alt="kkkk" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                         </a>
                                     </div>
                                     <div class="col-7 text-left">
@@ -214,13 +209,6 @@
                                         </h4>
                                         <div class="rating rating-sm mt-1">
                                             <i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star'></i>
-                                        </div>
-                                        <div class="mt-2">
-                                            @php
-                                            $reduction =((float)$produit->prix)-(((float)$produit->prix)*((float)$produit->reduction)/100)
-                                            @endphp
-
-                                            <span class="fs-17 fw-600 text-primary">{{ $reduction}}</span>
                                         </div>
                                     </div>
                                 </div>

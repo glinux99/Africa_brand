@@ -100,160 +100,132 @@
         <!-- Top Bar -->
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
             <div class="container">
-                <div class="row ">
-                    <div class="col-lg-7 col d-none d-lg-inline">
-                        <ul class="list-inline d-flex justify-content-between justify-content-lg-start mb-0">
-                            <li class="list-inline-item dropdown mr-3" id="lang-change">
-                                <a href="javascript:void(0)" class="dropdown-toggle text-reset py-2" data-toggle="dropdown" data-display="static">
-                                    <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="{{ asset('assets/img/flags/en.png')}}" class="mr-2 lazyload" alt="English" height="11">
-                                    <span class="opacity-60">@lang("Anglais")</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-left">
-                                    <li>
-                                        <a href="javascript:void(0)" data-flag="en" class="dropdown-item ">
-                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="{{ asset('assets/img/flags/en.png')}}" class="mr-1 lazyload" alt="English" height="11">
-                                            <span class="language">@lang("Anglais")</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" data-flag="bd" class="dropdown-item ">
-                                            <img src="{{asset('assets/img/placeholder.jpg')}}" data-src="{{ asset('assets/img/flags/fr.png')}}" class="mr-1 lazyload" alt="Bangla" height="11">
-                                            <span class="language">@lang("Francais")</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5 text-right d-none d-lg-block">
-                        <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
-
-                            <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
-                                    <i class="la la-phone"></i>
-                                    <span>@lang('Ligne d\'aide')</span>
-                                    <span>{{ Session('config')->numeropv }}</span>
-                                </a>
-                            </li>
-                            @if(Auth::user())
-                            <div class="aiz-topbar-item ml-2 float-right">
-                                <div class="align-items-stretch d-flex dropdown">
-                                    <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
-                                        <span class="d-flex align-items-center">
-                                            <span class="avatar avatar-sm mr-md-2">
-                                                <img src="{{ Session('picprofile')}}" alt="{{ Session('picprofile')}}" onerror=" this.onerror=null;this.src='' ;">
-                                            </span>
-                                            <span class="d-none d-md-block">
-                                                <span class="d-block fw-500">{{ Auth::user()->name }}</span>
-                                                <span class="d-block small opacity-60 text-center">{{ auth()->user()->getRoleNames()->first()}}</span>
-                                            </span>
-                                        </span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
-                                        <a href="{{ ('profile')}}" class="dropdown-item">
-                                            <i class="las la-user-circle"></i>
-                                            <span>@lang("Profile")</span>
-                                        </a>
-                                        <a class="dropdown-item" href="{{ ('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                            <i class="las la-sign-out-alt"></i> {{ __('Logout') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ ('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div><!-- .aiz-topbar-item -->
-                            @else
-                            <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                <a href="{{ ('login')}}" class="text-reset d-inline-block opacity-60 py-2">@lang("Se connecter")</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="{{ ('register')}}" class="text-reset d-inline-block opacity-60 py-2">@lang("Enregistrement")</a>
-                            </li>
-                            @endif
-                        </ul>
-                    </div>
-                </div>
+                <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
+                    <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
+                        <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-phone"></i>
+                            <span>@lang('Ligne d\'aide')</span>
+                            <span>{{ Session('config')->numeropv }}</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                        <a href="{{ Session('config')->facebook }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-facebook h4"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                        <a href="{{ (Session('config')->twitter) }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-twitter h4"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                        <a href="https://wa.me/{{ Session('config')->whatsapp }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-whatsapp h4"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         <!-- END Top Bar -->
-        <header class=" sticky-top  z-1020 bg-white border-bottom shadow-sm ">
+        <header class="sticky-top  z-1020 bg-white border-bottom shadow-sm">
             <div class="position-relative logo-bar-area z-1">
-                <div class="container">
-                    <div class="d-flex align-items-center">
-                        <div class="col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
-                            <a class="d-block py-20px mr-3 ml-0" href="/">
-                                <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
-                            </a>
-                            <div>
-                                @lang("AFRICAN BRAND")
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex align-items-center">
+                            <div class="ml-md-5  ml-2 col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
+                                <a class="d-block py-20px" href="/">
+                                    <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
+                                </a>
+                                <div>
+                                    @lang("AFRICAN BRAND")
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-lg-none ml-auto mr-0 d-none">
-                            <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
-                                <i class="las la-search la-flip-horizontal la-2x"></i>
-                            </a>
-                        </div>
-                        <div class="bg-white border-gray-200 py-1 d-none d-lg-block">
-                            <div class="container">
-                                <ul class="list-inline mb-0 pl-0 mobile-hor-swipe text-center">
-                                    <li class="list-inline-item mr-0">
-                                        <a href="{{ route('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                            @lang("Acceuil")
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item mr-0">
-                                        <a href="{{ route('home.produit')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                            @lang("Produits")
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item mr-0">
-                                        <a href="{{ route('categories.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                            @lang("Categorie")
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item mr-0">
-                                        <a href="{{ route('news.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                            @lang("Actualites")
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item mr-0">
-                                        <a href="{{ route('apropos')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                            @lang("A propos")
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item mr-0">
-                                        <a href="{{ route('contact')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                            @lang("Contact")
-                                        </a>
-                                    </li>
-                                </ul>
+                            <div class="d-lg-none ml-auto mr-0 d-none">
+                                <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
+                                    <i class="las la-search la-flip-horizontal la-2x"></i>
+                                </a>
                             </div>
-                        </div>
-                        <div class="flex-fill">
-                            <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
-                                <li class="list-inline-item mr-3  pr-3 pl-0">
-                                    <a href="{{ Session('config')->facebook }}" class="text-reset d-inline-block opacity-60 py-2">
-                                        <i class="la la-facebook h4"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item mr-3  pr-3 pl-0">
-                                    <a href="{{ (Session('config')->twitter) }}" class="text-reset d-inline-block opacity-60 py-2">
-                                        <i class="la la-twitter h4"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item mr-3  pr-3 pl-0">
-                                    <a href="https://wa.me/{{ Session('config')->whatsapp }}" class="text-reset d-inline-block opacity-60 py-2">
-                                        <i class="la la-whatsapp h4"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="bg-white border-gray-200 py-1 d-none d-lg-block">
+                                <div class="container">
+                                    <ul class="list-inline mb-0 pl-0 mobile-hor-swipe text-center">
+                                        <li class="list-inline-item mr-0">
+                                            <a href="{{ route('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                                @lang("Acceuil")
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item mr-0">
+                                            <a href="{{ route('home.produit')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                                @lang("Produits")
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item mr-0">
+                                            <a href="{{ route('categories.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                                @lang("Categorie")
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item mr-0">
+                                            <a href="{{ route('news.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                                @lang("Actualites")
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item mr-0">
+                                            <a href="{{ route('apropos')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                                @lang("A propos")
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item mr-0">
+                                            <a href="{{ route('contact')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                                @lang("Contact")
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex-fill d-none">
+                                <div>
+                                    @if(Auth::user())
+                                    <div class="aiz-topbar-item ml-2 float-right">
+                                        <div class="align-items-stretch d-flex dropdown">
+                                            <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
+                                                <span class="d-flex align-items-center">
+                                                    <span class="avatar avatar-sm mr-md-2">
+                                                        <img src="{{ Session('picprofile')}}" alt="{{ Session('picprofile')}}" onerror=" this.onerror=null;this.src='' ;">
+                                                    </span>
+                                                    <span class="d-none d-md-block">
+                                                        <span class="d-block small opacity-60 text-center">{{ auth()->user()->getRoleNames()->first()}}</span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
+                                                <a href="{{ ('profile')}}" class="dropdown-item">
+                                                    <i class="las la-user-circle"></i>
+                                                    <span>@lang("Profile")</span>
+                                                </a>
+                                                <a class="dropdown-item" href="{{ ('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                                    <i class="las la-sign-out-alt"></i> {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ ('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- .aiz-topbar-item -->
+                                    @else
+                                    <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
+                                        <a href="{{ ('login')}}" class="text-reset d-inline-block opacity-60 py-2">@lang("Se connecter")</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="{{ ('register')}}" class="text-reset d-inline-block opacity-60 py-2">@lang("Enregistrement")</a>
+                                    </li>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </header>
 
@@ -273,7 +245,7 @@
         <section class="bg-dark py-5 text-light footer-widget">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5 col-xl-4 text-center text-md-left">
+                    <div class="col-lg-5 d-none d-lg-block d-md-block text-center text-md-left">
                         <div class="mt-4">
                             <a href="{{ route('index')}}" class="d-block">
                                 <img class="lazyload" src="{{ asset('assets/img/logo.png')}}" alt="Africa Brand" height="44">
@@ -286,10 +258,10 @@
                                     @csrf
                                     <div class="form-group mb-0">
                                         <input type="email" class="form-control" placeholder="@lang('votre adresse email')" name="email" required>
+                                        <button type="submit" class="btn btn-success">
+                                            @lang('s\'abonner')
+                                        </button>
                                     </div>
-                                    <button type="submit" class="btn btn-success">
-                                        @lang('s\'abonner')
-                                    </button>
                                 </form>
                             </div>
                             <div class="w-300px mw-100 mx-auto mx-md-0">
@@ -302,7 +274,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
+                    <div class="col-lg-3 col-4 ml-auto col-md-4 mr-0">
                         <div class="text-center text-md-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang("Contact")
@@ -319,13 +291,13 @@
                                 <li class="mb-2">
                                     <span class="d-block opacity-30">@lang('Email:')</span>
                                     <span class="d-block opacity-70">
-                                        <a href="mailto:">{{ Session('config')->email ?? 'genesiskikimba@gmail.com'}}</a>
+                                        <a href="mailto:{{ Session('config')->email ?? 'genesiskikimba@gmail.com'}}" class="text-white">{{ Session('config')->email ?? 'genesiskikimba@gmail.com'}}</a>
                                     </span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4">
+                    <div class="col-lg-2 col-4 col-md-4">
                         <div class="text-center text-md-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang('Liens rapides')
@@ -354,8 +326,7 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div class="col-md-4 col-lg-2">
+                    <div class="col-md-4 col-4  col-lg-2">
                         <div class="text-center text-md-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang('Mon compte')
@@ -381,12 +352,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="text-center text-md-left mt-4">
+                        <div class="text-center text-md-left mt-4 d-none d-lg-block d-md-block">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang("Devenir un vendeur")
                             </h4>
                         </div>
                     </div>
+                </div>
+                <div class="d-flex justify-content-center text-md-left mt-4 d-block d-lg-none d-md-none">
+                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                        @lang("Devenir un vendeur")
+                    </h4>
                 </div>
             </div>
         </section>
@@ -437,7 +413,6 @@
                 <div class="col">
                     <a href="{{route('index')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <i class="las la-home fs-20 opacity-60 opacity-100 text-success"></i>
-                        <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Acceuil")</span>
                     </a>
                 </div>
                 <div class="col">
@@ -445,13 +420,12 @@
                         <span class="d-inline-block position-relative px-2">
                             <i class="las la-bell fs-20 opacity-60 "></i>
                         </span>
-                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("A propos")</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="{{ route('categories.all')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <i class="las la-list-ul fs-20 opacity-60 "></i>
-                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("Categories")</span>
+
                     </a>
                 </div>
                 <div class="col-auto">
@@ -459,9 +433,7 @@
                         <span class="align-items-center bg-success border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
                             <i class="las la-shopping-bag la-2x text-white"></i>
                         </span>
-                        <span class="d-block mt-1 fs-10 fw-600 opacity-60 ">
-                            @lang("Produits")
-                        </span>
+
                     </a>
                 </div>
                 <div class="col">
@@ -469,7 +441,6 @@
                         <span class="d-inline-block position-relative px-2">
                             <i class="las la-bell fs-20 opacity-60 "></i>
                         </span>
-                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("Actualite")</span>
                     </a>
                 </div>
                 <div class="col">
@@ -477,15 +448,13 @@
                         <span class="d-inline-block position-relative px-2">
                             <i class="las la-bell fs-20 opacity-60 "></i>
                         </span>
-                        <span class="d-block fs-10 fw-600 opacity-60 ">@lang("Contact")</span>
                     </a>
                 </div>
                 <div class="col">
-                    <a href="/users/login" class="text-reset d-block text-center pb-2 pt-3">
+                    <a href="{{ route('profile')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="d-block mx-auto">
-                            <img src="/public/assets/img/avatar-place.png" class="rounded-circle size-20px">
+                            <img src="{{ Session('picprofile')}}" class="rounded-circle size-20px">
                         </span>
-                        <span class="d-block fs-10 fw-600 opacity-60">@lang("Profile")</span>
                     </a>
                 </div>
             </div>
@@ -726,7 +695,7 @@
         }
 
         function addToWishList(id) {
-            AIZ.plugins.notify('warning', "Please login first");
+            AIZ.plugins.notify('warning', "Connectez-vous en premier lieu svp");
         }
 
         function showAddToCartModal(id) {

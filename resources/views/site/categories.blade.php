@@ -14,7 +14,7 @@
         @else
         <div class="row">
             @foreach ($categories as $categorie)
-            <div class="col-md-4 col-lg-4 col-6 carousel-box">
+            <div class="col-md-3 col-lg-3 col-6 carousel-box">
                 <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                     <div class="position-relative">
                         <a href="#" class="d-block">

@@ -16,7 +16,7 @@
                 </div>
                 <ul class="list-unstyled mb-0 row gutters-5">
                     <!-- Images en bas de  l image centrale -->
-                    @for ($x=0; $x<4;$x++) <li class="minw-0 col-4 col-md mt-3">
+                    @for ($x=0; $x<3;$x++) <li class="minw-0 col-4 col-md-4 mt-3">
                         <a href="#" class="d-block rounded bg-white p-2 text-reset shadow-sm">
 
                             <div class="text-truncate fs-12 fw-600 mt-2 opacity-70 text-center">{{ Config('app.name')}}</div>

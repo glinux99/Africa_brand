@@ -107,7 +107,7 @@
                     <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                         <div class="position-relative">
                             <a href="{{ route('news.show',[$actualite->actualite_id])}}" class="d-block">
-                                <img class="img-fit " src="{{ asset('storage/'.$actualite->images)}}" data-src="{{ asset('storage/'.$actualite->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                <img class="img-cover size-400px" src="{{ asset('storage/'.$actualite->images)}}" data-src="{{ asset('storage/'.$actualite->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                         </div>
                         <div class="p-md-3 p-2 text-left ">
@@ -116,7 +116,7 @@
                                 <a href="#" class="d-block text-reset">{{ $actualite->title}}</a>
                             </p>
                             <p class="fw-600 fs-13 text-truncate-2 h-25px p-0 m-0 text-muted">
-                            <div class="text-truncate-2 h-35px">
+                            <div class="text-truncate-2 h-35px text-justify">
                                 {!! $actualite->description !!}
                             </div>
                             </p>
