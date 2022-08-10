@@ -418,7 +418,7 @@
                 <div class="col">
                     <a href="{{ route('apropos')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="d-inline-block position-relative px-2">
-                            <i class="las la-bell fs-20 opacity-60 "></i>
+                            <i class="las la-info-circle fs-20 opacity-60 "></i>
                         </span>
                     </a>
                 </div>
@@ -439,14 +439,14 @@
                 <div class="col">
                     <a href="{{ route('news.all')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="d-inline-block position-relative px-2">
-                            <i class="las la-bell fs-20 opacity-60 "></i>
+                            <i class="las la-globe fs-20 opacity-60 "></i>
                         </span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="{{ route('contact')}}" class="text-reset d-block text-center pb-2 pt-3">
                         <span class="d-inline-block position-relative px-2">
-                            <i class="las la-bell fs-20 opacity-60 "></i>
+                            <i class="las la-phone fs-20 opacity-60 "></i>
                         </span>
                     </a>
                 </div>
