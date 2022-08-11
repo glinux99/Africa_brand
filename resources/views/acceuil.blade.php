@@ -86,7 +86,7 @@
                                 <a href="#" class="d-block text-reset">
                                     {!! $produit->description!!}
                                 </a>
-                            </h3>
+                                <!-- </h3>
                             @if ($produit->stocks_visible=="Oui")
                             <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
                                 @lang("Quantite en stocks")
@@ -97,7 +97,7 @@
                                 @lang("Quantite en stocks")
                                 <span class="fw-700 float-right">-</span>
                             </div>
-                            @endif
+                            @endif -->
                         </div>
                     </div>
                 </div>

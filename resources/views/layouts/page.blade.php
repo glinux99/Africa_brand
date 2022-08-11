@@ -258,7 +258,7 @@
                                     @csrf
                                     <div class="form-group mb-0">
                                         <input type="email" class="form-control" placeholder="@lang('votre adresse email')" name="email" required>
-                                        <button type="submit" class="btn btn-success">
+                                        <button type="submit" class="btn text-white" style="background-color: #6c757d;">
                                             @lang('s\'abonner')
                                         </button>
                                     </div>
