@@ -24,13 +24,13 @@
                                     @lang("En vente")
                                 </span>
                                 <div class="absolute-top-right aiz-p-hov-icon">
-                                    <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="Add to wishlist" data-placement="left">
+                                    <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="J'aime" data-placement="left">
                                         <i class="la la-heart-o"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="Add to compare" data-placement="left">
+                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="Ajouter pour comparer" data-placement="left">
                                         <i class="las la-sync"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="Add to cart" data-placement="left">
+                                    <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="Acheter" data-placement="left">
                                         <i class="las la-shopping-cart"></i>
                                     </a>
                                 </div>
@@ -42,17 +42,12 @@
                                 <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
                                     <a href="#" class="d-block text-reset">{{$produit->name}}</a>
                                 </h3>
-                                @if ($produit->stocks_visible=="Oui")
+                                <!-- @if ($produit->stocks_visible=="Oui")
                                 <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
                                     @lang("Quantite en stocks")
                                     <span class="fw-700 float-right">750</span>
                                 </div>
-                                @else
-                                <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
-                                    @lang("Quantite en stocks")
-                                    <span class="fw-700 float-right">-</span>
-                                </div>
-                                @endif
+                                @endif -->
                             </div>
                         </div>
                     </div>

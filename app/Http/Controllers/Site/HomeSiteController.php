@@ -15,10 +15,11 @@ class HomeSiteController extends Controller
     public function config()
     {
         $config = ConfigSite::first();
-        $img = Images::where('users_id', Auth::user()->id)->first();
-        if (!$img) {
-            $img = "assets/img/default.png";
-        } else $img = "storage/" . $img->images;
+
+        if (Auth::user()) {
+            $img = Images::where('users_id', Auth::user()->id)->first();
+            $img = "storage/" . $img->images;
+        } else $img = "assets/img/default.png";
         Session()->put('picprofile', $img);
         Session()->put('config', $config);
     }
