@@ -17,8 +17,9 @@ class HomeSiteController extends Controller
         $config = ConfigSite::first();
 
         if (Auth::user()) {
-            $img = Images::where('users_id', Auth::user()->id)->first();
-            $img = "storage/" . $img->images;
+            // $img = Images::where('users_id', Auth::user()->id)->first();
+            // $img = "storage/" . $img->images;
+            $img = "assets/img/default.png";
         } else $img = "assets/img/default.png";
         Session()->put('picprofile', $img);
         Session()->put('config', $config);

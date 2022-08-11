@@ -1,1 +1,8 @@
-/*your custom css goes here*/
+.bg-green {
+    background-color: #2a3f2a !important;
+    color: white;
+}
+
+:root {
+    --primary: #2a3f2ad2;
+}

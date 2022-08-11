@@ -60,9 +60,9 @@
         <div class="aiz-sidebar-wrap">
             <div class="aiz-sidebar left c-scrollbar">
                 <div class="aiz-side-nav-logo-wrap">
-                    <a href="{{ ('admin')}}" class="d-block text-left d-flex">
+                    <a href="/admin" class="d-block text-left d-flex">
                         <img class="" src="{{asset('assets/img/logo.png')}}" class="brand-icon" alt="">
-                        <h5 class="text-center">@lang("AFRICA BRAND ADMIN")</h5>
+                        <h5 class="text-center text-white text-capitalize" style="font-family: Garamond, serif;">@lang(" African Brand Admin")</h5>
                     </a>
                 </div>
                 <div class="aiz-side-nav-wrap">

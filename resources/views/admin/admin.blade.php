@@ -132,7 +132,7 @@
                         <div class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md mb-2 has-transition bg-white">
                             <div class="position-relative">
                                 <a href="#" class="d-block">
-                                    <img class="img-cover lazyload mx-auto h-210px" src="#" data-src="{{ asset('storage/'.$produit->image1)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                    <img class="img-fit lazyload mx-auto h-210px" src="#" data-src="{{ asset('storage/'.$produit->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                             </div>
                             <div class="p-md-3 p-2 text-left">
@@ -151,7 +151,9 @@
                                     <i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                 </div>
                                 <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0">
-                                    <a href="#" class="d-block text-reset">{!! $produit->description !!}</a>
+                                    <a href="#" class="d-block text-reset">
+                                        {{ $produit->title}} <br>
+                                        {!! $produit->description !!}</a>
                                 </h3>
                             </div>
                         </div>

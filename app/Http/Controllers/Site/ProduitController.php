@@ -52,6 +52,7 @@ class ProduitController extends Controller
             $produit->save();
             $imageSaveCat->categorie_id = $cat_id->id;
             $imageSaveCat->save();
+            $catno = false;
         } else {
             $imageSaveCat = Images::where('categorie_id', $categorie->id);
             $produit->categorie = $categorie->id;

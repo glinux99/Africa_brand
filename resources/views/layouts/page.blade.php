@@ -100,27 +100,31 @@
         <!-- Top Bar -->
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
             <div class="container my-0 px-0">
-                <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
-                    <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                        <a href="tel:+243 970 912 428" class="text-reset d-inline-block opacity-60 py-2">
-                            <i class="la la-phone"></i>
-                            <span>@lang('Ligne d\'aide')</span>
-                            <span>{{ Session('config')->numeropv }}</span>
+                <ul class="list-inline mb-0 h-100 d-flex justify-content-end">
+                    <li class="list-inline-item mr-3  pr-3 pl-0 ">
+                        <a href="{{ Session('config')->facebook ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-facebook la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3  pr-3 pl-0">
-                        <a href="{{ Session('config')->facebook }}" class="text-reset d-inline-block opacity-60 py-2">
-                            <i class="la la-facebook h4"></i>
+                        <a href="{{ (Session('config')->twitter) ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-twitter la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3  pr-3 pl-0">
-                        <a href="{{ (Session('config')->twitter) }}" class="text-reset d-inline-block opacity-60 py-2">
-                            <i class="la la-twitter h4"></i>
+                        <a href="{{ (Session('config')->twitter) ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-linkedin la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3  pr-3 pl-0">
-                        <a href="https://wa.me/{{ Session('config')->whatsapp }}" class="text-reset d-inline-block opacity-60 py-2">
-                            <i class="la la-whatsapp h4"></i>
+                        <a href="https://wa.me/{{ Session('config')->whatsapp ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-instagram la-lg"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3 pr-3 pl-0">
+                        <a href="tel:+243 970 912 428" class="text-reset d-inline-block py-2">
+                            <span class="mr-3 font-weight-bold">@lang('Appel')</span>
+                            <span class="opacity-60">{{ Session('config')->numeropv ?? '' }}</span>
                         </a>
                     </li>
                 </ul>
@@ -371,35 +375,43 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
-                        <div class="text-center text-md-left" current-verison="1.0.1">
-                            © @lang("Africa Brand")
+                        <div class="text-center text-md-left opacity-40" current-verison="1.0.1">
+                            © @php
+                            echo Date('Y')
+                            @endphp @lang("Africa Brand ")| @lang("Limited. All Rights Reserved.") <br>
+                            @lang("propulse par subnetCongo")
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <ul class="list-inline my-3 my-md-0 social colored text-center">
+                        <ul class="list-inline my-3 my-md-0 social text-center">
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->facebook }}" target="_blank" class="facebook"><i class="lab la-facebook-f"></i></a>
+                                <a href="{{ Session('config')->facebook  ?? ''}}" target="_blank" class="facebook"><i class="lab la-facebook text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->twitter }}" target="_blank" class="twitter"><i class="lab la-twitter"></i></a>
+                                <a href="{{ Session('config')->twitter ?? '' }}" target="_blank" class="twitter"><i class="lab la-twitter text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->instragrame }}" target="_blank" class="instagram"><i class="lab la-instagram"></i></a>
+                                <a href="{{ Session('config')->instragrame ?? '' }}" target="_blank" class="instagram"><i class="lab la-instagram text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->youtube}}" target="_blank" class="youtube"><i class="lab la-youtube"></i></a>
+                                <a href="{{ Session('config')->youtube ?? ''}}" target="_blank" class="youtube"><i class="lab la-youtube text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->lindin }}" target="_blank" class="linkedin"><i class="lab la-linkedin-in"></i></a>
+                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="linkedin"><i class="lab la-linkedin-in text-white la-lg opacity-50"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="linkedin"><i class="lab la-whatsapp text-white la-lg opacity-60"></i></a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-4">
                         <div class="text-center text-md-right">
                             <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <img src="{{ asset('assets/img/app.png')}}" height="30" class="mw-100 h-auto" style="max-height: 30px">
-                                </li>
+                                <a href="" class="text-white">
+                                    <span class="text-center text-md-left opacity-40">
+                                        @lang("Terms & Condition | Cookie Policy")
+                                    </span>
+                                </a>
                             </ul>
                         </div>
                     </div>

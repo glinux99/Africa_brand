@@ -15,7 +15,7 @@ class AdminSiteController extends Controller
      */
     public function index()
     {
-        $produits = Produit::all();
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->paginate(20);
         return view('admin.admin', ['produits' => $produits]);
     }
 
