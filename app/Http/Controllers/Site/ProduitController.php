@@ -120,7 +120,15 @@ class ProduitController extends Controller
     {
         //
     }
+    public function cart()
+    {
+        return view('site.cart');
+    }
+    public function cart_info()
+    {
 
+        return view('site.cart_info');
+    }
     /**
      * Show the form for editing the specified resource.
      *
