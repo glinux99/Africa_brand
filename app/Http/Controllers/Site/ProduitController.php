@@ -120,9 +120,10 @@ class ProduitController extends Controller
     {
         //
     }
-    public function cart()
+    public function cart($id)
     {
-        return view('site.cart');
+        $produit = Produit::find($id)->join('images', 'produit_id', 'produits.id')->first();
+        return view('site.cart', ['produit' => $produit]);
     }
     public function cart_info()
     {

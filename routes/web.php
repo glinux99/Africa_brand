@@ -55,7 +55,7 @@ Route::get('creation-produit', [ProduitController::class, 'create'])->name('prod
 Route::get('all-produit', [ProduitController::class, 'index'])->name('produits');
 Route::post('create-produit', [ProduitController::class, 'store'])->name('produit.store');
 Route::get('delete-produit/{id}', [ProduitController::class, 'destroy'])->name('produit.delete');
-Route::get('charriot', [ProduitController::class, 'cart'])->name('produit.cart');
+Route::get('charriot/{id}', [ProduitController::class, 'cart'])->name('produit.cart');
 Route::get('charriot-info', [ProduitController::class, 'cart_info'])->name('produit.cart.info');
 Route::get('all-categories', [CategorieController::class, 'index'])->name('categories');
 Route::get('/produitCategorie', [CategorieController::class, 'create'])->name('categories.exists');

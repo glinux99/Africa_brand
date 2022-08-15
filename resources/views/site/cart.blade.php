@@ -55,23 +55,20 @@
                         <div class="shadow-sm bg-white p-3 p-lg-4 rounded text-left">
                             <div class="mb-4">
                                 <div class="row gutters-5 d-none d-lg-flex border-bottom mb-3 pb-3">
-                                    <div class="col-md-6 fw-600 text-center">Product</div>
-                                    <div class="col-lg-2 fw-600 text-center">@lang("Taxe")</div>
+                                    <div class="col-md-8 fw-600 text-center">Product</div>
                                     <div class="col-lg-2 fw-600 text-center">@lang("Quantite")</div>
                                     <div class="col-lg-2 fw-600 text-center">@lang("Supprimer")</div>
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item px-0 px-lg-3">
                                         <div class="row gutters-5">
-                                            <div class="col-lg-6 d-flex">
-                                                <span class="mr-2 ml-0">
-                                                    <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/1quPYqHJkqT3QypO7fg78wEspoNktv69QWNbAvdP.png" class="img-fit size-60px rounded" alt="Fossil Men&#039;s Grant Stainless Steel Quartz Chronograph Watch">
+                                            <div class="col-lg-8 d-flex ">
+                                                <span class="ml-5 ml-0">
+                                                    <img src="{{ asset('storage/'.$produit->images)}}" class="img-fit size-200px rounded" alt="Fossil Men&#039;s Grant Stainless Steel Quartz Chronograph Watch">
                                                 </span>
-                                                <span class="fs-14 opacity-60">Fossil Men&#039;s Grant Stainless Steel Quartz Chronograph Watch</span>
-                                            </div>
-                                            <div class=" text-center col-lg-2 order-2 order-lg-0 my-3 my-lg-0">
-                                                <span class="opacity-60 fs-12 d-block d-lg-none">Tax</span>
-                                                <span class="fw-600 fs-16">$0.000</span>
+                                                <span class="fs-18 opacity-60 text-center">{{ $produit->name ?? ''}}</span>
+                                                <br>
+                                                <span class="fs-14 opacity-60 text-center">{!! $produit->descritpion ?? ''!!}</span>
                                             </div>
 
                                             <div class="text-center col-lg-2 order-4 order-lg-0">

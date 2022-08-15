@@ -508,7 +508,8 @@
                                                     <img class="lazyload mw-100 size-50px mx-auto" src="/storage/` + res.images[0].images + `" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                                 </div>
                             `);
-
+                        var id = res.produit.id;
+                        $('#link-chariot').attr('href', `/charriot/` + id);
                         $('.title-details').text(res.produit.name);
                     }
                 });

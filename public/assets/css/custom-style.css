@@ -3,6 +3,18 @@
     color: rgb(0, 0, 0);
 }
 
+.bg-dark-btn:hover {
+    background-color: #fffdfd !important;
+    color: rgb(0, 0, 0);
+}
+
+.text-section-hover {
+    border-bottom: 4px solid black;
+    display: block;
+    width: 100%;
+    clip-path: polygon(5% 0%, 75% 0%, 70% 100%, 0% 100%);
+}
+
 .text-menu-hover {
     border-bottom: 2px solid rgb(255, 255, 255);
     display: block;
@@ -24,8 +36,8 @@
 }
 
 .bg-white-btn:hover {
-    background-color: #000000 !important;
-    color: rgb(255, 250, 250);
+    background-color: #000000c0 !important;
+    color: rgba(255, 250, 250, 0.774);
 }
 
 .bg-green2 {

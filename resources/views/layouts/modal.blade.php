@@ -221,7 +221,7 @@
 
                                             <div class="mt-3">
                                                 <div class="row d-flex">
-                                                    <a href="{{ route('produit.cart')}}" type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" onclick="addToCart()">
+                                                    <a href="" type="button" id="link-chariot" class="btn btn-soft-primary mr-2 add-to-cart fw-600" onclick="addToCart()">
                                                         <i class="las la-shopping-bag"></i>
                                                         <span class="d-none d-md-inline-block"> @lang("ajouter chariot")</span>
                                                     </a>
