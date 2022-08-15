@@ -2,41 +2,12 @@
 <html lang="en">
 
 <head>
-
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="app-url" content="/">
     <meta name="file-base-url" content="public/">
-
-    <title>@lang("Africa Brand ") | @lang("Acceuil")</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="@lang('Africa brand acceuil')" />
-    <meta name="keywords" content="">
-
-
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="@lang('Africa Brand  commerce')">
-    <meta itemprop="description" content="@lang('Africa Brand  commerce')">
-    <meta itemprop="image" content="">
-
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="@linux99">
-    <meta name="twitter:title" content="@lang('Africa Brand  commerce')">
-    <meta name="twitter:description" content="@lang('Africa Brand  commerce')">
-    <meta name="twitter:creator" content="@linux99">
-    <meta name="twitter:image" content="">
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="@lang('Africa Brand  commerce')" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ url('/')}}" />
-    <meta property="og:image" content="" />
-    <meta property="og:description" content="@lang('Africa Brand  commerce')S" />
-    <meta property="og:site_name" content="@lang('Africa Brand  commerce')" />
-    <meta property="fb:app_id" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicon -->
     <link rel="icon" href="{{asset('uploads/all/4xnLnzEeu3dFKDGSBMlvLXPLGXFdHEkvqBSZREmO.png')}}">
@@ -48,11 +19,38 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css')}}">
-
-
+    <link href="{{asset('assets/selected2/dist/css/select2.min.css')}}" rel="stylesheet" />
+    <style>
+        body {
+            font-size: 12px;
+        }
+    </style>
     <script>
         var AIZ = AIZ || {};
+        AIZ.local = {
+            nothing_selected: 'Nothing selected2',
+            nothing_found: 'Nothing found',
+            choose_file: 'Choose file',
+            file_selected: 'File selected',
+            files_selected: 'Files selected',
+            add_more_files: 'Add more files',
+            adding_more_files: 'Adding more files',
+            drop_files_here_paste_or: 'Drop files here, paste or',
+            browse: 'Browse',
+            upload_complete: 'Upload complete',
+            upload_paused: 'Upload paused',
+            resume_upload: 'Resume upload',
+            pause_upload: 'Pause upload',
+            retry_upload: 'Retry upload',
+            cancel_upload: 'Cancel upload',
+            uploading: 'Uploading',
+            processing: 'Processing',
+            complete: 'Complete',
+            file: 'File',
+            files: 'Files',
+        }
     </script>
+
 </head>
 
 <body>

@@ -26,7 +26,7 @@
                                     Présentation de l'entreprise
                                 </h3>
                                 <div class="text-justify ">
-                                    {!! $config->presentation!!}
+                                    {!! $config->presentation!! ?? ''}
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -37,7 +37,7 @@
                                     Notre Mission
                                 </h3>
                                 <div class="text-justify">
-                                    {!! $config->culture!!}
+                                    {!! $config->culture!! ?? ''}
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">

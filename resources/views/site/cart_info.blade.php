@@ -106,7 +106,7 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-6 text-center text-md-left order-1 order-md-0">
-                            <a href="https://demo.activeitzone.com/ecommerce" class="btn btn-link">
+                            <a href="#" class="btn btn-link">
                                 <i class="las la-arrow-left"></i>
                                 Return to shop
                             </a>
