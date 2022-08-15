@@ -498,18 +498,14 @@
                         console.log(res.images[0].id);
                         $('#charriotMod').trigger('click');
                         $('.c-preloader').hide();
-                        res.images.forEach(function(images) {
-                            // alert(images.images);
-
-                            $('.images-res-tumb').append(`
-                            <div class="carousel-box c-pointer border p-1 rounded">
-                                                    <img class="lazyload mw-100 size-50px mx-auto" src="/storage/` + images.images + `" data-src="/storage/` + images.images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                                                </div>
-                            `);
-                        });
                         $('.images-res').append(`
                              <div class="carousel-box img-zoom rounded">
-                                                    <img class="img-fit lazyload w-100" src="" data-src="/storage/` + images.images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                    <img class="img-fit lazyload w-100" src="" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                </div>
+                            `);
+                        $('.images-res-tumb').append(`
+                            <div class="carousel-box c-pointer border p-1 rounded">
+                                                    <img class="lazyload mw-100 size-50px mx-auto" src="/storage/` + res.images[0].images + `" data-src="/storage/` + images.images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                                 </div>
                             `);
                     }
