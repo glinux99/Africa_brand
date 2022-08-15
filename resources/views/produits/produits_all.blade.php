@@ -28,7 +28,7 @@
                                         <i class="la la-heart-o"></i>
                                     </a>
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="Ajouter pour comparer" data-placement="left">
-                                        <i class="las la-sync"></i>
+                                        <i class="las la-comment"></i>
                                     </a>
                                     <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="Acheter" data-placement="left">
                                         <i class="las la-shopping-cart"></i>

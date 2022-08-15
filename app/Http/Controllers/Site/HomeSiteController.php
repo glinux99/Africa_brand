@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Models\Images;
 use App\Models\Produit;
+use App\Models\Actualite;
 use App\Models\Categorie;
 use App\Models\ConfigSite;
 use Illuminate\Http\Request;
@@ -31,7 +32,14 @@ class HomeSiteController extends Controller
         HomeSiteController::config();
         $center_img = Images::where('center_images', 1)->get();
         $pub_img = Images::where('pub_images', 1)->paginate(4);
-        return view('acceuil', ['center_img' => $center_img, 'pub_img' => $pub_img, 'produits' => $produits, 'categories' => $categories]);
+        $actualite = Actualite::join('images', 'actualite_id', 'actualites.id')->paginate(10);
+        return view('acceuil', [
+            'center_img' => $center_img,
+            'pub_img' => $pub_img,
+            'produits' => $produits,
+            'categories' => $categories,
+            'actualites' => $actualite
+        ]);
     }
     public function produit()
     {
@@ -52,6 +60,15 @@ class HomeSiteController extends Controller
                 'produitCat' => $produitCat
             ]
         );
+    }
+    public function details_posts(Request $request)
+    {
+        $produit = Produit::find($request->id)->first();
+        $images = Images::where('produit_id', $request->id)->get();
+        return response()->json([
+            'produit' => $produit,
+            'images' => $images
+        ]);
     }
     public function contact()
     {

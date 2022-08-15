@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProduitController extends Controller
 {
@@ -153,12 +154,15 @@ class ProduitController extends Controller
     {
         $images = Images::where('produit_id', $id)->get();
         $produit = Produit::findOrfail($id);
-        $categorie = Categorie::where('name', $produit->categorie)->first();
+        $categorie = Categorie::where('id', $produit->categorie)->first();
         $categorie->nombre_prod = 1 - (int)$categorie->nombre_prod;
         if ((int)$categorie->nombre_prod <= 0) $categorie->delete();
         foreach ($images as $image) {
             Storage::disk('public')->delete($image->images);
         }
         Images::where('produit_id', $id)->delete();
+
+        Alert::success("Operation", "REUSSI");
+        return redirect()->route('produits');
     }
 }

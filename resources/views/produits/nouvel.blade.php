@@ -37,13 +37,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-from-label">@lang("Quantité minimum d'achat") <span class="text-danger">*</span></label>
-                                    <div class="col-md-8">
-                                        <input type="number" lang="fr" class="form-control" name="qte_min" value="1" min="1" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Remboursable")</label>
                                     <div class="col-md-8">
                                         <label class="aiz-switch aiz-switch-success mb-0">
@@ -115,12 +108,23 @@
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Prix Unitaire")<span class="text-danger">*</span></label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <input type="number" lang="fr" min="0" value="0" step="0.01" placeholder="@lang('prix unitaire')" name="prix" class="form-control" required>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
+                                    <label class="col-md-3 col-from-label">@lang("Quantité en stock") <span class="text-danger">*</span></label>
+                                    <div class="col-md-8">
+                                        <input type="number" lang="fr" class="form-control" name="qte" value="1" min="1" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-from-label">@lang("Quantité minimum d'achat") <span class="text-danger">*</span></label>
+                                    <div class="col-md-8">
+                                        <input type="number" lang="fr" class="form-control" name="qte_min" value="1" min="1" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row" hidden>
                                     <label class="col-md-3 col-from-label">@lang("Remise *")<span class="text-danger">*</span></label>
                                     <div class="col-md-6">
                                         <input type="number" lang="fr" min="0" value="0" step="0.01" placeholder="remise" name="remise" class="form-control" required>

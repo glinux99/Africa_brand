@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta name="app-url" content="//demo.activeitzone.com/ecommerce/">
-    <meta name="file-base-url" content="//demo.activeitzone.com/ecommerce/public/">
+    <meta name="app-url" content="/">
+    <meta name="file-base-url" content="public/">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -684,8 +684,9 @@
                                     }
                                 </style>
                                 <a href="{{ asset(Session('picprofile'))}}">
-                                    <img id="img" class="border-gray img-fit" src="" alt="Profile" />
-                                    <h4 class="title text-center"><span id="titre"></span><br />
+                                    <img id="img" class="border-gray img-fit mt-5" src="" alt="Profile" />
+                                    <h4 class="title text-center">
+                                    <span id="titre"></span>
                                     <span id="infosite"></span><br>
                                         <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
                                     </h4>

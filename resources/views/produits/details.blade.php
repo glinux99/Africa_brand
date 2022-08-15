@@ -4,13 +4,13 @@
     <div class="container">
         <div class="bg-white shadow-sm rounded p-3">
             <div class="row">
-                <div class="col-xl-5 col-lg-6 mb-4">
+                <div class="col-lg-7 mb-4">
                     <div class="sticky-top z-3 row gutters-10">
                         <div class="col order-1 order-md-2">
                             <div class="aiz-carousel product-gallery" data-nav-for='.product-gallery-thumb' data-fade='true' data-auto-height='true'>
                                 @foreach ($images as $image)
                                 <div class="carousel-box img-zoom rounded">
-                                    <img class="img-fluid lazyload" src="" data-src="{{ asset('storage/'.$image->images)}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                    <img class="img-fit lazyload w-100" src="" data-src="{{ asset('storage/'.$image->images)}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </div>
                                 @endforeach
                             </div>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-7 col-lg-6">
+                <div class="col-lg-5">
                     <div class="text-left">
                         <h1 class="mb-2 fs-20 fw-600">
                             {{$produit->name}}
@@ -95,23 +95,6 @@
                                 <i class="la la-cart-arrow-down"></i> @lang("Au dessus du stock")
                             </button>
                         </div>
-
-
-
-                        <div class="d-table width-100 mt-3">
-                            <div class="d-table-cell">
-                                <!-- Add to wishlist button -->
-                                <button type="button" class="btn pl-0 btn-link fw-600" onclick="addToWishList(117)">
-                                    @lang("Ajouter aux souhaits")
-                                </button>
-                                <!-- Add to compare button -->
-                                <button type="button" class="btn btn-link btn-icon-left fw-600" onclick="addToCompare(117)">
-                                    @lang("ajouter pour comparer")
-                                </button>
-                            </div>
-                        </div>
-
-
                         <div class="row no-gutters mt-3">
                             <div class="col-2">
                                 <div class="opacity-50 mt-2">@lang("Remboursement")</div>

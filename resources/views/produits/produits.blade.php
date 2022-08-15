@@ -24,7 +24,7 @@
                                     @lang("En vente")
                                 </span>
                                 <div class="absolute-top-right aiz-p-hov-icon">
-                                    <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left">
+                                    <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left" class="infocategorie" data-id="{{ $produit->produit_id}}">
                                         <i class="la la-info-circle"></i>
                                     </a>
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left">

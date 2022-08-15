@@ -3,9 +3,9 @@
 
 <head>
 
-    <meta name="csrf-token" content="zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt">
-    <meta name="app-url" content="//demo.activeitzone.com/ecommerce/">
-    <meta name="file-base-url" content="//demo.activeitzone.com/ecommerce/public/">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="app-url" content="/">
+    <meta name="file-base-url" content="public/">
 
     <title>@lang("Africa Brand ") | @lang("Acceuil")</title>
 
@@ -52,41 +52,12 @@
 
     <script>
         var AIZ = AIZ || {};
-        AIZ.local = {
-            nothing_selected: 'Nothing selected',
-            nothing_found: 'Nothing found',
-            choose_file: 'Choose file',
-            file_selected: 'File selected',
-            files_selected: 'Files selected',
-            add_more_files: 'Add more files',
-            adding_more_files: 'Adding more files',
-            drop_files_here_paste_or: 'Drop files here, paste or',
-            browse: 'Browse',
-            upload_complete: 'Upload completeyy',
-            upload_paused: 'Upload paused',
-            resume_upload: 'Resume upload',
-            pause_upload: 'Pause upload',
-            retry_upload: 'Retry upload',
-            cancel_upload: 'Cancel upload',
-            uploading: 'Uploading',
-            processing: 'Processing',
-            complete: 'Complete',
-            file: 'File',
-            files: 'Files',
-        }
     </script>
-
-
-
-
-
-
 </head>
 
 <body>
     <!-- aiz-main-wrapper -->
     <div class="aiz-main-wrapper d-flex flex-column">
-
         <!-- Header -->
         <!--  Publicite en haut
             <div class="position-relative top-banner removable-session z-1035 d-none" data-key="top-banner" data-value="removed">
@@ -99,31 +70,31 @@
         </div> -->
         <!-- Top Bar -->
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
-            <div class="container my-0 px-0">
-                <ul class="list-inline mb-0 h-100 d-flex justify-content-end">
+            <div class="container ">
+                <ul class="list-inline mb-0 h-100 d-flex justify-content-end social">
                     <li class="list-inline-item mr-3  pr-3 pl-0 ">
-                        <a href="{{ Session('config')->facebook ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                        <a href="{{ Session('config')->facebook ?? '' }}" class="soc text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-facebook la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3  pr-3 pl-0">
-                        <a href="{{ (Session('config')->twitter) ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                        <a href="{{ (Session('config')->twitter) ?? '' }}" class="soc twitter text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-twitter la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3  pr-3 pl-0">
-                        <a href="{{ (Session('config')->twitter) ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                        <a href="{{ (Session('config')->twitter) ?? '' }}" class="soc linkedin text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-linkedin la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3  pr-3 pl-0">
-                        <a href="https://wa.me/{{ Session('config')->whatsapp ?? '' }}" class="text-reset d-inline-block opacity-60 py-2">
+                        <a href="https://wa.me/{{ Session('config')->whatsapp ?? '' }}" class="soc whatsapp text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-instagram la-lg"></i>
                         </a>
                     </li>
                     <li class="list-inline-item mr-3 pr-3 pl-0">
                         <a href="tel:+243 970 912 428" class="text-reset d-inline-block py-2">
-                            <span class="mr-3 font-weight-bold">@lang('Appel')</span>
+                            <span class="mr-3 fw-700 opacity-70">@lang('Appel')</span>
                             <span class="opacity-60">{{ Session('config')->numeropv ?? '' }}</span>
                         </a>
                     </li>
@@ -132,11 +103,11 @@
         </div>
         <!-- END Top Bar -->
         <header class="sticky-top  z-1020 bg-white border-bottom shadow-md ">
-            <div class="position-relative logo-bar-area z-1">
+            <div class="position-relative logo-bar-area z-1 bg-danger">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="d-flex align-items-center">
-                            <div class="ml-md-5  ml-2 col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
+                        <div class="bg-dark d-flex align-items-center">
+                            <div class="pl-md-5 col-md-3 col-lg-3 col-5 pl-3 pr-5 bg-white logo-menu  d-flex align-items-center">
                                 <a class="d-block py-10px" href="/">
                                     <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
                                 </a>
@@ -144,86 +115,64 @@
                                     @lang("AFRICAN BRAND")
                                 </div>
                             </div>
-                            <div class="d-lg-none ml-auto mr-0 d-none">
-                                <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
-                                    <i class="las la-search la-flip-horizontal la-2x"></i>
-                                </a>
-                            </div>
-                            <div class="bg-white border-gray-200 py-1 d-none d-lg-block">
+                            <div class="col-md-8 text-white border-gray-200 py-1 d-none d-lg-block">
                                 <div class="container">
                                     <ul class="list-inline mb-0 pl-0 mobile-hor-swipe text-center">
-                                        <li class="list-inline-item mr-0">
-                                            <a href="{{ route('index')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                        <li class="list-inline-item mr-0 ">
+                                            <a href="{{ route('index')}}" class="text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                                 @lang("Acceuil")
+                                                <span class="text-menu-hover"></span>
                                             </a>
                                         </li>
                                         <li class="list-inline-item mr-0">
-                                            <a href="{{ route('home.produit')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                            <a href="{{ route('home.produit')}}" class=" text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                                 @lang("Produits")
+                                                <span class="text-menu-hover"></span>
                                             </a>
                                         </li>
                                         <li class="list-inline-item mr-0">
-                                            <a href="{{ route('categories.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                            <a href="{{ route('categories.all')}}" class="text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                                 @lang("Categorie")
+                                                <span class="text-menu-hover"></span>
                                             </a>
                                         </li>
                                         <li class="list-inline-item mr-0">
-                                            <a href="{{ route('news.all')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                            <a href="{{ route('news.all')}}" class="text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                                 @lang("Actualites")
+                                                <span class="text-menu-hover"></span>
                                             </a>
                                         </li>
                                         <li class="list-inline-item mr-0">
-                                            <a href="{{ route('apropos')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                            <a href="{{ route('apropos')}}" class="text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                                 @lang("A propos")
+                                                <span class="text-menu-hover"></span>
                                             </a>
                                         </li>
                                         <li class="list-inline-item mr-0">
-                                            <a href="{{ route('contact')}}" class="opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
+                                            <a href="{{ route('contact')}}" class="text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
                                                 @lang("Contact")
+                                                <span class="text-menu-hover"></span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="flex-fill d-none">
-                                <div>
-                                    @if(Auth::user())
-                                    <div class="aiz-topbar-item ml-2 float-right">
-                                        <div class="align-items-stretch d-flex dropdown">
-                                            <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
-                                                <span class="d-flex align-items-center">
-                                                    <span class="avatar avatar-sm mr-md-2">
-                                                        <img src="{{ Session('picprofile')}}" alt="{{ Session('picprofile')}}" onerror=" this.onerror=null;this.src='' ;">
-                                                    </span>
-                                                    <span class="d-none d-md-block">
-                                                        <span class="d-block small opacity-60 text-center">{{ auth()->user()->getRoleNames()->first()}}</span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
-                                                <a href="{{ ('profile')}}" class="dropdown-item">
-                                                    <i class="las la-user-circle"></i>
-                                                    <span>@lang("Profile")</span>
-                                                </a>
-                                                <a class="dropdown-item" href="{{ ('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                                    <i class="las la-sign-out-alt"></i> {{ __('Logout') }}
-                                                </a>
-                                                <form id="logout-form" action="{{ ('logout') }}" method="POST" class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </div>
+                            <div class="col-md-2 col-8 text-white">
+                                <div class="nav-cart-box dropdown h-100" id="cart_items">
+                                    <a href="javascript:void(0)" class="d-flex text-white align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
+                                        <i class="la la-shopping-cart la-3x opacity-80"></i>
+                                        <span class="flex-grow-1 ml-1">
+                                            <span class="badge badge-primary badge-inline badge-pill cart-count">0</span>
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-md p-0 stop-propagation">
 
+                                        <div class="text-center p-3">
+                                            <i class="las la-frown la-3x opacity-60 mb-3"></i>
+                                            <h3 class="h6 fw-700">@lang('Votre charriot est vide')</h3>
                                         </div>
-                                    </div><!-- .aiz-topbar-item -->
-                                    @else
-                                    <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                                        <a href="{{ ('login')}}" class="text-reset d-inline-block opacity-60 py-2">@lang("Se connecter")</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="{{ ('register')}}" class="text-reset d-inline-block opacity-60 py-2">@lang("Enregistrement")</a>
-                                    </li>
-                                    @endif
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -243,7 +192,7 @@
             </div>
         </div>
 
-
+        @include('layouts.modal')
         @yield('content')
 
         <section class="bg-dark py-5 text-light footer-widget">
@@ -379,28 +328,30 @@
                             © @php
                             echo Date('Y')
                             @endphp @lang("Africa Brand ")| @lang("Limited. All Rights Reserved.") <br>
-                            @lang("propulse par subnetCongo")
+                            @lang("propulse par") <a href="http://subnetcongo.com" target="_blank" rel="noopener noreferrer" class="text-white">
+                                subnetCongo
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <ul class="list-inline my-3 my-md-0 social text-center">
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->facebook  ?? ''}}" target="_blank" class="facebook"><i class="lab la-facebook text-white la-lg opacity-50"></i></a>
+                                <a href="{{ Session('config')->facebook  ?? ''}}" target="_blank" class="facebook soc text-reset d-inline-block opacity-60 py-2"><i class="soc lab la-facebook text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->twitter ?? '' }}" target="_blank" class="twitter"><i class="lab la-twitter text-white la-lg opacity-50"></i></a>
+                                <a href="{{ Session('config')->twitter ?? '' }}" target="_blank" class="twitter soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-twitter text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->instragrame ?? '' }}" target="_blank" class="instagram"><i class="lab la-instagram text-white la-lg opacity-50"></i></a>
+                                <a href="{{ Session('config')->instragrame ?? '' }}" target="_blank" class="instagram soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-instagram text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->youtube ?? ''}}" target="_blank" class="youtube"><i class="lab la-youtube text-white la-lg opacity-50"></i></a>
+                                <a href="{{ Session('config')->youtube ?? ''}}" target="_blank" class="youtube soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-youtube text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="linkedin"><i class="lab la-linkedin-in text-white la-lg opacity-50"></i></a>
+                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="linkedin soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-linkedin-in text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="linkedin"><i class="lab la-whatsapp text-white la-lg opacity-60"></i></a>
+                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="whatsapp soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-whatsapp text-white la-lg opacity-60"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -497,11 +448,11 @@
                 </div>
                 <div class="pb-5 pt-4 px-5">
                     <form class="" method="POST" action="/subscribers">
-                        <input type="hidden" name="_token" value="zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt">
+                        @csrf
                         <div class="form-group mb-0">
                             <input type="email" class="form-control" placeholder="@lang('Your Email Address')" name="email" required>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block mt-3">
+                        <button type="submit" class="btn btn-dark btn-block mt-3">
                             @lang("Abonnez-vous maintenant")
                         </button>
                     </form>
@@ -513,6 +464,8 @@
         </div>
     </div>
 
+    <button data-toggle="modal" data-target="#addcart" id="charriotMod" hidden></button>
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         function confirm_modal(delete_url) {
@@ -522,45 +475,71 @@
             document.getElementById('delete_link').setAttribute('href', delete_url);
         }
     </script>
+    <script>
+        $(document).ready(function($) {
+            $('.charriot').click(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $urls = "{{ route('produit.details.post')}}";
+                // ajax
+                $('#addToCart-modal-body').html(null);
+                $('.c-preloader').show();
+                $.ajax({
+                    type: "POST",
+                    url: $urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.images[0].id);
+                        $('#charriotMod').trigger('click');
+                        $('.c-preloader').hide();
+                        res.images.forEach(function(images) {
+                            // alert(images.images);
 
-    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-
-                    <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
-                </div>
-
-                <div class="modal-body">
-                    <p>@lang("Supprimer le message de confirmation")</p>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang("Annuler")</button>
-                    <a id="delete_link" class="btn btn-danger btn-ok">@lang("Supprimer")</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addToCart">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-zoom product-modal" id="modal-size" role="document">
-            <div class="modal-content position-relative">
-                <div class="c-preloader text-center p-3">
-                    <i class="las la-spinner la-spin la-3x"></i>
-                </div>
-                <button type="button" class="close absolute-top-right btn-icon close z-1" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="la-2x">&times;</span>
-                </button>
-                <div id="addToCart-modal-body">
-
-                </div>
-            </div>
-        </div>
-    </div>
+                            $('.images-res-tumb').append(`
+                            <div class="carousel-box c-pointer border p-1 rounded">
+                                                    <img class="lazyload mw-100 size-50px mx-auto" src="/storage/` + images.images + `" data-src="/storage/` + images.images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                </div>
+                            `);
+                        });
+                        $('.images-res').append(`
+                             <div class="carousel-box img-zoom rounded">
+                                                    <img class="img-fit lazyload w-100" src="" data-src="/storage/` + images.images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                </div>
+                            `);
+                    }
+                });
+            });
+        });
 
 
+
+        function showAddToCartModal(id) {
+            alert(1);
+            // if (!$('#modal-size').hasClass('modal-lg')) {
+            //     $('#modal-size').addClass('modal-lg');
+            // }
+            // $('#addToCart-modal-body').html(null);
+            // $('#addToCart').modal();
+            // $('.c-preloader').show();
+            // $.post('https://demo.activeitzone.com/ecommerce/cart/show-cart-modal', {
+            //     _token: AIZ.data.csrf,
+            //     id: id
+            // }, function(data) {
+            //     $('.c-preloader').hide();
+            //     $('#addToCart-modal-body').html(data);
+            //     AIZ.plugins.slickCarousel();
+            //     AIZ.plugins.zoom();
+            //     AIZ.extra.plusMinus();
+            //     getVariantPrice();
+            // });
+        }
+    </script>
     <!-- SCRIPTS -->
     <script src="{{asset('public/assets/js/vendors.js')}}"></script>
     <script src="{{asset('assets/js/aiz-core.js')}}"></script>
@@ -734,56 +713,6 @@
             getVariantPrice();
         });
 
-        function getVariantPrice() {
-            if ($('#option-choice-form input[name=quantity]').val() > 0 && checkAddToCartValidity()) {
-                $.ajax({
-                    type: "POST",
-                    url: '/product/variant_price',
-                    data: $('#option-choice-form').serializeArray(),
-                    success: function(data) {
-
-                        $('.product-gallery-thumb .carousel-box').each(function(i) {
-                            if ($(this).data('variation') && data.variation == $(this).data('variation')) {
-                                $('.product-gallery-thumb').slick('slickGoTo', i);
-                            }
-                        })
-
-                        $('#option-choice-form #chosen_price_div').removeClass('d-none');
-                        $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
-                        $('#available-quantity').html(data.quantity);
-                        $('.input-number').prop('max', data.max_limit);
-                        if (parseInt(data.in_stock) == 0 && data.digital == 0) {
-                            $('.buy-now').addClass('d-none');
-                            $('.add-to-cart').addClass('d-none');
-                            $('.out-of-stock').removeClass('d-none');
-                        } else {
-                            $('.buy-now').removeClass('d-none');
-                            $('.add-to-cart').removeClass('d-none');
-                            $('.out-of-stock').addClass('d-none');
-                        }
-
-                        AIZ.extra.plusMinus();
-                    }
-                });
-            }
-        }
-
-        function checkAddToCartValidity() {
-            var names = {};
-            $('#option-choice-form input:radio').each(function() { // find unique names
-                names[$(this).attr('name')] = true;
-            });
-            var count = 0;
-            $.each(names, function() { // then count them
-                count++;
-            });
-
-            if ($('#option-choice-form input:radio:checked').length == count) {
-                return true;
-            }
-
-            return false;
-        }
 
         function addToCart() {
             if (checkAddToCartValidity()) {

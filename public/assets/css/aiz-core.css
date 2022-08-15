@@ -7684,7 +7684,7 @@ input[type="number"] {
 }
 
 .aiz-side-nav-list .aiz-side-nav-link:hover .aiz-side-nav-icon {
-    color: #9191a0;
+    color: green;
 }
 
 .aiz-side-nav-list .aiz-side-nav-arrow::after {
@@ -9474,8 +9474,8 @@ input[type="number"] {
 .btn-danger,
 .btn-soft-danger:hover,
 .btn-outline-danger:hover {
-    background-color: var(--danger);
-    border-color: var(--danger);
+    background-color: darkgreen;
+    border-color: blue;
     color: var(--white);
 }
 
@@ -9489,7 +9489,7 @@ input[type="number"] {
 .btn-info,
 .btn-soft-info:hover,
 .btn-outline-info:hover {
-    background-color: var(--info);
+    background-color: green;
     border-color: var(--info);
     color: var(--white);
 }
@@ -9538,8 +9538,8 @@ input[type="number"] {
 }
 
 .btn-soft-danger {
-    background-color: var(--soft-danger);
-    color: var(--danger);
+    background-color: green;
+    color: white;
 }
 
 .btn-soft-warning {
@@ -10717,15 +10717,15 @@ div.footable-loader>span.fooicon:after {
 /*social icon colored*/
 ul.social a {
     display: inline-block;
-    width: 36px;
-    height: 36px;
-    border-radius: 50em;
+    /* width: 36px; */
+    /* height: 36px; */
+    /* border-radius: 50em;
     line-height: 39px;
-    text-align: center;
-    font-size: 18px;
+    text-align: center; */
+    font-size: 14px;
 }
 
-ul.social a:hover {
+ul.social .soc:hover {
     -webkit-transform: translateY(-3px);
     transform: translateY(-3px);
 }

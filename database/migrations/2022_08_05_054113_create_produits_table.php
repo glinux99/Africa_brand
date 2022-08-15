@@ -19,11 +19,12 @@ class CreateProduitsTable extends Migration
             $table->string('categorie');
             $table->string('unite')->nullable();
             $table->string('qte_min');
+            $table->string('qte');
             $table->string('remboursable')->nullable();
             $table->string('prix');
             $table->string('remise')->nullable();
             $table->text('description')->nullable();
-            $table->string('stocks_visible')->nullable();
+            $table->string('visible')->nullable();
             $table->string('alert');
             $table->string('expedition');
             $table->string('est_livraison')->nullable();

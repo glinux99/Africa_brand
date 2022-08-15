@@ -64,6 +64,7 @@ Route::get('commade', [CommandeController::class, 'index'])->name('commades');
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/produit', [HomeSiteController::class, 'produit'])->name('home.produit');
 Route::get('/details-produit/{id}', [HomeSiteController::class, 'details'])->name('produit.details');
+Route::post('/details-produits', [HomeSiteController::class, 'details_posts'])->name('produit.details.post');
 Route::get('/contact', [HomeSiteController::class, 'contact'])->name('contact');
 Route::get('/categories', [HomeSiteController::class, 'categories'])->name('categories.all');
 Route::get('/admin', [AdminSiteController::class, 'index'])->name('admin.site');
