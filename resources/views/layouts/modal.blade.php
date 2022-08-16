@@ -221,13 +221,13 @@
 
                                             <div class="mt-3">
                                                 <div class="row d-flex">
-                                                    <a href="" type="button" id="link-chariot" class="btn btn-soft-primary mr-2 add-to-cart fw-600" onclick="addToCart()">
+                                                    <a href="javascript:void(0)" type="button" data-id="" id="addcart" class="btn btn-soft-primary mr-2 add-to-cart fw-600">
                                                         <i class="las la-shopping-bag"></i>
                                                         <span class="d-none d-md-inline-block"> @lang("ajouter chariot")</span>
                                                     </a>
-                                                    <button type="button" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
+                                                    <a href="" id="link-chariot" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
                                                         <i class="la la-shopping-cart"></i> @lang("Achetez")
-                                                    </button>
+                                                    </a>
                                                 </div>
                                                 <button type="button" class="btn btn-secondary out-of-stock fw-600 d-none" disabled>
                                                     <i class="la la-cart-arrow-down"></i> @lang("Au dessus du stock")
@@ -282,7 +282,7 @@
                                 <label>@lang("Adresse")</label>
                             </div>
                             <div class="col-md-10">
-                                <textarea class="form-control mb-3" placeholder="Your Address" rows="2" name="address" required></textarea>
+                                <textarea class="form-control mb-3" placeholder="@lang('Votre adresse')" rows="2" name="address" required></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -315,7 +315,7 @@
                                 <label>@lang("Code postale")</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3" placeholder="Your Postal Code" name="postal_code" value="" required>
+                                <input type="text" class="form-control mb-3" placeholder="@lang('Votre code postal')" name="postal_code" value="" required>
                             </div>
                         </div>
                         <div class="row">

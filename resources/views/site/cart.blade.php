@@ -64,7 +64,7 @@
                                         <div class="row gutters-5">
                                             <div class="col-lg-8 d-flex ">
                                                 <span class="ml-5 ml-0">
-                                                    <img src="{{ asset('storage/'.$produit->images)}}" class="img-fit size-200px rounded" alt="Fossil Men&#039;s Grant Stainless Steel Quartz Chronograph Watch">
+                                                    <img src="{{ asset('storage/'.$image)}}" class="img-fit size-200px rounded" alt="images">
                                                 </span>
                                                 <span class="fs-18 opacity-60 text-center">{{ $produit->name ?? ''}}</span>
                                                 <br>

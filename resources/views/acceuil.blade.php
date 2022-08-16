@@ -135,7 +135,7 @@
                                 @lang("En vente")
                             </span>
                             <div class="absolute-top-right aiz-p-hov-icon">
-                                <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="ajouter a la liste" data-placement="left">
+                                <a href="javascript:void(0)" @if (!Auth::user()) onclick="connectedOnly()" @else onclick="likeproduct()" @endif=" tooltip" data-title="ajouter a la liste" data-placement="left">
                                     <i class="la la-heart-o"></i>
                                 </a>
                                 <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('Ecrivez-nous')" data-placement="left">

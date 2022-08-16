@@ -30,7 +30,7 @@
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="Ajouter pour comparer" data-placement="left">
                                         <i class="las la-comment"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="Acheter" data-placement="left">
+                                    <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" class="charriot" data-id="{{$produit->produit_id}}" data-title="Acheter" data-placement="left">
                                         <i class="las la-shopping-cart"></i>
                                     </a>
                                 </div>

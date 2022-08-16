@@ -516,13 +516,32 @@
                             'value': res.produit.qte_min,
                             'min': res.produit.qte_min
                         });
+                        $('#addcart').attr('data-id', id);
+                        $('#addcart').click(function() {
+                            let urls = "{{ route('produit.cart.add')}}";
+                            $.ajax({
+                                type: "POST",
+                                url: urls,
+                                data: {
+                                    id: $(this).attr('data-id')
+                                },
+                                dataType: 'json',
+                                success: function(res) {
+                                    console.log(res.id);
+                                    charriotProd();
+                                    $('#charriotMod').trigger('click');
+                                }
+                            });
+                        });
 
                     }
                 });
             });
         });
 
-
+        function charriotProd() {
+            AIZ.plugins.notify('dark', "Le produit a ete ajoute avec success!!!");
+        }
 
         function showAddToCartModal(id) {
             alert(1);
@@ -690,8 +709,12 @@
             });
         }
 
-        function addToWishList(id) {
+        function connectedOnly() {
             AIZ.plugins.notify('warning', "Connectez-vous en premier lieu svp");
+        }
+
+        function likeproduct() {
+            AIZ.plugins.notify('dark', "Merci d'avoir aimer notre produit");
         }
 
         function showAddToCartModal(id) {

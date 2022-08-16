@@ -122,13 +122,20 @@ class ProduitController extends Controller
     }
     public function cart($id)
     {
-        $produit = Produit::find($id)->join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->first();
-        return view('site.cart', ['produit' => $produit]);
+        $produit = Produit::find($id);
+        $images = Images::where('produit_id', $id)->first();
+        return view('site.cart', ['produit' => $produit, 'image' => $images->images]);
     }
     public function cart_info()
     {
 
         return view('site.cart_info');
+    }
+    public function cart_add(Request $request)
+    {
+        return response()->json([
+            'id' => $request->id
+        ]);
     }
     /**
      * Show the form for editing the specified resource.

@@ -84,10 +84,10 @@
                         </form>
 
                         <div class="mt-3">
-                            <button type="button" class="btn btn-soft-primary mr-2 add-to-cart fw-600" onclick="addToCart()">
+                            <a href="{{ route('produit.cart', [$produit->id])}}" class="btn btn-soft-primary mr-2 add-to-cart fw-600">
                                 <i class="las la-shopping-bag"></i>
                                 <span class="d-none d-md-inline-block"> @lang("ajouter au chariot")</span>
-                            </button>
+                            </a>
                             <button type="button" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
                                 <i class="la la-shopping-cart"></i> @lang("Achetez maintenant")
                             </button>
