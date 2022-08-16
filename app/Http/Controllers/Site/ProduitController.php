@@ -141,6 +141,13 @@ class ProduitController extends Controller
             'count' => $count
         ]);
     }
+    public function cart_all()
+    {
+        $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
+
+            ->where('chariots.users_id', Auth::user()->id)->get();
+        dd($chartInfo);
+    }
     /**
      * Show the form for editing the specified resource.
      *

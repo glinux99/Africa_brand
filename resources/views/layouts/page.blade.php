@@ -155,22 +155,22 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-8 text-white">
-                                <div class="nav-cart-box dropdown h-100" id="cart_items">
+                            <div class="col-md-2 col-8 text-white" @if (Session('cart-count')) id="charriot-link" @endif>
+                                <div class="nav-cart-box dropdown dropleft h-100" id="cart_items">
                                     <a href="javascript:void(0)" class="d-flex text-white align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
                                         <i class="la la-shopping-cart la-3x opacity-80"></i>
                                         <span class="flex-grow-1 ml-1">
                                             <span class="badge badge-primary badge-inline badge-pill cart-count" id="cart-count">{{ Session('cart-count')?? '0'}}</span>
                                         </span>
                                     </a>
+                                    @if (!Session('cart-count'))
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-md p-0 stop-propagation">
-
                                         <div class="text-center p-3">
                                             <i class="las la-frown la-3x opacity-60 mb-3"></i>
                                             <h3 class="h6 fw-700">@lang('Votre charriot est vide')</h3>
                                         </div>
-
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -475,6 +475,9 @@
     </script>
     <script>
         $(document).ready(function($) {
+            $('#charriot-link').click(function() {
+                location.href = "{{ route('produit.cart.all')}}";
+            });
             $('.charriot').click(function() {
                 $.ajaxSetup({
                     headers: {
