@@ -17,6 +17,7 @@ class CreateChariotsTable extends Migration
             $table->id();
             $table->bigInteger('users_id');
             $table->bigInteger('produit_id');
+            $table->string('images')->nullable();
             $table->string('qte');
             $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->nullable()->unsigned();
             $table->foreign('produit_id')->references('id')->on('produits')->onUpdate('cascade')->nullable()->unsigned();

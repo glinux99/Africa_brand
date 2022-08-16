@@ -11,6 +11,7 @@ class Chariot extends Model
     protected $fillable = [
         'users_id',
         'produit_id',
+        'images',
         'qte'
     ];
 }

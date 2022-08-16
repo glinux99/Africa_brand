@@ -135,7 +135,11 @@ class ProduitController extends Controller
     }
     public function cart_add(Request $request)
     {
-        Chariot::create($request->only(['qte', 'produit_id', 'users_id']));
+        $chariot = Chariot::create($request->only(['qte', 'produit_id', 'users_id']));
+        $imageproduit = Produit::join('images', 'produits.id', 'produit_id')
+            ->where('produit_id', $request->produit_id)->first();
+        $chariot->images = $imageproduit->images;
+        $chariot->save();
         $count = Chariot::where('users_id', Auth::user()->id)->count();
         return response()->json([
             'count' => $count
@@ -144,7 +148,6 @@ class ProduitController extends Controller
     public function cart_all()
     {
         $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
-
             ->where('chariots.users_id', Auth::user()->id)->get();
         dd($chartInfo);
     }
