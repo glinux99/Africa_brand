@@ -518,6 +518,7 @@
                         });
                         $('#addcart-modal').attr('data-id', id);
                         $('#addcart-modal').click(function() {
+
                             let urls = "{{ route('produit.cart.add')}}";
                             $.ajax({
                                 type: "POST",
@@ -530,7 +531,6 @@
                                     console.log(res.id);
                                     charriotProd();
                                     $('#charriotMod').trigger('click');
-
                                 }
                             });
                         });
