@@ -516,8 +516,8 @@
                             'value': res.produit.qte_min,
                             'min': res.produit.qte_min
                         });
-                        $('#addcart').attr('data-id', id);
-                        $('#addcart').click(function() {
+                        $('#addcart-modal').attr('data-id', id);
+                        $('#addcart-modal').click(function() {
                             let urls = "{{ route('produit.cart.add')}}";
                             $.ajax({
                                 type: "POST",
