@@ -530,6 +530,7 @@
                                     console.log(res.id);
                                     charriotProd();
                                     $('#charriotMod').trigger('click');
+
                                 }
                             });
                         });
