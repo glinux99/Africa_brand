@@ -222,7 +222,7 @@
                                             <form method="get" action="">
                                                 <div class="mt-3">
                                                     <div class="row d-flex">
-                                                        <a href="javascript:void(0)" type="button" data-id="" id="addcart-modal" class="btn btn-soft-primary mr-2 add-to-cart fw-600">
+                                                        <a href="javascript:void(0)" type="button" data-id="" @if (Auth::user()) id="addcart-modal" @else onclick="connectedOnly()" @endif class="btn btn-soft-primary mr-2 add-to-cart fw-600">
                                                             <i class="las la-shopping-bag"></i>
                                                             <span class="d-none d-md-inline-block"> @lang("ajouter chariot")</span>
                                                         </a>
