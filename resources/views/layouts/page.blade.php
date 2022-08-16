@@ -516,32 +516,36 @@
                             'value': res.produit.qte_min,
                             'min': res.produit.qte_min
                         });
+
                         $('#addcart-modal').attr('data-id', id);
-                        $('#addcart-modal').click(function() {
-
-                            let urls = "{{ route('produit.cart.add')}}";
-                            $.ajax({
-                                type: "POST",
-                                url: urls,
-                                data: {
-                                    id: $(this).attr('data-id')
-                                },
-                                dataType: 'json',
-                                success: function(res) {
-                                    console.log(res.id);
-                                    charriotProd();
-                                    $('#charriotMod').trigger('click');
-                                }
-                            });
-                        });
-
                     }
                 });
             });
+            $('#addcart-modal').click(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                let urls = "{{ route('produit.cart.add')}}";
+                $.ajax({
+                    type: "POST",
+                    url: urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        if (res.id) charriotProd();
+                        $('#charriotMod').trigger('click');
+                    }
+                });
+            });
+
         });
 
         function charriotProd() {
-            AIZ.plugins.notify('dark', "Le produit a ete ajoute avec success!!!");
+            AIZ.plugins.notify('light', "Le produit a ete ajoute avec success!!!");
         }
 
         function showAddToCartModal(id) {
