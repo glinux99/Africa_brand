@@ -178,9 +178,7 @@
                                                     <span class="ml-1 opacity-50">(100 vues)</span>
                                                 </div>
                                             </div>
-
-                                            <form id="option-choice-forms" action="" method="POST">
-                                                @csrf
+                                            <div>
                                                 <div class="row no-gutters">
                                                     <div class="col-sm-2">
                                                         <div class="opacity-50 my-2">@lang("Quantite")</div>
@@ -191,7 +189,7 @@
                                                                 <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="quantite" disabled="">
                                                                     <i class="las la-minus"></i>
                                                                 </button>
-                                                                <input type="number" name="quantite" class="col border-0 text-center flex-grow-1 fs-16 input-number" id="modal-in" placeholder="1" max="10" lang="fr">
+                                                                <input type="number" name="quantite" class="col border-0 text-center flex-grow-1 fs-16 input-number" id="modal-in" placeholder="1" max="100000000000000000000" lang="fr">
                                                                 <button class="btn  col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="quantite">
                                                                     <i class="las la-plus"></i>
                                                                 </button>
@@ -216,25 +214,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                            </form>
-
-                                            <form method="get" action="">
-                                                <div class="mt-3">
-                                                    <div class="row d-flex">
-                                                        <a href="javascript:void(0)" type="button" data-id="" @if (Auth::user()) id="addcart-modal" @else onclick="connectedOnly()" @endif class="btn btn-soft-primary mr-2 add-to-cart fw-600">
-                                                            <i class="las la-shopping-bag"></i>
-                                                            <span class="d-none d-md-inline-block"> @lang("ajouter chariot")</span>
-                                                        </a>
-                                                        <a href="" id="link-chariot" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
-                                                            <i class="la la-shopping-cart"></i> @lang("Achetez")
-                                                        </a>
-                                                    </div>
-                                                    <button type="button" class="btn btn-secondary out-of-stock fw-600 d-none" disabled>
-                                                        <i class="la la-cart-arrow-down"></i> @lang("Au dessus du stock")
-                                                    </button>
+                                            </div>
+                                            <div class="mt-3">
+                                                <div class="row d-flex">
+                                                    <a href="javascript:void(0)" type="button" data-id="" @if (Auth::user()) id="addcart-modal" @else onclick="connectedOnly()" @endif class="btn btn-soft-primary mr-2 add-to-cart fw-600">
+                                                        <i class="las la-shopping-bag"></i>
+                                                        <span class="d-none d-md-inline-block"> @lang("ajouter chariot")</span>
+                                                    </a>
+                                                    <a href="" id="link-chariot" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
+                                                        <i class="la la-shopping-cart"></i> @lang("Achetez")
+                                                    </a>
                                                 </div>
-                                            </form>
+                                                <button type="button" class="btn btn-secondary out-of-stock fw-600 d-none" disabled>
+                                                    <i class="la la-cart-arrow-down"></i> @lang("Au dessus du stock")
+                                                </button>
+                                            </div>
                                             <div class="row no-gutters mt-3">
                                                 <div class="col-3">
                                                     <div class="opacity-50 mt-2">@lang("Remboursement")</div>

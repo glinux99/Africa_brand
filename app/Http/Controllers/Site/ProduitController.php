@@ -8,6 +8,8 @@ use App\Models\Categorie;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Chariot;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -133,8 +135,10 @@ class ProduitController extends Controller
     }
     public function cart_add(Request $request)
     {
+        Chariot::create($request->only(['qte', 'produit_id', 'users_id']));
+        $count = Chariot::where('users_id', Auth::user()->id)->count();
         return response()->json([
-            'id' => $request->id
+            'count' => $count
         ]);
     }
     /**

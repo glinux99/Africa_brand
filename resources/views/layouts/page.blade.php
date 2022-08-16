@@ -160,7 +160,7 @@
                                     <a href="javascript:void(0)" class="d-flex text-white align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
                                         <i class="la la-shopping-cart la-3x opacity-80"></i>
                                         <span class="flex-grow-1 ml-1">
-                                            <span class="badge badge-primary badge-inline badge-pill cart-count">0</span>
+                                            <span class="badge badge-primary badge-inline badge-pill cart-count" id="cart-count">{{ Session('cart-count')?? '0'}}</span>
                                         </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-md p-0 stop-propagation">
@@ -532,12 +532,17 @@
                     type: "POST",
                     url: urls,
                     data: {
-                        id: $(this).attr('data-id')
+                        id: $(this).attr('data-id'),
+                        produit_id: $(this).attr('data-id'),
+                        users_id: "@auth {{ Auth::user()->id}} @endauth",
+                        qte: $('#modal-in').val()
                     },
                     dataType: 'json',
                     success: function(res) {
-                        if (res.id) charriotProd();
+                        charriotProd();
+                        console.log(res.count);
                         $('#charriotMod').trigger('click');
+                        $('#cart-count').text(res.count);
                     }
                 });
             });

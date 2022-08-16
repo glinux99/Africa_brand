@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Models\Images;
+use App\Models\Chariot;
 use App\Models\Produit;
 use App\Models\Actualite;
 use App\Models\Categorie;
@@ -21,6 +22,8 @@ class HomeSiteController extends Controller
             // $img = Images::where('users_id', Auth::user()->id)->first();
             // $img = "storage/" . $img->images;
             $img = "assets/img/default.png";
+            $count = Chariot::where('users_id', Auth::user()->id)->count() ?? 0;
+            Session()->put('cart-count', $count);
         } else $img = "assets/img/default.png";
         Session()->put('picprofile', $img);
         Session()->put('config', $config);
