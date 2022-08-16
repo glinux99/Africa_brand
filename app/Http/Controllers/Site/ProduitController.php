@@ -149,7 +149,7 @@ class ProduitController extends Controller
     {
         $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
             ->where('chariots.users_id', Auth::user()->id)->get();
-        dd($chartInfo);
+        return view('site.cart_all', ['chartInfo' => $chartInfo]);
     }
     /**
      * Show the form for editing the specified resource.

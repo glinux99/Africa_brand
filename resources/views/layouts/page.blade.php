@@ -160,7 +160,11 @@
                                     <a href="javascript:void(0)" class="d-flex text-white align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
                                         <i class="la la-shopping-cart la-3x opacity-80"></i>
                                         <span class="flex-grow-1 ml-1">
-                                            <span class="badge badge-primary badge-inline badge-pill cart-count" id="cart-count">{{ Session('cart-count')?? '0'}}</span>
+                                            <span class="badge badge-primary badge-inline badge-pill cart-count" id="cart-count">@if (Auth::user())
+                                                {{ Session('cart-count')?? '0'}}
+                                                @else
+                                                0
+                                                @endif</span>
                                         </span>
                                     </a>
                                     @if (!Session('cart-count'))

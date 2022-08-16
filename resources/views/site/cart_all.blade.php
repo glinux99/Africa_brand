@@ -65,20 +65,19 @@
                                         <div class="row gutters-5">
                                             <div class="col-lg-8 d-flex ">
                                                 <span class="ml-5 ml-0">
-                                                    <img src="{{ asset('storage/'.$image)}}" class="img-fit size-200px rounded" alt="images">
+                                                    <img src="{{ asset('storage/'.$produit->images)}}" class="img-fluid size-200px rounded" alt="images">
                                                 </span>
-                                                <span class="fs-18 opacity-60 text-center">{{ $produit->name ?? ''}}</span>
+                                                <span class="fs-18 opacity-60 text-center flex-fill">{{ $produit->name ?? ''}}</span>
                                                 <br>
                                                 <span class="fs-14 opacity-60 text-center">{!! $produit->descritpion ?? ''!!}</span>
                                             </div>
-
                                             <div class="text-center col-lg-2 order-4 order-lg-0">
                                                 <div class="row no-gutters align-items-center aiz-plus-minus mr-2 ml-0">
-                                                    <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="quantity[42]">
+                                                    <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="{{'quantity'.$produit->produit_id}}">
                                                         <i class="las la-minus"></i>
                                                     </button>
-                                                    <input type="number" name="quantity[42]" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="1" min="1" max="4999" onchange="updateQuantity(42, this)">
-                                                    <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="quantity[42]">
+                                                    <input type="number" name="{{'quantity'.$produit->produit_id}}" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="1" min="1" max="4999" onchange="updateQuantity(42, this)">
+                                                    <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="{{'quantity'.$produit->produit_id}}">
                                                         <i class="las la-plus"></i>
                                                     </button>
                                                 </div>
