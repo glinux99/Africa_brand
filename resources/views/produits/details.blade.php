@@ -55,7 +55,7 @@
                                             <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="quantity" disabled="">
                                                 <i class="las la-minus"></i>
                                             </button>
-                                            <input type="number" name="quantity" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="1" min="1" max="10" lang="en">
+                                            <input type="number" name="quantity" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="{{ $produit->qte_min ?? 1}}" min="{{ $produit->qte_min ?? 1}}" max="10" lang="en">
                                             <button class="btn  col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="quantity">
                                                 <i class="las la-plus"></i>
                                             </button>

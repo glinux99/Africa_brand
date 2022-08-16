@@ -498,6 +498,7 @@
                         $('.c-preloader').hide();
                         $('.images-res').empty();
                         $('.images-res-tumb').empty();
+                        $('.title-details').empty();
                         $('.images-res').append(`
                              <div class="carousel-box img-zoom rounded">
                                                     <img class="img-fit lazyload w-100" src="" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
@@ -511,6 +512,11 @@
                         var id = res.produit.id;
                         $('#link-chariot').attr('href', `/charriot/` + id);
                         $('.title-details').text(res.produit.name);
+                        $('#modal-in').attr({
+                            'value': res.produit.qte_min,
+                            'min': res.produit.qte_min
+                        });
+
                     }
                 });
             });

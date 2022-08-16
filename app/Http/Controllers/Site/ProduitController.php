@@ -20,7 +20,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        $produits = Produit::join('images', 'produit_id', 'produits.id')->paginate(10);
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(10);
         return view('produits.produits', ['produits' => $produits]);
     }
 
@@ -122,7 +122,7 @@ class ProduitController extends Controller
     }
     public function cart($id)
     {
-        $produit = Produit::find($id)->join('images', 'produit_id', 'produits.id')->first();
+        $produit = Produit::find($id)->join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->first();
         return view('site.cart', ['produit' => $produit]);
     }
     public function cart_info()

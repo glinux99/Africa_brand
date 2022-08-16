@@ -16,6 +16,7 @@ class Produit extends Model
         'remboursable',
         'prix',
         'remise',
+        'qte',
         'description',
         'stocks_visible',
         'alert',

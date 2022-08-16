@@ -43,7 +43,9 @@
         <div class="px-2 py-4 px-md-4 py-md-3 bg-green2 shadow-sm rounded">
             <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block text-white">@lang("Promotion")</span>
+                    <span class=" pb-3 d-inline-block text-white">@lang("Promotion")</span>
+
+                    <span class="text-section-hover-white"></span>
                 </h3>
                 <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="2022/8/20 00:00:00"></div>
                 <a href="{{ route('home.produit')}}" class="ml-auto mr-0 btn bg-green btn-sm shadow-md bg-dark-btn">@lang("Voir plus")</a>
@@ -182,7 +184,9 @@
         <div class="px-2 py-4 px-md-4 py-md-3 bg-green2 shadow-sm rounded">
             <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block text-white">@lang("Categories")</span>
+                    <span class="pb-3 d-inline-block text-white">@lang("Categories")</span>
+
+                    <span class="text-section-hover-white"></span>
                 </h3>
                 <a href="#" class="ml-auto mr-0 btn bg-green btn-sm shadow-md bg-dark-btn">@lang("Voir plus")</a>
             </div>

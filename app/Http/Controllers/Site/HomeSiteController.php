@@ -27,7 +27,7 @@ class HomeSiteController extends Controller
     }
     public function index()
     {
-        $produits = Produit::join('images', 'produit_id', 'produits.id')->paginate(20);
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
         $categories = Categorie::join('images', 'categorie_id', 'categories.id')->paginate(20);
         HomeSiteController::config();
         $center_img = Images::where('center_images', 1)->get();
@@ -43,12 +43,12 @@ class HomeSiteController extends Controller
     }
     public function produit()
     {
-        $produits = Produit::join('images', 'produit_id', 'produits.id')->paginate(20);
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
         return view('produits.produits_all', ['produits' => $produits]);
     }
     public function details($id)
     {
-        $produit = Produit::find($id)->first();
+        $produit = Produit::find($id);
         $images = Images::where('produit_id', $id)->get();
         $produitCat = Produit::where('categorie', $produit->categorie)
             ->join('images', 'produits.id', 'produit_id')->paginate(10);
@@ -63,7 +63,7 @@ class HomeSiteController extends Controller
     }
     public function details_posts(Request $request)
     {
-        $produit = Produit::find($request->id)->first();
+        $produit = Produit::find($request->id);
         $images = Images::where('produit_id', $request->id)->get();
         return response()->json([
             'produit' => $produit,
