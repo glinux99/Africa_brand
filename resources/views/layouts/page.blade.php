@@ -589,6 +589,10 @@
             AIZ.plugins.notify('light', "Le produit a ete ajoute avec success!!!");
         }
 
+        function charriotCom() {
+            AIZ.plugins.notify('light', "Votre commande a ete envoyer avec success!!!");
+        }
+
         function showAddToCartModal(id) {
             alert(1);
             // if (!$('#modal-size').hasClass('modal-lg')) {

@@ -1,13 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers\Commande;
 
-use App\Models\Chariot;
-use App\Models\Commande;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CommandeController extends Controller
 {
@@ -18,7 +14,7 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        return view('produits.demande');
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class CommandeController extends Controller
      */
     public function create()
     {
-        return view('site.commande_attente');
+        //
     }
 
     /**
@@ -39,17 +35,7 @@ class CommandeController extends Controller
      */
     public function store(Request $request)
     {
-        $chariots = Chariot::where('users_id', Auth::user()->id)->get();
-        $commande_send = "african-brand-cmd-" . Str::random(8);
-        foreach ($chariots as $chariot) {
-            $commande = Commande::create($request->except('_token'));
-            $commande->users_id = Auth::user()->id;
-            $commande->qte = $chariot->qte;
-            $commande->produit_id = $chariot->produit_id;
-            $commande->commande_id = $commande_send;
-            $commande->save();
-        }
-        return response()->json(['data' => $request->adresse_id]);
+        //
     }
 
     /**

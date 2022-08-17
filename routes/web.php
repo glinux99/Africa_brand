@@ -61,6 +61,8 @@ Route::get('charriot/{id}', [ChariotController::class, 'show'])->name('produit.c
 Route::get('charriot-info', [ChariotController::class, 'create'])->name('produit.cart.info');
 Route::post('charriot-add', [ChariotController::class, 'store'])->name('produit.cart.add');
 Route::get('charriot-all', [ChariotController::class, 'index'])->name('produit.cart.all');
+Route::post('commande-send', [CommandeController::class, 'store'])->name('produit.comande.send');
+Route::get('commande-check', [CommandeController::class, 'create'])->name('produit.comande.index');
 Route::get('delete-produit-panier/{id}', [ChariotController::class, 'destroy'])->name('produit.cart.delete');
 Route::post('create-adresse', [AdresseController::class, 'store'])->name('adresse.store');
 Route::post('editer-adresse', [AdresseController::class, 'edit'])->name('adresse.edit');

@@ -15,13 +15,15 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('entreprise')->nullable();
-            $table->string('adresse')->nullable();
+            $table->bigInteger('adresse_id');
+            $table->bigInteger('users_id')->nullable();
+            $table->string('qte')->nullable();
             $table->bigInteger('produit_id')->nullable();
+            $table->string('commande_id')->nullable();
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->nullable()->unsigned();
             $table->foreign('produit_id')->references('id')->on('produits')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->string('nombre');
+            $table->foreign('adresse_id')->references('id')->on('adresses')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+
             $table->timestamps();
         });
     }

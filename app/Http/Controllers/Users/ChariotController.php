@@ -58,7 +58,6 @@ class ChariotController extends Controller
             'reload' => $reload
         ]);
     }
-
     /**
      * Display the specified resource.
      *

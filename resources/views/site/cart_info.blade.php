@@ -46,14 +46,14 @@
     <div class="container">
         <div class="row cols-xs-space cols-sm-space cols-md-space">
             <div class="col-xxl-8 col-xl-10 mx-auto">
-                <form class="form-default" data-toggle="validator" action="#" role="form" method="POST">
+                <form class="form-default" data-toggle="validator" action="{{ route('produit.comande.send')}}" role="form" method="POST">
                     @csrf
                     <div class="shadow-sm bg-white p-4 rounded mb-4">
                         <div class="row gutters-5">
                             @foreach ($adresses as $adresse)
                             <div class="col-md-6 mb-3">
                                 <label class="aiz-megabox d-block bg-white mb-0">
-                                    <input type="radio" name="addresse_id" value="{{ $adresse->id}}" checked required>
+                                    <input type="radio" name="adresse_id" class="adresse_id" value="{{ $adresse->id}}" checked required>
                                     <span class="d-flex p-3 aiz-megabox-elem">
                                         <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 text-left">
@@ -62,7 +62,7 @@
                                                 <span class="fw-600 ml-2">{{ $adresse->adresse ?? 'Q keshero, avenu de l\'Unite n 133'}}</span>
                                             </div>
                                             <div>
-                                                <span class="opacity-60">@lang("Email")</span>
+                                                <span class=" opacity-60">@lang("Email")</span>
                                                 <span class="fw-600 ml-2">{{ $adresse->email ?? 'genesiskikimba@gmail.com'}}</span>
                                             </div>
                                             <div>
@@ -111,13 +111,13 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-6 text-center text-md-left order-1 order-md-0">
-                            <a href="#" class="btn btn-link">
+                            <a href="/" class="btn btn-link">
                                 <i class="las la-arrow-left"></i>
                                 @lang("Retourner vers la boutique")
                             </a>
                         </div>
                         <div class="col-md-6 text-center text-md-right">
-                            <button type="submit" class="btn btn-primary fw-600">@lang("Continuer pour la livraison")</a>
+                            <button type="submit" class="btn btn-primary fw-600" id="commande-send">@lang("Continuer pour la livraison")</button>
                         </div>
                     </div>
                 </form>
