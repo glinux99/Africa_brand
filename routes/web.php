@@ -16,6 +16,7 @@ use App\Http\Controllers\Site\CategorieController;
 use App\Http\Controllers\Membres\PartenaireController;
 use App\Http\Controllers\Membres\FournisseurController;
 use App\Http\Controllers\Site\HomeSiteController;
+use App\Http\Controllers\Users\AdresseController;
 use App\Http\Controllers\Users\ChariotController;
 
 /*
@@ -61,6 +62,10 @@ Route::get('charriot-info', [ChariotController::class, 'create'])->name('produit
 Route::post('charriot-add', [ChariotController::class, 'store'])->name('produit.cart.add');
 Route::get('charriot-all', [ChariotController::class, 'index'])->name('produit.cart.all');
 Route::get('delete-produit-panier/{id}', [ChariotController::class, 'destroy'])->name('produit.cart.delete');
+Route::post('create-adresse', [AdresseController::class, 'store'])->name('adresse.store');
+Route::post('editer-adresse', [AdresseController::class, 'edit'])->name('adresse.edit');
+Route::post('editer-mon-adresse', [AdresseController::class, 'editer'])->name('adresse.editer');
+Route::get('delete-adresse/{id}', [AdresseController::class, 'destroy'])->name('adresse.delete');
 Route::get('all-categories', [CategorieController::class, 'index'])->name('categories');
 Route::get('/produitCategorie', [CategorieController::class, 'create'])->name('categories.exists');
 Route::post('/modifier-Categorie', [CategorieController::class, 'update'])->name('categories.update');

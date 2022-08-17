@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Users;
 
 use App\Models\Images;
+use App\Models\Adresse;
 use App\Models\Chariot;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Alert;
 
 class ChariotController extends Controller
 {
@@ -21,6 +23,8 @@ class ChariotController extends Controller
         $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
             ->select('chariots.*', 'produits.*', 'chariots.id AS chariot_id')
             ->where('chariots.users_id', Auth::user()->id)->get();
+
+        Alert::alert('Title', 'Message', 'Type');
         return view('site.cart_all', ['chartInfo' => $chartInfo]);
     }
     /**
@@ -30,7 +34,8 @@ class ChariotController extends Controller
      */
     public function create()
     {
-        return view('site.cart_info');
+        $adresse = Adresse::where('users_id', Auth::user()->id)->get();
+        return view('site.cart_info', ['adresses' => $adresse]);
     }
 
     /**
@@ -48,8 +53,11 @@ class ChariotController extends Controller
         $chariot->save();
         $count = Chariot::where('users_id', Auth::user()->id)->count() ?? 0;
         Session()->put('cart-count', $count);
+        if (Chariot::where('users_id', Auth::user()->id)->count() == 1) $reload = true;
+        else $reload = false;
         return response()->json([
-            'count' => $count
+            'count' => $count,
+            'reload' => $reload
         ]);
     }
 
@@ -98,6 +106,8 @@ class ChariotController extends Controller
     public function destroy($id)
     {
         Chariot::find($id)->delete();
+        $count = Chariot::where('users_id', Auth::user()->id)->count() ?? 0;
+        Session()->put('cart-count', $count);
         return redirect()->route('produit.cart.all');
     }
 }

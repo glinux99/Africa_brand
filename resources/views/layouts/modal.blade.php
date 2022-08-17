@@ -269,7 +269,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="form-default" role="form" action="#" method="POST">
+            <form class="form-default" role="form" action="{{ route('adresse.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="p-3">
@@ -278,7 +278,17 @@
                                 <label>@lang("Adresse")</label>
                             </div>
                             <div class="col-md-10">
-                                <textarea class="form-control mb-3" placeholder="@lang('Votre adresse')" rows="2" name="address" required></textarea>
+                                <textarea class="form-control mb-3" placeholder="@lang('Votre adresse')" rows="2" name="adresse" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Email")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="text" name="email" class="form-control" value="{{ Auth::user()->email}}">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -287,9 +297,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <select id="my-select" class="form-control" name="">
-                                        <option>Text</option>
-                                    </select>
+                                    <input type="text" name="pays" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -298,10 +306,8 @@
                             <div class="col-md-2">
                                 <label>@lang("Ville")</label>
                             </div>
-                            <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker" data-live-search="true" name="city_id" required>
-
-                                </select>
+                            <div class="col-md-10 mb-3">
+                                <input type="text" name="ville" class="form-control">
                             </div>
                         </div>
 
@@ -311,7 +317,7 @@
                                 <label>@lang("Code postale")</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3" placeholder="@lang('Votre code postal')" name="postal_code" value="" required>
+                                <input type="text" class="form-control mb-3" placeholder="@lang('Votre code postal')" name="code_postal" value="" required>
                             </div>
                         </div>
                         <div class="row">
@@ -319,7 +325,86 @@
                                 <label>@lang("Telephone")</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3" placeholder="+243" name="phone" value="" required>
+                                <input type="text" class="form-control mb-3" placeholder="+243" name="numero" value="{{ Auth::user()->numero}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-sm btn-primary">@lang("Enregistrer")</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Adresse Edit -->
+<div class="modal fade" id="edit-address-modal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">@lang("Nouvelle adresse")</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-default" role="form" action="{{ route('adresse.editer')}}" method="POST">
+                @csrf
+                <input type="text" id="Adresse_id" name="adresse_id" hidden>
+                <div class=" modal-body">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Adresse")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <textarea class="form-control mb-3" id="adresse" placeholder="@lang('Votre adresse')" rows="2" name="adresse" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Email")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="text" name="email" id="email" class="form-control" value="{{ Auth::user()->email}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Pays")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="text" name="pays" id="pays" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Ville")</label>
+                            </div>
+                            <div class="col-md-10 mb-3">
+                                <input type="text" name="ville" id="ville" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Code postale")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control mb-3" id="code_postal" placeholder="@lang('Votre code postal')" name="code_postal" value="" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Telephone")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control mb-3" id="numero" placeholder="+243" name="numero" value="{{ Auth::user()->numero}}" required>
                             </div>
                         </div>
                         <div class="form-group text-right">

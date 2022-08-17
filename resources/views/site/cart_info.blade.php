@@ -50,6 +50,7 @@
                     <input type="hidden" name="_token" value="YifDPOG0KnaR7GHvfkFnW6m9l2loBUap8alaYdOa">
                     <div class="shadow-sm bg-white p-4 rounded mb-4">
                         <div class="row gutters-5">
+                            @foreach ($adresses as $adresse)
                             <div class="col-md-6 mb-3">
                                 <label class="aiz-megabox d-block bg-white mb-0">
                                     <input type="radio" name="address_id" value="1" checked required>
@@ -58,23 +59,27 @@
                                         <span class="flex-grow-1 pl-3 text-left">
                                             <div>
                                                 <span class="opacity-60">@lang("Adresse")</span>
-                                                <span class="fw-600 ml-2">Q keshero, avenu de l'Unite n 133</span>
+                                                <span class="fw-600 ml-2">{{ $adresse->adresse ?? 'Q keshero, avenu de l\'Unite n 133'}}</span>
+                                            </div>
+                                            <div>
+                                                <span class="opacity-60">@lang("Email")</span>
+                                                <span class="fw-600 ml-2">{{ $adresse->email ?? 'genesiskikimba@gmail.com'}}</span>
                                             </div>
                                             <div>
                                                 <span class="opacity-60">@lang("Code postal")</span>
-                                                <span class="fw-600 ml-2">1254</span>
+                                                <span class="fw-600 ml-2">{{ $adresse->code_postal ?? '1254'}}</span>
                                             </div>
                                             <div>
                                                 <span class="opacity-60">@lang("Ville")</span>
-                                                <span class="fw-600 ml-2">Goma</span>
+                                                <span class="fw-600 ml-2">{{ $adresse->ville ?? 'Goma'}}</span>
                                             </div>
                                             <div>
                                                 <span class="opacity-60">@lang("Pays")</span>
-                                                <span class="fw-600 ml-2">RDC</span>
+                                                <span class="fw-600 ml-2">{{ $adresse->pays ?? 'RDC'}}</span>
                                             </div>
                                             <div>
                                                 <span class="opacity-60">@lang("Telephone")</span>
-                                                <span class="fw-600 ml-2">0870912428</span>
+                                                <span class="fw-600 ml-2">{{ $adresse->numero ?? '0970912428'}}</span>
                                             </div>
                                         </span>
                                     </span>
@@ -84,12 +89,17 @@
                                         <i class="la la-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" onclick="edit_address('1')">
+                                        <a class="dropdown-item editChart" data-id="{{ $adresse->id}}">
                                             @lang("Editer")
+                                        </a>
+                                        <hr>
+                                        <a class="dropdown-item" href="{{ route('adresse.delete',[$adresse->id])}}">
+                                            @lang("Supprimer")
                                         </a>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             <input type="hidden" name="checkout_type" value="logged">
                             <div class="col-md-6 mx-auto mb-3">
                                 <a href="" data-toggle="modal" data-target="#new-address-modal" class="border p-3 rounded mb-3 c-pointer text-center bg-white h-100 d-flex flex-column justify-content-center">

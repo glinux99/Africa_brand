@@ -155,7 +155,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-8 text-white" @if (Session('cart-count')) id="charriot-link" @endif>
+                            <div class="col-md-2 col-8 text-white count-class" @if (Session('cart-count')) id="charriot-link" @endif>
                                 <div class="nav-cart-box dropdown dropleft h-100" id="cart_items">
                                     <a href="javascript:void(0)" class="d-flex text-white align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
                                         <i class="la la-shopping-cart la-3x opacity-80"></i>
@@ -195,6 +195,7 @@
         </div>
 
         @include('layouts.modal')
+        @include('sweetalert::alert')
         @yield('content')
 
         <section class="bg-dark py-5 text-light footer-widget">
@@ -467,7 +468,9 @@
     </div>
 
     <button data-toggle="modal" data-target="#addcart" id="charriotMod" hidden></button>
+    <button data-toggle="modal" data-target="#edit-address-modal" id="adresseModal" hidden></button>
     <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.session.min.js')}}"></script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         function confirm_modal(delete_url) {
@@ -550,10 +553,37 @@
                         console.log(res.count);
                         $('#charriotMod').trigger('click');
                         $('#cart-count').text(res.count);
+                        if (res.reload) location.reload();
                     }
                 });
             });
-
+            $('.editChart').click(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                let urls = "{{ route('adresse.edit')}}";
+                $.ajax({
+                    type: "POST",
+                    url: urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.adresse)
+                        $('#adresseModal').trigger('click');
+                        $('#adresse').val(res.adresse);
+                        $('#email').val(res.email);
+                        $('#pays').val(res.pays);
+                        $('#ville').val(res.ville);
+                        $('#code_postal').val(res.code_postal);
+                        $('#numero').val(res.numero);
+                        $('#Adresse_id').val(res.id);
+                    }
+                });
+            });
         });
 
         function charriotProd() {
