@@ -21,7 +21,6 @@ class CommandeController extends Controller
         $commandes = Commande::join('users', 'users.id', 'commandes.users_id')->get();
         return view('produits.demande', ['commande' => $commandes]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
