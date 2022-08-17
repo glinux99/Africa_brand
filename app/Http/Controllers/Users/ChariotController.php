@@ -9,7 +9,7 @@ use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ChariotController extends Controller
 {
@@ -23,8 +23,6 @@ class ChariotController extends Controller
         $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
             ->select('chariots.*', 'produits.*', 'chariots.id AS chariot_id')
             ->where('chariots.users_id', Auth::user()->id)->get();
-
-        Alert::alert('Title', 'Message', 'Type');
         return view('site.cart_all', ['chartInfo' => $chartInfo]);
     }
     /**

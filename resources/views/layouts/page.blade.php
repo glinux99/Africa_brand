@@ -195,9 +195,8 @@
         </div>
 
         @include('layouts.modal')
-        @include('sweetalert::alert')
         @yield('content')
-
+        @include('sweetalert::alert')
         <section class="bg-dark py-5 text-light footer-widget">
             <div class="container">
                 <div class="row">

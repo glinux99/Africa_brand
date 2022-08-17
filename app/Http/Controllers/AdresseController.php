@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Adresse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class AdresseController extends Controller
 {
@@ -37,19 +35,16 @@ class AdresseController extends Controller
      */
     public function store(Request $request)
     {
-        $adresse = Adresse::create($request->except(['_token', 'users_id']));
-        $adresse->users_id = Auth::user()->id;
-        $adresse->save();
-        return redirect()->route('produit.cart.info');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Adresse  $adresse
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Adresse $adresse)
     {
         //
     }
@@ -57,28 +52,22 @@ class AdresseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Adresse  $adresse
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Adresse $adresse)
     {
-        $adresse = Adresse::find($request->id);
-        return response()->json($adresse);
+        //
     }
-    public function editer(Request $request)
-    {
-        $adresse = Adresse::find($request->adresse_id);
-        $adresse->update($request->except('_token'));
-        return redirect()->route('produit.cart.info');
-    }
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Adresse  $adresse
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Adresse $adresse)
     {
         //
     }
@@ -86,12 +75,11 @@ class AdresseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Adresse  $adresse
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Adresse $adresse)
     {
-        Adresse::find($id)->delete();
-        return redirect()->route('produit.cart.info');
+        //
     }
 }
