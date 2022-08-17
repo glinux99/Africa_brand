@@ -49,9 +49,9 @@
                 <form class="form-default" data-toggle="validator" action="{{ route('produit.comande.send')}}" role="form" method="POST">
                     @csrf
                     <div class="shadow-sm bg-white p-4 rounded mb-4">
-                        <table class="table table-striped table-inverse">
+                        <table class="table table-striped table-inverse table-hover">
                             <thead class="thead-inverse">
-                                <tr>
+                                <tr class="text-center">
                                     <th>#</th>
                                     <th>@lang("Commande ID")</th>
                                     <th>@lang("Nom produit")</th>
@@ -60,13 +60,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                @foreach ($commandes as $index=>$commande)
+                                <tr class="text-center">
+                                    <td>{{ $index+1}}</td>
+                                    <td>{{ $commande->commande_id}}</td>
+                                    <td>{{ $commande->name}}</td>
+                                    <td>{{ $commande->commande_qte}}</td>
+                                    <td>
+                                        <a class="btn-sm btn-primary" disabled>
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            @lang("En attente")
+                                        </a>
+                                    </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

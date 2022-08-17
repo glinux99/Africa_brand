@@ -20,9 +20,10 @@ class CreateCommandesTable extends Migration
             $table->string('qte')->nullable();
             $table->bigInteger('produit_id')->nullable();
             $table->string('commande_id')->nullable();
+            $table->string('status')->nullable();
             $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->nullable()->unsigned();
-            $table->foreign('produit_id')->references('id')->on('produits')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('adresse_id')->references('id')->on('adresses')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+            $table->foreign('produit_id')->references('id')->on('produits')->unsigned();
+            $table->foreign('adresse_id')->references('id')->on('adresses')->unsigned();
 
             $table->timestamps();
         });

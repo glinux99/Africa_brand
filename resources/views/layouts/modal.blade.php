@@ -287,7 +287,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <input type="text" name="email" class="form-control" value="{{ Auth::user()->email}}">
+                                    <input type="text" name="email" class="form-control" value="{{ Auth::user()->email ?? ''}}">
                                 </div>
                             </div>
                         </div>
@@ -325,7 +325,7 @@
                                 <label>@lang("Telephone")</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3" placeholder="+243" name="numero" value="{{ Auth::user()->numero}}" required>
+                                <input type="text" class="form-control mb-3" placeholder="+243" name="numero" value="{{ Auth::user()->numero ?? '0970912428'}}" required>
                             </div>
                         </div>
                         <div class="form-group text-right">
@@ -366,7 +366,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <input type="text" name="email" id="email" class="form-control" value="{{ Auth::user()->email}}">
+                                    <input type="text" name="email" id="email" class="form-control" value="{{ Auth::user()->email ?? ''}}">
                                 </div>
                             </div>
                         </div>
@@ -404,7 +404,7 @@
                                 <label>@lang("Telephone")</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3" id="numero" placeholder="+243" name="numero" value="{{ Auth::user()->numero}}" required>
+                                <input type="text" class="form-control mb-3" id="numero" placeholder="+243" name="numero" value="{{ Auth::user()->numero ?? '0970912428'}}" required>
                             </div>
                         </div>
                         <div class="form-group text-right">

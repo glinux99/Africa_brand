@@ -18,7 +18,8 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        return view('produits.demande');
+        $commandes = Commande::join('users', 'users.id', 'commandes.users_id')->get();
+        return view('produits.demande', ['commande' => $commandes]);
     }
 
     /**
@@ -28,7 +29,11 @@ class CommandeController extends Controller
      */
     public function create()
     {
-        return view('site.commande_attente');
+        $commande = Commande::where('users_id', Auth::user()->id)
+            ->join('produits', 'produits.id', 'produit_id')
+            ->select('produits.*', 'commandes.*', 'commandes.qte AS commande_qte')
+            ->get();
+        return view('site.commande_attente', ['commandes' => $commande]);
     }
 
     /**
@@ -47,9 +52,11 @@ class CommandeController extends Controller
             $commande->qte = $chariot->qte;
             $commande->produit_id = $chariot->produit_id;
             $commande->commande_id = $commande_send;
+            // $commande->status = 0;
             $commande->save();
+            $chariot->delete();
         }
-        return response()->json(['data' => $request->adresse_id]);
+        return redirect()->route('produit.comande.index');
     }
 
     /**
