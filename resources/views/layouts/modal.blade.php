@@ -189,7 +189,7 @@
                                                                 <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="quantite" disabled="">
                                                                     <i class="las la-minus"></i>
                                                                 </button>
-                                                                <input type="number" name="quantite" class="col border-0 text-center flex-grow-1 fs-16 input-number" id="modal-in" placeholder="1" max="100000000000000000000" lang="fr">
+                                                                <input type="number" name="quantite" class="col border-0 text-center flex-grow-1 fs-16 input-number qte_modal" id="modal-in" placeholder="1" max="100000000000000000000" lang="fr">
                                                                 <button class="btn  col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="quantite">
                                                                     <i class="las la-plus"></i>
                                                                 </button>

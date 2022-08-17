@@ -122,35 +122,6 @@ class ProduitController extends Controller
     {
         //
     }
-    public function cart($id)
-    {
-        $produit = Produit::find($id);
-        $images = Images::where('produit_id', $id)->first();
-        return view('site.cart', ['produit' => $produit, 'image' => $images->images]);
-    }
-    public function cart_info()
-    {
-
-        return view('site.cart_info');
-    }
-    public function cart_add(Request $request)
-    {
-        $chariot = Chariot::create($request->only(['qte', 'produit_id', 'users_id']));
-        $imageproduit = Produit::join('images', 'produits.id', 'produit_id')
-            ->where('produit_id', $request->produit_id)->first();
-        $chariot->images = $imageproduit->images;
-        $chariot->save();
-        $count = Chariot::where('users_id', Auth::user()->id)->count();
-        return response()->json([
-            'count' => $count
-        ]);
-    }
-    public function cart_all()
-    {
-        $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
-            ->where('chariots.users_id', Auth::user()->id)->get();
-        return view('site.cart_all', ['chartInfo' => $chartInfo]);
-    }
     /**
      * Show the form for editing the specified resource.
      *

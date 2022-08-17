@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
+use App\Models\Images;
+use App\Models\Chariot;
+use App\Models\Produit;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ChariotController extends Controller
 {
@@ -14,9 +18,11 @@ class ChariotController extends Controller
      */
     public function index()
     {
-        //
+        $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
+            ->select('chariots.*', 'produits.*', 'chariots.id AS chariot_id')
+            ->where('chariots.users_id', Auth::user()->id)->get();
+        return view('site.cart_all', ['chartInfo' => $chartInfo]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +30,7 @@ class ChariotController extends Controller
      */
     public function create()
     {
-        //
+        return view('site.cart_info');
     }
 
     /**
@@ -35,7 +41,16 @@ class ChariotController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chariot = Chariot::create($request->only(['qte', 'produit_id', 'users_id']));
+        $imageproduit = Produit::join('images', 'produits.id', 'produit_id')
+            ->where('produit_id', $request->produit_id)->first();
+        $chariot->images = $imageproduit->images;
+        $chariot->save();
+        $count = Chariot::where('users_id', Auth::user()->id)->count() ?? 0;
+        Session()->put('cart-count', $count);
+        return response()->json([
+            'count' => $count
+        ]);
     }
 
     /**
@@ -46,7 +61,9 @@ class ChariotController extends Controller
      */
     public function show($id)
     {
-        //
+        $produit = Produit::find($id);
+        $images = Images::where('produit_id', $id)->first();
+        return view('site.cart', ['produit' => $produit, 'image' => $images->images]);
     }
 
     /**
@@ -80,6 +97,7 @@ class ChariotController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Chariot::find($id)->delete();
+        return redirect()->route('produit.cart.all');
     }
 }

@@ -83,7 +83,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center col-2 order-5 order-lg-0 text-right">
-                                                <a href="javascript:void(0)" onclick="removeFromCartView(event, 42)" class="text-center btn btn-icon btn-sm btn-soft-primary btn-circle">
+                                                <a href="{{ route('produit.cart.delete',[$produit->chariot_id])}}" class="text-center btn btn-icon btn-sm btn-soft-primary btn-circle">
                                                     <i class="las la-trash"></i>
                                                 </a>
                                             </div>
