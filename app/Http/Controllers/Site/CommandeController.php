@@ -18,8 +18,11 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        $commandes = Commande::join('users', 'users.id', 'commandes.users_id')->get();
-        return view('produits.demande', ['commande' => $commandes]);
+        $commandes = Commande::join('users', 'users.id', 'commandes.users_id')
+            ->join('produits', 'produits.id', 'commandes.produit_id')
+            ->select('commandes.*', 'produits.*', 'users.*', 'users.name AS username', 'produits.name AS produit_name')
+            ->get();
+        return view('produits.demande', ['commandes' => $commandes]);
     }
     /**
      * Show the form for creating a new resource.

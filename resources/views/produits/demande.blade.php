@@ -32,20 +32,23 @@
                         <th class="text-center">@lang("Email/Num Tel")</th>
                         <th class="text-center">@lang("Description du produit")</th>
                         <th class="text-center">@lang("Quantite")</th>
+                        <th class="text-center">@lang("P.U")</th>
                         <th class="text-center">@lang("Etat de la commande")</th>
                         <th class="text-center">@lang("Actions")</th>
                     </thead>
                     <tbody>
+                        @foreach ($commandes as $index=>$commande)
                         <tr class="text-center">
                             <td>
-                                1
+                                {{ $index+1}}
                             </td>
-                            <td>Daniel</td>
-                            <td>genesiskikimba@gmail.com <br>
-                                +243970912428
+                            <td>{{ $commande->username}}</td>
+                            <td>{{ $commande->email}} <br>
+                                {{$commande->numero}}
                             </td>
-                            <td>Melleuse</td>
-                            <td>20 piece</td>
+                            <td>{{ $commande->produit_name}}</td>
+                            <td>{{ $commande->qte}}</td>
+                            <td>{{ $commande->prix}} USD</td>
                             <td>
                                 <a class="btn-sm btn-primary" disabled>
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -53,11 +56,9 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="" class="btn-primary btn-sm"><span class="la la-check-square-o"></span></a>
-                                <a href="" class="btn-primary btn-sm"><span class="la la-window-close"></span></a>
-                                <a href="" class="btn-primary btn-sm"><span class="la la-trash"></span></a>
-                            </td>
+                                <a href="" class="btn-primary btn-sm">@lang("Decider")</span></a>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
