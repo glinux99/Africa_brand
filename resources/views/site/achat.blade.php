@@ -18,19 +18,19 @@
                             <h3 class="fs-14 fw-600 d-none d-lg-block ">2. @lang("Infos achats")</h3>
                         </div>
                     </div>
-                    <div class="col active">
-                        <div class="text-center">
+                    <div class="col done">
+                        <div class="text-center text-success">
                             <i class="la-3x mb-2 opacity-50 las la-truck"></i>
                             <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 ">3. @lang("Commande Info")</h3>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="text-center">
+                    <div class="col done">
+                        <div class="text-center text-success">
                             <i class="la-3x mb-2 opacity-50 las la-credit-card"></i>
                             <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 ">4. @lang("Payement")</h3>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col active">
                         <div class="text-center">
                             <i class="la-3x mb-2 opacity-50 las la-check-circle"></i>
                             <h3 class="fs-14 fw-600 d-none d-lg-block opacity-50 ">5. @lang("Confirmation")</h3>
@@ -49,10 +49,6 @@
                 <form class="form-default" data-toggle="validator" action="{{ route('produit.comande.send')}}" role="form" method="POST">
                     @csrf
                     <div class="shadow-sm bg-white p-4 rounded mb-4">
-                        <p>
-                            @lang("Pour que votre commande soit accepte, veuillez vous aquiter des modalites de payements ou contactez nous sur le") <a href="tel:{{ Session('config')->numero ?? '0970912428'}}">{{ Session('config')->numero ?? '0970912428'}}</a>
-                        </p>
-                        @if ($commandes->count())
                         <table class="table table-striped table-inverse table-hover">
                             <thead class="thead-inverse">
                                 <tr class="text-center">
@@ -88,9 +84,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        @else
-                        <p class="text-center">@lang("Toutes les commandes ont deja ete checke! Veuillez voir la liste de vos achats!!!")</p>
-                        @endif
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-6 text-center text-md-left order-1 order-md-0">
@@ -100,16 +93,17 @@
                             </a>
                         </div>
                         <div class="col-md-6 text-center text-md-right">
-                            <a href="{{ route('produit.comande.buy')}}" class="btn btn-primary fw-600" id="commande-send">@lang("Voir mes achats")</a>
+                            <button type="submit" class="btn btn-primary fw-600" id="commande-send">@lang("Continuer pour la livraison")</button>
                         </div>
                     </div>
-                </form>
-                <div class="aiz-pagination mt-3 d-flex justify-content-center">
-                    <nav>
-                        {{ $commandes->links()}}
-                    </nav>
 
-                </div>
+                    <div class="aiz-pagination mt-3 d-flex justify-content-center">
+                        <nav>
+                            {{ $commandes->links()}}
+                        </nav>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>

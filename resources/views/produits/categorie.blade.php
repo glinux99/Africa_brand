@@ -29,12 +29,12 @@
                         <button id="infosCat" data-toggle="modal" data-target="#categorie-info-modal" hidden></button>
                         <div class="row" data-items="6">
                             @foreach ($categories as $categorie)
-                            <div class="col-md-3">
+                            <div class="col-md-3 ">
                                 <div class="carousel-box">
-                                    <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
+                                    <div class="aiz-card-box border @if ($categorie->visible ?? '1') border-light @else border-success  @endif rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                                         <div class="position-relative">
                                             <a href="#" class="d-block">
-                                                <img class="img-fit " src="{{ asset('storage/'.$categorie->images)}}" data-src="{{ asset('storage/'.$categorie->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                <img class="img-fit " height="150" src="{{ asset('storage/'.$categorie->images)}}" data-src="{{ asset('storage/'.$categorie->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                             </a>
                                             <div class="absolute-top-right aiz-p-hov-icon">
                                                 <a href="javascript:void(0)" onclick="addToWishList(2)" data-title="@lang('plus de details')" data-placement="left" class="infocategorie" data-id="{{ $categorie->categorie_id}}">
@@ -43,15 +43,15 @@
                                                 <a href="javascript:void(0)" data-title="@lang('Modifier')" data-placement="left" data-title="@lang('modifier')" class="modifCat" data-id="{{ $categorie->categorie_id}}">
                                                     <i class="las la-edit"></i>
                                                 </a>
-                                                <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('changer cette image')" data-placement="left">
+                                                <a href="javascript:void(0)" data-toggle="tooltip" data-title="@lang('changer cette image')" data-placement="left">
                                                     <i class="las la-image"></i>
                                                 </a>
-                                                <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="@lang('visibilite')" data-placement="left">
+                                                <a href="javascript:void(0)" class="visible-categorie" data-id="{{ $categorie->categorie_id}}" data-toggle="tooltip" data-title="@lang('visible')" data-placement="left">
                                                     <i class="las la-eye-slash"></i>
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="p-md-3 p-2 text-left ">
+                                        <div class="p-md-3 p-2 text-left">
                                             <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px text-center">
                                                 <a href="#" class="d-block text-reset">{{ $categorie->name}}</a>
                                             </h3>

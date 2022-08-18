@@ -1,16 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Promotion;
 
-use App\Models\User;
-use App\Models\Produit;
-use App\Models\Commande;
-use App\Models\Categorie;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Request;
 
-class AdminSiteController extends Controller
+class Promotion extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,29 +14,7 @@ class AdminSiteController extends Controller
      */
     public function index()
     {
-        $produit = Produit::count();
-        $categorie = Categorie::count();
-        $user = User::count();
-        $vente = Commande::where('status', '1')->count();
-        $attentes = Commande::where('status', '0')->count();
-        $totalVentes = Commande::count();
-        $dataCategorie = array();
-        $donne = Categorie::all();
-        foreach ($donne as $data) {
-            array_push($dataCategorie, $data->name);
-        }
-        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
-        $data = array(
-            "ventes" =>
-            $vente,
-            "produit" => $produit,
-            "categorie" => $categorie,
-            'membre' => $user,
-            'attentes' => $attentes,
-            'totalVentes' => $totalVentes
-        );
-        // dd($dataCategorie);
-        return view('admin.admin', ['produits' => $produits, 'data' => $data, 'dataCategorie' => $dataCategorie]);
+        //
     }
 
     /**

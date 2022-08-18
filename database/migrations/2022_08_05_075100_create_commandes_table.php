@@ -18,6 +18,7 @@ class CreateCommandesTable extends Migration
             $table->bigInteger('adresse_id');
             $table->bigInteger('users_id')->nullable();
             $table->string('qte')->nullable();
+            $table->string('images')->nullable();
             $table->bigInteger('produit_id')->nullable();
             $table->string('commande_id')->nullable();
             $table->string('status')->nullable();

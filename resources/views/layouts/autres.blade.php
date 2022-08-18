@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="card-body ">
                                     <h6 class="d-flex">
-                                        <span class="text-truncate title">{{ $user->name}} - admin</span>
+                                        <span class="text-truncate title">{{ $user->name}} - {{ $user->type}}</span>
                                     </h6>
                                 </div>
                             </div>

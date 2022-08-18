@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CommandeController extends Controller
 {
@@ -16,13 +17,28 @@ class CommandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private function commandeClient($status)
+    {
+        $commande = Commande::join('users', 'users.id', 'commandes.users_id')
+            ->join('produits', 'produits.id', 'commandes.produit_id')
+            ->select('commandes.*', 'produits.*', 'users.*', 'users.name AS username', 'produits.name AS produit_name', 'commandes.id AS commande_id')
+            ->where('status', $status)
+            ->get();
+        return $commande;
+    }
     public function index()
     {
-        $commandes = Commande::join('users', 'users.id', 'commandes.users_id')
-            ->join('produits', 'produits.id', 'commandes.produit_id')
-            ->select('commandes.*', 'produits.*', 'users.*', 'users.name AS username', 'produits.name AS produit_name')
-            ->get();
-        return view('produits.demande', ['commandes' => $commandes]);
+        $commandes = CommandeController::commandeClient("0");
+        $commandesaccepte = CommandeController::commandeClient("1");
+        $commandesannnuler = CommandeController::commandeClient("2");
+        return view(
+            'produits.demande',
+            [
+                'commandes' => $commandes,
+                'commandesaccepte' => $commandesaccepte,
+                'commandesannuler' => $commandesannnuler
+            ]
+        );
     }
     /**
      * Show the form for creating a new resource.
@@ -34,7 +50,8 @@ class CommandeController extends Controller
         $commande = Commande::where('users_id', Auth::user()->id)
             ->join('produits', 'produits.id', 'produit_id')
             ->select('produits.*', 'commandes.*', 'commandes.qte AS commande_qte')
-            ->get();
+            ->where('status', '0')
+            ->paginate(10);
         return view('site.commande_attente', ['commandes' => $commande]);
     }
 
@@ -53,25 +70,54 @@ class CommandeController extends Controller
             $commande->users_id = Auth::user()->id;
             $commande->qte = $chariot->qte;
             $commande->produit_id = $chariot->produit_id;
+            $commande->images = $chariot->images;
             $commande->commande_id = $commande_send;
-            // $commande->status = 0;
+            $commande->status = 0;
             $commande->save();
             $chariot->delete();
         }
+        $home = new HomeSiteController;
+        $home->config();
         return redirect()->route('produit.comande.index');
     }
-
+    public function acceptCommande($id)
+    {
+        $commande = Commande::find($id);
+        $commande->status = 1;
+        $commande->save();
+        return redirect()->route('commades');
+    }
+    public function annulerCommande($id)
+    {
+        $commande = Commande::find($id);
+        $commande->status = 2;
+        $commande->save();
+        return redirect()->route('commades');
+    }
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $commandes = Commande::join('users', 'users.id', 'commandes.users_id')
+            ->join('produits', 'produits.id', 'commandes.produit_id')
+            ->select('commandes.*', 'produits.*', 'users.*', 'users.name AS username', 'produits.name AS produit_name', 'commandes.id AS commandeId', 'commandes.qte AS commande_qte', 'produits.qte AS produit_qte')
+            ->where('commandes.id', $request->id)
+            ->first();
+        return response()->json(['count' => $request->id, 'commandes' => $commandes]);
     }
-
+    public function buy()
+    {
+        $commande = Commande::where('users_id', Auth::user()->id)
+            ->join('produits', 'produits.id', 'produit_id')
+            ->select('produits.*', 'commandes.*', 'commandes.qte AS commande_qte')
+            ->where('status', '1')
+            ->paginate(10);
+        return view('site.achat', ['commandes' => $commande]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -103,6 +149,8 @@ class CommandeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Commande::find($id)->delete();
+        // Alert::toast('Your Post as been submited!', 'success');
+        return redirect()->route('commades');
     }
 }

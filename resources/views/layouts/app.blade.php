@@ -54,8 +54,6 @@
 </head>
 
 <body class="">
-    @include('sweetalert::alert')
-    @include('layouts.modal')
     <div class="aiz-main-wrapper">
         <div class="aiz-sidebar-wrap">
             <div class="aiz-sidebar left c-scrollbar">
@@ -364,7 +362,9 @@
                     </div>
                 </div>
             </div><!-- .aiz-topbar -->
+            @include('layouts.modal')
             @yield('content')
+            @include('sweetalert::alert')
             <div class="bg-white text-center py-3 px-15px px-lg-25px mt-auto">
                 <p class="mb-0">&copy;@php
                     echo Date('Y');
@@ -373,7 +373,7 @@
         </div><!-- .aiz-content-wrapper -->
 
     </div><!-- .aiz-main-wrapper -->
-
+    <button id="commande-btn" type="btn" hidden data-target="#commande-modal" data-toggle="modal"></button>
     <script src="{{asset('assets/js/vendors.js')}}"></script>
     <script src="{{asset('assets/js/aiz-core.js')}}"></script>
     <script type="text/javascript">
@@ -424,15 +424,15 @@
             type: 'doughnut',
             data: {
                 labels: [
-                    'Total vendeurs',
-                    'Total de vendeurs approuve',
-                    'Total vendeurs en attentes'
+                    'Total de commandes     ',
+                    'Commandes approuves',
+                    'Commandes en attentes'
                 ],
                 datasets: [{
                     data: [
-                        10,
-                        10,
-                        0
+                        "{{ $data['totalVentes'] ?? '0'}}",
+                        "{{ $data['ventes'] ?? '0'}}",
+                        "{{ $data['attentes'] ?? '0'}}"
                     ],
                     backgroundColor: [
                         "#fd3995",
@@ -463,7 +463,7 @@
                 }
             }
         });
-        dataCategorie = ['Chemise', 'Fruits'];
+        dataCategorie = "@php if($dataCategorie ?? 0) echo json_encode($dataCategorie); @endphp";
         AIZ.plugins.chart('#graph-1', {
             type: 'bar',
             data: {
@@ -630,6 +630,34 @@
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
     <script>
         $(document).ready(function($) {
+            $('.decision-modal').click(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                let urls = "{{ route('commade.show')}}";
+                $.ajax({
+                    type: "POST",
+                    url: urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.count);
+                        console.log(res.commandes.prix);
+                        $('#commande-btn').trigger('click');
+                        $("#name-client").text(res.commandes.username);
+                        $("#commande-id").text(res.commandes.commande_id);
+                        $('#qtestock').text((res.commandes.commande_qte) + " /" + (res.commandes.produit_qte));
+                        $('#montant-total').text((parseFloat(res.commandes.commande_qte) * parseFloat(res.commandes.prix)) + " USD");
+                        $('#accept-commande').attr("href", "commande-accept/" + res.commandes.commandeId);
+                        $('#annuler-commande').attr("href", "commande-annuler/" + res.commandes.commandeId);
+                        $('#delete-commande').attr("href", "commande-delete/" + res.commandes.commandeId);
+                    }
+                });
+            });
             $('.modifCat').on('click', function() {
                 $.ajaxSetup({
                     headers: {
@@ -650,7 +678,33 @@
                         // $('#jan_plan').val(res.jan);
                         $('#catModal').trigger('click');
                         $('#nameCat').val(res.name);
-                        $('#idCat').val(res.id);
+                        $('#idCat').val(res.categorie_id);
+                    }
+                });
+            });
+            $('.visible-categorie').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                var el = $(this);
+                $urls = "{{ route('categories.visible')}}";
+                // ajax
+                $.ajax({
+                    type: "POST",
+                    url: $urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.id);
+                        // console.log($(el).attr('class'));
+                        $(el).find('i').toggleClass("la-eye-slash la-eye");
+                        $(el).parentsUntil('.grand-parent').toggleClass('border-light border-success');
+                        if (res.visible == "1") AIZ.plugins.notify('light', "Cette categorie est maintenant visible!!!");
+                        else AIZ.plugins.notify('warning', "Oups! Cette categorie n'est maintenant visible!!!");
                     }
                 });
             });
@@ -746,52 +800,6 @@
                 cache: true
             }
         });
-    </script>
-    <script type="text/javascript">
-        if ($('#lang-change').length > 0) {
-            $('#lang-change .dropdown-menu a').each(function() {
-                $(this).on('click', function(e) {
-                    e.preventDefault();
-                    var $this = $(this);
-                    var locale = $this.data('flag');
-                    $.post('#ecommerce/language', {
-                        _token: 'FRREUj2dROMBBmottIxf9LQigkhinV1dvoPIKxgX',
-                        locale: locale
-                    }, function(data) {
-                        location.reload();
-                    });
-
-                });
-            });
-        }
-
-        function menuSearch() {
-            var filter, item;
-            filter = $("#menu-search").val().toUpperCase();
-            items = $("#main-menu").find("a");
-            items = items.filter(function(i, item) {
-                if ($(item).find(".aiz-side-nav-text")[0].innerText.toUpperCase().indexOf(filter) > -1 && $(item).attr('href') !== '#') {
-                    return item;
-                }
-            });
-
-            if (filter !== '') {
-                $("#main-menu").addClass('d-none');
-                $("#search-menu").html('')
-                if (items.length > 0) {
-                    for (i = 0; i < items.length; i++) {
-                        const text = $(items[i]).find(".aiz-side-nav-text")[0].innerText;
-                        const link = $(items[i]).attr('href');
-                        $("#search-menu").append(`<li class="aiz-side-nav-item"><a href="${link}" class="aiz-side-nav-link"><i class="las la-ellipsis-h aiz-side-nav-icon"></i><span>${text}</span></a></li`);
-                    }
-                } else {
-                    $("#search-menu").html(`<li class="aiz-side-nav-item"><span	class="text-center text-muted d-block">Nothing found</span></li>`);
-                }
-            } else {
-                $("#main-menu").removeClass('d-none');
-                $("#search-menu").html('')
-            }
-        }
     </script>
 
 </body>

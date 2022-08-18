@@ -6,26 +6,29 @@
                 <h4 class="modal-title h6">@lang("Configuration d'une categorie")</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             </div>
-            <div class="modal-body">
-                <p class="mt-1">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">@lang('Nom d\'une categorie')</label>
-                            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
+            <form action="{{ route('categories.config')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <p class="mt-1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">@lang('Description d\'une categorie')</label>
+                                <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="@lang('Description d\'une categorie')" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">@lang('Image Descriptive')</label>
+                                <input type="file" class="form-control" name="images" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">@lang('Image Descriptive')</label>
-                            <input type="file" class="form-control" name="images">
-                        </div>
-                    </div>
+                    </p>
+                    <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                    <button type="submit" class="btn btn-primary mt-2 comfirm-link">@lang("Sauvegarder")</button>
                 </div>
-                </p>
-                <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
-                <a href="" class="btn btn-primary mt-2 comfirm-link" id="supp" data-id="">@lang("Supprimer")</a>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -413,6 +416,45 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<!-- Decision commande -->
+<div id="commande-modal" class="modal fade">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h6">@lang("Confirmation de la commade")</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>
+                <div class="col-auto">
+                    @lang("Details sur la commande")
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@lang("Nom du client")</th>
+                                <th>@lang("Commande ID")</th>
+                                <th>@lang("Qte Client /Stock")</th>
+                                <th>@lang("Montant total")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="name-client"></td>
+                                <td id="commande-id"></td>
+                                <td id="qtestock"></td>
+                                <td id="montant-total"> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </p>
+                <a href="" id="accept-commande" class="btn btn-primary mt-2 comfirm-link">@lang("Accepter")</a>
+                <a href="" id="annuler-commande" type="button" class="btn btn-dark mt-2">@lang("Annuler")</a>
+                <a href="" id="delete-commande" class="btn btn-danger mt-2 " data-id="">@lang("Supprimer")</a>
+            </div>
         </div>
     </div>
 </div>

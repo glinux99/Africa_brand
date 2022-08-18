@@ -293,13 +293,13 @@
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-reset" href="#">
-                                        @lang("Mes souhaits")
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('produit.comande.buy')}}">
+                                        @lang('Mes achats')
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-reset" href="#">
-                                        @lang('Mes achats')
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('produit.comande.index')}}">
+                                        @lang("Mes commandes")
                                     </a>
                                 </li>
                                 <li class="mb-2">
@@ -443,7 +443,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-zoom modal-md">
             <div class="modal-content position-relative border-0 rounded-0">
                 <div class="aiz-editor-data">
-                    <p><img src="{{asset('uploads/all/dwaK3um8tkVgEsgmZN1peQb844tFRAIQ1wAS8e3z.png')}}" style="width: 100%;"></p>
+                    <p><img src="{{asset('assets/img/mailbox2.jpg')}}" style="width: 100%;"></p>
                     <p style="text-align: center; "><br></p>
                     <h2 style="text-align: center; "><b>@lang("Abonnez-vous à notre newsletter")</b></h2>
                     <p style="text-align: center;">@lang("Abonnez-vous à notre newsletter pour un coupon, une offre et une réduction promotionnelle passionnante..")</p>
@@ -481,7 +481,7 @@
     </script>
     <script>
         $(document).ready(function($) {
-            $('#charriot-link').click(function() {
+            $('#charriot-link, chariot-class').click(function() {
                 location.href = "{{ route('produit.cart.all')}}";
             });
             $('.charriot').click(function() {
@@ -552,7 +552,9 @@
                         console.log(res.count);
                         $('#charriotMod').trigger('click');
                         $('#cart-count').text(res.count);
-                        if (res.reload) location.reload();
+                        // Bug a resoudre svp
+                        // $('.count-class').addClass('bg-danger chariot-class');
+                        // if (res.reload) location.reload();
                     }
                 });
             });

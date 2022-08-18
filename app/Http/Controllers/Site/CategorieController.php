@@ -39,7 +39,14 @@ class CategorieController extends Controller
         }
         return response()->json($data);
     }
-
+    public function visible(Request $request)
+    {
+        $categorie = Categorie::find($request->id);
+        if ($categorie->visible != "0") $categorie->visible = "0";
+        else $categorie->visible = "1";
+        $categorie->save();
+        return response()->json(['id' => $request->id, 'visible' => $categorie->visible]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -49,6 +56,23 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         //
+        $cat_id = Categorie::create(['name' => $request->name, 'nombre_prod' => 1]);
+        if ($request->file('images') != '') {
+            $imageSave = new Images;
+            $image = $request->file('images');
+            $file = Str::random(5);
+            $ext = $image->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            $path2 = $image->storeAs(
+                'images/categorie',
+                $fileName,
+                'public'
+            );
+            $imageSave->images = $path2;
+            $imageSave->categorie_id = $cat_id->id;
+            $imageSave->save();
+        }
+        return redirect()->route('categories');
     }
 
     /**
@@ -84,7 +108,8 @@ class CategorieController extends Controller
      */
     public function update(Request $request)
     {
-        $categorie = Categorie::where('id', $request->id)->first();
+        $categorie = Categorie::find($request->id);
+        // dd($request->id);
         $categorie->update($request->except(['_token', 'nombre_prod']));
         if ($request->file('images')) {
             $image = $request->file('images');

@@ -21,7 +21,7 @@ class ChariotController extends Controller
     public function index()
     {
         $chartInfo = Chariot::join('produits', 'produits.id', 'chariots.produit_id')
-            ->select('chariots.*', 'produits.*', 'chariots.id AS chariot_id')
+            ->select('chariots.*', 'produits.*', 'chariots.id AS chariot_id', 'chariots.qte AS chariot_qte')
             ->where('chariots.users_id', Auth::user()->id)->get();
         return view('site.cart_all', ['chartInfo' => $chartInfo]);
     }

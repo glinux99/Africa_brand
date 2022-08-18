@@ -32,7 +32,10 @@ class HomeSiteController extends Controller
     public function index()
     {
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
-        $categories = Categorie::join('images', 'categorie_id', 'categories.id')->paginate(20);
+        $categories = Categorie::join('images', 'categorie_id', 'categories.id')
+            ->where('visible', '1')
+            ->orwhere('visible', null)
+            ->paginate(20);
         HomeSiteController::config();
         $center_img = Images::where('center_images', 1)->get();
         $pub_img = Images::where('pub_images', 1)->paginate(4);
@@ -85,7 +88,10 @@ class HomeSiteController extends Controller
     }
     public function categories()
     {
-        $categories = Categorie::join('images', 'categorie_id', 'categories.id')->paginate(20);
+        $categories = Categorie::join('images', 'categorie_id', 'categories.id')
+            ->where('visible', '1')
+            ->orwhere('visible', null)
+            ->paginate(20);
         return view('site.categories', ['categories' => $categories]);
     }
 }

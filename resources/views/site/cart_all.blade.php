@@ -76,7 +76,7 @@
                                                     <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="{{'quantity'.$produit->produit_id}}">
                                                         <i class="las la-minus"></i>
                                                     </button>
-                                                    <input type="number" name="{{'quantity'.$produit->produit_id}}" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="1" min="1" max="4999" onchange="updateQuantity(42, this)">
+                                                    <input type="number" name="{{'quantity'.$produit->produit_id}}" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="{{$produit->chariot_qte}}" min="{{$produit->chariot_qte}}" max="100000000000" onchange="updateQuantity(42, this)">
                                                     <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="{{'quantity'.$produit->produit_id}}">
                                                         <i class="las la-plus"></i>
                                                     </button>
