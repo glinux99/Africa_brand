@@ -102,7 +102,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                 </button>
             </div>
-            <div class="modal-body c-scrollbar-light position-relative" id="info-modal-content">
+            <div class="modal-body c-scrollbar-light position-relative" id="info-modal-content2">
                 <div class="c-preloader text-center absolute-center">
                     <i class="las la-spinner la-spin la-3x opacity-70"></i>
                 </div>
@@ -413,7 +413,7 @@
                 success: function(res) {
                     // $('#jan_plan').val(res.jan);
                     $('#infoOpen').trigger('click');
-                    $('#info-modal-content').html(`
+                    $('#info-modal-content2').html(`
                         <div class="c-preloader text-center">
                         <div class="col-12 card-user">
                         <div class="image">
