@@ -270,12 +270,17 @@
                                 </li>
                                 <li class="mb-2">
                                     <a href="{{ route('contact')}}" class="opacity-50 hov-opacity-100 text-reset">
-                                        @lang("Contactez-nous")
+                                        @lang("Joignez-nous")
                                     </a>
                                 </li>
                                 <li class="mb-2">
                                     <a href="{{ route('contact')}}" class="opacity-50 hov-opacity-100 text-reset">
-                                        @lang("Joignez-nous")
+                                        @lang("Contactez-nous")
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="opacity-50 hov-opacity-100 text-reset">
+                                        @lang("Nos partenaires")
                                     </a>
                                 </li>
                             </ul>
