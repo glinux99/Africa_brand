@@ -338,10 +338,10 @@
                                         <span class="avatar avatar-sm mr-md-2">
                                             <img src="{{ asset(Session::get('picprofile'))}}" alt="photo de profile" onerror="this.onerror=null;this.src='htdtps://demo.activeitzone.com/ecommerce/public/assets/img/avatar-place.png';">
                                         </span>
-                                        <span class="d-none d-md-block">
+                                        <!-- <span class="d-none d-md-block">
                                             <span class="d-block fw-500">{{ Auth::user()->name}}</span>
                                             <span class=" d-block small opacity-60">admin</span>
-                                        </span>
+                                        </span> -->
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-md">
@@ -463,16 +463,24 @@
                 }
             }
         });
-        dataCategorie = "@php if($dataCategorie ?? 0) echo json_encode($dataCategorie); @endphp";
+        dataCategorie = <?php
+
+                        use function GuzzleHttp\json_encode;
+
+                        echo json_encode($dataCategorie ?? 0); ?>;
+        let dataCategorieBuy = <?php
+
+                                echo json_encode($dataCategorieBuy ?? 0); ?>;
+        let dataCategorieBuyData = <?php
+
+                                    echo json_encode($dataCategorieBuyData ?? 0); ?>;
         AIZ.plugins.chart('#graph-1', {
             type: 'bar',
             data: {
-                labels: dataCategorie,
+                labels: dataCategorieBuy,
                 datasets: [{
-                    label: 'Numero de ventes',
-                    data: [
-                        11, 59, 5, 1, 5, 0, 4, 5, 1, 0, 0, 0, 2,
-                    ],
+                    label: 'Nombre de produits vendus',
+                    data: dataCategorieBuyData,
                     backgroundColor: [
                         'rgba(55, 125, 255, 0.4)',
                         'rgba(55, 125, 255, 0.4)',
@@ -543,16 +551,15 @@
                 }
             }
         });
-        dataCategorie = ['Chemise', 'Fruits'];
+        // dataCategorie = ['Chemise', 'Fruits'];
+        let dataCategorieData = <?php echo json_encode($dataCategorieData  ?? 0); ?>;
         AIZ.plugins.chart('#graph-2', {
             type: 'bar',
             data: {
                 labels: dataCategorie,
                 datasets: [{
-                    label: 'NUmero de stock',
-                    data: [
-                        227973, 55973, 34538, 6559, 27029, 0, 3497, 23999, 5000, 2500, 0, 30, -2,
-                    ],
+                    label: 'Quanitite de produit en stock par categorie',
+                    data: dataCategorieData,
                     backgroundColor: [
                         'rgba(253, 57, 149, 0.4)',
                         'rgba(253, 57, 149, 0.4)',

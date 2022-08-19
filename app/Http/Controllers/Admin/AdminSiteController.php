@@ -27,6 +27,22 @@ class AdminSiteController extends Controller
         $totalVentes = Commande::count();
         $dataCategorie = array();
         $donne = Categorie::all();
+        $dataCategorieData = array();
+        $dataCategorieBuy = array();
+        $dataCategorieBuyData = array();
+        $buy = Categorie::leftjoin('produits', 'categorie', 'categories.id')
+            ->join('commandes', 'produits.id', 'commandes.produit_id')
+            ->select('categories.*')->groupby('categories.id')->distinct()->get();
+        // dd($buy);
+        foreach ($buy as $data) {
+            array_push($dataCategorieBuy, $data->name);
+        }
+        foreach ($buy as $data) {
+            array_push($dataCategorieBuyData, $data->nombre_prod);
+        }
+        foreach ($donne as $data) {
+            array_push($dataCategorieData, $data->nombre_prod);
+        }
         foreach ($donne as $data) {
             array_push($dataCategorie, $data->name);
         }
@@ -40,8 +56,15 @@ class AdminSiteController extends Controller
             'attentes' => $attentes,
             'totalVentes' => $totalVentes
         );
-        // dd($dataCategorie);
-        return view('admin.admin', ['produits' => $produits, 'data' => $data, 'dataCategorie' => $dataCategorie]);
+        // dd($dataCategorieData);
+        return view('admin.admin', [
+            'produits' => $produits,
+            'data' => $data,
+            'dataCategorie' => $dataCategorie,
+            'dataCategorieData' => $dataCategorieData,
+            'dataCategorieBuy' => $dataCategorieBuy,
+            'dataCategorieBuyData' => $dataCategorieBuyData
+        ]);
     }
 
     /**
