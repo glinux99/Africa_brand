@@ -330,9 +330,11 @@
                             </ul>
                         </div>
                         <div class="text-center text-md-left mt-4 d-none d-lg-block d-md-block">
-                            <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                                @lang("Devenir un vendeur")
-                            </h4>
+                            <a href="{{ route('register')}}" class="text-white">
+                                <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                                    @lang("Devenir un client")
+                                </h4>
+                            </a>
                         </div>
                     </div>
                 </div>
