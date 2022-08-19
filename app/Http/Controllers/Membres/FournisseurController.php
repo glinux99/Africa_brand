@@ -45,7 +45,7 @@ class FournisseurController extends Controller
     public function store(Request $request)
     {
         $type = "fournisseurs";
-        $mbr = User::create($request->except(['_token', 'images', 'documents', 'type']))->assignRole('client');
+        $mbr = User::create($request->except(['_token', 'images', 'documents', 'type']))->assignRole('fournisseur');
         $mbr->type = $type;
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {

@@ -43,7 +43,7 @@ class PartenaireController extends Controller
     public function store(Request $request)
     {
         $type = "partenaires";
-        $mbr = User::create($request->except(['_token', 'images', 'documents', 'type']))->assignRole('client');
+        $mbr = User::create($request->except(['_token', 'images', 'documents', 'type']))->assignRole('partenaire');
         $mbr->type = $type;
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {

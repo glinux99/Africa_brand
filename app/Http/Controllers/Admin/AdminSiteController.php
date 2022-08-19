@@ -8,6 +8,7 @@ use App\Models\Commande;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminSiteController extends Controller
@@ -19,52 +20,57 @@ class AdminSiteController extends Controller
      */
     public function index()
     {
-        $produit = Produit::count();
-        $categorie = Categorie::count();
-        $user = User::count();
-        $vente = Commande::where('status', '1')->count();
-        $attentes = Commande::where('status', '0')->count();
-        $totalVentes = Commande::count();
-        $dataCategorie = array();
-        $donne = Categorie::all();
-        $dataCategorieData = array();
-        $dataCategorieBuy = array();
-        $dataCategorieBuyData = array();
-        $buy = Categorie::leftjoin('produits', 'categorie', 'categories.id')
-            ->join('commandes', 'produits.id', 'commandes.produit_id')
-            ->select('categories.*')->groupby('categories.id')->distinct()->get();
-        // dd($buy);
-        foreach ($buy as $data) {
-            array_push($dataCategorieBuy, $data->name);
+        $user = User::find(Auth::id());
+        if ($user->hasRole('client')) {
+            return redirect()->route('index');
+        } else if ($user->hasRole('admin')) {
+            $produit = Produit::count();
+            $categorie = Categorie::count();
+            $user = User::count();
+            $vente = Commande::where('status', '1')->count();
+            $attentes = Commande::where('status', '0')->count();
+            $totalVentes = Commande::count();
+            $dataCategorie = array();
+            $donne = Categorie::all();
+            $dataCategorieData = array();
+            $dataCategorieBuy = array();
+            $dataCategorieBuyData = array();
+            $buy = Categorie::leftjoin('produits', 'categorie', 'categories.id')
+                ->join('commandes', 'produits.id', 'commandes.produit_id')
+                ->select('categories.*')->groupby('categories.id')->distinct()->get();
+            // dd($buy);
+            foreach ($buy as $data) {
+                array_push($dataCategorieBuy, $data->name);
+            }
+            foreach ($buy as $data) {
+                array_push($dataCategorieBuyData, $data->nombre_prod);
+            }
+            foreach ($donne as $data) {
+                array_push($dataCategorieData, $data->nombre_prod);
+            }
+            foreach ($donne as $data) {
+                array_push($dataCategorie, $data->name);
+            }
+            $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
+            $data = array(
+                "ventes" =>
+                $vente,
+                "produit" => $produit,
+                "categorie" => $categorie,
+                'membre' => $user,
+                'attentes' => $attentes,
+                'totalVentes' => $totalVentes
+            );
+            // dd($dataCategorieData);
+            return view('admin.admin', [
+                'produits' => $produits,
+                'data' => $data,
+                'dataCategorie' => $dataCategorie,
+                'dataCategorieData' => $dataCategorieData,
+                'dataCategorieBuy' => $dataCategorieBuy,
+                'dataCategorieBuyData' => $dataCategorieBuyData
+            ]);
         }
-        foreach ($buy as $data) {
-            array_push($dataCategorieBuyData, $data->nombre_prod);
-        }
-        foreach ($donne as $data) {
-            array_push($dataCategorieData, $data->nombre_prod);
-        }
-        foreach ($donne as $data) {
-            array_push($dataCategorie, $data->name);
-        }
-        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
-        $data = array(
-            "ventes" =>
-            $vente,
-            "produit" => $produit,
-            "categorie" => $categorie,
-            'membre' => $user,
-            'attentes' => $attentes,
-            'totalVentes' => $totalVentes
-        );
-        // dd($dataCategorieData);
-        return view('admin.admin', [
-            'produits' => $produits,
-            'data' => $data,
-            'dataCategorie' => $dataCategorie,
-            'dataCategorieData' => $dataCategorieData,
-            'dataCategorieBuy' => $dataCategorieBuy,
-            'dataCategorieBuyData' => $dataCategorieBuyData
-        ]);
     }
 
     /**

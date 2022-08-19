@@ -287,9 +287,10 @@
                                 @lang('Mon compte')
                             </h4>
                             <ul class="list-unstyled">
+                                @if (Auth::check())
                                 <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ ('login')}}">
-                                        @lang('Se connecter')
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('profile')}}">
+                                        @lang('Profile')
                                     </a>
                                 </li>
                                 <li class="mb-2">
@@ -299,9 +300,25 @@
                                 </li>
                                 <li class="mb-2">
                                     <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('produit.comande.index')}}">
-                                        @lang("Mes commandes")
+                                        @lang("Commandes")
                                     </a>
                                 </li>
+                                <li class="mb-2">
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ ('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Se deconnecter') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ ('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                                @else
+                                <li class="mb-2">
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ ('login')}}">
+                                        @lang('Se connecter')
+                                    </a>
+                                </li>
+                                @endif
                                 <li class="mb-2">
                                     <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('register')}}">@lang("Devenir un partenaire")</a>
                                 </li>
