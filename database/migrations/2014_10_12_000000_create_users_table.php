@@ -23,6 +23,11 @@ class CreateUsersTable extends Migration
             $table->text('description')->nullable();
             $table->boolean('notificable')->nullable();
             $table->string('poste')->nullable();
+            $table->string('site')->nullable();
+            $table->string('adresse')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('liens')->nullable();
+            $table->string('type')->nullable();
             $table->rememberToken()->nullable();
             $table->timestamps();
         });

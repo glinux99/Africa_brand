@@ -21,8 +21,8 @@ class FournisseurController extends Controller
      */
     public function index()
     {
-        $users = Membre::where('type', 'fournisseurs')->join('images', 'membres.id', 'membre_id')
-            ->select('membres.*', 'membres.id AS membre_id', 'images.*')->paginate(10);
+        $users = User::where('type', 'fournisseurs')->join('images', 'users.id', 'users_id')
+            ->select('users.*', 'users.id AS membre_id', 'images.*')->paginate(10);
         return view('users.ClientPartenairesFournisseurs.fournisseurs', ['users' => $users]);
     }
 
@@ -45,7 +45,7 @@ class FournisseurController extends Controller
     public function store(Request $request)
     {
         $type = "fournisseurs";
-        $mbr = Membre::create($request->except(['_token', 'images', 'documents', 'type']));
+        $mbr = User::create($request->except(['_token', 'images', 'documents', 'type']))->assignRole('client');
         $mbr->type = $type;
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -59,12 +59,12 @@ class FournisseurController extends Controller
                     'public'
                 );
                 $imageSave->images = $path;
-                $imageSave->membre_id = $mbr->id;
+                $imageSave->users_id = $mbr->id;
                 $imageSave->save();
             }
         } else {
             $imageSave = new Images;
-            $imageSave->membre_id = $mbr->id;
+            $imageSave->users_id = $mbr->id;
             $imageSave->save();
         }
         if ($request->documents) {
@@ -106,7 +106,7 @@ class FournisseurController extends Controller
      */
     public function edit(Request $request)
     {
-        $data = Membre::where('membres.id', $request->id)->join('images', 'images.membre_id', 'membres.id')->first();
+        $data = User::where('users.id', $request->id)->join('images', 'images.users_id', 'users.id')->first();
         return response()->json(
             $data
         );
@@ -122,7 +122,7 @@ class FournisseurController extends Controller
     public function update(Request $request)
     {
         $type = "fournisseurs";
-        $mbr = Membre::where('id', $request->id)->first();
+        $mbr = User::where('id', $request->id)->first();
         $mbr->update($request->except(['_token', 'images', 'documents', 'type']));
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -136,7 +136,7 @@ class FournisseurController extends Controller
                     'public'
                 );
                 $imageSave->images = $path;
-                $imageSave->membre_id = $mbr->id;
+                $imageSave->users_id = $mbr->id;
                 $imageSave->save();
                 FournisseurController::delete($mbr->id);
             }
@@ -170,15 +170,15 @@ class FournisseurController extends Controller
     public function destroy($id)
     {
         FournisseurController::delete($id);
-        Membre::find($id)->delete();
+        User::find($id)->delete();
         return \redirect()->route('fournisseurs');
     }
     public function delete($id)
     {
-        $images = Images::where('membre_id', $id)->get();
+        $images = Images::where('users_id', $id)->get();
         foreach ($images as $image) {
             Storage::disk('public')->delete($image->images);
         }
-        Images::where('membre_id', $id)->delete();
+        Images::where('users_id', $id)->delete();
     }
 }

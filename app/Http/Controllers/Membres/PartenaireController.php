@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Membres\FournisseurController;
 
 class PartenaireController extends Controller
 {
@@ -20,8 +19,8 @@ class PartenaireController extends Controller
      */
     public function index()
     {
-        $users = Membre::where('type', 'partenaires')->join('images', 'membres.id', 'membre_id')
-            ->select('membres.*', 'membres.id AS membre_id', 'images.*')->paginate(10);
+        $users = User::where('type', 'partenaires')->join('images', 'users.id', 'users_id')
+            ->select('users.*', 'users.id AS membre_id', 'images.*')->paginate(10);
         return view('users.ClientPartenairesFournisseurs.partenaires', ['users' => $users]);
     }
 
@@ -44,7 +43,7 @@ class PartenaireController extends Controller
     public function store(Request $request)
     {
         $type = "partenaires";
-        $mbr = Membre::create($request->except(['_token', 'images', 'documents', 'type']));
+        $mbr = User::create($request->except(['_token', 'images', 'documents', 'type']))->assignRole('client');
         $mbr->type = $type;
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -58,12 +57,12 @@ class PartenaireController extends Controller
                     'public'
                 );
                 $imageSave->images = $path;
-                $imageSave->membre_id = $mbr->id;
+                $imageSave->users_id = $mbr->id;
                 $imageSave->save();
             }
         } else {
             $imageSave = new Images;
-            $imageSave->membre_id = $mbr->id;
+            $imageSave->users_id = $mbr->id;
             $imageSave->save();
         }
         if ($request->documents) {
@@ -105,7 +104,7 @@ class PartenaireController extends Controller
      */
     public function edit(Request $request)
     {
-        $data = Membre::where('membres.id', $request->id)->join('images', 'images.membre_id', 'membres.id')->first();
+        $data = User::where('users.id', $request->id)->join('images', 'images.users_id', 'users.id')->first();
         return response()->json(
             $data
         );
@@ -121,7 +120,7 @@ class PartenaireController extends Controller
     public function update(Request $request)
     {
         $type = "partenaires";
-        $mbr = Membre::where('id', $request->id)->first();
+        $mbr = User::where('id', $request->id)->first();
         $mbr->update($request->except(['_token', 'images', 'documents', 'type']));
         if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -135,7 +134,7 @@ class PartenaireController extends Controller
                     'public'
                 );
                 $imageSave->images = $path;
-                $imageSave->membre_id = $mbr->id;
+                $imageSave->users_id = $mbr->id;
                 $imageSave->save();
                 PartenaireController::delete($mbr->id);
             }
@@ -168,16 +167,16 @@ class PartenaireController extends Controller
      */
     public function destroy($id)
     {
-        FournisseurController::delete($id);
-        Membre::find($id)->delete();
+        PartenaireController::delete($id);
+        User::find($id)->delete();
         return \redirect()->route('partenaires');
     }
     public function delete($id)
     {
-        $images = Images::where('membre_id', $id)->get();
+        $images = Images::where('users_id', $id)->get();
         foreach ($images as $image) {
             Storage::disk('public')->delete($image->images);
         }
-        Images::where('membre_id', $id)->delete();
+        Images::where('users_id', $id)->delete();
     }
 }

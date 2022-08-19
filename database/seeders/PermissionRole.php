@@ -29,6 +29,8 @@ class PermissionRole extends Seeder
         $role1->givePermissionTo(['crud produit', 'crud vendeur', 'config']);
 
         $role2 = Role::create(['name' => 'client']);
+        $role3 = Role::create(['name' => 'partenaire']);
+        $role4 = Role::create(['name' => 'fournisseur']);
         // gets all permissions via Gate::before rule; see AuthServiceProvider
 
         // create demo users
