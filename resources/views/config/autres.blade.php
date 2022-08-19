@@ -71,6 +71,10 @@
                             <label for="inputNumeroligne" class="control-label">@lang('Email de l\'entreprise')</label>
                             <input type="text" name="email" id="inputNumeroligne" class="form-control" value="{{ $config->email ?? ''}}" title="">
                         </div>
+                        <div class="">
+                            <label for="inputNumeroligne" class="control-label">@lang('Adresse de l\'entreprise')</label>
+                            <input type="text" name="adresse" id="inputadresse" class="form-control" value="{{ $config->adresse ?? ''}}" title="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,19 +159,6 @@
     }
 </script> -->
 <script type="text/javascript">
-    function detailsInfo(e) {
-        $('#info-modal-content').html('<div class="c-preloader text-center absolute-center"><i class="las la-spinner la-spin la-3x opacity-70"></i></div>');
-        var id = $(e).data('id')
-        $('#info-modal').modal('show');
-        $.post('https://demo.activeitzone.com/ecommerce/admin/uploaded-files/file-info', {
-            _token: AIZ.data.csrf,
-            id: id
-        }, function(data) {
-            $('#info-modal-content').html(data);
-            // console.log(data);
-        });
-    }
-
     function copyUrl(e) {
         var url = $(e).data('url');
         var $temp = $("<input>");
@@ -188,23 +179,6 @@
 </script>
 
 <script type="text/javascript">
-    if ($('#lang-change').length > 0) {
-        $('#lang-change .dropdown-menu a').each(function() {
-            $(this).on('click', function(e) {
-                e.preventDefault();
-                var $this = $(this);
-                var locale = $this.data('flag');
-                $.post('https://demo.activeitzone.com/ecommerce/language', {
-                    _token: 'VcC75XFcLdImwXoDnbMCfttESQJI5hJX7gAFOYGF',
-                    locale: locale
-                }, function(data) {
-                    location.reload();
-                });
-
-            });
-        });
-    }
-
     function menuSearch() {
         var filter, item;
         filter = $("#menu-search").val().toUpperCase();

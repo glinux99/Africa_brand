@@ -22,7 +22,7 @@ class CreateAdressesTable extends Migration
             $table->string('numero');
             $table->string('email');
             $table->bigInteger('users_id')->nullable();
-            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->nullable()->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->nullable()->unsigned();
             $table->timestamps();
         });
     }

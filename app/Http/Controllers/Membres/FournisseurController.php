@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Membres;
 use Alert;
 use App\Models\User;
 use App\Models\Images;
-use App\Models\Membre;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

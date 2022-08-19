@@ -23,16 +23,14 @@ class CreateImagesTable extends Migration
             $table->string('center_images')->nullable();
             $table->bigInteger('actualite_id')->nullable();
             $table->bigInteger('users_id')->nullable();
-            $table->bigInteger('membre_id')->nullable();
             $table->bigInteger('produit_id')->nullable();
             $table->bigInteger('categorie_id')->nullable();
             $table->bigInteger('config_id')->nullable();
-            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->nullable()->unsigned();
-            $table->foreign('produit_id')->references('id')->on('produits')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('categorie_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('membre_id')->references('id')->on('membres')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('actualite_id')->references('id')->on('actualites')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
-            $table->foreign('config_id')->references('id')->on('config_sites')->onUpdate('cascade')->onDelete('cascade')->nullable()->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->nullable()->unsigned();
+            $table->foreign('produit_id')->references('id')->on('produits')->nullable()->unsigned();
+            $table->foreign('categorie_id')->references('id')->on('categories')->nullable()->unsigned();
+            $table->foreign('actualite_id')->references('id')->on('actualites')->nullable()->unsigned();
+            $table->foreign('config_id')->references('id')->on('config_sites')->nullable()->unsigned();
             $table->timestamps();
         });
     }

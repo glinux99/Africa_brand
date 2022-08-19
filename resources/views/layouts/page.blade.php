@@ -309,17 +309,17 @@
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ ('logout') }}" onclick="event.preventDefault();
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                         {{ __('Se deconnecter') }}
                                     </a>
-                                    <form id="logout-form" action="{{ ('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </li>
                                 @else
                                 <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ ('login')}}">
+                                    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('login')}}">
                                         @lang('Se connecter')
                                     </a>
                                 </li>

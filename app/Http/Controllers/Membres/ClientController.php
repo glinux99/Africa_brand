@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Membres;
 
 use App\Models\User;
 use App\Models\Images;
-use App\Models\Membre;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

@@ -66,7 +66,11 @@ class CommandeController extends Controller
         $chariots = Chariot::where('users_id', Auth::user()->id)->get();
         $commande_send = "african-brand-cmd-" . Str::random(8);
         foreach ($chariots as $chariot) {
-            $commande = Commande::create($request->except('_token'));
+            if ($request->adresse_id == "locale") {
+                $commande = Commande::create($request->except('_token', 'adresse_id'));
+            } else {
+                $commande = Commande::create($request->except('_token'));
+            }
             $commande->users_id = Auth::user()->id;
             $commande->qte = $chariot->qte;
             $commande->produit_id = $chariot->produit_id;

@@ -50,6 +50,22 @@
                     @csrf
                     <div class="shadow-sm bg-white p-4 rounded mb-4">
                         <div class="row gutters-5">
+                            <div class="col-md-12 mb-3">
+                                <label class="aiz-megabox d-block bg-white mb-0">
+                                    <input type="radio" name="adresse_id" class="adresse_id" value="locale" checked required>
+                                    <span class="d-flex p-3 aiz-megabox-elem">
+                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="flex-grow-1 pl-3 text-left">
+                                            <div>
+                                                <span class="opacity-60">@lang("Adresse")</span>
+                                                <span class="fw-600 ml-2">{{ Session('config')->adresse ?? 'Q keshero, avenu de l\'Unite n 133'}}</span>
+                                            </div>
+                                            <br>
+                                            <span>*@lang("Cette adresse correspond a notre adresse si pouvez passer prendre votre marchandise dans nos locaux a l'adresse ci-haut")</span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
                             @foreach ($adresses as $adresse)
                             <div class="col-md-6 mb-3">
                                 <label class="aiz-megabox d-block bg-white mb-0">

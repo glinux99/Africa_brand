@@ -119,7 +119,7 @@ class ConfigController extends Controller
     }
     public function apropos_index()
     {
-        $users = User::role('admin')->paginate(10);
+        $users = User::role('staff')->paginate(10);
         return view('config.apropos', ['users' => $users]);
     }
     /**
