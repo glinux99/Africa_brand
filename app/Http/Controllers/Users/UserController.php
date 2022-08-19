@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::role('staff')->paginate(10);
         return view('users.all_users', ['users' => $users]);
     }
 
@@ -44,7 +44,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->except('_token', 'images'));
+        $user = User::create($request->except('_token', 'images'))->assignRole('staff');
         if ($request->file('images') != '') {
             foreach ($request->file('images') as $index => $image) {
                 $imageSave = new Images;
