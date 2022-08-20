@@ -24,6 +24,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
+
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(10);
         return view('produits.produits', ['produits' => $produits]);
     }
@@ -111,7 +112,8 @@ class ProduitController extends Controller
                 $imageSave->save();
             }
         }
-        return redirect()->route('produits');
+        Session()->put('alert-session', "produit-save");
+        return redirect()->route('produits')->with('success', "produit");
     }
 
     /**
@@ -174,7 +176,7 @@ class ProduitController extends Controller
         } catch (Exception $exc) {
             DB::statement('PRAGMA foreign_keys = ON');
         }
-        Alert::success("Operation", "REUSSI");
+        Session()->put('alert-session', "produit-delete");
         return redirect()->route('produits');
     }
 }

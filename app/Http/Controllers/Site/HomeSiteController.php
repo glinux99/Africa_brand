@@ -16,6 +16,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeSiteController extends Controller
 {
+
     public function config()
     {
         $config = ConfigSite::first();
@@ -32,7 +33,6 @@ class HomeSiteController extends Controller
     }
     public function index()
     {
-        Alert::toast('ok wjbhduuebuyyuv hbjuhhuy ', 'dark');
         $promotions = Produit::join('images', 'images.produit_id', 'produits.id')
             ->join('promotions', 'promotions.produit_id', 'produits.id')->get();
         $deadline = str_replace("-", '/', Promotion::orderBy('deadline', 'DESC')->first('deadline')->deadline);

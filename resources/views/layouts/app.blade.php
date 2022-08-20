@@ -27,6 +27,9 @@
     </style>
     <script>
         var AIZ = AIZ || {};
+        AIZ.local = {
+
+        }
     </script>
 
 </head>
@@ -620,6 +623,17 @@
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
     <script>
         $(document).ready(function($) {
+            var success = "{{ Session('alert-session') ?? 'false' }}";
+            switch (success) {
+                case "produit-save":
+                    AIZ.plugins.notify('light', "Le produit a ete ajoute avec success");
+                    break;
+                case "produit-delete":
+                    AIZ.plugins.notify('light', "Le produit a ete supprime avec success");
+                    break;
+
+            }
+            success = "{{ Session::put('alert-session', '')}}";
             $('.deadline').click(function() {
                 $('#dealineProdId').val($(this).attr('data-id'));
             });
