@@ -224,7 +224,7 @@
                                     <img src="{{ asset('assets/img/app.png')}}" class="mx-100 h-40px">
                                 </a>
                                 <a href="#" target="_blank" class="d-inline-block">
-                                    <img src="{{ asset('assets/img/app.png')}}" class="mx-100 h-40px">
+                                    <img src="{{ asset('assets/img/Apple.ico')}}" class="mx-100 h-40px">
                                 </a>
                             </div>
                         </div>
