@@ -11,9 +11,9 @@
                             <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">{{ $currentNews->title}}</span>
                         </h3>
                     </div>
-                    <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
+                    <div class="aiz-card-box border border-light rounded  mt-1 mb-2 has-transition bg-white">
                         <div class="position-relative">
-                            <a href="{{ route('news.show',[$currentNews->actualite_id])}}" class="d-block">
+                            <a href="{{ asset('storage/'.$currentNews->images)}}" class="d-block">
                                 <img class="img-fit " src="{{ asset('storage/'.$currentNews->images)}}" height="500" data-src="{{ asset('storage/'.$currentNews->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                             </a>
                         </div>

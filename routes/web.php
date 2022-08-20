@@ -1,23 +1,24 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminSiteController;
-use App\Http\Controllers\Config\ConfigController;
-use App\Http\Controllers\Config\NewsController;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\Config\NewsController;
 use App\Http\Controllers\Site\ProduitController;
+use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Site\CommandeController;
-use App\Http\Controllers\Membres\ClientController;
-use App\Http\Controllers\Site\CategorieController;
-use App\Http\Controllers\Membres\PartenaireController;
-use App\Http\Controllers\Membres\FournisseurController;
 use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\Users\AdresseController;
 use App\Http\Controllers\Users\ChariotController;
+use App\Http\Controllers\Membres\ClientController;
+use App\Http\Controllers\Site\CategorieController;
+use App\Http\Controllers\Admin\AdminSiteController;
+use App\Http\Controllers\Membres\PartenaireController;
+use App\Http\Controllers\Membres\FournisseurController;
+use App\Http\Controllers\Promotion\PromotionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/autres-update-config', [ConfigController::class, 'autres_index_update'])->name('autres.config.update');
     Route::get('/apropos-config', [ConfigController::class, 'apropos_index'])->name('apropos.config');
     Route::get('/update-config', [ConfigController::class, 'apropos_index'])->name('apropos.config.update');
+    Route::get('/promition-produit', [PromotionController::class, 'index'])->name('promition.produit.index');
 });
 
 // Routes sur le site

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Site;
 
 use App\Models\Images;
+use App\Models\Chariot;
 use App\Models\Produit;
 use App\Models\Categorie;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Chariot;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -153,6 +155,11 @@ class ProduitController extends Controller
      */
     public function destroy($id)
     {
+        try {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        } catch (Exception $exc) {
+            DB::statement('PRAGMA foreign_keys = OFF');
+        }
         $images = Images::where('produit_id', $id)->get();
         $produit = Produit::findOrfail($id);
         $categorie = Categorie::where('id', $produit->categorie)->first();
@@ -162,7 +169,11 @@ class ProduitController extends Controller
             Storage::disk('public')->delete($image->images);
         }
         Images::where('produit_id', $id)->delete();
-
+        try {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        } catch (Exception $exc) {
+            DB::statement('PRAGMA foreign_keys = ON');
+        }
         Alert::success("Operation", "REUSSI");
         return redirect()->route('produits');
     }

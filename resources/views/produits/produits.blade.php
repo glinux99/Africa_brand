@@ -30,14 +30,11 @@
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left">
                                         <i class="las la-edit"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('publier')" data-placement="left">
-                                        <i class="las la-store"></i>
-                                    </a>
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="modal" data-target="#delete-modal" data-href="{{ route('produit.delete', [$produit->produit_id])}}" data-title="@lang('supprimer')" data-placement="left" class="confirm-alert">
                                         <i class="las la-trash"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="showAddToCartModal(2)" data-toggle="tooltip" data-title="@lang('visibilite du stock')" data-placement="left">
-                                        <i class="las la-eye-slash"></i>
+                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('ajouter a la promotion')" data-placement="left">
+                                        <i class="las la-store"></i>
                                     </a>
                                 </div>
                             </div>
@@ -64,7 +61,7 @@
                                 @if ($produit->stocks_visible=="Oui")
                                 <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">
                                     @lang("Quantite en stocks")
-                                    <span class="fw-700 float-right">750</span>
+                                    <span class="fw-700 float-right">{{ $produit->qte}}</span>
                                 </div>
                                 @else
                                 <div class="rounded px-2 mt-2 bg-soft-success border-soft-success border">

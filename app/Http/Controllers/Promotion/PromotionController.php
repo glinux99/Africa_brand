@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Promotion;
 
-use App\Http\Controllers\Controller;
+use App\Models\Produit;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class Promotion extends Controller
+class PromotionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,11 @@ class Promotion extends Controller
      */
     public function index()
     {
-        //
+        $promotions = Produit::join('images', 'images.produit_id', 'produits.id')
+            ->join('promotions', 'promotions.produit_id', 'produits.id')
+            ->select('produits.*', 'images.*', 'promotions.*', 'promotions.prix AS promotion_reduction')->get();
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(10);
+        return view('produits.promotion', ['produits' => $produits, 'promotions' => $promotions]);
     }
 
     /**

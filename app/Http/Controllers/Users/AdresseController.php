@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
+use Exception;
 use App\Models\Adresse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class AdresseController extends Controller
@@ -91,7 +93,18 @@ class AdresseController extends Controller
      */
     public function destroy($id)
     {
+        // Ce code permet de desable la contrainte foreign key
+        try {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        } catch (Exception $exc) {
+            DB::statement('PRAGMA foreign_keys = OFF');
+        }
         Adresse::find($id)->delete();
+        try {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        } catch (Exception $exc) {
+            DB::statement('PRAGMA foreign_keys = OFF');
+        }
         return redirect()->route('produit.cart.info');
     }
 }
