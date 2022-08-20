@@ -34,7 +34,7 @@
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="modal" data-target="#delete-modal" data-href="{{ route('produit.delete', [$produit->produit_id])}}" data-title="@lang('supprimer')" data-placement="left" class="confirm-alert">
                                         <i class="las la-trash"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('ajouter a la promotion')" data-placement="left">
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#deadline-modal" data-title="@lang('ajouter a la promotion')" data-placement="left">
                                         <i class="las la-store"></i>
                                     </a>
                                 </div>
@@ -117,11 +117,12 @@
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="modal" data-target="#delete-modal" data-href="{{ route('produit.delete', [$produit->produit_id])}}" data-title="@lang('supprimer')" data-placement="left" class="confirm-alert">
                                         <i class="las la-trash"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('ajouter a la promotion')" data-placement="left">
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#deadline-modal" data-title="@lang('ajouter a la promotion')" data-placement="left" class="deadline" data-id="{{ $produit->produit_id}}">
                                         <i class="las la-store"></i>
                                     </a>
                                 </div>
                             </div>
+
                             <div class="p-md-3 p-2 text-left">
                                 <div class="fs-15">
                                     @php

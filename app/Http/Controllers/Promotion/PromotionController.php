@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Promotion;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Promotion;
 
 class PromotionController extends Controller
 {
@@ -17,7 +18,7 @@ class PromotionController extends Controller
     {
         $promotions = Produit::join('images', 'images.produit_id', 'produits.id')
             ->join('promotions', 'promotions.produit_id', 'produits.id')
-            ->select('produits.*', 'images.*', 'promotions.*', 'promotions.prix AS promotion_reduction')->get();
+            ->select('produits.*', 'images.*', 'promotions.*', 'promotions.prix AS promotion_reduction', 'promotions.produit_id AS produit_promotion_id')->get();
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(10);
         return view('produits.promotion', ['produits' => $produits, 'promotions' => $promotions]);
     }
@@ -40,7 +41,8 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Promotion::create($request->except("_token"));
+        return redirect()->route('promition.produit.index');
     }
 
     /**

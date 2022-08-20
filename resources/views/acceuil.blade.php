@@ -47,13 +47,13 @@
 
                     <span class="text-section-hover-white"></span>
                 </h3>
-                <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="2022/8/20 00:00:00"></div>
+                <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="{{ $deadline}} 00:00:00"></div>
                 <a href="{{ route('home.produit')}}" class="ml-auto mr-0 btn bg-green btn-sm shadow-md bg-dark-btn">@lang("Voir plus")</a>
             </div>
 
             <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                 <!-- Nos produits -->
-                @foreach ($produits as $produit)
+                @foreach ($promotions as $produit)
                 <div class="carousel-box ">
                     <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                         <div class="position-relative">

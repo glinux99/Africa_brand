@@ -7,6 +7,7 @@ use App\Models\Chariot;
 use App\Models\Produit;
 use App\Models\Actualite;
 use App\Models\Categorie;
+use App\Models\Promotion;
 use App\Models\ConfigSite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,6 +32,11 @@ class HomeSiteController extends Controller
     }
     public function index()
     {
+        Alert::toast('ok wjbhduuebuyyuv hbjuhhuy ', 'dark');
+        $promotions = Produit::join('images', 'images.produit_id', 'produits.id')
+            ->join('promotions', 'promotions.produit_id', 'produits.id')->get();
+        $deadline = str_replace("-", '/', Promotion::orderBy('deadline', 'DESC')->first('deadline')->deadline);
+        // dd($deadline);
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
         $categories = Categorie::join('images', 'categorie_id', 'categories.id')
             ->where('visible', '1')
@@ -45,7 +51,9 @@ class HomeSiteController extends Controller
             'pub_img' => $pub_img,
             'produits' => $produits,
             'categories' => $categories,
-            'actualites' => $actualite
+            'actualites' => $actualite,
+            'promotions' => $promotions,
+            'deadline' => $deadline
         ]);
     }
     public function produit()

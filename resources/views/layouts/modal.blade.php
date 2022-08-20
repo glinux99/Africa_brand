@@ -458,3 +458,47 @@
         </div>
     </div>
 </div>
+<!-- Promotion de produits -->
+<div id="deadline-modal" class="modal fade">
+    <div class="modal-dialog modal-md">
+        <form action="{{ route('promition.produit.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title h6">@lang("DeadLine de la promotion")</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mt-1">
+                        @lang("Les informations ci-contre permettrons de verifier te temps d'echeance pour le deadline de promotion de produits")
+                    <div class="row">
+                        <input type="text" name="produit_id" id="dealineProdId" value="" hidden>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">@lang('Date d\'echeances')</label>
+                                <input type="date" class="form-control" name="deadline" aria-describedby="helpId">
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">@lang('Prix actuel')</label>
+                                    <input type="number" class="form-control" name="" value="{{ $produit->prix ?? 'inconnu'}}" min="1" aria-describedby="helpId" disabled>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">@lang('Reduction')</label>
+                                    <input type="number" class="form-control" name="prix" value="1" min="1" aria-describedby="helpId">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                    <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                    <button type="submit" class="btn btn-primary mt-2 comfirm-link">@lang("Enregistrer")</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

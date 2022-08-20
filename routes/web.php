@@ -96,6 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/apropos-config', [ConfigController::class, 'apropos_index'])->name('apropos.config');
     Route::get('/update-config', [ConfigController::class, 'apropos_index'])->name('apropos.config.update');
     Route::get('/promition-produit', [PromotionController::class, 'index'])->name('promition.produit.index');
+    Route::post('/promition-store', [PromotionController::class, 'store'])->name('promition.produit.store');
 });
 
 // Routes sur le site
