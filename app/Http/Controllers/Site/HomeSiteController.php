@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use Exception;
 use App\Models\Images;
 use App\Models\Chariot;
 use App\Models\Produit;
@@ -35,7 +36,11 @@ class HomeSiteController extends Controller
     {
         $promotions = Produit::join('images', 'images.produit_id', 'produits.id')
             ->join('promotions', 'promotions.produit_id', 'produits.id')->get();
-        $deadline = str_replace("-", '/', Promotion::orderBy('deadline', 'DESC')->first('deadline')->deadline);
+        try {
+            $deadline = str_replace("-", '/', Promotion::orderBy('deadline', 'DESC')->first('deadline')->deadline);
+        } catch (Exception $exc) {
+            $deadline = now();
+        }
         // dd($deadline);
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
         $categories = Categorie::join('images', 'categorie_id', 'categories.id')
