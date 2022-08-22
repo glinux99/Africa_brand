@@ -22,19 +22,19 @@
                                 <div class="col-1">
                                     <ul class="list-unstyled my-3 my-md-0 social colored text-center">
                                         <li>
-                                            <a href="#" target="_blank" class="facebook"><i class="lab la-facebook-f"></i></a>
+                                            <a href="#" target="_blank" class="facebook p-1"><i class="lab la-facebook-f"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#" target="_blank" class="twitter"><i class="lab la-twitter"></i></a>
+                                            <a href="#" target="_blank" class="twitter p-1"><i class="lab la-twitter"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#" target="_blank" class="instagram"><i class="lab la-instagram"></i></a>
+                                            <a href="#" target="_blank" class="instagram p-1"><i class="lab la-instagram"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#" target="_blank" class="youtube"><i class="lab la-youtube"></i></a>
+                                            <a href="#" target="_blank" class="youtube p-1"><i class="lab la-youtube"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#" target="_blank" class="linkedin"><i class="lab la-linkedin-in"></i></a>
+                                            <a href="#" target="_blank" class="linkedin p-1"><i class="lab la-linkedin-in"></i></a>
                                         </li>
                                     </ul>
                                 </div>
