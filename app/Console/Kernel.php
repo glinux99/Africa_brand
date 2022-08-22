@@ -16,10 +16,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->call(function () {
-            Chariot::find(1)->delete();
-        })->everyMinute();
+        $schedule->command('promotion:delete')->everyMinute()->withoutOverlapping();
+        // $schedule->call(function () {
+        //     Chariot::find(1)->delete();
+        // })->everyMinute();
     }
 
     /**

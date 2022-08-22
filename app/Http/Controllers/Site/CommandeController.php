@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Models\Chariot;
+use App\Models\Produit;
 use App\Models\Commande;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -71,6 +72,12 @@ class CommandeController extends Controller
             } else {
                 $commande = Commande::create($request->except('_token'));
             }
+            $prod = Produit::find($chariot->produit_id);
+            $remise = 1;
+            if ($prod->remise != 0) {
+                $remise = (float)($prod->remise) * (float)$prod->prix / 100;
+            }
+            $prix = (float)($prod->prix) * (float)$remise * (float)$chariot->qte;
             $commande->users_id = Auth::user()->id;
             $commande->qte = $chariot->qte;
             $commande->produit_id = $chariot->produit_id;

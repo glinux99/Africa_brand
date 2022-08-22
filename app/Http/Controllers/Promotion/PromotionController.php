@@ -42,6 +42,8 @@ class PromotionController extends Controller
     public function store(Request $request)
     {
         Promotion::create($request->except("_token"));
+        $produits = Produit::where('id', $request->produit_id);
+        $produits->update(['remise' => $request->prix]);
         Session()->put('alert-session', "promotion-save");
         return redirect()->route('promition.produit.index');
     }

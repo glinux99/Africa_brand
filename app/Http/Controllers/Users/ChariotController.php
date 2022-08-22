@@ -48,6 +48,8 @@ class ChariotController extends Controller
         $imageproduit = Produit::join('images', 'produits.id', 'produit_id')
             ->where('produit_id', $request->produit_id)->first();
         $chariot->images = $imageproduit->images;
+        $quantity = "quantity" . $chariot->produit_id;
+        $chariot->qte = $quantity;
         $chariot->save();
         $count = Chariot::where('users_id', Auth::user()->id)->count() ?? 0;
         Session()->put('cart-count', $count);
