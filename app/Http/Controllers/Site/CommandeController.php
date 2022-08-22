@@ -83,6 +83,7 @@ class CommandeController extends Controller
             $commande->produit_id = $chariot->produit_id;
             $commande->images = $chariot->images;
             $commande->commande_id = $commande_send;
+            $commande->total = $prix;
             $commande->status = 0;
             $commande->save();
             $chariot->delete();

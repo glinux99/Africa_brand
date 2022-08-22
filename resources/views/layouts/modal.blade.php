@@ -483,7 +483,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">@lang('Prix actuel')</label>
-                                    <input type="number" class="form-control" name="" value="{{ $produit->prix ?? 'inconnu'}}" min="1" aria-describedby="helpId" disabled>
+                                    <input type="text" class="form-control" name="" id="prix_deadline" value="{{ $produit->prix ?? 'inconnu'}}" min="1" aria-describedby="helpId" disabled>
                                 </div>
                             </div>
                             <div class="col-6">

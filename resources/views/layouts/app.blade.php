@@ -623,6 +623,9 @@
     <script src="{{asset('assets/selected2/dist/js/select2.min.js')}}"></script>
     <script>
         $(document).ready(function($) {
+            function clickme(el) {
+                alert(el);
+            }
             var success = "{{ Session('alert-session') ?? 'false' }}";
             switch (success) {
                 case "produit-save":
@@ -652,6 +655,7 @@
             success = "{{ Session::put('alert-session', '')}}";
             $('.deadline').click(function() {
                 $('#dealineProdId').val($(this).attr('data-id'));
+                $('#prix_deadline').val($(this).attr('data-value') + " USD");
             });
             $('.decision-modal').click(function() {
                 $.ajaxSetup({

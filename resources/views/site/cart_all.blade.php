@@ -72,14 +72,18 @@
                                                 <span class="fs-14 opacity-60 text-center">{!! $produit->descritpion ?? ''!!}</span>
                                             </div>
                                             <div class="text-center col-lg-2 order-4 order-lg-0">
-                                                <div class="row no-gutters align-items-center aiz-plus-minus mr-2 ml-0">
-                                                    <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="{{'quantity'.$produit->produit_id}}">
-                                                        <i class="las la-minus"></i>
-                                                    </button>
-                                                    <input type="number" name="qte" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="{{$produit->chariot_qte}}" min="{{$produit->chariot_qte}}" max="100000000000" onchange="updateQuantity(42, this)">
-                                                    <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="{{'quantity'.$produit->produit_id}}">
-                                                        <i class="las la-plus"></i>
-                                                    </button>
+                                                <div class="product-quantity d-flex align-items-center aiz-plus-minus mr-2 ml-0">
+                                                    <div class="row no-gutters align-items-center aiz-plus-minus mr-3" style="width: 130px;">
+                                                        <button class="btn col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="minus" data-field="{{'quantity'.$produit->produit_id}}" disabled="">
+                                                            <i class="las la-minus"></i>
+                                                        </button>
+                                                        <input type="number" name="{{'quantity'.$produit->produit_id}}" class="col border-0 text-center flex-grow-1 fs-16 input-number qte_modal" id="modal-in" value="{{$produit->chariot_qte}}" placeholder="1" min="0" max="100000000000000000000" lang="fr">
+                                                        <button class="btn  col-auto btn-icon btn-sm btn-circle btn-light" type="button" data-type="plus" data-field="{{'quantity'.$produit->produit_id}}">
+                                                            <i class="las la-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="avialable-amount opacity-60">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="text-center col-2 order-5 order-lg-0 text-right">

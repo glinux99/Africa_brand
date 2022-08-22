@@ -43,7 +43,7 @@ class PromotionController extends Controller
     {
         Promotion::create($request->except("_token"));
         $produits = Produit::where('id', $request->produit_id);
-        $produits->update(['remise' => $request->prix]);
+        $produits->update(['remise' => (float)$request->prix * (float)$produits->prix / 100]);
         Session()->put('alert-session', "promotion-save");
         return redirect()->route('promition.produit.index');
     }

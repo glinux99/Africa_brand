@@ -49,7 +49,7 @@
                                         {{ $reduction}}
                                     </del>
                                     @endif
-                                    <span class="fw-700 text-success">{{ $produit->prix}}$</span>
+                                    <span class=" fw-700 text-success">{{ $produit->prix}}$</span>
                                 </div>
                                 <div class="rating rating-sm mt-1">
                                     <i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i>
@@ -117,7 +117,7 @@
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="modal" data-target="#delete-modal" data-href="{{ route('produit.delete', [$produit->produit_id])}}" data-title="@lang('supprimer')" data-placement="left" class="confirm-alert">
                                         <i class="las la-trash"></i>
                                     </a>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#deadline-modal" data-title="@lang('ajouter a la promotion')" data-placement="left" class="deadline" data-id="{{ $produit->produit_id}}">
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#deadline-modal" data-title="@lang('ajouter a la promotion')" data-placement="left" class="deadline" data-id="{{ $produit->produit_id}}" data-value="{{ $produit->prix}}">
                                         <i class="las la-store"></i>
                                     </a>
                                 </div>
