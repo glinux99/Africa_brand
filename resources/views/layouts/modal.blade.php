@@ -488,8 +488,8 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">@lang('Reduction')</label>
-                                    <input type="number" class="form-control" name="prix" value="1" min="1" aria-describedby="helpId">
+                                    <label for="">@lang('Reduction en %')</label>
+                                    <input type="number" class="form-control" name="prix" value="1" min="1" max="100" aria-describedby="helpId">
                                 </div>
                             </div>
                         </div>

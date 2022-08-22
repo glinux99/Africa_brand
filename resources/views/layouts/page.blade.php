@@ -136,7 +136,7 @@
                                         </li>
                                         <li class="list-inline-item mr-0">
                                             <a href="{{ route('news.all')}}" class="text-menu-hover-parent opacity-60 fs-14 px-3 py-2 d-inline-block fw-600 hov-opacity-100 text-reset">
-                                                @lang("Actualites")
+                                                @lang("Blog")
                                                 <span class="text-menu-hover"></span>
                                             </a>
                                         </li>

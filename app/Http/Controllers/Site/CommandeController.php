@@ -30,6 +30,7 @@ class CommandeController extends Controller
     public function index()
     {
         $commandes = CommandeController::commandeClient("0");
+        // dd($commandes[0]->remise);
         $commandesaccepte = CommandeController::commandeClient("1");
         $commandesannnuler = CommandeController::commandeClient("2");
         return view(
@@ -73,11 +74,12 @@ class CommandeController extends Controller
                 $commande = Commande::create($request->except('_token'));
             }
             $prod = Produit::find($chariot->produit_id);
-            $remise = 1;
+            $remise = (float)$prod->prix;
             if ($prod->remise != 0) {
-                $remise = (float)($prod->remise) * (float)$prod->prix / 100;
+                $remise = (float)$prod->prix - ((float)($prod->remise) * (float)$prod->prix / 100);
             }
-            $prix = (float)($prod->prix) * (float)$remise * (float)$chariot->qte;
+            // dd($remise);
+            $prix = (float)$remise * (float)$chariot->qte;
             $commande->users_id = Auth::user()->id;
             $commande->qte = $chariot->qte;
             $commande->produit_id = $chariot->produit_id;
@@ -95,6 +97,12 @@ class CommandeController extends Controller
     public function acceptCommande($id)
     {
         $commande = Commande::find($id);
+        $prod = Produit::find($commande->produit_id);
+        if ((float)$prod->qte < (float)$commande->qte) {
+            Session()->put('alert-session', "error-produit");
+            return redirect()->route('commades');
+        }
+        $prod->update(['qte' => (float) $prod->qte - (float) $commande->qte]);
         $commande->status = 1;
         $commande->save();
         return redirect()->route('commades');
@@ -103,6 +111,8 @@ class CommandeController extends Controller
     {
         $commande = Commande::find($id);
         $commande->status = 2;
+        $prod = Produit::find($commande->produit_id);
+        $prod->update(['qte' => (float) $prod->qte + (float)$commande->qte]);
         $commande->save();
         return redirect()->route('commades');
     }

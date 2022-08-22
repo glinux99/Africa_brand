@@ -646,6 +646,9 @@
                 case "error":
                     AIZ.plugins.notify('danger', "Ooups!, Echec de la requette!!!");
                     break;
+                case "error-produit":
+                    AIZ.plugins.notify('danger', "Ooups!, La quantite du stock est insufissant!");
+                    break;
                 case "promotion-save":
                     AIZ.plugins.notify('success', "La promotion du produit a ete active avec success!!!");
                     break;
@@ -678,7 +681,7 @@
                         $("#name-client").text(res.commandes.username);
                         $("#commande-id").text(res.commandes.commande_id);
                         $('#qtestock').text((res.commandes.commande_qte) + " /" + (res.commandes.produit_qte));
-                        $('#montant-total').text((parseFloat(res.commandes.commande_qte) * parseFloat(res.commandes.prix)) + " USD");
+                        $('#montant-total').text(res.commandes.total + " USD");
                         $('#accept-commande').attr("href", "commande-accept/" + res.commandes.commandeId);
                         $('#annuler-commande').attr("href", "commande-annuler/" + res.commandes.commandeId);
                         $('#delete-commande').attr("href", "commande-delete/" + res.commandes.commandeId);

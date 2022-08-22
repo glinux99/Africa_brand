@@ -51,7 +51,14 @@
                             </td>
                             <td>{{ $commande->produit_name}}</td>
                             <td>{{ $commande->qte}}</td>
-                            <td>{{ $commande->prix}} USD</td>
+                            <td>@if ($commande->remise==0)
+                                {{ $commande->prix}}
+                                @else
+                                @php
+                                echo $commande->prix-((float)$commande->prix*(float)$commande->remise/100);
+                                @endphp
+                                @endif USD
+                            </td>
                             <td>
                                 <a class="btn-sm btn-primary" disabled>
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -102,7 +109,14 @@
                             </td>
                             <td>{{ $commande->produit_name}}</td>
                             <td>{{ $commande->qte}}</td>
-                            <td>{{ $commande->prix}} USD</td>
+                            <td>@if ($commande->remise=0)
+                                {{ $commande->prix}}
+                                @else
+                                @php
+                                echo $commande->prix-((float)$commande->prix*(float)$commande->remise);
+                                @endphp
+                                @endif USD
+                            </td>
                             <td>
                                 <a class="btn-sm btn-primary" disabled>
                                     <span class="la la-check" role="status" aria-hidden="true"></span>
@@ -153,7 +167,14 @@
                             </td>
                             <td>{{ $commande->produit_name}}</td>
                             <td>{{ $commande->qte}}</td>
-                            <td>{{ $commande->prix}} USD</td>
+                            <td>@if ($commande->remise=0)
+                                {{ $commande->prix}}
+                                @else
+                                @php
+                                echo $commande->prix-((float)$commande->prix*(float)$commande->remise);
+                                @endphp
+                                @endif USD
+                            </td>
                             <td>
                                 <a class="btn-sm btn-primary" disabled>
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
