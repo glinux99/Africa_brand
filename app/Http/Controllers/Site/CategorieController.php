@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use Exception;
 use App\Models\Images;
 use App\Models\Categorie;
 use Illuminate\Support\Str;
@@ -72,6 +73,7 @@ class CategorieController extends Controller
             $imageSave->categorie_id = $cat_id->id;
             $imageSave->save();
         }
+        Session()->put('alert-session', "categorie-save");
         return redirect()->route('categories');
     }
 
@@ -108,24 +110,29 @@ class CategorieController extends Controller
      */
     public function update(Request $request)
     {
-        $categorie = Categorie::find($request->id);
-        // dd($request->id);
-        $categorie->update($request->except(['_token', 'nombre_prod']));
-        if ($request->file('images')) {
-            $image = $request->file('images');
-            $imageSave = Images::where('categorie_id', $request->id)->first();
-            Storage::disk('public')->delete($imageSave->images);
-            $file = Str::random(5);
-            $ext = $image->getClientOriginalExtension();
-            $fileName = $file . '.' . $ext;
-            $path = $image->storeAs(
-                'images/categorie',
-                $fileName,
-                'public'
-            );
-            $imageSave->images = $path;
-            $imageSave->categorie_id = $categorie->id;
-            $imageSave->save();
+        try {
+            $categorie = Categorie::find($request->id);
+            // dd($request->id);
+            $categorie->update($request->except(['_token', 'nombre_prod']));
+            if ($request->file('images')) {
+                $image = $request->file('images');
+                $imageSave = Images::where('categorie_id', $request->id)->first();
+                Storage::disk('public')->delete($imageSave->images);
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/categorie',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->categorie_id = $categorie->id;
+                $imageSave->save();
+            }
+            Session()->put('alert-session', "categorie-update");
+        } catch (Exception $exc) {
+            Session()->put('alert-session', "error");
         }
         return redirect()->route('categories');
     }
@@ -138,6 +145,6 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Session()->put('alert-session', "categorie-delete");
     }
 }

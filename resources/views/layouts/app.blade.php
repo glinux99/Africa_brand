@@ -626,11 +626,27 @@
             var success = "{{ Session('alert-session') ?? 'false' }}";
             switch (success) {
                 case "produit-save":
-                    AIZ.plugins.notify('light', "Le produit a ete ajoute avec success");
+                    AIZ.plugins.notify('success', "Le produit a ete ajoute avec success");
                     break;
                 case "produit-delete":
-                    AIZ.plugins.notify('light', "Le produit a ete supprime avec success");
+                    AIZ.plugins.notify('success', "Le produit a ete supprime avec success");
                     break;
+                case "categorie-save":
+                    AIZ.plugins.notify('success', "La categorie a ete ajoutee avec success");
+                    break;
+                case "categorie-update":
+                    AIZ.plugins.notify('success', "La categorie a ete mis a jour avec success");
+                    break;
+                case "categorie-delete":
+                    AIZ.plugins.notify('success', "La categorie a ete supprime avec success");
+                    break;
+                case "error":
+                    AIZ.plugins.notify('danger', "Ooups!, Echec de la requette!!!");
+                    break;
+                case "promotion-save":
+                    AIZ.plugins.notify('success', "La promotion du produit a ete active avec success!!!");
+                    break;
+
 
             }
             success = "{{ Session::put('alert-session', '')}}";

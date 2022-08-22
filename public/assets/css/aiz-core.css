@@ -9808,11 +9808,13 @@ div.footable-loader>span.fooicon:after {
 }
 
 .aiz-notify.alert-success {
-    background-color: var(--success);
+    /* background-color: var(--success); */
+    background-color: green;
 }
 
 .aiz-notify.alert-danger {
-    background-color: var(--danger);
+    /* background-color: var(--danger); */
+    background-color: red;
 }
 
 .aiz-notify.alert-primary {
