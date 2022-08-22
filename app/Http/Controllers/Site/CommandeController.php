@@ -105,6 +105,7 @@ class CommandeController extends Controller
         $prod->update(['qte' => (float) $prod->qte - (float) $commande->qte]);
         $commande->status = 1;
         $commande->save();
+        Session()->put('alert-session', "commande-valide");
         return redirect()->route('commades');
     }
     public function annulerCommande($id)

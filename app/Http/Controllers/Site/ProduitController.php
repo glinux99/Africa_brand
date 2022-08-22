@@ -124,7 +124,10 @@ class ProduitController extends Controller
      */
     public function show($id)
     {
-        //
+        // $data = Produit::find($id)
+        //     ->join('images', 'produits.id', 'produit_id')
+        //     ->first();
+        // dd($data);
     }
     /**
      * Show the form for editing the specified resource.
@@ -132,9 +135,11 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $data = Produit::where('produits.id', $request->id)
+            ->join('images', 'produits.id', 'produit_id')->first();
+        return response()->json($data);
     }
 
     /**
@@ -144,9 +149,53 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $produit = Produit::find($request->id);
+        $produit->update($request->except(['_token']));
+        if ($request->file('images') != '') {
+            foreach ($request->file('images') as $index => $image) {
+                $images = Images::where('produit_id', $produit->id)->get();
+                foreach ($images as $image) {
+                    Storage::disk('public')->delete($image->images);
+                }
+                Images::where('produit_id', $produit->id)->delete();
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/produits',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->produit_id = $produit->id;
+                $imageSave->save();
+            }
+        } else {
+            $imageSave = new Images;
+            $imageSave->produit_id = $produit->id;
+            $imageSave->save();
+        }
+        if ($request->file('video')) {
+            foreach ($request->video as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'videos/produits',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->video = $path;
+                $imageSave->produit_id = $produit->id;
+                $imageSave->save();
+            }
+        }
+        Session()->put('alert-session', 'produit-update');
+        return redirect()->back();
     }
 
     /**

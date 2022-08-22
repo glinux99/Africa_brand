@@ -63,6 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('creation-produit', [ProduitController::class, 'create'])->name('produit');
     Route::get('all-produit', [ProduitController::class, 'index'])->name('produits');
     Route::post('create-produit', [ProduitController::class, 'store'])->name('produit.store');
+    Route::post('update-produit', [ProduitController::class, 'update'])->name('produit.update');
+    Route::post('show-produit', [ProduitController::class, 'edit'])->name('produit.details.info');
     Route::get('delete-produit/{id}', [ProduitController::class, 'destroy'])->name('produit.delete');
     Route::get('charriot/{id}', [ChariotController::class, 'show'])->name('produit.cart');
     Route::get('charriot-info', [ChariotController::class, 'create'])->name('produit.cart.info');
@@ -110,6 +112,7 @@ Route::get('/contact', [HomeSiteController::class, 'contact'])->name('contact');
 Route::get('apropos', [HomeSiteController::class, 'apropos'])->name('apropos');
 Route::get('/categories', [HomeSiteController::class, 'categories'])->name('categories.all');
 // Essaies
+Route::get('/test/{id}', [ProduitController::class, 'show']);
 // Route::get('/test/{id}', [CategorieController::class, 'show'])->name('categories.details');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

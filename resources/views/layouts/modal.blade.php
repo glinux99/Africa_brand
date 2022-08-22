@@ -83,6 +83,74 @@
     </div>
 </div>
 <!-- Modal categorie -->
+<!-- Information sur le produit -->
+<div id="produitInfo-modal" class="modal fade">
+    <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h6">Information</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body c-scrollbar-light position-relative" id="infoprod-modal-content">
+                <div class="c-preloader text-center absolute-center">
+                    <i class="las la-spinner la-spin la-3x opacity-70"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modification sur le produit -->
+<div id="editproduit" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <form action="{{ route('produit.update')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title h6">@lang("Modifier un produit")</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mt-1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="id" id="idProd" hidden>
+                                <label for="">@lang('Description du produit')</label>
+                                <input type="text" class="form-control" name="name" id="nameProd" aria-describedby="helpId" placeholder="@lang('Description du produit')">
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="col-6">
+                                <label for="">@lang('Quantite de produit')</label>
+                                <input type="text" class="form-control" name="qte" id="qteProd" aria-describedby="helpId" placeholder="@lang('')">
+                            </div>
+                            <div class="col-6">
+                                <label for="">@lang('Prix du produit')</label>
+                                <input type="text" class="form-control" name="prix" id="prixProd" aria-describedby="helpId" placeholder="@lang('')">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="col-md-12 col-from-label">@lang("La description")</label>
+                            <div class="col-md-12">
+                                <textarea class="aiz-text-editor" name="description" rows="20"> <span id="descriptionProd"></span></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">@lang('Image Descriptive')</label>
+                                <input type="file" class="form-control" name="images" multiple>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                    <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                    <button type="submit" class="btn btn-primary mt-2 comfirm-link">@lang("Enregistrer")</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- Suppression modal -->
 <div id="delete-modal" class="modal fade">
     <div class="modal-dialog modal-sm modal-dialog-centered">

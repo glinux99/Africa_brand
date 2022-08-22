@@ -360,6 +360,9 @@
 
     </div><!-- .aiz-main-wrapper -->
     <button id="commande-btn" type="btn" hidden data-target="#commande-modal" data-toggle="modal"></button>
+    <button id="infosprod" type="btn" hidden data-target="#produitInfo-modal" data-toggle="modal"></button>
+    <button id="editprod" type="btn" hidden data-target="#editproduit" data-toggle="modal"></button>
+
     <script src="{{asset('assets/js/vendors.js')}}"></script>
     <script src="{{asset('assets/js/aiz-core.js')}}"></script>
     <script type="text/javascript">
@@ -634,6 +637,9 @@
                 case "produit-delete":
                     AIZ.plugins.notify('success', "Le produit a ete supprime avec success");
                     break;
+                case "produit-update":
+                    AIZ.plugins.notify('success', "Le produit a ete mis a jour avec success");
+                    break;
                 case "categorie-save":
                     AIZ.plugins.notify('success', "La categorie a ete ajoutee avec success");
                     break;
@@ -648,6 +654,9 @@
                     break;
                 case "error-produit":
                     AIZ.plugins.notify('danger', "Ooups!, La quantite du stock est insufissant!");
+                    break;
+                case "commande-valide":
+                    AIZ.plugins.notify('success', "La commande a ete valide!!!");
                     break;
                 case "promotion-save":
                     AIZ.plugins.notify('success', "La promotion du produit a ete active avec success!!!");
@@ -796,6 +805,97 @@
                         else var img = "storage/" + res.images;
                         if (res.nombre_prod == null) $('#infoprod').remove();
                         $('#img').attr('src', img);
+                        console.log(res.name);
+                    }
+                });
+            });
+            $('.infoproduit').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $urls = "{{ route('produit.details.info')}}";
+                // ajax
+                $.ajax({
+                    type: "POST",
+                    url: $urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.data);
+                        // $('#jan_plan').val(res.jan);
+                        $('#infosprod').trigger('click');
+                        $('#infoprod-modal-content').html(`
+                        <div class="c-preloader text-center">
+                        <div class="col-12 card-user">
+                        <div class="content pt-3">
+                            <div class="author">
+                                <style>
+                                    .avatar:hover {
+                                        transform: scale(1.2);
+                                        transition: transform 1s 0s ease;
+                                    }
+                                </style>
+                                <a href="{{ asset(Session('picprofile'))}}">
+                                    <img id="img" class="border-gray img-fit mt-5" src="" alt="Profile" />
+                                    <h4 class="title text-center">
+                                    <span id="titre"></span>
+                                    <span id="infosite"></span><br>
+                                        <br><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i><i class='las la-star'></i>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">  @lang("Qte de produits:")<br> <span id="infoprod"></span><br></div>
+                              <div class="col-md-6">  @lang("Monopole:") <br><span id="infomono"></span><br></div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center py-3">
+                            {{__("Produit details ")}} {{Config("app.name")}}
+                        </div>
+                    </div>
+                        </div>
+                        `);
+
+                        $('#titre').text(res.name);
+                        $('#infoprod').text(res.qte);
+                        $('#infomono').text('{{Config("app.name")}}');
+                        if (res.images == null) var img = "{{ asset('assets/img/default.png')}}";
+                        else var img = "storage/" + res.images;
+                        if (res.qte == null) $('#infoprod').remove();
+                        $('#img').attr('src', img);
+                        console.log(res.name);
+                    }
+                });
+            });
+            $('.modifproduit').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $urls = "{{ route('produit.details.info')}}";
+                // ajax
+                $.ajax({
+                    type: "POST",
+                    url: $urls,
+                    data: {
+                        id: $(this).attr('data-id')
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.data);
+                        // $('#jan_plan').val(res.jan);
+                        $('#editprod').trigger('click');
+                        $('#idProd').val(res.produit_id);
+                        $('#nameProd').val(res.name);
+                        $('#qteProd').val(res.qte);
+                        $('#prixProd').val(res.prix);
+                        $('#descriptionProd').html(res.description);
                         console.log(res.name);
                     }
                 });

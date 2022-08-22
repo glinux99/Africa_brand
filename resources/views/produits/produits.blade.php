@@ -24,10 +24,10 @@
                                     @lang("En vente")
                                 </span>
                                 <div class="absolute-top-right aiz-p-hov-icon">
-                                    <a href="javascript:void(0)" onclick="addToWishList(2)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left" class="infocategorie" data-id="{{ $produit->produit_id}}">
+                                    <a href="javascript:void(0)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left" class="infoproduit" data-id="{{ $produit->produit_id}}">
                                         <i class="la la-info-circle"></i>
                                     </a>
-                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left">
+                                    <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left" class="modifproduit" data-id="{{ $produit->produit_id}}">
                                         <i class="las la-edit"></i>
                                     </a>
                                     <a href="javascript:void(0)" onclick="addToCompare(2)" data-toggle="modal" data-target="#delete-modal" data-href="{{ route('produit.delete', [$produit->produit_id])}}" data-title="@lang('supprimer')" data-placement="left" class="confirm-alert">
