@@ -256,7 +256,7 @@
                                 </div>
                                 <div class="p-md-3 p-2 text-left ">
                                     <p>{{$actualite->updated_at}}</p>
-                                    <p class="fw-600 fs-18 text-center m-0 p-0">
+                                    <p class="fw-600 fs-13 text-center m-0 p-0 text-truncate-2 h-50px">
                                         <a href="#" class="d-block text-reset">{{ $actualite->title}}</a>
                                     </p>
                                     <p>
