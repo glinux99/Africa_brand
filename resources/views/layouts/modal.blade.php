@@ -544,7 +544,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">@lang('Date d\'echeances')</label>
-                                <input type="date" class="form-control" name="deadline" aria-describedby="helpId">
+                                <input type="date" class="form-control" name="deadline" aria-describedby="helpId" required>
                             </div>
                         </div>
                         <div class="col-md-12 row">
@@ -557,7 +557,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">@lang('Reduction en %')</label>
-                                    <input type="number" class="form-control" name="prix" value="1" min="1" max="100" aria-describedby="helpId">
+                                    <input type="number" class="form-control" name="prix" value="1" min="1" max="100" aria-describedby="helpId" required>
                                 </div>
                             </div>
                         </div>

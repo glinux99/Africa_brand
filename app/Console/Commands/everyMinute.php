@@ -39,12 +39,12 @@ class everyMinute extends Command
      */
     public function handle()
     {
-        $promotions = Promotion::where('deadline', '<', \Carbon\Carbon::now()->toDateString())->get();
+        $promotions = Promotion::where('deadline', '<=', \Carbon\Carbon::now()->toDateString())->get();
         foreach ($promotions as $promotion) {
             $produit = Produit::findOrfail($promotion->produit_id);
             $produit->update(['remise' => 0]);
         }
-        Promotion::where('deadline', '<', \Carbon\Carbon::now()->toDateString())->delete();
+        Promotion::where('deadline', '<=', \Carbon\Carbon::now()->toDateString())->delete();
         echo "execute";
     }
 }

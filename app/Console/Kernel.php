@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('promotion:delete')->everyMinute()->withoutOverlapping();
+        $schedule->command('promotion:delete')->everyMinute();
         // $schedule->call(function () {
         //     Chariot::find(1)->delete();
         // })->everyMinute();

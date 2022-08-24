@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('detete-client/{id}', [ClientController::class, 'destroy'])->name('clients.delete');
     Route::post('edit-client', [ClientController::class, 'edit'])->name('clients.edit');
     Route::post('add-fournisseur', [FournisseurController::class, 'edit'])->name('fournisseurs.edit');
+    Route::post('add-partenaire', [PartenaireController::class, 'edit'])->name('partenaires.edit');
     Route::get('creation-produit', [ProduitController::class, 'create'])->name('produit');
     Route::get('all-produit', [ProduitController::class, 'index'])->name('produits');
     Route::post('create-produit', [ProduitController::class, 'store'])->name('produit.store');

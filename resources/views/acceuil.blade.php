@@ -47,7 +47,7 @@
 
                     <span class="text-section-hover-white"></span>
                 </h3>
-                <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="{{ $deadline}} 00:00:00"></div>
+                <div class="aiz-count-down ml-auto ml-lg-3 align-items-center" data-date="{{ $deadline }} 00:00:00"></div>
                 <a href="{{ route('home.produit')}}" class="ml-auto mr-0 btn bg-green btn-sm shadow-md bg-dark-btn">@lang("Voir plus")</a>
             </div>
 

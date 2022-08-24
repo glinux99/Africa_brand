@@ -8,7 +8,19 @@
 </a>
 @endsection
 @section('titre-actuel')
-@lang("Partenaires")
+@lang("Fournisseur")
+@endsection
+@section('url')
+{{ route('partenaires.store')}}
+@endsection
+@section('url-update')
+{{ route('partenaires.update')}}
+@endsection
+@section('delete-link')
+delete-paternaire/
+@endsection
+@section('ajax-modif')
+{{ route('partenaires.edit')}}
 @endsection
 @section('titre-modal')
 @lang("Ajouter un Partenaire")
