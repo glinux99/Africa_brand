@@ -221,10 +221,7 @@
                             </div>
                             <div class="w-300px mw-100 mx-auto mx-md-0">
                                 <a href="#" target="_blank" class="d-inline-block mr-3 ml-0">
-                                    <img src="{{ asset('assets/img/app.png')}}" class="mx-100 h-40px">
-                                </a>
-                                <a href="#" target="_blank" class="d-inline-block">
-                                    <img src="{{ asset('assets/img/Apple.ico')}}" class="mx-100 h-40px">
+                                    <img src="{{ asset('assets/img/app.png')}}" class="mx-100 h-60px">
                                 </a>
                             </div>
                         </div>

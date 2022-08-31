@@ -106,6 +106,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/details-produit/{id}', [HomeSiteController::class, 'details'])->name('produit.details');
 Route::post('/details-produits', [HomeSiteController::class, 'details_posts'])->name('produit.details.post');
+Route::get('/produit/{id}/categorie/', [HomeSiteController::class, 'produitCat'])->name('produit.categorie');
 Route::get('/details-de-news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/produit', [HomeSiteController::class, 'produit'])->name('home.produit');
 Route::get('/actualite', [NewsController::class, 'index'])->name('news.all');

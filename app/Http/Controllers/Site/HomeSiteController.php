@@ -64,7 +64,16 @@ class HomeSiteController extends Controller
     public function produit()
     {
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
-        return view('produits.produits_all', ['produits' => $produits]);
+        return view('produits.produits_all', ['produits' => $produits, 'prodcats' => 'produitOnly']);
+    }
+    public function produitCat($id)
+    {
+        $prodcats = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')
+            ->where('produits.categorie', $id)
+            ->paginate(20);
+        $produits = Produit::join('images', 'produit_id', 'produits.id')->groupBy('produit_id')->paginate(20);
+        $categorie = Categorie::find($id);
+        return view('produits.produits_all', ['produits' => $produits, 'prodcats' => $prodcats, 'categorie' => $categorie]);
     }
     public function details($id)
     {

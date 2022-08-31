@@ -3,11 +3,11 @@
 <section class="mb-4 mt-3">
     <div class="mx-3 containerd">
         <div class="col-md-10 mx-auto px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
-            <h3 class="text-center mb-5">
+            <h3 class="text-center mb-5 fw-900">
                 Contactez-nous
             </h3>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <div class="card-body">
                         <div class="">
                             <label for="inputNumeroligne" class="control-label">@lang('Votre nom')</label>
@@ -37,47 +37,57 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 bg-dark rounded text-white">
-                    <h5 class="my-4 text-center">@lang("Contactez-nous sur nos adresses")</h5>
+                <div class="col-md-5 rounded text-white bg-dark-2">
+                    <h5 class="my-4 text-center fw-700 text-uppercase">@lang("Nos adresses")</h5>
                     <div>
-                        <ul class="list-group list-group-flush h6">
-                            <li class="mb-3 d-flex justify-content-left align-items- py-3 text-white rounded">
-                                <span class="mr-4">@lang("Adresse "):</span>
-                                <span>{{ Session('config')->adresse ?? 'Goma, RDC, Virunga 20'}}</span>
-                            </li>
-                            <li class="mb-3 list-group-item d-flex justify-content-left align-items- py-3 text-dark rounded">
-                                <span class="mr-4">@lang("Email "):</span>
-                                <span>{{ Session('config')->email ?? 'genesiskikimba@gmail.com'}}</span>
-                            </li>
-                            <li class="mb-3 list-group-item d-flex justify-content-left align-items- py-3 text-dark rounded">
-                                <span class="mr-4">@lang("Numero "):</span>
-                                <span>{{ Session('config')->numero ?? '+243970912428'}}</span>
-                            </li>
-
-                            <li class="mb-3 list-group-item d-flex justify-content-left align-items- py-3 text-dark rounded">
-                                <div class="d-flex">
-                                    <div>
-                                        <span class="mr-4">@lang("Resaux sociaux "):</span>
-                                    </div>
-                                    <div>
-                                        <span class="d-block">
-                                            <a href="{{ Session('config')->facebook ?? 'African brand'}}" class="text-dark">
-                                                @lang("Facebook") <i class="lab la-facebook-f">: {{ Session('config')->facebook ?? 'African brand'}}</i>
-                                            </a>
-                                        </span>
-                                        <span class="d-block">
-                                            <a href="{{ Session('config')->facebook ?? 'African brand'}}" class="text-dark">
-                                                @lang("Twitter") <i class="lab la-twitter">: {{ Session('config')->facebook ?? 'African brand'}}</i>
-                                            </a>
-                                        </span>
-                                        <span class="d-block">
-                                            <a href="{{ Session('config')->facebook ?? 'African brand'}}" class="text-dark">
-                                                @lang("Instagram") <i class="lab la-instagram">: {{ Session('config')->facebook ?? 'African brand'}}</i>
-                                            </a>
-                                        </span>
-                                    </div>
+                        <ul class="list-unstyled mx-2">
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <span class="la la-address-card la-3x" aria-hidden="true"></span>
+                                    <span class="fs-15 fw-600">@lang('Adresse physique')</span>
                                 </div>
-
+                                <div class="px-5 fs-13">
+                                    {{ Session('config')->adresse ?? 'Goma, Nord-Kivu, RDC, Virunga 20'}}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <span class="la la-envelope la-3x" aria-hidden="true"></span>
+                                    <span class="fs-15 fw-600">@lang('Email')</span>
+                                </div>
+                                <div class="px-5 fs-13">
+                                    {{ Session('config')->email ?? 'genesiskikimba@gmail.com'}}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <span class="la la-phone la-3x" aria-hidden="true"></span>
+                                    <span class="fs-15 fw-600">@lang('Telephone')</span>
+                                </div>
+                                <div class="px-5 fs-13">
+                                    {{ Session('config')->numero ?? '+243 970912428'}}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <span class="la la-facebook la-2x" aria-hidden="true"></span>
+                                    <span class="la la-twitter la-2x" aria-hidden="true"></span>
+                                    <span class="fs-15 fw-600">@lang('Reseaux sociaux')</span>
+                                </div>
+                                <div class="px-5 fs-13">
+                                    <p class="d-flex p-0 m-0">
+                                        <span class="la la-facebook la-2x" aria-hidden="true"></span>
+                                        <span>{{ Session('config')->facebook ?? 'African brand'}}</span>
+                                    </p>
+                                    <p class="d-flex p-o m-0">
+                                        <span class="la la-twitter la-2x" aria-hidden="true"></span>
+                                        <span>{{ Session('config')->twitter?? 'African brand'}}</span>
+                                    </p>
+                                    <p class="d-flex p-o m-0">
+                                        <span class="la la-instagram la-2x" aria-hidden="true"></span>
+                                        <span>{{ Session('config')->instagram?? 'African brand'}}</span>
+                                    </p>
+                                </div>
                             </li>
                         </ul>
                     </div>

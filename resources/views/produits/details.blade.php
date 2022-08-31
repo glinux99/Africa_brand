@@ -188,7 +188,7 @@
                                     </div>
                                     <div class="col-7 text-left">
                                         <h4 class="fs-13 text-truncate-2">
-                                            <a href="" class="d-block text-reset">{!! $produit->description!!}</a>
+                                            <a href="" class="d-block text-reset">{{ $produit->name }}</a>
                                         </h4>
                                         <div class="rating rating-sm mt-1">
                                             <i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star active'></i><i class='las la-star'></i>
@@ -224,41 +224,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab_default_3">
-                            <div class="p-4 text-center ">
-                                <a href="" class="btn btn-primary">@lang("Telechargement")</a>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab_default_4">
-                            <div class="p-4">
-                                <ul class="list-group list-group-flush">
-                                    <li class="media list-group-item d-flex">
-                                        <span class="avatar avatar-md mr-3">
-                                            <img class="lazyload" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';" data-src="https://demo.activeitzone.com/ecommerce/public/uploads/all/5XVyeLGw5zRpb63bqgn2dtIOjCktLgBltNSQIPG3.png">
-                                        </span>
-                                        <div class="media-body text-left">
-                                            <div class="d-flex justify-content-between">
-                                                <h3 class="fs-15 fw-600 mb-0">Paul K. Jensen
-                                                </h3>
-                                                <span class="rating rating-sm">
-                                                    <i class="las la-star active"></i>
-                                                    <i class="las la-star active"></i>
-                                                    <i class="las la-star active"></i>
-                                                    <i class="las la-star active"></i>
-                                                    <i class="las la-star"></i>
-                                                </span>
-                                            </div>
-                                            <div class="opacity-60 mb-2">
-                                                19-04-2022</div>
-                                            <p class="comment-text">
-                                                But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects,
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="bg-white rounded shadow-sm">
@@ -287,10 +252,6 @@
                                         <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0 h-35px">
                                             <a href="#" class="d-block text-reset">{!! $produit->description !!}</a>
                                         </h3>
-                                        <div class="rounded px-2 mt-2 bg-soft-primary border-soft-primary border">
-                                            Club Point:
-                                            <span class="fw-700 float-right">0</span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -315,18 +276,6 @@
                             </div>
                             <button type="submit" class="btn btn-primary">@lang("Envoyer")</button>
                         </form>
-                    </div>
-
-                    <div class="pagination-area my-4 mb-0 ml-3">
-                        <div class="border-bottom py-3">
-                            <h3 class="fs-18 fw-600 mb-0">
-                                <span>Other Questions</span>
-                            </h3>
-                        </div>
-                        <p>No none asked to seller yet</p>
-                        <div class="aiz-pagination py-2">
-
-                        </div>
                     </div>
                 </div>
 

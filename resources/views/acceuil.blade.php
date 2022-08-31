@@ -198,7 +198,7 @@
                     <div class="carousel-box">
                         <div class="aiz-card-box border border-light rounded hov-shadow-md mt-1 mb-2 has-transition bg-white">
                             <div class="position-relative">
-                                <a href="#" class="d-block">
+                                <a href="{{ route('produit.categorie', [$categorie->categorie_id])}}" class="d-block">
                                     <img class="img-fit " src="{{ asset('storage/'.$categorie->images)}}" height="200" data-src="{{ asset('storage/'.$categorie->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                             </div>

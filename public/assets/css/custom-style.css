@@ -48,8 +48,7 @@
 }
 
 .bg-green2 {
-    background: url('/assets/img/bg1.jpg');
-    opacity: 0.9;
+    background-image: linear-gradient(to right bottom, #030b18, #292e37, #4d525a, #74787f, #9ea1a6);
 }
 
 .hov-shadow-md:hover {
@@ -71,4 +70,9 @@
 
 .la-twitter:hover {
     color: #1ca2d1;
+}
+
+.bg-dark-2 {
+    background-image: linear-gradient(to left top, #070707, #131316, #1b1b20, #22232b, #292c36, #323943, #3b4651, #44545e, #56696f, #6b7f7f, #849490, #9eaaa2);
+
 }
