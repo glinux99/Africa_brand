@@ -226,8 +226,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-4 ml-auto col-md-4 mr-0">
-                        <div class="text-center text-md-left mt-4">
+                    <div class="col-lg-3 col-6 ml-auto col-md-4 mr-0">
+                        <div class="text-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang("Contact")
                             </h4>
@@ -249,8 +249,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-4 col-md-4">
-                        <div class="text-center text-md-left mt-4">
+                    <div class="col-lg-2 col-6 col-md-4">
+                        <div class="text-left mt-4">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang('Liens rapides')
                             </h4>
@@ -283,8 +283,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 col-4  col-lg-2">
-                        <div class="text-center text-md-left mt-4">
+                    <div class="col-md-4 col-12  col-lg-2 row ">
+                        <div class="text-left mt-4 col-md-12 col-6  col-lg-12 m-0 p-0">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang('Mon compte')
                             </h4>
@@ -321,12 +321,9 @@
                                     </a>
                                 </li>
                                 @endif
-                                <li class="mb-2">
-                                    <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('register')}}">@lang("Devenir un partenaire")</a>
-                                </li>
                             </ul>
                         </div>
-                        <div class="text-center text-md-left mt-4 d-none d-lg-block d-md-block">
+                        <div class="text-left mt-4 col-md-12 col-6 col-lg-12 m-0 p-0">
                             <a href="{{ route('register')}}" class="text-white">
                                 <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                     @lang("Devenir un client")
@@ -334,11 +331,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center text-md-left mt-4 d-block d-lg-none d-md-none">
-                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                        @lang("Devenir un vendeur")
-                    </h4>
                 </div>
             </div>
         </section>
