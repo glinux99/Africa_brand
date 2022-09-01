@@ -7,7 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
     <!-- Favicon -->
     <link rel="icon" href="{{asset('assets/img/ico.png')}}">
@@ -70,17 +71,17 @@
         <div class="top-navbar bg-white border-bottom border-soft-secondary z-1035">
             <div class="container ">
                 <ul class="list-inline mb-0 h-100 d-flex justify-content-end social">
-                    <li class="list-inline-item mr-3  pr-3 pl-0 ">
+                    <li class="list-inline-item mr-md-3  pr-md-3 pl-0 ">
                         <a href="{{ Session('config')->facebook ?? '' }}" class="soc text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-facebook la-lg"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                    <li class="list-inline-item mr-md-3  pr-md-3 pl-0">
                         <a href="{{ (Session('config')->twitter) ?? '' }}" class="soc twitter text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-twitter la-lg"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                    <li class="list-inline-item mr-md-3  pr-md-3 pl-0">
                         <a href="{{ (Session('config')->twitter) ?? '' }}" class="soc linkedin text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-linkedin la-lg"></i>
                         </a>
@@ -90,9 +91,9 @@
                             <i class="la la-instagram la-lg"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item mr-3 pr-3 pl-0">
+                    <li class="list-inline-item mr-md-3 pr-md-3 pl-0">
                         <a href="tel:+243 970 912 428" class="text-reset d-inline-block py-2">
-                            <span class="mr-3 fw-700 opacity-70">@lang('Appel')</span>
+                            <span class="fw-700 opacity-70">@lang('Appel'):</span>
                             <span class="opacity-60">{{ Session('config')->numeropv ?? '' }}</span>
                         </a>
                     </li>
@@ -197,7 +198,7 @@
         @include('layouts.modal')
         @yield('content')
         @include('sweetalert::alert')
-        <section class="bg-dark py-5 text-light footer-widget">
+        <section class="bg-dark py-md-5 py-lg-5 py-2 text-light footer-widget">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block d-md-block text-center text-md-left">
@@ -342,7 +343,7 @@
                         <div class="text-center text-md-left opacity-40" current-verison="1.0.1">
                             © @php
                             echo Date('Y')
-                            @endphp @lang("Africa Brand ")| @lang("Limited. All Rights Reserved.") <br>
+                            @endphp <span style="text-transform: capitalize!important;">{{ Config('app.name')}} </span>| @lang("Limited. All Rights Reserved.") <br>
                             @lang("propulse par") <a href="http://subnetcongo.com" target="_blank" rel="noopener noreferrer" class="text-white">
                                 subnetCongo
                             </a>
