@@ -284,7 +284,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-12  col-lg-2 row ">
-                        <div class="text-left mt-4 col-md-12 col-6  col-lg-12 m-0 p-0">
+                        <div class="text-left mt-4 col-md-12 col-6  col-lg-12 mr-0 pr-0">
                             <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                 @lang('Mon compte')
                             </h4>
