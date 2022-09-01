@@ -9,7 +9,7 @@
                 </h3>
             </div>
             @if($categories->count()<=0) <div class="d-flex justify-content-center">
-                Aucune donnee a affiche
+                @lang('Aucune donnee a affiche')
         </div>
         @else
         <div class="row">

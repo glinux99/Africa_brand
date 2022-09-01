@@ -4,6 +4,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\Config\NewsController;
@@ -116,5 +117,10 @@ Route::get('/categories', [HomeSiteController::class, 'categories'])->name('cate
 // Essaies
 Route::get('/test/{id}', [ProduitController::class, 'show']);
 // Route::get('/test/{id}', [CategorieController::class, 'show'])->name('categories.details');
-
+Route::get('/links', function () {
+    Artisan::call('storage:link');
+});
+Route::get('/migration', function () {
+    Artisan::call('migrate:refresh --seed');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

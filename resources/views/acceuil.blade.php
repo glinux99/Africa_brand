@@ -9,7 +9,7 @@
                     @foreach ($center_img as $image)
                     <div class="carousel-box">
                         <a href="#">
-                            <img class="d-block img-fit rounded shadow-sm overflow-hidden" src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" height="400" style="min-width:100%;" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                            <img class="d-block img-fluid rounded shadow-sm overflow-hidden" src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" style="min-width:100%;max-height:20rem; min-height:25rem" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
                         </a>
                     </div>
                     @endforeach
@@ -189,7 +189,7 @@
 
                     <span class="text-section-hover-white"></span>
                 </h3>
-                <a href="#" class="ml-auto mr-0 btn bg-green btn-sm shadow-md bg-dark-btn">@lang("Voir plus")</a>
+                <a href="{{ route('categories.all')}}" class="ml-auto mr-0 btn bg-green btn-sm shadow-md bg-dark-btn">@lang("Voir plus")</a>
             </div>
             <div>
                 <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
