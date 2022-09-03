@@ -30,6 +30,7 @@ class HomeSiteController extends Controller
             Session()->put('cart-count', $count);
         } else $img = "assets/img/default.png";
         Session()->put('picprofile', $img);
+        // dd($config);
         Session()->put('config', $config);
     }
     public function index()

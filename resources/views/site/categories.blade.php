@@ -3,10 +3,15 @@
 <section class="mb-4 mt-3">
     <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
-            <div class="d-flex flex-wrap mb-3 align-items-baseline border-bottom">
+            <div class="d-flex mb-3 align-items-baseline border-bottom">
                 <h3 class="h5 fw-700 mb-0">
-                    <span class="border-bottom border-success border-width-2 pb-3 d-inline-block">@lang("Toutes nos categories")</span>
+                    <span class="pb-3 d-inline-block">
+                        @lang("Toutes nos categories")
+                    </span>
+
+                    <span class="text-section-hover"></span>
                 </h3>
+
             </div>
             @if($categories->count()<=0) <div class="d-flex justify-content-center">
                 @lang('Aucune donnee a affiche')

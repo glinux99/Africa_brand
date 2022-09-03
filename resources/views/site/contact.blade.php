@@ -2,7 +2,7 @@
 @section('content')
 <section class="mb-4 mt-3">
     <div class="mx-3 containerd">
-        <div class="col-md-10 mx-auto px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
+        <div class="col-md-11 mx-auto px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
             <h3 class="text-center mb-5 fw-900">
                 Contactez-nous
             </h3>

@@ -180,6 +180,7 @@
         </div>
     </div>
 </section>
+@if ($categories->count()>0)
 <section class="mb-4">
     <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-green2 shadow-sm rounded">
@@ -215,6 +216,7 @@
         </div>
     </div>
 </section>
+@endif
 <section class="mb-4">
     <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
@@ -233,6 +235,7 @@
     </div>
     </div>
 </section>
+@if ($actualites->count()>0)
 <section class="mb-4">
     <div class="mx-3 containerd">
         <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
@@ -273,4 +276,5 @@
         </div>
     </div>
 </section>
+@endif
 @endsection

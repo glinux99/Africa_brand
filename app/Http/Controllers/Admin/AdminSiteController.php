@@ -8,6 +8,7 @@ use App\Models\Commande;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Site\HomeSiteController;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -20,6 +21,8 @@ class AdminSiteController extends Controller
      */
     public function index()
     {
+        $config = new HomeSiteController;
+        $config->config();
         $user = User::find(Auth::id());
         if ($user->hasRole('client')) {
             return redirect()->route('index');
