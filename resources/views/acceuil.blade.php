@@ -9,7 +9,8 @@
                     @foreach ($center_img as $image)
                     <div class="carousel-box">
                         <a href="#">
-                            <img class="d-block img-fluid rounded shadow-sm overflow-hidden" src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" style="min-width:100%;max-height:20rem; min-height:25rem" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                            <img class="d-md-block d-lg-block d-none img-fluid rounded shadow-sm overflow-hidden " src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" style="min-width:100%;max-height:25rem; min-height:25rem" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
+                            <img class="d-md-none d-lg-none d-block img-fluid rounded shadow-sm overflow-hidden " src="{{ asset('storage/'.$image->images)}}" alt="Africa brand" style="min-width:100%;max-height:15rem; min-height:15rem" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg';">
                         </a>
                     </div>
                     @endforeach
@@ -26,10 +27,10 @@
                 </ul>
             </div>
             <div class="col-lg-3">
-                <div class="row">
+                <div class="row bg-danger">
                     @foreach ($pub_img as $image)
-                    <div class="col-lg-6 col-3 my-2 mt-md-0 mb-3">
-                        <img src="{{ asset('storage/'.$image->images)}}" alt="" class="img-fit">
+                    <div class="col-lg-6 col-3 my-2 mt-md-0 mb-md-3 mb-lg-3">
+                        <img src="{{ asset('storage/'.$image->images)}}" alt="" class="img-fluid">
                     </div>
                     @endforeach
                 </div>

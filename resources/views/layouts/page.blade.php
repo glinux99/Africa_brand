@@ -120,7 +120,7 @@
                         </a>
                     </li>
                     <li class="list-inline-item mr-md-3 pr-md-3 pl-0">
-                        <a href="tel:+243 970 912 428" class="text-reset d-inline-block py-2">
+                        <a href="tel:{{ Session('config')->numeropv ?? '+243 970912428' }}" class="text-reset d-inline-block py-2">
                             <span class="fw-700 opacity-70">@lang('Appel'):</span>
                             <span class="opacity-60">{{ Session('config')->numeropv ?? '' }}</span>
                         </a>
