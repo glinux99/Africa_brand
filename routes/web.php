@@ -115,7 +115,9 @@ Route::get('/contact', [HomeSiteController::class, 'contact'])->name('contact');
 Route::get('apropos', [HomeSiteController::class, 'apropos'])->name('apropos');
 Route::get('/categories', [HomeSiteController::class, 'categories'])->name('categories.all');
 // Essaies
-Route::get('/test/{id}', [ProduitController::class, 'show']);
+Route::get('/test', function () {
+    return view('test');
+});
 // Route::get('/test/{id}', [CategorieController::class, 'show'])->name('categories.details');
 Route::get('/links', function () {
     Artisan::call('storage:link');

@@ -27,7 +27,6 @@
                             <label for="email" class="mb-1">@lang('Email') <span class="text-danger">*</span></label>
                             <div class="pinput_container mb-3">
                                 <input id="email" type="email" class="form-control  m-0 p-0 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -46,8 +45,10 @@
                             <label for="password" class="mb-1">
                                 @lang('Mot de passe') <span class="text-danger">*</span></label>
                             <div class="pinput_container mb-3">
-                                <input id="password" type="password" class="form-control  m-0 p-0 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                <div class="form-group">
+                                    <input type="password" id="password-field2" name="password" class="form-control form-control-submit" placeholder="*****************" required>
+                                    <div data-name="#password-field2" class="la la-fw la-eye field-icon toggle-password"></div>
+                                </div>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -59,7 +60,10 @@
                             <label for="password" class="mb-1">
                                 @lang('Confirmez le mot de passe') <span class="text-danger">*</span></label>
                             <div class="pinput_container mb-3">
-                                <input id="password-confirm" type="password" class="form-control  m-0 p-0" name="password_confirmation" required autocomplete="new-password">
+                                <div class="form-group">
+                                    <input id="password-field3" type="password" name="password_confirmation" class="form-control form-control-submit" placeholder="*****************" required>
+                                    <div data-name="#password-field3" class="la la-fw la-eye field-icon toggle-password"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-12">

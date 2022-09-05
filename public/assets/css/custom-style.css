@@ -75,3 +75,19 @@
 .bg-dark-2 {
     background-image: linear-gradient(to right top, #070707, #131316, #1b1b20, #22232b, #292c36, #323943, #3b4651, #44545e, #56696f, #6b7f7f, #849490, #9eaaa2);
 }
+
+.aside-bar {
+    overflow: auto;
+    position: sticky;
+    top: 5%;
+}
+
+.form-group .field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    right: 18px;
+    cursor: pointer;
+}

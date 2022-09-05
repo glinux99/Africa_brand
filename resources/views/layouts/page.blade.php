@@ -3,20 +3,43 @@
 
 <head>
     <meta name="app-url" content="/">
-    <meta name="file-base-url" content="public/">
+    <meta name="file-base-url" content="/">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="linux99">
+    <meta name="description" content="{{ Config('app.name')}} E-commerce" />
+    <meta name="keywords" content="African brand, e-commerce, ventes, produits e-commerce, african-brand.com, e-commerce african-brand">
 
-    <!-- Favicon -->
-    <link rel="icon" href="{{asset('assets/img/ico.png')}}">
 
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{ Config('app.name')}} E-commerce ">
+    <meta itemprop="description" content="{{ Config('app.name')}} E-commerce, Faites vos commandes et recevoir tous nos produits dans un bref delai...">
+    <meta itemprop="image" content="{{ asset('assets/img/ico.png')}}">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="linux99">
+    <meta name="twitter:title" content="{{ Config('app.name')}}">
+    <meta name="twitter:description" content="{{ Config('app.name')}} E-commerce">
+    <meta name="twitter:creator" content="linux99">
+    <meta name="twitter:image" content="{{ asset('assets/img/ico.png')}}">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ Config('app.name')}} E-commerce" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="{{ asset('assets/img/ico.png')}}" />
+    <meta property="og:description" content="{{ Config('app.name')}} E-commerce" />
+    <meta property="og:site_name" content="{{ Config('app.name')}} E-commerce" />
+    <meta property="fb:app_id" content="">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
 
     <!-- CSS Files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css')}}">
@@ -53,6 +76,11 @@
     </script>
 
 </head>
+<style>
+    body {
+        width: 100%;
+    }
+</style>
 
 <body>
     <!-- aiz-main-wrapper -->
@@ -102,8 +130,8 @@
         </div>
         <!-- END Top Bar -->
         <header class="sticky-top  z-1020 bg-white border-bottom shadow-md ">
-            <div class="position-relative logo-bar-area z-1 bg-danger">
-                <div class="row">
+            <div class="position-relative logo-bar-area z-1 bg-dark">
+                <div class="row w-100">
                     <div class="col-md-12">
                         <div class="bg-dark d-flex align-items-center">
                             <div class="pl-md-5 col-md-3 col-lg-3 col-5 pl-3 pr-5 bg-white logo-menu  d-flex align-items-center">
@@ -156,7 +184,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-8 text-white count-class" @if (Session('cart-count')) id="charriot-link" @endif>
+                            <div class="col-md-2 col-8 text-white count-class w-100 d-md-block d-lg-block d-flex flex-row-reverse" @if (Session('cart-count')) id="charriot-link" @endif>
                                 <div class="nav-cart-box dropdown dropleft h-100" id="cart_items">
                                     <a href="javascript:void(0)" class="d-flex text-white align-items-center text-reset h-100" data-toggle="dropdown" data-display="static">
                                         <i class="la la-shopping-cart la-3x opacity-80"></i>
@@ -324,7 +352,7 @@
                                 @endif
                             </ul>
                         </div>
-                        <div class="text-left mt-4 col-md-12 col-6 col-lg-12 m-0 p-0">
+                        <div class="text-left mt-4 ml-3 col-md-12 col-6 col-lg-12 m-0 p-0">
                             <a href="{{ route('register')}}" class="text-white">
                                 <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                                     @lang("Devenir un client")
@@ -387,46 +415,43 @@
         </footer>
 
 
-        <div class="aiz-mobile-bottom-nav d-xl-none fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
+        <div class="aiz-mobile-bottom-nav d-lg-none d-md-none d-block fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
             <div class="row align-items-center gutters-5">
                 <div class="col">
                     <a href="{{route('index')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <i class="las la-home fs-20 opacity-60 opacity-100 text-success"></i>
+                        <i class="las la-home fs-20 opacity-60 opacity-100 text-dark fw-600"></i>
+                        <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Acceuil")</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="{{ route('apropos')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <span class="d-inline-block position-relative px-2">
-                            <i class="las la-info-circle fs-20 opacity-60 "></i>
-                        </span>
+                        <i class="las la-info-circle  fs-20 opacity-60 opacity-100 text-primary"></i>
+                        <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Infos")</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="{{ route('categories.all')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <i class="las la-list-ul fs-20 opacity-60 "></i>
-
+                        <i class="las la-list-ul fs-20 opacity-60 opacity-100 text-primary"></i>
+                        <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Categories")</span>
                     </a>
                 </div>
                 <div class="col-auto">
                     <a href="{{ route('home.produit')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <span class="align-items-center bg-success border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
+                        <span class="align-items-center bg-dark border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
                             <i class="las la-shopping-bag la-2x text-white"></i>
                         </span>
-
                     </a>
                 </div>
                 <div class="col">
                     <a href="{{ route('news.all')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <span class="d-inline-block position-relative px-2">
-                            <i class="las la-globe fs-20 opacity-60 "></i>
-                        </span>
+                        <i class="las la-globe fs-20 opacity-60 opacity-100 text-primary"></i>
+                        <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Blog")</span>
                     </a>
                 </div>
                 <div class="col">
                     <a href="{{ route('contact')}}" class="text-reset d-block text-center pb-2 pt-3">
-                        <span class="d-inline-block position-relative px-2">
-                            <i class="las la-phone fs-20 opacity-60 "></i>
-                        </span>
+                        <i class="las la-phone fs-20 opacity-60 opacity-100 text-primary"></i>
+                        <span class="d-block fs-10 fw-600 opacity-60 opacity-100 fw-600">@lang("Contact")</span>
                     </a>
                 </div>
                 <div class="col">
@@ -434,6 +459,7 @@
                         <span class="d-block mx-auto">
                             <img src="{{ Session('picprofile')}}" class="rounded-circle size-20px">
                         </span>
+                        <span class="d-block fs-10 fw-600 opacity-60">@lang("Compte")</span>
                     </a>
                 </div>
             </div>
@@ -494,6 +520,17 @@
         }
     </script>
     <script>
+        $(".toggle-password").on('click', function() {
+            $(this).toggleClass("la-eye la-eye-slash");
+            var input = $($(this).attr("data-name"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+    <script>
         $(document).ready(function($) {
             $('#charriot-link, chariot-class').click(function() {
                 location.href = "{{ route('produit.cart.all')}}";
@@ -524,12 +561,12 @@
                         $('.title-details').empty();
                         $('.images-res').append(`
                              <div class="carousel-box img-zoom rounded">
-                                                    <img class="img-fit lazyload w-100" src="" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                    <img class="img-fit lazyload w-100" src="" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='{{ asset('assets/img/ico.png')}}';">
                                                 </div>
                             `);
                         $('.images-res-tumb').append(`
                             <div class="carousel-box c-pointer border p-1 rounded">
-                                                    <img class="lazyload mw-100 size-50px mx-auto" src="/storage/` + res.images[0].images + `" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                    <img class="lazyload mw-100 size-50px mx-auto" src="/storage/` + res.images[0].images + `" data-src="/storage/` + res.images[0].images + `" onerror="this.onerror=null;this.src='{{ asset('assets/img/ico.png')}}';">
                                                 </div>
                             `);
                         var id = res.produit.id;
@@ -861,42 +898,6 @@
             }
         }
     </script>
-
-    <script>
-        $(document).ready(function() {
-            $.post('/home/section/featured', {
-                _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
-            }, function(data) {
-                $('#section_featured').html(data);
-                AIZ.plugins.slickCarousel();
-            });
-            $.post('/home/section/best_selling', {
-                _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
-            }, function(data) {
-                $('#section_best_selling').html(data);
-                AIZ.plugins.slickCarousel();
-            });
-            $.post('/home/section/auction_products', {
-                _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
-            }, function(data) {
-                $('#auction_products').html(data);
-                AIZ.plugins.slickCarousel();
-            });
-            $.post('/home/section/home_categories', {
-                _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
-            }, function(data) {
-                $('#section_home_categories').html(data);
-                AIZ.plugins.slickCarousel();
-            });
-            $.post('/home/section/best_sellers', {
-                _token: 'zRebXLF17zvMVZMSBH25YrFFgmb0gmz607tgEyPt'
-            }, function(data) {
-                $('#section_best_sellers').html(data);
-                AIZ.plugins.slickCarousel();
-            });
-        });
-    </script>
-
     <script src="{{ asset('assets/js/vendors.js')}}"></script>
     <script src="{{ asset('assets/js/aiz-core.js')}}"></script>
 

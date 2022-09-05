@@ -59,6 +59,18 @@
             @yield('content')
         </div>
     </div>
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <script>
+        $(".toggle-password").on('click', function() {
+            $(this).toggleClass("la-eye la-eye-slash");
+            var input = $($(this).attr("data-name"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
 </body>
 
 </html>

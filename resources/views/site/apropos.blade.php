@@ -106,89 +106,40 @@
                 </div>
             </div>
         </div>
+        <style>
+            .nav-pills>.active {
+                background-color: darkblue !important;
+            }
+        </style>
         <div class="col-md-11 mx-auto px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
-            <div class="apropos">
-                <div class="row">
-                    <div class="col-md-3 my-5 sticky-top z-3">
-                        <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active border-bottom border-width-1 border-dark my-2 rounded" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">@lang("Présentation de l'entreprise")</a>
-                            <a class="nav-link border-bottom border-width-1 border-dark my-2 rounded" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">@lang("Équipes de direction")</a>
-                            <a class="nav-link border-bottom border-width-1 border-dark my-2 rounded" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">@lang("Cultures et valeurs")</a>
-                            <a class="nav-link border-bottom border-width-1 border-dark my-2 rounded" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">@lang("Nos autres affaires")</a>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
+            <div class="apropos row">
+                <div class="col-md-3 d-flex flex-column " id="navbar-example2">
+                    <a href="#presentation" class="page-scroll border-bottom border-width-1 border-dark my-2 p-2 rounded">@lang("Présentation de l'entreprise")</a>
+                    <a href="#presentation2" class="border-bottom border-width-1 border-dark my-2 p-2 rounded">@lang("Présentation de l'entreprise")</a>
+                    <a href="#presentation" class="border-bottom border-width-1 border-dark my-2 p-2 rounded">@lang("Présentation de l'entreprise")</a>
+                    <a href="#presentation" class="border-bottom border-width-1 border-dark my-2 p-2 rounded">@lang("Présentation de l'entreprise")</a>
+                </div>
+                <div class="col-md-9" data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+                    <div class="" id="presentation">
+                        <h3 class="text-center my-4 fw-700">
+                            Présentation de l'entreprise
+                        </h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eaque, accusamus repellat inventore exercitationem voluptate blanditiis earum dolor ipsa? Nisi sit adipisci quibusdam tempore. Placeat, sit tempore. Ab sint consequuntur, ratione excepturi eius suscipit dolor culpa facere tempore saepe voluptatem, error at quidem dolore? Modi quae, iure quod voluptate vitae ipsa nulla reprehenderit voluptates expedita, maxime nemo, optio ipsum labore quis repellat. Ut optio neque doloribus beatae unde fuga inventore porro tempora eveniet culpa rem corporis excepturi amet voluptas veritatis explicabo, perferendis impedit? Adipisci nostrum quae aspernatur odio, ab suscipit natus aliquid at quis incidunt quisquam dolores quos corrupti, beatae commodi omnis ratione alias! Quia in esse vero illum veritatis quis excepturi nihil iure, atque deleniti et officia iusto blanditiis doloremque debitis aperiam labore, nostrum mollitia nulla laudantium? Nisi quibusdam eligendi impedit! Nam, vel enim! Placeat a ratione ad, sint, consequuntur tenetur, eaque adipisci vero facilis repellendus itaque neque deleniti laudantium. Eaque maiores fugiat necessitatibus nobis quae dolor fuga, sunt quod, iure numquam modi debitis consequuntur autem, repellat nihil sed laudantium sint ducimus aliquam corrupti quisquam incidunt accusamus! Officiis, qui beatae. Eligendi reprehenderit voluptatum neque harum odio ex, consequuntur ratione in iste voluptatibus officia, veniam sapiente maiores ea enim dignissimos.</p>
 
-                        <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                <h3>
-                                    Présentation de l'entreprise
-                                </h3>
-                                <div class="text-justify ">
-                                    {!! $config->presentation ?? '' !!}
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                <h3>Notre Equipe</h3>
-                            </div>
-                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                <h3>
-                                    Notre Mission
-                                </h3>
-                                <div class="text-justify">
-                                    {!! $config->culture ?? '' !!}
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                <h3>Autres Busness</h3>
-                                <div class="row">
-                                    <div class="text-justify col-md-6 my-5">
-                                        <h4>
-                                            Africa-brand App
-                                        </h4>
-                                        <div class="text-justify">
-                                            Africa brand application pour vous aider a maneger votre entreprise
-                                        </div>
-                                    </div>
-                                    <div class="text-justify col-md-6 my-5">
-                                        <h4>
-                                            Africa-brand App
-                                        </h4>
-                                        <div class="text-justify">
-                                            Africa brand application pour vous aider a maneger votre entreprise
-                                        </div>
-                                    </div>
-                                    <div class="text-justify col-md-6 my-5">
-                                        <h4>
-                                            Africa-brand App
-                                        </h4>
-                                        <div class="text-justify">
-                                            Africa brand application pour vous aider a maneger votre entreprise
-                                        </div>
-                                    </div>
-                                    <div class="text-justify col-md-6 my-5">
-                                        <h4>
-                                            Africa-brand App
-                                        </h4>
-                                        <div class="text-justify">
-                                            Africa brand application pour vous aider a maneger votre entreprise
-                                        </div>
-                                    </div>
-                                    <div class="text-justify col-md-6 my-5">
-                                        <h4>
-                                            Africa-brand App
-                                        </h4>
-                                        <div class="text-justify">
-                                            Africa brand application pour vous aider a maneger votre entreprise
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="" id="presentation2">
+                        <h3 class="text-center my-4 fw-700">
+                            Présentation de l'entreprise
+                        </h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eaque, accusamus repellat inventore exercitationem voluptate blanditiis earum dolor ipsa? Nisi sit adipisci quibusdam tempore. Placeat, sit tempore. Ab sint consequuntur, ratione excepturi eius suscipit dolor culpa facere tempore saepe voluptatem, error at quidem dolore? Modi quae, iure quod voluptate vitae ipsa nulla reprehenderit voluptates expedita, maxime nemo, optio ipsum labore quis repellat. Ut optio neque doloribus beatae unde fuga inventore porro tempora eveniet culpa rem corporis excepturi amet voluptas veritatis explicabo, perferendis impedit? Adipisci nostrum quae aspernatur odio, ab suscipit natus aliquid at quis incidunt quisquam dolores quos corrupti, beatae commodi omnis ratione alias! Quia in esse vero illum veritatis quis excepturi nihil iure, atque deleniti et officia iusto blanditiis doloremque debitis aperiam labore, nostrum mollitia nulla laudantium? Nisi quibusdam eligendi impedit! Nam, vel enim! Placeat a ratione ad, sint, consequuntur tenetur, eaque adipisci vero facilis repellendus itaque neque deleniti laudantium. Eaque maiores fugiat necessitatibus nobis quae dolor fuga, sunt quod, iure numquam modi debitis consequuntur autem, repellat nihil sed laudantium sint ducimus aliquam corrupti quisquam incidunt accusamus! Officiis, qui beatae. Eligendi reprehenderit voluptatum neque harum odio ex, consequuntur ratione in iste voluptatibus officia, veniam sapiente maiores ea enim dignissimos.</p>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
 @endsection
