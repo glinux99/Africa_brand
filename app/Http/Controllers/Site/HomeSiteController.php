@@ -23,14 +23,16 @@ class HomeSiteController extends Controller
         $config = ConfigSite::first();
 
         if (Auth::user()) {
-            // $img = Images::where('users_id', Auth::user()->id)->first();
-            // $img = "storage/" . $img->images;
-            $img = "assets/img/default.png";
+            $img = Images::where('users_id', Auth::user()->id)->first();
+            if ($img) {
+                $img = "storage/" . $img->images;
+            } else
+                $img = "assets/img/default.png";
             $count = Chariot::where('users_id', Auth::user()->id)->count() ?? 0;
             Session()->put('cart-count', $count);
         } else $img = "assets/img/default.png";
         Session()->put('picprofile', $img);
-        // dd($config);
+        // dd(Session('picprofile'));
         Session()->put('config', $config);
     }
     public function index()

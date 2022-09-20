@@ -18,7 +18,13 @@
                             </div>
                             <div class="form-group">
                                 <input type="password" id="password-field" name="password" class="form-control form-control-submit" placeholder="Password" required>
-                                <div data-name="#password-field" class="la la-fw la-eye field-icon toggle-password"></div>
+                                <div data-name="#password-field" class="la la-fw la-eye field-icon toggle-password" style="float: right;
+    margin-left: -25px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    right: 18px;
+    cursor: pointer;"></div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-sm-6">

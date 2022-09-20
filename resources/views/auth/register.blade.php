@@ -47,7 +47,13 @@
                             <div class="pinput_container mb-3">
                                 <div class="form-group">
                                     <input type="password" id="password-field2" name="password" class="form-control form-control-submit" placeholder="*****************" required>
-                                    <div data-name="#password-field2" class="la la-fw la-eye field-icon toggle-password"></div>
+                                    <div data-name="#password-field2" class="la la-fw la-eye field-icon toggle-password" style="float: right;
+    margin-left: -25px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    right: 18px;
+    cursor: pointer;"></div>
                                 </div>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -62,7 +68,13 @@
                             <div class="pinput_container mb-3">
                                 <div class="form-group">
                                     <input id="password-field3" type="password" name="password_confirmation" class="form-control form-control-submit" placeholder="*****************" required>
-                                    <div data-name="#password-field3" class="la la-fw la-eye field-icon toggle-password"></div>
+                                    <div data-name="#password-field3" class="la la-fw la-eye field-icon toggle-password" style="float: right;
+    margin-left: -25px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    right: 18px;
+    cursor: pointer;"></div>
                                 </div>
                             </div>
                         </div>
