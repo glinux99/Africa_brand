@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('titre')
+@lang("Acceuil ")
+@endsection
 @section('content')
 <div class="home-banner-area mb-4 pt-3">
     <div class="mx-3 containerd">
@@ -27,7 +30,7 @@
                 </ul>
             </div>
             <div class="col-lg-3">
-                <div class="row bg-danger">
+                <div class="row">
                     @foreach ($pub_img as $image)
                     <div class="col-lg-6 col-3 my-2 mt-md-0 mb-md-3 mb-lg-3">
                         <img src="{{ asset('storage/'.$image->images)}}" alt="" class="img-fluid">

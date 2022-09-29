@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('titre')
+@lang("Mon chariot ")
+@endsection
 @section('content')
 
 <body>

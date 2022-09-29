@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="author" content="linux99">
-    <meta name="description" content="{{ Config('app.name')}} E-commerce" />
+    <meta name="description" content="{{ Config('app.name')}} E-commerce, African Brand est un site E-commerce qui vend et livre des produits dans le plus bref delai. Passer vos commandes chez nous" />
     <meta name="keywords" content="African brand, e-commerce, ventes, produits e-commerce, african-brand.com, e-commerce african-brand">
 
 
@@ -34,6 +34,7 @@
     <meta property="og:description" content="{{ Config('app.name')}} E-commerce" />
     <meta property="og:site_name" content="{{ Config('app.name')}} E-commerce" />
     <meta property="fb:app_id" content="">
+    <title>@yield("titre"){{Config('app.name')}} @lang("E-commerce, leader dans la vente, production et livraisons des produits")</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
 
@@ -44,6 +45,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css')}}">
     <link href="{{asset('assets/selected2/dist/css/select2.min.css')}}" rel="stylesheet" />
+
     <style>
         body {
             font-size: 12px;
@@ -114,8 +116,13 @@
                             <i class="la la-linkedin la-lg"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                    <li class="list-inline-item mr-md-3  pr-md-3 pl-0">
                         <a href="https://wa.me/{{ Session('config')->whatsapp ?? '' }}" class="soc whatsapp text-reset d-inline-block opacity-60 py-2">
+                            <i class="la la-whatsapp la-lg"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3  pr-3 pl-0">
+                        <a href="{{ Session('config')->instragrame ?? '' }}" class="soc whatsapp text-reset d-inline-block opacity-60 py-2">
                             <i class="la la-instagram la-lg"></i>
                         </a>
                     </li>
@@ -136,11 +143,8 @@
                         <div class="bg-dark d-flex align-items-center">
                             <div class="pl-md-5 col-md-3 col-lg-3 col-5 pl-3 pr-5 bg-white logo-menu  d-flex align-items-center">
                                 <a class="d-block py-10px" href="/">
-                                    <img src="{{asset('assets/img/logo.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
+                                    <img src="{{asset('assets/img/logo-long-black.png')}}" alt="@lang('Africa Brand  commerce')" class="mw-100 h-30px h-md-40px" height="40">
                                 </a>
-                                <div>
-                                    @lang("AFRICAN BRAND")
-                                </div>
                             </div>
                             <div class="col-md-8 text-white border-gray-200 py-1 d-none d-lg-block">
                                 <div class="container">
@@ -395,7 +399,7 @@
                                 <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="linkedin soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-linkedin-in text-white la-lg opacity-50"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="{{ Session('config')->lindin ?? ''}}" target="_blank" class="whatsapp soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-whatsapp text-white la-lg opacity-60"></i></a>
+                                <a href="https://wa.me/{{ Session('config')->whatsapp ?? '' }}" target="_blank" class="whatsapp soc text-reset d-inline-block opacity-60 py-2"><i class="lab la-whatsapp text-white la-lg opacity-60"></i></a>
                             </li>
                         </ul>
                     </div>

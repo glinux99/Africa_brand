@@ -27,7 +27,7 @@
     cursor: pointer;"></div>
                             </div>
                             <div class="row mb-2">
-                                <div class="col-sm-6">
+                                <div class="col-6">
                                     <div class="text-left">
                                         <label class="aiz-checkbox">
                                             <input type="checkbox" name="remember" id="remember">
@@ -36,9 +36,9 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-6">
                                     <div class="text-right opacity-100">
-                                        <a href="password/reset.html" class="text-reset text-lowercase">@lang("Mot de passe oublie?")</a>
+                                        <a href="/" class="text-reset text-lowercase">@lang("Mot de passe oublie?")</a>
                                     </div>
                                 </div>
                             </div>

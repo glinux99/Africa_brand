@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('titre')
+@lang("Tous nos produits ")
+@endsection
 @section('content')
 @if ($prodcats!="produitOnly")
 <section class="mb-4 mt-3">

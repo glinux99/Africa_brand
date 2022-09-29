@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('titre')
+@lang("NOs commandes en entente ")
+@endsection
 @section('content')
 
 <section class="pt-5 mb-4">

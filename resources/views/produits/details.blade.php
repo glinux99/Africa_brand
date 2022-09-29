@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('titre')
+@lang("Details du produit ")
+@endsection
 @section('content')
 <section class="mb-4 pt-3">
     <div class="container">
