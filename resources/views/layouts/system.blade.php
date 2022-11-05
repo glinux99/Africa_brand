@@ -133,30 +133,6 @@
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Transformation")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Matiere premiere")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Produit fini")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Matiere Consommable")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-user-tie aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("Stock")</span>
                                 <span class="aiz-side-nav-arrow"></span>
                             </a>
@@ -198,42 +174,31 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-eye aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Observations")</span>
+                                <span class="aiz-side-nav-arrow"></span>
+                            </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link" data-toggle="modal" data-target="#new-stockMpMc-modal">
+                                        <span class="aiz-side-nav-text" data-toggle="tooltip" data-title="MP=Matiere premiere et MC=Matiere Consommable">@lang("Stock MP & MC")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link " data-target="#new-stockPF-modal" data-toggle="modal">
+                                        <span class="aiz-side-nav-text">@lang("Stock produit Fini")</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- Addon Manager -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link ">
                                 <i class="las la-wrench aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("Contrat de Monopole")</span>
                             </a>
-                        </li>
-                        <!-- Cleints -->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Configuration site")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('apropos.config')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Page a propos")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('news.config')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("page d'Actualite")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Page de contact")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('autres.config')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Autres configurations")</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <!-- Staffs -->
                         <li class="aiz-side-nav-item">
@@ -265,7 +230,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- Cleints -->
+                        <!-- Clients -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-user-tie aiz-side-nav-icon"></i>

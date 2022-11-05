@@ -204,6 +204,13 @@
                                 </li>
                             </ul>
                         </li>
+                        <!-- Addon Manager -->
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link ">
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Entreprise")</span>
+                            </a>
+                        </li>
                     </ul><!-- .aiz-side-nav -->
                 </div><!-- .aiz-side-nav-wrap -->
             </div><!-- .aiz-sidebar -->

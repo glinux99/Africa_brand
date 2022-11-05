@@ -9,8 +9,8 @@
                     <h1 class="h3">@lang("Charges Configuration")</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="#" class=" btn btn-circle btn-info">
-                        <span>@lang("Ajouter une charge")</span>
+                    <a href="#" class=" btn btn-circle btn-info" data-target="#new-charges-modal" data-toggle="modal">
+                        <span>@lang(" Ajouter une charge")</span>
                     </a>
                 </div>
             </div>

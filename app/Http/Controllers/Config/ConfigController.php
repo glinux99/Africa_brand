@@ -122,6 +122,11 @@ class ConfigController extends Controller
         $users = User::role('staff')->paginate(10);
         return view('config.apropos', ['users' => $users]);
     }
+
+    public function EntrepriseConfig()
+    {
+        return view('config.entreprise');
+    }
     /**
      * Show the form for creating a new resource.
      *
