@@ -18,6 +18,35 @@
 
         <form action="{{ route('autres.config.update')}}" method="post" enctype="multipart/form-data">
             @csrf
+            <div class="col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-header row gutters-5">
+                        <div class="col text-center text-md-left">
+                            <h5 class="mb-md-0 h6">@lang("Entreprise Info")</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="inputNumeroligne" class="control-label">@lang('Nom de l\'Entreprise')</label>
+                                <input type="text" class="form-control" value="{{Config('app.name')}}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputNumeroligne" class="control-label">@lang('Adresse physique')</label>
+                                <input type="text" name="adresse" class="form-control" value="{{ $config->adresse ?? ''}}" placeholder="@lang('001 Av. du touriste, Q. les volcans, Com. De, Goma')">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputNumeroligne" class="control-label">@lang('Numero RCCM')</label>
+                                <input type="numero" class="form-control" value="{{ $config->rccm ?? ''}}" title="@lang('Ecrivez le numero RCCM de l\'entreprise')">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputNumeroligne" class="control-label">@lang('Boite Postal')</label>
+                                <input type="text" name="bp" class="form-control" value="{{ $config->bp ?? ''}}" title="@lang('Ecrivez l\'adresse intagram de votre site')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card-group">
                 <div class="card">
                     <div class="card-header row gutters-5">
@@ -78,35 +107,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row my-2 card">
-                <div class="card-header row gutters-5">
-                    <div class="col text-center text-md-left">
-                        <h5 class="mb-md-0 h6">@lang("Page d'acceuil Configutation")</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <div class="">
-                                <label for="inputNumeroligne" class="control-label">@lang('Images de publicite')</label>
-                                <input type="file" name="pub_images[]" id="inputNumeroligne" class="form-control" value="" title="" multiple>
-                            </div>
-                            <div class="">
-                                <label for="inputNumeroligne" class="control-label">@lang('Images Centrales')</label>
-                                <input type="file" name="center_images[]" id="inputNumeroligne" class="form-control" value="" title="" multiple>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class="card-body">
-                            <div class="">
-                                <label for="inputNumeroligne" class="control-label">@lang('Publicite Textuel')</label>
-                                <input type="text" name="publicite_txt" id="inputNumeroligne" class="form-control" value="{{ $config->publicite_txt ?? ''}}" title="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-12 my-3">
                 <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="Third group">
@@ -118,37 +118,6 @@
                 </div>
             </div>
         </form>
-    </div>
-</div><!-- .aiz-main-content -->
-<div id="delete-modal" class="modal fade">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title h6">@lang("Confirmation de suppression")</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-            </div>
-            <div class="modal-body text-center">
-                <p class="mt-1">@lang("Voulez-vous vraiment supprimer ce membre?")</p>
-                <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
-                <a href="" class="btn btn-primary mt-2 comfirm-link" id="supp" data-id="">@lang("Supprimer")</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="info-modal" class="modal fade">
-    <div class="modal-dialog modal-dialog-right">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title h6">File Info</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                </button>
-            </div>
-            <div class="modal-body c-scrollbar-light position-relative" id="info-modal-content">
-                <div class="c-preloader text-center absolute-center">
-                    <i class="las la-spinner la-spin la-3x opacity-70"></i>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

@@ -8,6 +8,7 @@ use App\Models\ConfigSite;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 
 class ConfigController extends Controller
@@ -125,6 +126,9 @@ class ConfigController extends Controller
 
     public function EntrepriseConfig()
     {
+        // config(['app.name' => "AFRICAN BRAND 2"]);
+        // Artisan::call('env:set app_name Example');
+        // Artisan::call('config:cache');
         return view('config.entreprise');
     }
     /**

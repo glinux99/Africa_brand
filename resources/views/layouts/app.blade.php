@@ -206,7 +206,7 @@
                         </li>
                         <!-- Addon Manager -->
                         <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link ">
+                            <a href="{{ route('admin.entreprise.config')}}" class="aiz-side-nav-link ">
                                 <i class="las la-wrench aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("Entreprise")</span>
                             </a>

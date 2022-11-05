@@ -102,7 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/update-config', [ConfigController::class, 'apropos_index'])->name('apropos.config.update');
     Route::get('/promition-produit', [PromotionController::class, 'index'])->name('promition.produit.index');
     Route::post('/promition-store', [PromotionController::class, 'store'])->name('promition.produit.store');
-
+    Route::get('/admin-entreprise', [ConfigController::class, 'EntrepriseConfig'])->name('admin.entreprise.config');
 
     // Configuration du systeme
     Route::get('/admin-system', [SystemController::class, 'AccesSystem'])->name('admin.system');
