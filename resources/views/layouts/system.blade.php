@@ -56,37 +56,29 @@
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
                         </li>
+                        <!-- Addon Manager -->
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('admin.create.matiere.premiere')}}" class="aiz-side-nav-link ">
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Matiere premiere")</span>
+                            </a>
+                        </li>
                         <!-- Product -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Produits")</span>
+                                <span class="aiz-side-nav-text">@lang("Produits fini")</span>
                                 <span class="aiz-side-nav-arrow"></span>
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{ route('produit')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Nouveau produit")</span>
+                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Nouveau produit fini")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
                                     <a href="{{route('produits')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Liste de nos produits")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('promition.produit.index')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Promotion de produits")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('commades')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Demandes de produits")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('categories')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Categories de produits")</span>
+                                        <span class="aiz-side-nav-text">@lang("Liste de nos produits fini")</span>
                                     </a>
                                 </li>
                             </ul>
@@ -95,16 +87,48 @@
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
                                 <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Tresorerie")</span>
+                                <span class="aiz-side-nav-text">@lang("Matiere consommable")</span>
                                 <span class="aiz-side-nav-arrow"></span>
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Taxes")</span>
+                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Nouvelle matiere")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Liste de nos matieres")</span>
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Equipement")</span>
+                                <span class="aiz-side-nav-arrow"></span>
+                            </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.create.equipement')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Nouvelle Equipement")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Liste de nos equipements")</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Addon Manager -->
+                        <li class="aiz-side-nav-item">
+                            <a href="{{ route('admin.create.charge')}}" class="aiz-side-nav-link ">
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Charges")</span>
+                            </a>
                         </li>
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
@@ -174,6 +198,13 @@
                                 </li>
                             </ul>
                         </li>
+                        <!-- Addon Manager -->
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link ">
+                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Contrat de Monopole")</span>
+                            </a>
+                        </li>
                         <!-- Cleints -->
                         <li class="aiz-side-nav-item">
                             <a href="#" class="aiz-side-nav-link">
@@ -200,6 +231,61 @@
                                 <li class="aiz-side-nav-item">
                                     <a href="{{route('autres.config')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Autres configurations")</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Staffs -->
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Gestion du personnel")</span>
+                                <span class="aiz-side-nav-arrow"></span>
+                            </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('staff')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Liste des agents")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Etat de payement")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Fiche de paie")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Permission des membres")</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Cleints -->
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Autres")</span>
+                                <span class="aiz-side-nav-arrow"></span>
+                            </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('clients')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Clients")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('fournisseurs')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Fournisseurs")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{route('partenaires')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Partenaires")</span>
                                     </a>
                                 </li>
                             </ul>
@@ -232,9 +318,9 @@
                         <div class="d-flex justify-content-around align-items-center align-items-stretch ml-3">
                             <div class="aiz-topbar-item">
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-soft-danger btn-sm d-flex align-items-center" href="{{ route('admin.system')}}">
+                                    <a class="btn btn-soft-danger btn-sm d-flex align-items-center" href="#">
                                         <i class="las la-hdd fs-20"></i>
-                                        <span class="fw-500 ml-1 mr-0 d-none d-md-block">@lang("Aller au systeme")</span>
+                                        <span class="fw-500 ml-1 mr-0 d-none d-md-block">@lang("Maintenace")</span>
                                     </a>
                                 </div>
                             </div>

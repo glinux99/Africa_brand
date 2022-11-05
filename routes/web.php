@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\AdminSiteController;
 use App\Http\Controllers\Membres\PartenaireController;
 use App\Http\Controllers\Membres\FournisseurController;
 use App\Http\Controllers\Promotion\PromotionController;
+use App\Http\Controllers\System\SystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +102,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/update-config', [ConfigController::class, 'apropos_index'])->name('apropos.config.update');
     Route::get('/promition-produit', [PromotionController::class, 'index'])->name('promition.produit.index');
     Route::post('/promition-store', [PromotionController::class, 'store'])->name('promition.produit.store');
+
+
+    // Configuration du systeme
+    Route::get('/admin-system', [SystemController::class, 'AccesSystem'])->name('admin.system');
+    Route::get('/admin-matiere-premiere', [SystemController::class, 'createMatierePremiere'])->name('admin.create.matiere.premiere');
+    Route::get('/admin-produit-fini', [SystemController::class, 'createProduitFini'])->name('admin.create.produit.fini');
+    Route::get('/admin-matiere-consommable', [SystemController::class, 'createMatiereConsommable'])->name('admin.create.matiere.consommable');
+    Route::get('/admin-matiere-consommable', [SystemController::class, 'createEquipement'])->name('admin.create.equipement');
+    Route::get('/admin-charges', [SystemController::class, 'createCharges'])->name('admin.create.charge');
 });
 
 // Routes sur le site
