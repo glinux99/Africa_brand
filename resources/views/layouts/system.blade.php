@@ -56,6 +56,27 @@
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
                         </li>
+                        <!-- Product -->
+                        <li class="aiz-side-nav-item">
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
+                                <span class="aiz-side-nav-text">@lang("Produits fini")</span>
+                                <span class="aiz-side-nav-arrow"></span>
+                            </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Nouveau produit fini")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.stock.produit.fini')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Liste de nos produits fini")</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
 
                         <!-- Product -->
                         <li class="aiz-side-nav-item">
@@ -72,26 +93,6 @@
                                 </li>
                                 <li class="aiz-side-nav-item">
                                     <a href="{{ route('admin.stock.matiere.premiere')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Liste de nos produits fini")</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Product -->
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <i class="las la-user-tie aiz-side-nav-icon"></i>
-                                <span class="aiz-side-nav-text">@lang("Produits fini")</span>
-                                <span class="aiz-side-nav-arrow"></span>
-                            </a>
-                            <ul class="aiz-side-nav-list level-2">
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Nouveau produit fini")</span>
-                                    </a>
-                                </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('admin.stock.produit.fini')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Liste de nos produits fini")</span>
                                     </a>
                                 </li>
