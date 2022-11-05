@@ -56,12 +56,26 @@
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
                         </li>
-                        <!-- Addon Manager -->
+
+                        <!-- Product -->
                         <li class="aiz-side-nav-item">
-                            <a href="{{ route('admin.create.matiere.premiere')}}" class="aiz-side-nav-link ">
-                                <i class="las la-wrench aiz-side-nav-icon"></i>
+                            <a href="#" class="aiz-side-nav-link">
+                                <i class="las la-user-tie aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang("Matiere premiere")</span>
+                                <span class="aiz-side-nav-arrow"></span>
                             </a>
+                            <ul class="aiz-side-nav-list level-2">
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.create.matiere.premiere')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Nouvelle matiere")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="{{ route('admin.stock.matiere.premiere')}}" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Liste de nos produits fini")</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <!-- Product -->
                         <li class="aiz-side-nav-item">
@@ -77,7 +91,7 @@
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{route('produits')}}" class="aiz-side-nav-link ">
+                                    <a href="{{ route('admin.stock.produit.fini')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Liste de nos produits fini")</span>
                                     </a>
                                 </li>
@@ -97,7 +111,7 @@
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                    <a href="{{ route('admin.stock.matiere.consommable')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Liste de nos matieres")</span>
                                     </a>
                                 </li>
@@ -138,17 +152,17 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
+                                    <a href="{{ route('admin.stock.produit.fini')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Produit Fini")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
+                                    <a href="{{ route('admin.stock.matiere.premiere')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Matiere Premiere")</span>
                                     </a>
                                 </li>
                                 <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link ">
+                                    <a href="{{ route('admin.stock.matiere.consommable')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Matiere Consommable")</span>
                                     </a>
                                 </li>

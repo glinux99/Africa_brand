@@ -17,6 +17,7 @@ use App\Http\Controllers\Users\ChariotController;
 use App\Http\Controllers\Membres\ClientController;
 use App\Http\Controllers\Site\CategorieController;
 use App\Http\Controllers\Admin\AdminSiteController;
+use App\Http\Controllers\Admin\stock\StockController;
 use App\Http\Controllers\Membres\PartenaireController;
 use App\Http\Controllers\Membres\FournisseurController;
 use App\Http\Controllers\Promotion\PromotionController;
@@ -111,6 +112,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-matiere-consommable', [SystemController::class, 'createMatiereConsommable'])->name('admin.create.matiere.consommable');
     Route::get('/admin-matiere-consommable', [SystemController::class, 'createEquipement'])->name('admin.create.equipement');
     Route::get('/admin-charges', [SystemController::class, 'createCharges'])->name('admin.create.charge');
+    Route::get('/admin-stock-produit-fini', [StockController::class, 'listProduitFini'])->name('admin.stock.produit.fini');
+    Route::get('/admin-stock-matiere-consommable', [StockController::class, 'listMatiereConsommable'])->name('admin.stock.matiere.consommable');
+    Route::get('/admin-stock-matiere-premiere', [StockController::class, 'listMatierePremiere'])->name('admin.stock.matiere.premiere');
 });
 
 // Routes sur le site
