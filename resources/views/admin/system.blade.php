@@ -10,7 +10,7 @@
                             <div class="px-3 pt-3">
                                 <div class="opacity-50">
                                     <span class="fs-12 d-block">Total</span>
-                                    @lang("Membre et Clients")
+                                    @lang("Tresorerie")
                                 </div>
                                 <div class="h3 fw-700 mb-3">
                                     {{ $data['membre']}}
@@ -27,7 +27,7 @@
                             <div class="px-3 pt-3">
                                 <div class="opacity-50">
                                     <span class="fs-12 d-block">Total</span>
-                                    @lang("Ventes")
+                                    @lang("Achats")
                                 </div>
                                 <div class="h3 fw-700 mb-3">
                                     {{$data['ventes']}}
@@ -44,7 +44,7 @@
                             <div class="px-3 pt-3">
                                 <div class="opacity-50">
                                     <span class="fs-12 d-block">Total</span>
-                                    @lang("Produits")
+                                    @lang("Ventes")
                                 </div>
                                 <div class="h3 fw-700 mb-3">{{ $data['produit']}}</div>
                             </div>
@@ -59,7 +59,7 @@
                             <div class="px-3 pt-3">
                                 <div class="opacity-50">
                                     <span class="fs-12 d-block">Total</span>
-                                    @lang("Categorie de produit")
+                                    @lang("Clients")
                                 </div>
                                 <div class="h3 fw-700 mb-3">{{$data['categorie']}}</div>
                             </div>
@@ -87,7 +87,7 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-header">
-                                <h6 class="mb-0 fs-14">@lang("Commandes")</h6>
+                                <h6 class="mb-0 fs-14">@lang("Tresorerie")</h6>
                             </div>
                             <div class="card-body">
                                 <canvas id="pie-2" class="w-100" height="305"></canvas>
@@ -103,7 +103,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0 fs-14">@lang("Categorie de produits vendus")</h6>
+                        <h6 class="mb-0 fs-14">@lang("Achats recents")</h6>
                     </div>
                     <div class="card-body">
                         <canvas id="graph-1" class="w-100" height="500"></canvas>
@@ -113,7 +113,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0 fs-14">@lang("Categorie de produits en stock")</h6>
+                        <h6 class="mb-0 fs-14">@lang("Observations recents")</h6>
                     </div>
                     <div class="card-body">
                         <canvas id="graph-2" class="w-100" height="500"></canvas>

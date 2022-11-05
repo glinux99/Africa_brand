@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.system')
 @section('content')
 <div class="aiz-main-content">
     <form action="{{ route('staff.store')}}" method="post" autocomplete="off" enctype="multipart/form-data">

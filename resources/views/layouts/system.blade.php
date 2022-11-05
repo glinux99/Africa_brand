@@ -139,9 +139,20 @@
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
                                     <a href="#" class="aiz-side-nav-link ">
-                                        <span class="aiz-side-nav-text">@lang("Taxes")</span>
+                                        <span class="aiz-side-nav-text">@lang("Produit Fini")</span>
                                     </a>
                                 </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Matiere Premiere")</span>
+                                    </a>
+                                </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="#" class="aiz-side-nav-link ">
+                                        <span class="aiz-side-nav-text">@lang("Matiere Consommable")</span>
+                                    </a>
+                                </li>
+
                             </ul>
                         </li>
                         <!-- Addon Manager -->
