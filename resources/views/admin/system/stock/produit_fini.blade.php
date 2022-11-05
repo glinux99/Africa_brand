@@ -3,7 +3,7 @@
 @lang("Produit fini")
 @stop
 @section('modal-1')
-produit-fini
+{{ route('admin.create.produit.fini')}}
 @stop
 @section('btn-a')
 un Produit fini

@@ -9,7 +9,7 @@
                     <h1 class="h3">@yield('title1') Configuration</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="#" class=" btn btn-circle btn-info" data-target="#@yield('modal-1')" data-toggle="modal">
+                    <a href="@yield('modal-1')" class=" btn btn-circle btn-info">
                         <span>@lang(" Ajouter ")@yield('btn-a')</span>
                     </a>
                 </div>

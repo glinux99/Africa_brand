@@ -3,7 +3,7 @@
 @lang("Matiere Premiere")
 @stop
 @section('modal-1')
-matiere-premiere
+{{route('admin.create.matiere.premiere')}}
 @stop
 @section('btn-a')
 une Matiere Premiere

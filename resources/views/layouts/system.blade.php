@@ -106,7 +106,7 @@
                             </a>
                             <ul class="aiz-side-nav-list level-2">
                                 <li class="aiz-side-nav-item">
-                                    <a href="{{ route('admin.create.produit.fini')}}" class="aiz-side-nav-link ">
+                                    <a href="{{ route('admin.create.matiere.consommable')}}" class="aiz-side-nav-link ">
                                         <span class="aiz-side-nav-text">@lang("Nouvelle matiere")</span>
                                     </a>
                                 </li>

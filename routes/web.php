@@ -110,7 +110,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-matiere-premiere', [SystemController::class, 'createMatierePremiere'])->name('admin.create.matiere.premiere');
     Route::get('/admin-produit-fini', [SystemController::class, 'createProduitFini'])->name('admin.create.produit.fini');
     Route::get('/admin-matiere-consommable', [SystemController::class, 'createMatiereConsommable'])->name('admin.create.matiere.consommable');
-    Route::get('/admin-matiere-consommable', [SystemController::class, 'createEquipement'])->name('admin.create.equipement');
+    Route::get('/admin-equipement', [SystemController::class, 'createEquipement'])->name('admin.create.equipement');
     Route::get('/admin-charges', [SystemController::class, 'createCharges'])->name('admin.create.charge');
     Route::get('/admin-stock-produit-fini', [StockController::class, 'listProduitFini'])->name('admin.stock.produit.fini');
     Route::get('/admin-stock-matiere-consommable', [StockController::class, 'listMatiereConsommable'])->name('admin.stock.matiere.consommable');
