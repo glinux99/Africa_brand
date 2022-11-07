@@ -844,3 +844,57 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="operation-achat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@lang("Finaliser avec le payement")</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-default" role="form" action="#" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label id="mode_payement_label" for="mode_payement">@lang("Mode de payement:")</label>
+                            </div>
+                            <div class="mb-3 col-md-8">
+                                <select id="mode_payement" name="mode_payement" class="form-control form-select " aria-label="">
+                                    <option>@lang("Cash")</option>
+                                    <option>@lang("Banque")</option>
+                                    <option>@lang("Credit")</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>@lang("Montant")</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <input type="number" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>@lang("Reference")</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <input type="text" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-sm btn-primary">@lang("Enregistrer")</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

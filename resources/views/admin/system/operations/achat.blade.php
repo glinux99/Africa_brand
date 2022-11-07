@@ -107,13 +107,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-8">
                         <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="Third group">
-                                <button type="submit" name="button" value="unpublish" class="btn btn-primary action-btn">@lang("Enregistrer et Acheter")</button>
-                            </div>
-                            <div class="btn-group" role="group" aria-label="Second group">
-                                <button type="submit" name="button" value="publish" class="btn btn-success action-btn">@lang("Enregistrer")</button>
+                                <button type="button" name="button" data-target="#operation-achat" data-toggle="modal" class="btn btn-primary action-btn">@lang("Acheter et payer")</button>
                             </div>
                         </div>
                     </div>
