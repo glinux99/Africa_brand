@@ -856,7 +856,7 @@
             <form class="form-default" role="form" action="#" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="p-3">
+                    <div class="px-3">
                         <div class="row">
                             <div class="col-md-4">
                                 <label id="mode_payement_label" for="mode_payement">@lang("Mode de payement:")</label>
@@ -887,6 +887,14 @@
                                 <div class="mb-3">
                                     <input type="text" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row border-top mb-3">
+                            <div class="col-6">
+                                @lang("Montant Global a payer")
+                            </div>
+                            <div class="border-left col-6 text-right">
+                                120usd
                             </div>
                         </div>
                         <div class="form-group text-right">
