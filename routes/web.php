@@ -17,6 +17,7 @@ use App\Http\Controllers\Users\ChariotController;
 use App\Http\Controllers\Membres\ClientController;
 use App\Http\Controllers\Site\CategorieController;
 use App\Http\Controllers\Admin\AdminSiteController;
+use App\Http\Controllers\Admin\operation\OperationController;
 use App\Http\Controllers\Admin\stock\StockController;
 use App\Http\Controllers\Membres\PartenaireController;
 use App\Http\Controllers\Membres\FournisseurController;
@@ -115,6 +116,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-stock-produit-fini', [StockController::class, 'listProduitFini'])->name('admin.stock.produit.fini');
     Route::get('/admin-stock-matiere-consommable', [StockController::class, 'listMatiereConsommable'])->name('admin.stock.matiere.consommable');
     Route::get('/admin-stock-matiere-premiere', [StockController::class, 'listMatierePremiere'])->name('admin.stock.matiere.premiere');
+    //Nouvelle operation
+    Route::get('/admin-operation-achat', [OperationController::class, 'achat'])->name('admin.operation.achat');
+    Route::get('/admin-operation-transformation', [OperationController::class, 'transformation'])->name('admin.operation.transformation');
+    Route::get('/admin-operation-vente', [OperationController::class, 'vente'])->name('admin.operation.vente');
 });
 
 // Routes sur le site
