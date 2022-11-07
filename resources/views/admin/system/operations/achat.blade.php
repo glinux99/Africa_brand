@@ -41,7 +41,9 @@
                                         <input type="date" class="form-control">
                                     </div>
                                 </div>
-                                <button type="button" name="button" value="publish" class="btn btn-success action-btn float-right">@lang("Ajouter a la liste")</button>
+                                <div class="col-md-11 px-0">
+                                    <button type="button" name="button" value="publish" class="btn btn-success action-btn float-right">@lang("Ajouter a la liste")</button>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
@@ -65,6 +67,31 @@
                                     <label class="col-md-3 col-from-label">@lang("Montant de la TVA")</label>
                                     <div class="col-md-8">
                                         <input type="number" class="form-control" value="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0 h6">@lang("Charges")</h5>
+                                <a class="btn btn-success action-btn float-right" data-toggle="modal" data-target="#new-charge-modal">@lang("Nouvelle charge")</a>
+                            </div>
+                            <div class="card-body">
+                                <!-- charges ici -->
+                                <p class="text-center">@lang("Aucune charge pour l'instant")</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0 h6">@lang("Fournisseur")</h5>
+                                <a class="btn btn-success action-btn float-right" data-toggle="modal" data-target="#fournisseurs-modal">@lang("Nouveau fournisseur")</a>
+                            </div>
+                            <div class="card-body">
+                                <!-- charges ici -->
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-from-label">@lang("Forunisseur")</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder="Nom de votre fournisseur">
                                     </div>
                                 </div>
                             </div>

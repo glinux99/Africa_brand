@@ -727,11 +727,11 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="new-opAchat-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="new-charge-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@lang("Details Achats")</h5>
+                <h5 class="modal-title" id="exampleModalLabel">@lang("Ajouter une charge")</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -742,7 +742,7 @@
                     <div class="p-3">
                         <div class="row">
                             <div class="col-md-2">
-                                <label>@lang("Article")</label>
+                                <label>@lang("Descritpion")</label>
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
@@ -752,17 +752,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-2">
-                                <label>@lang("Quantite")</label>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="mb-3">
-                                    <input type="number" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label>@lang("Prix")</label>
+                                <label>@lang("Montant")</label>
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
@@ -771,9 +761,84 @@
                             </div>
                         </div>
                         <div class="form-group text-right">
-                            <button type="submit" class="btn btn-sm btn-primary">@lang("Enregistrer")</button>
+                            <button type="submit" class="btn btn-sm btn-primary">@lang("Valider")</button>
                         </div>
                     </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="fournisseurs-modal" class="modal fade">
+    <div class="modal-dialog modal-lg modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h6">@lang("Ajouter un Fournisseur")</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <form action="{{ route('fournisseurs.store')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <p class="mt-1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Nom')</label>
+                                <input type="text" class="form-control" name="name" id="" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Adresse E-mail')</label>
+                                <input type="text" class="form-control" name="email" id="" autocomplete="new-password" aria-describedby="helpId" placeholder="@lang('adresse email de l\'agent')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Numero Tel /Whatsapp')</label>
+                                <input type="text" class="form-control" name="numero" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Adresse physique')</label>
+                                <input type="text" class="form-control" name="adresse" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Images')</label>
+                                <input type="file" class="form-control" name="images[]" multiple>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Autres documents')</label>
+                                <input type="file" class="form-control" name="documents[]" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('site web')</label>
+                                <input type="text" class="form-control" name="site" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">@lang('Lien facebook/Twitter')</label>
+                                <input type="text" class="form-control" name="liens" id="" aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                    <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                    <button type="submit" class="btn btn-primary mt-2 comfirm-link">@lang("Enregistrer")</button>
                 </div>
             </form>
         </div>
