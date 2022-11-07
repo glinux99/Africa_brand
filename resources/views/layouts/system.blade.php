@@ -321,7 +321,7 @@
                                         <ul class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-xs">
 
                                             <li>
-                                                <a href="" class="dropdown-item">
+                                                <a href="" class="dropdown-item" data-toggle="modal" data-target="#new-opAchat-modal">
                                                     @lang('Achat')
                                                 </a>
                                             </li>

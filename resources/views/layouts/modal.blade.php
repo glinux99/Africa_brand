@@ -727,3 +727,55 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="new-opAchat-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@lang("Details Achats")</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-default" role="form" action="#" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Article")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="text" name="" class="form-control" placeholder="Entrer ici le numero de compte">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Quantite")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="number" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Prix")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="number" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-sm btn-primary">@lang("Enregistrer")</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
