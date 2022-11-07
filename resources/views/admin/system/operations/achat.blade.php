@@ -24,6 +24,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
+                                    <label class="col-md-3 col-from-label">@lang("Quantite")</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">@lang("Prix")</label>
                                     <div class="col-md-8">
                                         <input type="number" name="" id="" class="form-control">
@@ -35,6 +41,7 @@
                                         <input type="date" class="form-control">
                                     </div>
                                 </div>
+                                <button type="button" name="button" value="publish" class="btn btn-success action-btn float-right">@lang("Ajouter a la liste")</button>
                             </div>
                         </div>
                         <div class="card">
