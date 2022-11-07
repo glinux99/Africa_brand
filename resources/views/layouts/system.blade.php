@@ -313,6 +313,30 @@
                                         <i class="las la-hdd fs-20"></i>
                                         <span class="fw-500 ml-1 mr-0 d-none d-md-block">@lang("Maintenace")</span>
                                     </a>
+                                    <div class="align-items-stretch d-flex dropdown " id="lang-change">
+                                        <a class=" dropdown-toggle no-arrow ml-2 btn btn-soft-danger btn-sm d-flex align-items-center" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
+                                            <i class="las la-plus fs-20"></i>
+                                            <span class="fw-500 ml-1 mr-0 d-none d-md-block">@lang("Nouvelle Operation")</span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-xs">
+
+                                            <li>
+                                                <a href="" class="dropdown-item">
+                                                    @lang('Achat')
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="dropdown-item border-top">
+                                                    @lang('transformation')
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="dropdown-item border-top">
+                                                    @lang('Ventes')
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
