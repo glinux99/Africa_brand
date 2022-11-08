@@ -117,8 +117,13 @@
                 </div>
             </form>
         </div>
-        <div class="mb-5 btn-dark position-fixed right-0 bottom-0">
-            @lang("Montant total a payer")
+        <div class="mb-5 btn-dark position-fixed right-0 bottom-0 rounded px-3 mr-3">
+            <div class="border-bottom py-2">
+                @lang("Montant total a payer")
+            </div>
+            <div class="py-2 text-center">
+                20000
+            </div>
         </div>
     </div>
 </div><!-- .aiz-main-content -->
