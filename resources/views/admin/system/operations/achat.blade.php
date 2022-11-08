@@ -20,29 +20,29 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Article") <span class="text-danger">*</span></label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="name" placeholder="@lang(' Nom du produit')" onchange="update_sku()" required>
+                                        <input type="text" class="form-control" id="article_Lname" name="article_name" placeholder="@lang(' Nom du produit')" onchange="update_sku()" required>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">@lang("Quantite")</label>
                                     <div class="col-md-8">
-                                        <input type="number" name="" id="" class="form-control">
+                                        <input type="number" name="article_qte" id="article_Lqte" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
                                     <label class="col-md-3 col-from-label">@lang("Prix")</label>
                                     <div class="col-md-8">
-                                        <input type="number" name="" id="" class="form-control">
+                                        <input type="number" name="" id="article_Lprix" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Date")</label>
                                     <div class="col-md-8">
-                                        <input type="date" class="form-control">
+                                        <input type="date" class="form-control" id="article_Ldate">
                                     </div>
                                 </div>
                                 <div class="col-md-11 px-0">
-                                    <button type="button" name="button" value="publish" class="btn btn-success action-btn float-right">@lang("Ajouter a la liste")</button>
+                                    <button type="button" name="button" id="list_add" class="btn btn-success action-btn float-right">@lang("Ajouter a la liste")</button>
                                 </div>
                             </div>
                         </div>
