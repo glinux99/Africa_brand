@@ -104,7 +104,7 @@
                             </div>
                             <div class="card-body">
 
-                                <table class="table table-condensed table-hover">
+                                <table class="table table-condensed table-responsive table-hover">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -135,7 +135,7 @@
                 @lang("Montant total a payer")
             </div>
             <div class="py-2 text-center">
-                <p id="total"></p>
+                <span id="total" class="fs-18"></span>
             </div>
         </div>
     </div>
