@@ -1021,7 +1021,7 @@
             }
         });
     </script>
-
+    @include('admin.system.operations.script')
 </body>
 
 </html>

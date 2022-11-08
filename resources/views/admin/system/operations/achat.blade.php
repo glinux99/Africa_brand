@@ -103,7 +103,26 @@
                                 <h5 class="mb-0 h6">@lang("Liste des articles achetes")</h5>
                             </div>
                             <div class="card-body">
-                                LIste Here
+
+                                <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>@lang("Designation")</th>
+                                            <th>@lang("Qte")</th>
+                                            <th>@lang("Prix total")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>TOmate</td>
+                                            <td>12</td>
+                                            <td>1200</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>
@@ -127,5 +146,4 @@
         </div>
     </div>
 </div><!-- .aiz-main-content -->
-
 @endsection
