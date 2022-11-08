@@ -20,7 +20,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Article") <span class="text-danger">*</span></label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="article_Lname" name="article_name" placeholder="@lang(' Nom du produit')" onchange="update_sku()" required>
+                                        <input type="text" class="form-control" id="article_Lname" name="article_name" placeholder="@lang(' Nom du produit')" required>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="brand">
@@ -113,13 +113,7 @@
                                             <th>@lang("Prix total")</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>TOmate</td>
-                                            <td>12</td>
-                                            <td>1200</td>
-                                        </tr>
+                                    <tbody id="tbodyArticle">
                                     </tbody>
                                 </table>
 
@@ -141,7 +135,7 @@
                 @lang("Montant total a payer")
             </div>
             <div class="py-2 text-center">
-                20000
+                <p id="total"></p>
             </div>
         </div>
     </div>
