@@ -117,8 +117,10 @@
                 </div>
             </form>
         </div>
-
+        <div class="mb-5 btn-dark position-fixed right-0 bottom-0">
+            @lang("Montant total a payer")
+        </div>
     </div>
-
 </div><!-- .aiz-main-content -->
+
 @endsection
