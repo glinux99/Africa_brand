@@ -746,7 +746,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <input type="text" name="" class="form-control" placeholder="Entrer ici le numero de compte">
+                                    <input type="text" name="" id="charge_Ldescription" class="form-control" placeholder="Entrer ici le numero de compte">
                                 </div>
                             </div>
                         </div>
@@ -756,12 +756,12 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <input type="number" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
+                                    <input type="number" name="" id="charge_Lmontant" class="form-control" placeholder="Entrer ici le numero du sous compte">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group text-right">
-                            <button type="submit" class="btn btn-sm btn-primary">@lang("Valider")</button>
+                            <button type="button" class="btn btn-sm btn-primary" id="charge_btn">@lang("Valider")</button>
                         </div>
                     </div>
                 </div>

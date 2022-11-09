@@ -77,8 +77,15 @@
                                 <a class="btn btn-success action-btn float-right" data-toggle="modal" data-target="#new-charge-modal">@lang("Nouvelle charge")</a>
                             </div>
                             <div class="card-body">
-                                <!-- charges ici -->
-                                <p class="text-center">@lang("Aucune charge pour l'instant")</p>
+                                <div>
+                                    <table class="table table-hover" id="charge_null">
+                                        <tbody>
+                                            <td class="text-center ">
+                                                @lang("Aucune donnee pour le moment")
+                                            </td>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
@@ -103,20 +110,15 @@
                                 <h5 class="mb-0 h6">@lang("Liste des articles achetes")</h5>
                             </div>
                             <div class="card-body">
-
-                                <table class="table table-condensed table-responsive table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>@lang("Designation")</th>
-                                            <th>@lang("Qte")</th>
-                                            <th>@lang("Prix total")</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbodyArticle">
-                                    </tbody>
-                                </table>
-
+                                <div>
+                                    <table class="table table-hover table-responsive" id="tbodyArticle">
+                                        <tbody>
+                                            <td class="text-center ">
+                                                @lang("Aucune donnee pour le moment")
+                                            </td>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

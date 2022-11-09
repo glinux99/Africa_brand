@@ -30,7 +30,21 @@
         <td>` + Math.trunc(table[index].prix * 100) / 100 + `</td></tr>`;
 
         });
-        $('#tbodyArticle').html(html);
+        $('#tbodyArticle').html(
+            `                       <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>@lang("Designation")</th>
+                                            <th>@lang("Qte")</th>
+                                            <th>@lang("Prix total")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    ` + html + `
+                                    </tbody>
+                                    `
+
+        );
         $('#total').html(somme.toString());
         $('#total_input').val(somme);
         // alert(table.length);
@@ -46,5 +60,40 @@
         if (e.keyCode == 8 || e.keyCode == 46) {
             somme = reset;
         }
+    });
+    let charge = new Array();
+    $('#charge_btn').click(() => {
+        $('.close').click();
+        var descr = $('#charge_Ldescription');
+        var montant = $('#charge_Lmontant');
+        let obj = {
+            'designation': descr.val(),
+            'montant': montant.val()
+        };
+        var html;
+        charge.push(obj);
+        charge.forEach((e, index) => {
+            html += `
+            <tr>
+            <td>` + (index + 1) + `</td>
+            <td>` + e.designation + `</td>
+            <td>` + e.montant + `</td>
+            </tr>
+`;
+        });
+        $('#charge_null').html(`
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>@lang("Designation")</th>
+                                            <th>@lang("Montant")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    ` + html + `
+                                    </tbody>
+
+
+        `);
     });
 </script>
