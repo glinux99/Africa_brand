@@ -45,16 +45,17 @@
                                     `
 
         );
-        $('#total').html(somme.toString());
-        $('#total_input').val(somme);
+
+        $('#total').html((Math.trunc(somme * 100) / 100).toString());
+        $('#total_input').val((Math.trunc(somme * 100) / 100));
         // alert(table.length);
     });
 
     function tva_change() {
         alert($('#tva').val());
-        somme = somme / $('#tva').val();
-        $('#total').html(somme.toString());
-        $('#total_input').val(somme);
+        somme += somme / $('#tva').val();
+        $('#total').html((Math.trunc(somme * 100) / 100).toString());
+        $('#total_input').val((Math.trunc(somme * 100) / 100));
     }
     $('#tva').keyup(function(e) {
         if (e.keyCode == 8 || e.keyCode == 46) {
@@ -73,6 +74,7 @@
         var html;
         charge.push(obj);
         charge.forEach((e, index) => {
+            somme = eval(somme + e.montant);
             html += `
             <tr>
             <td>` + (index + 1) + `</td>
@@ -81,6 +83,8 @@
             </tr>
 `;
         });
+        $('#total').html((Math.trunc(somme * 100) / 100).toString());
+        $('#total_input').val((Math.trunc(somme * 100) / 100));
         $('#charge_null').html(`
                                     <thead>
                                         <tr>
