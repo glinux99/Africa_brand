@@ -2,6 +2,7 @@
     var d = new Date();
     let table = new Array();
     var somme = 0;
+    var reset = 0;
     var strDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
     $('#list_add').click(function() {
         var name = $('#article_Lname')
@@ -20,6 +21,7 @@
         prix.val("");
         date.val("");
         somme = somme + obj.prix;
+        reset = somme;
         var html;
         table.forEach((e, index) => {
             html += `<tr><td>1</td>
@@ -30,6 +32,19 @@
         });
         $('#tbodyArticle').html(html);
         $('#total').html(somme.toString());
+        $('#total_input').val(somme);
         // alert(table.length);
+    });
+
+    function tva_change() {
+        alert($('#tva').val());
+        somme = somme / $('#tva').val();
+        $('#total').html(somme.toString());
+        $('#total_input').val(somme);
+    }
+    $('#tva').keyup(function(e) {
+        if (e.keyCode == 8 || e.keyCode == 46) {
+            somme = reset;
+        }
     });
 </script>

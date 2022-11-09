@@ -60,13 +60,13 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Montant Total")</label>
                                     <div class="col-md-8">
-                                        <input type="number" class="form-control" value="12" disabled>
+                                        <input type="number" class="form-control" id="total_input" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 col-from-label">@lang("Montant de la TVA")</label>
                                     <div class="col-md-8">
-                                        <input type="number" class="form-control" value="0">
+                                        <input type="number" id="tva" class="form-control" min="1" onchange="tva_change();">
                                     </div>
                                 </div>
                             </div>
