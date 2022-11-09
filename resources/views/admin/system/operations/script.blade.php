@@ -71,10 +71,11 @@
             'designation': descr.val(),
             'montant': montant.val()
         };
+
+        somme = somme + parseFloat(obj.montant);
         var html;
         charge.push(obj);
         charge.forEach((e, index) => {
-            somme = eval(somme + e.montant);
             html += `
             <tr>
             <td>` + (index + 1) + `</td>
@@ -99,5 +100,8 @@
 
 
         `);
+    });
+    $('#btn-achat-operation').click(() => {
+        $('#total_mode').text(somme);
     });
 </script>

@@ -875,7 +875,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="mb-3">
-                                    <input type="number" name="" class="form-control" placeholder="Entrer ici le numero du sous compte">
+                                    <input type="number" name="" class="form-control" placeholder="Le montant payer">
                                 </div>
                             </div>
                         </div>
@@ -889,12 +889,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row border-top mb-3">
+                        <div class="row border-top mb-3 fw-700">
                             <div class="col-6">
                                 @lang("Montant Global a payer")
                             </div>
                             <div class="border-left col-6 text-right">
-                                120usd
+                                <span id="total_mode"></span>
                             </div>
                         </div>
                         <div class="form-group text-right">

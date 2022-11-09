@@ -125,7 +125,7 @@
                     <div class="col-8">
                         <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="Third group">
-                                <button type="button" name="button" data-target="#operation-achat" data-toggle="modal" class="btn btn-primary action-btn">@lang("Acheter et payer")</button>
+                                <button type="button" name="button" id="btn-achat-operation" data-target="#operation-achat" data-toggle="modal" class="btn btn-primary action-btn">@lang("Acheter et payer")</button>
                             </div>
                         </div>
                     </div>
